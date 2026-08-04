@@ -4,7 +4,7 @@ script sysroot/lib/libc.a "mkdir -p sysroot && if [ ! -d musl-src ]; then git cl
 
 set CC "${CC:-gcc}"
 set CFLAGS "-Wall -Wextra -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -nostdinc -nostdlib -isystem $PWD/build/sysroot/include -D__user= -ffreestanding"
-set LDFLAGS "-B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib"
+set LDFLAGS "-B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib -Wl,-dynamic-linker=/lib/ld-musl-x86_64.so.1 -rdynamic -lc"
 INCLUDES -I../include/ -I../lib/nu/include -I. -I../lib/lidrm
 
 script ../lib/nu/build/libnu.a "cd ../lib/nu && ../../reconf/reconf build.co && ./configure && ninja -C build"

@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <signal.h>
 #include <sys/wait.h>
+#include <sys/mman.h>
 #include <nu.h>
 #include <dlfcn.h>
 
@@ -81,7 +82,13 @@ int main(void) {
 
     preload_resources();
 
-    g_mm = nu_mm_create(NU_MM_BUDDY, NULL, MM_SIZE);
+    void *backing_mem = mmap(NULL, MM_SIZE, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    if (backing_mem == MAP_FAILED) {
+      NU_ERROR("Failed to mmap backing memory!");
+      exit(EXIT_FAILURE);
+    }
+
+    g_mm = nu_mm_create(NU_MM_BUDDY, backing_mem, MM_SIZE);
     if (!g_mm) {
         NU_ERROR("Failed to allocate incubator memory manager");
         exit(EXIT_FAILURE);

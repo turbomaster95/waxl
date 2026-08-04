@@ -143,12 +143,15 @@ static void accept_and_process_connection(int server_fd) {
 
         char *argv[64];
         int argc = 0;
-        argv[argc++] = "wax_app";
 
         char *ptr = arg_buf;
         while (*ptr && argc < 63) {
             argv[argc++] = ptr;
             ptr += strlen(ptr) + 1;
+        }
+
+	if (argc == 0) {
+            argv[argc++] = "wax_app";
         }
         argv[argc] = NULL;
 

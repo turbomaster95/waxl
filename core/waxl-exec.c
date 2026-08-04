@@ -97,7 +97,8 @@ static int send_fd_and_args(int sock, int fd_to_send, int argc, char **argv) {
     char payload[BUFFER_SIZE] = {0};
     int len = 0;
 
-    for (int i = 2; i < argc; i++) {
+    /* Pack binary path (argv[1]) followed by positional arguments (argv[2...]) */
+    for (int i = 1; i < argc; i++) {
         int written = snprintf(payload + len, BUFFER_SIZE - len, "%s", argv[i]);
         if (written < 0 || len + written >= BUFFER_SIZE - 1) break;
         len += written;
@@ -106,7 +107,6 @@ static int send_fd_and_args(int sock, int fd_to_send, int argc, char **argv) {
 
     struct msghdr msg = {0};
     struct iovec iov[1];
-
     iov[0].iov_base = payload;
     iov[0].iov_len = (len > 0) ? len : 1;
 
@@ -124,12 +124,7 @@ static int send_fd_and_args(int sock, int fd_to_send, int argc, char **argv) {
 
     memcpy(CMSG_DATA(cmsg), &fd_to_send, sizeof(int));
 
-    if (sendmsg(sock, &msg, 0) < 0) {
-        perror("[waxl-exec] sendmsg failed");
-        return -1;
-    }
-
-    return 0;
+    return sendmsg(sock, &msg, 0) < 0 ? -1 : 0;
 }
 
 int main(int argc, char *argv[]) {

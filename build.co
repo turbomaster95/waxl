@@ -1,10 +1,10 @@
 package waxl 0.1.0
 
-script sysroot/lib/libc.a "mkdir -p sysroot && if [ ! -d musl-src ]; then git clone --depth 1 https://github.com/turbomaster95/musl-libc musl-src; fi && cd musl-src && ./configure --prefix=$PWD/build/sysroot --disable-shared && make -j$(nproc) && make install"
+script sysroot/lib/libc.a "mkdir -p sysroot && if [ ! -d musl-src ]; then git clone --depth 1 https://github.com/turbomaster95/musl-libc musl-src; fi && cd musl-src && ./configure --prefix=$PWD/build/sysroot --enable-shared --enable-static && make -j$(nproc) && make install && cd .. && cd sysroot/lib && cp libc.so ld-musl-x86_64.so.1"
 
 set CC "${CC:-gcc}"
-set CFLAGS "-Wall -Wextra -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -isystem $PWD/build/sysroot/include -D__user="
-set LDFLAGS "-static -B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib"
+set CFLAGS "-Wall -Wextra -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -nostdinc -nostdlib -isystem $PWD/build/sysroot/include -D__user= -ffreestanding"
+set LDFLAGS "-B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib"
 INCLUDES -I../include/ -I../lib/nu/include -I. -I../lib/lidrm
 
 script ../lib/nu/build/libnu.a "cd ../lib/nu && ../../reconf/reconf build.co && ./configure && ninja -C build"
@@ -15,20 +15,20 @@ script .gen1 "mkdir -p user/recovery"
 target_a waxl-lidrm.a
 sources \
 	lib/lidrm/lidrm.c
-deps sysroot/lib/libc.a
+deps 
 
 target_bin waxl-init
 sources \
 	core/waxl-init.c
-deps waxl-lidrm.a ../lib/nu/build/libnu.a sysroot/lib/libc.a
+deps waxl-lidrm.a ../lib/nu/build/libnu.a 
 
 target_bin waxl-incubator
 sources \
 	core/waxl-incubator.c
-deps ../lib/nu/build/libnu.a sysroot/lib/libc.a
+deps ../lib/nu/build/libnu.a 
 
 
 target_bin user/recovery/sh
 sources \
 	sys/recovery/sh.c
-deps ../lib/nu/build/libnu.a sysroot/lib/libc.a
+deps ../lib/nu/build/libnu.a 

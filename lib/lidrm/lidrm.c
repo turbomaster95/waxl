@@ -7,9 +7,8 @@
 #include <sys/ioctl.h>
 #include <sys/mman.h>
 #include <linux/types.h>
-
-#include <vendor/linux/drm/drm.h>
-#include <vendor/linux/drm/drm_mode.h>
+#include <drm/drm.h>
+#include <drm/drm_mode.h>
   
 #define DRM_MODE_CONNECTED 1
 

@@ -1,6 +1,6 @@
 package waxl 0.1.0
 
-script sysroot/lib/libc.a "mkdir -p sysroot && if [ ! -d build/musl-src ]; then git clone --depth 1 https://github.com/turbomaster95/musl-libc musl-src; fi && cd musl-src && ./configure --prefix=$PWD/build/sysroot --disable-shared && make -j$(nproc) && make install"
+script sysroot/lib/libc.a "mkdir -p sysroot && if [ ! -d musl-src ]; then git clone --depth 1 https://github.com/turbomaster95/musl-libc musl-src; fi && cd musl-src && ./configure --prefix=$PWD/build/sysroot --disable-shared && make -j$(nproc) && make install"
 
 set CC "${CC:-gcc}"
 set CFLAGS "-Wall -Wextra -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -isystem $PWD/build/sysroot/include -D__user="

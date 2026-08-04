@@ -1,23 +1,26 @@
 package waxl 0.1.0
 
-set CC ${CC:-gcc}
-set CFLAGS "-Wall -Wextra -Wno-unused -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -ffunction-sections -fdata-sections -Wl,--gc-sections -D__user="
+script sysroot/lib/libc.a "mkdir -p sysroot && if [ ! -d build/musl-src ]; then git clone --depth 1 https://github.com/turbomaster95/musl-libc musl-src; fi && cd musl-src && ./configure --prefix=$PWD/build/sysroot --disable-shared && make -j$(nproc) && make install"
+
+set CC "${CC:-gcc}"
+set CFLAGS "-Wall -Wextra -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -isystem $PWD/build/sysroot/include -D__user="
+set LDFLAGS "-static -B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib"
 INCLUDES -I../include/ -I../lib/nu/include -I. -I../lib/lidrm
 
 script ../lib/nu/build/libnu.a "cd ../lib/nu && ../../reconf/reconf build.co && ./configure && ninja -C build"
-
-set LDFLAGS "-static"
+deps sysroot/lib/libc.a
 
 target_a waxl-lidrm.a
 sources \
 	lib/lidrm/lidrm.c
+deps sysroot/lib/libc.a
 
 target_bin waxl-init
 sources \
 	core/waxl-init.c
-deps waxl-lidrm.a ../lib/nu/build/libnu.a
+deps waxl-lidrm.a ../lib/nu/build/libnu.a sysroot/lib/libc.a
 
 target_bin waxl-incubator
 sources \
 	core/waxl-incubator.c
-deps ../lib/nu/build/libnu.a
+deps ../lib/nu/build/libnu.a sysroot/lib/libc.a

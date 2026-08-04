@@ -1,21 +1,23 @@
 package waxl 0.1.0
 
-set CC      ${CC:-gcc}
-set CFLAGS  -Wall -Wextra -Wno-unused -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -ffunction-sections -fdata-sections -Wl,--gc-sections -D__user=
-INCLUDES    -I../include/ -I../lib/nu/include -I. -I../lib/lidrm
+set CC ${CC:-gcc}
+set CFLAGS "-Wall -Wextra -Wno-unused -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -ffunction-sections -fdata-sections -Wl,--gc-sections -D__user="
+INCLUDES -I../include/ -I../lib/nu/include -I. -I../lib/lidrm
 
-lib ../lib/nu/build/libnu.a cd ../lib/nu && ../../reconf/reconf build.co && ./configure && ninja -C build
+script ../lib/nu/build/libnu.a "cd ../lib/nu && ../../reconf/reconf build.co && ./configure && ninja -C build"
 
-set LDFLAGS -static
-
-target_bin waxl-init
-waxl-init - sources \
-	core/waxl-init.c
-
-target_bin waxl-incubator
-waxl-incubator - sources \
-	core/waxl-incubator.c
+set LDFLAGS "-static"
 
 target_a waxl-lidrm.a
-waxl-lidrm.a - sources \
+sources \
 	lib/lidrm/lidrm.c
+
+target_bin waxl-init
+sources \
+	core/waxl-init.c
+deps waxl-lidrm.a ../lib/nu/build/libnu.a
+
+target_bin waxl-incubator
+sources \
+	core/waxl-incubator.c
+deps ../lib/nu/build/libnu.a

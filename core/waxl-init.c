@@ -137,6 +137,31 @@ static pid_t spawn_daemon(const char *path, char *const argv[]) {
     return pid;
 }
 
+static pid_t spawn_shell(void) {
+    pid_t pid = fork();
+    if (pid < 0) {
+        log_error(":( Failed to fork shell: %s", strerror(errno));
+        return -1;
+    }
+
+    if (pid == 0) {
+        setsid();
+        ioctl(STDIN_FILENO, TIOCSCTTY, 1);
+
+        char *shell_argv[] = { "-sh", NULL };
+        execv("/bin/sh", shell_argv);
+
+        shell_argv[0] = "-sh";
+        execv("/sh", shell_argv);
+
+        log_error(":( Failed to exec shell: %s", strerror(errno));
+        _exit(127);
+    }
+
+    log_info("Spawned /bin/sh (PID: %d)", pid);
+    return pid;
+}
+
 int main(int argc, char *argv[]) {
     (void)argc;
     (void)argv;
@@ -165,6 +190,8 @@ int main(int argc, char *argv[]) {
         incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv);
     }
 
+    pid_t shell_pid = spawn_shell();
+
     log_info("boot done");
 
     while (1) {
@@ -178,11 +205,19 @@ int main(int argc, char *argv[]) {
             continue;
         }
 
-        // If the main incubator crashes, restart it automatically
         if (exited_pid == incubator_pid) {
-            log_error("waxl-incubator unexpectedly died! I'll restart it in 1 second...");
+            log_error("waxl-incubator unexpectedly died! Restarting in 1 second...");
             sleep(1);
+            incubator_argv[0] = "/bin/waxl-incubator";
             incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv);
+            if (incubator_pid < 0) {
+                incubator_argv[0] = "./waxl-incubator";
+                incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv);
+            }
+        } else if (exited_pid == shell_pid) {
+            log_error("Shell exited! Respawning in 1 second...");
+            sleep(1);
+            shell_pid = spawn_shell();
         }
     }
 

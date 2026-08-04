@@ -10,6 +10,8 @@ INCLUDES -I../include/ -I../lib/nu/include -I. -I../lib/lidrm
 script ../lib/nu/build/libnu.a "cd ../lib/nu && ../../reconf/reconf build.co && ./configure && ninja -C build"
 deps sysroot/lib/libc.a
 
+script .gen1 "mkdir -p user/recovery"
+
 target_a waxl-lidrm.a
 sources \
 	lib/lidrm/lidrm.c
@@ -23,4 +25,10 @@ deps waxl-lidrm.a ../lib/nu/build/libnu.a sysroot/lib/libc.a
 target_bin waxl-incubator
 sources \
 	core/waxl-incubator.c
+deps ../lib/nu/build/libnu.a sysroot/lib/libc.a
+
+
+target_bin user/recovery/sh
+sources \
+	sys/recovery/sh.c
 deps ../lib/nu/build/libnu.a sysroot/lib/libc.a

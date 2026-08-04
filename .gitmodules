@@ -1,0 +1,6 @@
+[submodule "lib/nu"]
+	path = lib/nu
+	url = https://github.com/turbomaster95/libnu
+[submodule "reconf"]
+	path = reconf
+	url = https://github.com/turbomaster95/reconf

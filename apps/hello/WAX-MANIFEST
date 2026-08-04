@@ -1,0 +1,5 @@
+WAX-Version: 1.0
+App-Name: hello
+App-Version: 1.0.0
+Main-Target: lib/app.so
+Entry-Symbol: main

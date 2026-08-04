@@ -26,11 +26,12 @@ typedef struct {
 static const mount_point_t vfs_mounts[] = {
     { "proc",     "/proc",     "proc",     MS_NODEV | MS_NOEXEC | MS_NOSUID, NULL },
     { "sysfs",    "/sys",      "sysfs",    MS_NODEV | MS_NOEXEC | MS_NOSUID, NULL },
+    { "binfmt_misc", "/proc/sys/fs/binfmt_misc", "binfmt_misc", MS_NODEV | MS_NOEXEC | MS_NOSUID, NULL },
     { "devtmpfs", "/dev",      "devtmpfs", MS_NOSUID,                        "mode=0755" },
     { "devpts",   "/dev/pts",  "devpts",   MS_NOEXEC | MS_NOSUID,            "gid=5,mode=0620" },
     { "tmpfs",    "/dev/shm",  "tmpfs",    MS_NODEV | MS_NOEXEC | MS_NOSUID, "mode=1777,size=64M" },
     { "tmpfs",    "/tmp",      "tmpfs",    MS_NODEV | MS_NOSUID,             "mode=1777" },
-    { "tmpfs",    "/run",      "tmpfs",    MS_NODEV | MS_NOSUID,             "mode=0755" }
+    { "tmpfs",    "/run",      "tmpfs",    MS_NODEV | MS_NOSUID,             "mode=0755" },
 };
 
 static void log_info(const char *fmt, ...) {

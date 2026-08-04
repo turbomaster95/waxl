@@ -15,20 +15,30 @@ script .gen1 "mkdir -p user/recovery"
 target_a waxl-lidrm.a
 sources \
 	lib/lidrm/lidrm.c
-deps 
 
 target_bin waxl-init
 sources \
 	core/waxl-init.c
-deps waxl-lidrm.a ../lib/nu/build/libnu.a 
+deps ../lib/nu/build/libnu.a 
 
 target_bin waxl-incubator
 sources \
 	core/waxl-incubator.c
 deps ../lib/nu/build/libnu.a 
 
+target_bin waxl-exec
+sources \
+	core/waxl-exec.c
+deps ../lib/nu/build/libnu.a 
 
 target_bin user/recovery/sh
 sources \
 	sys/recovery/sh.c
 deps ../lib/nu/build/libnu.a 
+
+target_so hello.so
+sources \
+	apps/hello/main.c
+
+script hello.wax "mkdir -p staging/lib && cp ../apps/hello/WAX-MANIFEST staging/ && cp hello.so staging/lib/app.so && tar -cf hello.wax -C staging WAX-MANIFEST lib/app.so && rm -rf staging"
+deps hello.so

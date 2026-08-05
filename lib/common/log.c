@@ -17,7 +17,6 @@
 #include <unistd.h>
 #include <common.h>
 
-
 static const char* strip_path(const char* p) {
     const char* s = p;
     if (!s) return "";
@@ -48,8 +47,12 @@ void c_log_output(log_level_t level, const char *file, int line, const char *fmt
         default: return;
     }
 
-    const char* f2 = strip_path(file);
-    fprintf(stderr, "%s %s[%s]\033[0m (%s:%d) ", t_str, col, lbl, f2, line);
+    if (file != NULL) {
+        const char* f2 = strip_path(file);
+        fprintf(stderr, "%s %s[%s]\033[0m (%s:%d) ", t_str, col, lbl, f2, line);
+    } else {
+        fprintf(stderr, "%s %s[%s]\033[0m ", t_str, col, lbl);
+    }
 
     va_list args;
     va_start(args, fmt);

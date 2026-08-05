@@ -37,12 +37,12 @@ static const mount_point_t vfs_mounts[] = {
 
 static void make_dir(const char *path) {
     if (mkdir(path, 0755) < 0 && errno != EEXIST) {
-        L_ERROR("Failed to mkdir %s: %s", path, strerror(errno));
+        NL_ERROR("Failed to mkdir %s: %s", path, strerror(errno));
     }
 }
 
 static bool setup_vfs(void) {
-    L_INFO("Mounting virtual filesystems...");
+    NL_INFO("Mounting virtual filesystems...");
     size_t count = sizeof(vfs_mounts) / sizeof(vfs_mounts[0]);
 
     for (size_t i = 0; i < count; i++) {
@@ -53,7 +53,7 @@ static bool setup_vfs(void) {
             if (errno == EBUSY) {
                 continue;
             }
-            L_ERROR("Failed to mount %s on %s: %s", m->source, m->target, strerror(errno));
+            NL_ERROR("Failed to mount %s on %s: %s", m->source, m->target, strerror(errno));
             return false;
         }
     }
@@ -80,7 +80,7 @@ static void handle_signal(int sig) {
             break;
         case SIGTERM:
         case SIGINT:
-            L_INFO("Shutdown signal received, syncing filesystems...");
+            NL_INFO("Shutdown signal received, syncing filesystems...");
             sync();
             reboot(RB_POWER_OFF);
             break;
@@ -105,7 +105,7 @@ static void setup_signals(void) {
 static pid_t spawn_daemon(const char *path, char *const argv[], int ready_pipe_write) {
     pid_t pid = fork();
     if (pid < 0) {
-        L_ERROR("Failed to fork daemon %s: %s", path, strerror(errno));
+        NL_ERROR("Failed to fork daemon %s: %s", path, strerror(errno));
         return -1;
     }
 
@@ -117,18 +117,18 @@ static pid_t spawn_daemon(const char *path, char *const argv[], int ready_pipe_w
             }
         }
         execv(path, argv);
-        L_ERROR("Failed to exec %s: %s", path, strerror(errno));
+        NL_ERROR("Failed to exec %s: %s", path, strerror(errno));
         _exit(127);
     }
 
-    L_INFO("Spawned %s (PID: %d)", path, pid);
+    NL_INFO("Spawned %s (PID: %d)", path, pid);
     return pid;
 }
 
 static pid_t spawn_shell(void) {
     pid_t pid = fork();
     if (pid < 0) {
-        L_ERROR("Failed to fork shell: %s", strerror(errno));
+        NL_ERROR("Failed to fork shell: %s", strerror(errno));
         return -1;
     }
 
@@ -142,11 +142,11 @@ static pid_t spawn_shell(void) {
         shell_argv[0] = "-sh";
         execv("/sh", shell_argv);
 
-        L_ERROR("Failed to exec shell: %s", strerror(errno));
+        NL_ERROR("Failed to exec shell: %s", strerror(errno));
         _exit(127);
     }
 
-    L_INFO("Spawned /bin/sh (PID: %d)", pid);
+    NL_INFO("Spawned /bin/sh (PID: %d)", pid);
     return pid;
 }
 
@@ -155,14 +155,14 @@ int main(int argc, char *argv[]) {
     (void)argv;
 
     if (getpid() != 1) {
-        L_ERROR("waxl-init must be executed as PID 1!");
+        NL_ERROR("waxl-init must be executed as PID 1!");
         return EXIT_FAILURE;
     }
 
-    L_INFO("init waxl");
+    NL_INFO("init waxl");
 
     if (!setup_vfs()) {
-        L_ERROR("VFS setup failed. Halting.");
+        NL_ERROR("VFS setup failed. Halting.");
         while (1) pause();
     }
 
@@ -170,7 +170,7 @@ int main(int argc, char *argv[]) {
 
     int ready_pipe[2] = { -1, -1 };
     if (pipe(ready_pipe) < 0) {
-        L_ERROR("Failed to create readiness pipe: %s", strerror(errno));
+        NL_ERROR("Failed to create readiness pipe: %s", strerror(errno));
     }
 
     char *incubator_argv[] = { "/bin/waxl-incubator", NULL };
@@ -191,7 +191,7 @@ int main(int argc, char *argv[]) {
         close(ready_pipe[0]);
     }
 
-    L_INFO("boot done");
+    NL_INFO("boot done");
 
     sleep(2);
     printf("\n\n");
@@ -204,13 +204,13 @@ int main(int argc, char *argv[]) {
 
         if (exited_pid < 0) {
             if (errno == EINTR) continue;
-            L_ERROR("wait error: %s", strerror(errno));
+            NL_ERROR("wait error: %s", strerror(errno));
             sleep(1);
             continue;
         }
 
         if (exited_pid == incubator_pid) {
-            L_ERROR("waxl-incubator unexpectedly died! Restarting in 1 second...");
+            NL_ERROR("waxl-incubator unexpectedly died! Restarting in 1 second...");
             sleep(1);
             incubator_argv[0] = "/bin/waxl-incubator";
             incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv, -1);
@@ -219,7 +219,7 @@ int main(int argc, char *argv[]) {
                 incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv, -1);
             }
         } else if (exited_pid == shell_pid) {
-            L_INFO("Shell exited! Respawning in 1 second...");
+            NL_INFO("Shell exited! Respawning in 1 second...");
             sleep(1);
             shell_pid = spawn_shell();
         }

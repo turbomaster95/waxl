@@ -37,7 +37,7 @@ void register_wax_rule(void) {
 
     ssize_t len = strlen(WAX_BINFMT_RULE);
     if (write(fd, WAX_BINFMT_RULE, len) == len) {
-        L_INFO("[incubator] Registered .wax binfmt_misc rule.\n");
+        NL_INFO("[incubator] Registered .wax binfmt_misc rule.\n");
     }
 
     close(fd);
@@ -82,15 +82,15 @@ static int receive_fd(int sock, char *arg_buffer, size_t buffer_len) {
 }
 
 static void preload_resources(void) {
-    L_INFO("Preloading Waxl core runtime and memory pools...");
+    NL_INFO("Preloading Waxl core runtime and memory pools...");
 
     void *nu_handle = dlopen("libnu.so", RTLD_NOW | RTLD_GLOBAL);
     if (!nu_handle) {
-        L_ERROR("Failed to preload libnu.so: %s", dlerror());
+        NL_ERROR("Failed to preload libnu.so: %s", dlerror());
         exit(EXIT_FAILURE);
     }
 
-    L_INFO("Successfully preloaded libnu.so at %p", nu_handle);
+    NL_INFO("Successfully preloaded libnu.so at %p", nu_handle);
 }
 
 static void accept_and_process_connection(int server_fd) {
@@ -155,7 +155,7 @@ static void accept_and_process_connection(int server_fd) {
 
             void *app_handle = dlopen(memfd_path, RTLD_NOW | RTLD_LOCAL);
             if (!app_handle) {
-                L_ERROR("Incubator failed to load native executable: %s", dlerror());
+                NL_ERROR("Incubator failed to load native executable: %s", dlerror());
                 _exit(EXIT_FAILURE);
             }
 
@@ -170,18 +170,18 @@ static void accept_and_process_connection(int server_fd) {
             }
 
             if (dlsym_err || !entry) {
-                L_ERROR("Incubator failed to locate entry point ('main' or 'app_main')");
+                NL_ERROR("Incubator failed to locate entry point ('main' or 'app_main')");
                 dlclose(app_handle);
                 _exit(EXIT_FAILURE);
             }
 
-            L_INFO("Incubator launching native ELF in-memory...");
+            NL_INFO("Incubator launching native ELF in-memory...");
             exit_code = entry(argc, argv);
 
             dlclose(app_handle);
         } else {
             // Execute as LuaJIT script / pre-compiled .ljbc bytecode
-            L_INFO("Incubator launching Lua payload...");
+            NL_INFO("Incubator launching Lua payload...");
 
             lua_State *L = luaL_newstate();
             if (!L) {
@@ -199,14 +199,14 @@ static void accept_and_process_connection(int server_fd) {
             lua_setglobal(L, "arg");
 
             if (luaL_loadbuffer(L, (const char *)payload_map, payload_size, "wax_ljbc_payload") != 0) {
-                L_ERROR("Lua bytecode load error: %s", lua_tostring(L, -1));
+                NL_ERROR("Lua bytecode load error: %s", lua_tostring(L, -1));
                 lua_close(L);
                 munmap(payload_map, payload_size);
                 _exit(EXIT_FAILURE);
             }
 
             if (lua_pcall(L, 0, 0, 0) != 0) {
-                L_ERROR("Lua runtime execution error: %s", lua_tostring(L, -1));
+                NL_ERROR("Lua runtime execution error: %s", lua_tostring(L, -1));
                 lua_close(L);
                 munmap(payload_map, payload_size);
                 _exit(EXIT_FAILURE);
@@ -225,7 +225,7 @@ static void accept_and_process_connection(int server_fd) {
     } else {
         close(passed_fd);
         close(client_fd);
-        L_INFO("Spawned Incubator child (PID: %d)", pid);
+        NL_INFO("Spawned Incubator child (PID: %d)", pid);
     }
 }
 
@@ -233,16 +233,16 @@ int main(void) {
     signal(SIGPIPE, SIG_IGN);
     signal(SIGCHLD, sigchld_handler);
 
-    L_INFO("WaxL Incubator Starting..");
+    NL_INFO("WaxL Incubator Starting..");
 
     preload_resources();
 
     pthread_t binfmt_thread;
     if (pthread_create(&binfmt_thread, NULL, binfmt_poll_thread, NULL) == 0) {
         pthread_detach(binfmt_thread);
-        L_DEBUG("Started binfmt_misc rule monitor thread");
+        NL_DEBUG("Started binfmt_misc rule monitor thread");
     } else {
-        L_WARN("Failed to start binfmt_misc monitor thread");
+        NL_WARN("Failed to start binfmt_misc monitor thread");
     }
 
     unlink(INCUBATOR_SOCKET);
@@ -269,7 +269,7 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
-    L_INFO("Listening on socket: %s", INCUBATOR_SOCKET);
+    NL_INFO("Listening on socket: %s", INCUBATOR_SOCKET);
 
     close(3);
 

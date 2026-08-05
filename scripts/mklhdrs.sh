@@ -2,13 +2,14 @@
 set -e
 
 mkdir -p sysroot
-SYSROOT_ABS="$(cd .. && pwd)/sysroot"
+SYSROOT_ABS="$(cd .. && pwd)/build/sysroot"
 
-if [ ! -d linux-src ]; then
-    git clone --depth 1 --single-branch https://github.com/torvalds/linux.git linux-src
+if [ ! -d linux-7.1.6 ]; then
+	rsync -av --progress rsync://rsync.kernel.org/pub/linux/kernel/v7.x/linux-7.1.6.tar.xz .
+	tar xvf linux-7.1.6.tar.xz
 fi
 
-cd linux-src
+cd linux-7.1.6
 
 make headers
 

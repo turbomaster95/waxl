@@ -1,0 +1,13 @@
+CompileFlags:
+  Add:
+    - -Iinclude
+    - -Ilib/nu/include
+    - -Ilib/lidrm
+    - -Ibuild/sysroot/include/luajit-2.1
+    - -Ilib/common
+
+InlayHints:
+  Enabled: false
+
+SemanticHighlighting:
+  Enabled: false

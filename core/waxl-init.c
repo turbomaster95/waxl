@@ -191,9 +191,9 @@ int main(int argc, char *argv[]) {
         incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv);
     }
 
-    pid_t shell_pid = spawn_shell();
-
     log_info("boot done");
+
+    pid_t shell_pid = spawn_shell();
 
     while (1) {
         int status;

@@ -4,8 +4,13 @@ script sysroot/gen.c "bash ../scripts/mkmusl.sh && touch sysroot/gen.c"
 
 set CC "${CC:-gcc}"
 set CFLAGS "-Wall -Wextra -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -nostdinc -nostdlib -isystem $PWD/build/sysroot/include -D__user= -ffreestanding"
-set LDFLAGS "-B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib -Wl,-dynamic-linker=/lib/ld-musl-x86_64.so.1 -rdynamic -lc"
-INCLUDES -I../include/ -I../lib/nu/include -I. -I../lib/lidrm
+set LDFLAGS "-B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib -Wl,-dynamic-linker=/lib/ld-musl-x86_64.so.1 -rdynamic -lc -static-libgcc"
+
+# pls remember to update .clangd when updating this line
+INCLUDES -I../include/ -I../lib/nu/include -I. -I../lib/lidrm -Isysroot/include/luajit-2.1 -I../lib/common
+
+script sysroot/lib/libluajit.a "../scripts/mkluajit.sh"
+order sysroot/gen.c
 
 script ../lib/nu/build/libnu.a "cd ../lib/nu && ../../reconf/reconf build.co && ./configure && ninja -C build"
 order sysroot/gen.c
@@ -17,6 +22,11 @@ sources \
         lib/lidrm/lidrm.c
 order sysroot/gen.c
 
+target_a waxl-common.a
+sources \
+	lib/common/log.c
+order sysroot/gen.c
+
 target_bin waxl-init
 sources \
         core/waxl-init.c
@@ -26,13 +36,18 @@ order sysroot/gen.c
 target_bin waxl-incubator
 sources \
         core/waxl-incubator.c
-deps ../lib/nu/build/libnu.a
+deps sysroot/lib/libluajit.a waxl-common.a
 order sysroot/gen.c
 
 target_bin waxl-exec
 sources \
         core/waxl-exec.c
 deps ../lib/nu/build/libnu.a
+order sysroot/gen.c
+
+target_bin oomkd
+sources \
+        sys/oomkd.c
 order sysroot/gen.c
 
 target_bin user/recovery/sh

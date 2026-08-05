@@ -271,6 +271,8 @@ int main(void) {
 
     L_INFO("Listening on socket: %s", INCUBATOR_SOCKET);
 
+    close(3);
+
     while (1) {
         accept_and_process_connection(listen_fd);
     }

@@ -30,7 +30,7 @@ order sysroot/gen.c
 target_bin waxl-init
 sources \
         core/waxl-init.c
-deps ../lib/nu/build/libnu.a
+deps ../lib/nu/build/libnu.a waxl-common.a
 order sysroot/gen.c
 
 target_bin waxl-incubator

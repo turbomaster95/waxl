@@ -12,8 +12,9 @@
 #include <sys/wait.h>
 #include <sys/reboot.h>
 #include <fcntl.h>
+#include <common.h>
 
-#define LOG_PREFIX "[waxl-init] "
+#define READY_FD 3
 
 typedef struct {
     const char *source;
@@ -24,42 +25,24 @@ typedef struct {
 } mount_point_t;
 
 static const mount_point_t vfs_mounts[] = {
-    { "proc",     "/proc",     "proc",     MS_NODEV | MS_NOEXEC | MS_NOSUID, NULL },
-    { "sysfs",    "/sys",      "sysfs",    MS_NODEV | MS_NOEXEC | MS_NOSUID, NULL },
+    { "proc",       "/proc",       "proc",       MS_NODEV | MS_NOEXEC | MS_NOSUID, NULL },
+    { "sysfs",      "/sys",        "sysfs",      MS_NODEV | MS_NOEXEC | MS_NOSUID, NULL },
     { "binfmt_misc", "/proc/sys/fs/binfmt_misc", "binfmt_misc", MS_NODEV | MS_NOEXEC | MS_NOSUID, NULL },
-    { "devtmpfs", "/dev",      "devtmpfs", MS_NOSUID,                        "mode=0755" },
-    { "devpts",   "/dev/pts",  "devpts",   MS_NOEXEC | MS_NOSUID,            "gid=5,mode=0620" },
-    { "tmpfs",    "/dev/shm",  "tmpfs",    MS_NODEV | MS_NOEXEC | MS_NOSUID, "mode=1777,size=64M" },
-    { "tmpfs",    "/tmp",      "tmpfs",    MS_NODEV | MS_NOSUID,             "mode=1777" },
-    { "tmpfs",    "/run",      "tmpfs",    MS_NODEV | MS_NOSUID,             "mode=0755" },
+    { "devtmpfs",   "/dev",        "devtmpfs",   MS_NOSUID,                        "mode=0755" },
+    { "devpts",     "/dev/pts",    "devpts",     MS_NOEXEC | MS_NOSUID,            "gid=5,mode=0620" },
+    { "tmpfs",      "/dev/shm",    "tmpfs",      MS_NODEV | MS_NOEXEC | MS_NOSUID, "mode=1777,size=64M" },
+    { "tmpfs",      "/tmp",        "tmpfs",      MS_NODEV | MS_NOSUID,             "mode=1777" },
+    { "tmpfs",      "/run",        "tmpfs",      MS_NODEV | MS_NOSUID,             "mode=0755" },
 };
-
-static void log_info(const char *fmt, ...) {
-    va_list args;
-    va_start(args, fmt);
-    printf(LOG_PREFIX);
-    vprintf(fmt, args);
-    printf("\n");
-    va_end(args);
-}
-
-static void log_error(const char *fmt, ...) {
-    va_list args;
-    va_start(args, fmt);
-    fprintf(stderr, LOG_PREFIX "ERROR: ");
-    vfprintf(stderr, fmt, args);
-    fprintf(stderr, "\n");
-    va_end(args);
-}
 
 static void make_dir(const char *path) {
     if (mkdir(path, 0755) < 0 && errno != EEXIST) {
-        log_error("What?? Failed to mkdir %s: %s", path, strerror(errno));
+        L_ERROR("Failed to mkdir %s: %s", path, strerror(errno));
     }
 }
 
 static bool setup_vfs(void) {
-    log_info("Mounting virtual filesystems...");
+    L_INFO("Mounting virtual filesystems...");
     size_t count = sizeof(vfs_mounts) / sizeof(vfs_mounts[0]);
 
     for (size_t i = 0; i < count; i++) {
@@ -70,7 +53,7 @@ static bool setup_vfs(void) {
             if (errno == EBUSY) {
                 continue;
             }
-            log_error("Oh noes!! Failed to mount %s on %s: %s", m->source, m->target, strerror(errno));
+            L_ERROR("Failed to mount %s on %s: %s", m->source, m->target, strerror(errno));
             return false;
         }
     }
@@ -97,7 +80,7 @@ static void handle_signal(int sig) {
             break;
         case SIGTERM:
         case SIGINT:
-            log_info("Shutdown signal received, syncing filesystems...");
+            L_INFO("Shutdown signal received, syncing filesystems...");
             sync();
             reboot(RB_POWER_OFF);
             break;
@@ -116,32 +99,36 @@ static void setup_signals(void) {
     sigaction(SIGTERM, &sa, NULL);
     sigaction(SIGINT, &sa, NULL);
 
-    // Ignore SIGPIPE so broken sockets/pipes don't crash init
     signal(SIGPIPE, SIG_IGN);
 }
 
-static pid_t spawn_daemon(const char *path, char *const argv[]) {
+static pid_t spawn_daemon(const char *path, char *const argv[], int ready_pipe_write) {
     pid_t pid = fork();
     if (pid < 0) {
-        log_error(":( Failed to fork daemon %s: %s", path, strerror(errno));
+        L_ERROR("Failed to fork daemon %s: %s", path, strerror(errno));
         return -1;
     }
 
     if (pid == 0) {
-        // Child Process
+        if (ready_pipe_write >= 0) {
+            if (ready_pipe_write != READY_FD) {
+                dup2(ready_pipe_write, READY_FD);
+                close(ready_pipe_write);
+            }
+        }
         execv(path, argv);
-        log_error(":( Failed to exec %s: %s", path, strerror(errno));
+        L_ERROR("Failed to exec %s: %s", path, strerror(errno));
         _exit(127);
     }
 
-    log_info("Spawned %s (PID: %d)", path, pid);
+    L_INFO("Spawned %s (PID: %d)", path, pid);
     return pid;
 }
 
 static pid_t spawn_shell(void) {
     pid_t pid = fork();
     if (pid < 0) {
-        log_error(":( Failed to fork shell: %s", strerror(errno));
+        L_ERROR("Failed to fork shell: %s", strerror(errno));
         return -1;
     }
 
@@ -155,11 +142,11 @@ static pid_t spawn_shell(void) {
         shell_argv[0] = "-sh";
         execv("/sh", shell_argv);
 
-        log_error(":( Failed to exec shell: %s", strerror(errno));
+        L_ERROR("Failed to exec shell: %s", strerror(errno));
         _exit(127);
     }
 
-    log_info("Spawned /bin/sh (PID: %d)", pid);
+    L_INFO("Spawned /bin/sh (PID: %d)", pid);
     return pid;
 }
 
@@ -167,31 +154,47 @@ int main(int argc, char *argv[]) {
     (void)argc;
     (void)argv;
 
-    // Verify we are *actually* running as PID 1 and not as some random pid number
     if (getpid() != 1) {
-        log_error("waxl-init must be executed as PID 1!");
+        L_ERROR("waxl-init must be executed as PID 1!");
         return EXIT_FAILURE;
     }
 
-    log_info("init waxl");
+    L_INFO("init waxl");
 
     if (!setup_vfs()) {
-        log_error("Oh noes!! VFS setup failed. Halting.");
+        L_ERROR("VFS setup failed. Halting.");
         while (1) pause();
     }
 
     setup_signals();
 
-    char *incubator_argv[] = { "/bin/waxl-incubator", NULL };
-    pid_t incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv);
-
-    if (incubator_pid < 0) {
-        // Fallback search path if /bin/ isn't used
-        incubator_argv[0] = "./waxl-incubator";
-        incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv);
+    int ready_pipe[2] = { -1, -1 };
+    if (pipe(ready_pipe) < 0) {
+        L_ERROR("Failed to create readiness pipe: %s", strerror(errno));
     }
 
-    log_info("boot done");
+    char *incubator_argv[] = { "/bin/waxl-incubator", NULL };
+    pid_t incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv, ready_pipe[1]);
+
+    if (incubator_pid < 0) {
+        incubator_argv[0] = "./waxl-incubator";
+        incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv, ready_pipe[1]);
+    }
+
+    if (ready_pipe[1] >= 0) {
+        close(ready_pipe[1]);
+    }
+
+    if (ready_pipe[0] >= 0) {
+        char buf;
+        while (read(ready_pipe[0], &buf, 1) > 0);
+        close(ready_pipe[0]);
+    }
+
+    L_INFO("boot done");
+
+    sleep(2);
+    printf("\n\n");
 
     pid_t shell_pid = spawn_shell();
 
@@ -201,22 +204,22 @@ int main(int argc, char *argv[]) {
 
         if (exited_pid < 0) {
             if (errno == EINTR) continue;
-            log_error("oh noes!! wait error: %s", strerror(errno));
+            L_ERROR("wait error: %s", strerror(errno));
             sleep(1);
             continue;
         }
 
         if (exited_pid == incubator_pid) {
-            log_error("waxl-incubator unexpectedly died! Restarting in 1 second...");
+            L_ERROR("waxl-incubator unexpectedly died! Restarting in 1 second...");
             sleep(1);
             incubator_argv[0] = "/bin/waxl-incubator";
-            incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv);
+            incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv, -1);
             if (incubator_pid < 0) {
                 incubator_argv[0] = "./waxl-incubator";
-                incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv);
+                incubator_pid = spawn_daemon(incubator_argv[0], incubator_argv, -1);
             }
         } else if (exited_pid == shell_pid) {
-            log_error("Shell exited! Respawning in 1 second...");
+            L_INFO("Shell exited! Respawning in 1 second...");
             sleep(1);
             shell_pid = spawn_shell();
         }

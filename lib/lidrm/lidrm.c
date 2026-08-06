@@ -10,11 +10,17 @@
 #include <drm/drm.h>
 #include <drm/drm_mode.h>
 
+#ifndef DRM_MODE_CONNECTED
 #define DRM_MODE_CONNECTED 1
+#endif
+#ifndef DRM_MODE_UNKNOWNCONNECTION
+#define DRM_MODE_UNKNOWNCONNECTION 3
+#endif
 
 bool lidrm_init(lidrm_t *drm, const char *device_path) {
     if (!drm) return false;
     memset(drm, 0, sizeof(lidrm_t));
+    drm->fd = -1;
 
     const char *path = device_path ? device_path : "/dev/dri/card0";
     drm->fd = open(path, O_RDWR | O_CLOEXEC);
@@ -29,6 +35,7 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
     if (ioctl(drm->fd, DRM_IOCTL_MODE_GETRESOURCES, &res) < 0) {
         perror("[lidrm] GETRESOURCES failed");
         close(drm->fd);
+        drm->fd = -1;
         return false;
     }
 
@@ -46,6 +53,7 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
         perror("[lidrm] GETRESOURCES populated query failed");
         free(conn_ids); free(crtc_ids); free(enc_ids); free(fb_ids);
         close(drm->fd);
+        drm->fd = -1;
         return false;
     }
 
@@ -62,12 +70,19 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
 
         if (ioctl(drm->fd, DRM_IOCTL_MODE_GETCONNECTOR, &conn) < 0) continue;
 
-        if (conn.connection == DRM_MODE_CONNECTED || conn.connection == 2 /* UNKNOWN */) {
+        if (conn.connection == DRM_MODE_CONNECTED || conn.connection == DRM_MODE_UNKNOWNCONNECTION) {
             if (conn.count_modes > 0) {
                 struct drm_mode_modeinfo *modes = calloc(conn.count_modes, sizeof(struct drm_mode_modeinfo));
-                conn.modes_ptr = (uint64_t)(uintptr_t)modes;
+                
+                struct drm_mode_get_connector conn_modes = {
+                    .connector_id = conn_ids[i],
+                    .modes_ptr = (uint64_t)(uintptr_t)modes,
+                    .count_modes = conn.count_modes,
+                    .count_props = 0,
+                    .count_encoders = 0
+                };
 
-                if (ioctl(drm->fd, DRM_IOCTL_MODE_GETCONNECTOR, &conn) == 0) {
+                if (ioctl(drm->fd, DRM_IOCTL_MODE_GETCONNECTOR, &conn_modes) == 0) {
                     selected_mode = modes[0];
                     drm->connector_id = conn.connector_id;
                     drm->width = selected_mode.hdisplay;
@@ -76,6 +91,7 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
                 }
                 free(modes);
             } else {
+                // Default fallback resolution if virtio-gpu supplies zero dynamic mode blobs
                 selected_mode = (struct drm_mode_modeinfo){
                     .clock = 65000,
                     .hdisplay = 1024, .hsync_start = 1048, .hsync_end = 1184, .htotal = 1344,
@@ -93,19 +109,52 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
         }
     }
 
+    if (!found_connector && res.count_connectors > 0) {
+        drm->connector_id = conn_ids[0];
+        selected_mode = (struct drm_mode_modeinfo){
+            .clock = 65000,
+            .hdisplay = 1024, .hsync_start = 1048, .hsync_end = 1184, .htotal = 1344,
+            .vdisplay = 768,  .vsync_start = 771,  .vsync_end = 777,  .vtotal = 806,
+            .vrefresh = 60,
+            .name = "1024x768"
+        };
+        drm->width = 1024;
+        drm->height = 768;
+        found_connector = true;
+    }
+
+    // Select compatible CRTC via encoder bitmask matching
     if (found_connector && res.count_crtcs > 0) {
-        drm->crtc_id = crtc_ids[0];
+        uint32_t chosen_crtc = 0;
+        struct drm_mode_get_connector conn_enc = { .connector_id = drm->connector_id };
+        if (ioctl(drm->fd, DRM_IOCTL_MODE_GETCONNECTOR, &conn_enc) == 0 && conn_enc.encoder_id > 0) {
+            struct drm_mode_get_encoder enc = { .encoder_id = conn_enc.encoder_id };
+            if (ioctl(drm->fd, DRM_IOCTL_MODE_GETENCODER, &enc) == 0) {
+                for (uint32_t c = 0; c < res.count_crtcs; c++) {
+                    if (enc.possible_crtcs & (1U << c)) {
+                        chosen_crtc = crtc_ids[c];
+                        break;
+                    }
+                }
+            }
+        }
+        if (chosen_crtc == 0) {
+            chosen_crtc = crtc_ids[0];
+        }
+        drm->crtc_id = chosen_crtc;
     }
 
     free(conn_ids);
     free(crtc_ids);
 
     if (!found_connector) {
-        fprintf(stderr, "[lidrm] No active connected display found\n");
+        fprintf(stderr, "[lidrm] No active display connector found on device\n");
         close(drm->fd);
+        drm->fd = -1;
         return false;
     }
 
+    // Save initial CRTC state for graceful cleanup/restore
     struct drm_mode_crtc saved_crtc = { .crtc_id = drm->crtc_id };
     if (ioctl(drm->fd, DRM_IOCTL_MODE_GETCRTC, &saved_crtc) == 0) {
         drm->saved_fb_id = saved_crtc.fb_id;
@@ -117,6 +166,7 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
         }
     }
 
+    // Create dumb buffer
     struct drm_mode_create_dumb creq = {
         .width = drm->width,
         .height = drm->height,
@@ -126,6 +176,7 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
     if (ioctl(drm->fd, DRM_IOCTL_MODE_CREATE_DUMB, &creq) < 0) {
         perror("[lidrm] CREATE_DUMB failed");
         close(drm->fd);
+        drm->fd = -1;
         return false;
     }
 
@@ -133,6 +184,7 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
     drm->pitch = creq.pitch;
     drm->size = creq.size;
 
+    // Attach framebuffer object
     struct drm_mode_fb_cmd cmd = {
         .width = drm->width,
         .height = drm->height,
@@ -148,6 +200,7 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
     }
     drm->fb_id = cmd.fb_id;
 
+    // Memory-map the dumb framebuffer
     struct drm_mode_map_dumb mreq = { .handle = drm->handle };
     if (ioctl(drm->fd, DRM_IOCTL_MODE_MAP_DUMB, &mreq) < 0) {
         perror("[lidrm] MAP_DUMB failed");
@@ -161,6 +214,7 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
         goto err_rm_fb;
     }
 
+    // Perform initial modeset
     struct drm_mode_crtc crtc = {
         .crtc_id = drm->crtc_id,
         .fb_id = drm->fb_id,
@@ -175,11 +229,13 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
         goto err_unmap;
     }
 
-    printf("[lidrm] Initialized display %ux%u on CRTC %u\n", drm->width, drm->height, drm->crtc_id);
+    printf("[lidrm] Initialized display %ux%u on CRTC %u (Connector %u)\n", 
+           drm->width, drm->height, drm->crtc_id, drm->connector_id);
     return true;
 
 err_unmap:
     munmap(drm->pixels, drm->size);
+    drm->pixels = NULL;
 err_rm_fb:
     ioctl(drm->fd, DRM_IOCTL_MODE_RMFB, &drm->fb_id);
 err_destroy_dumb:
@@ -188,18 +244,20 @@ err_destroy_dumb:
         ioctl(drm->fd, DRM_IOCTL_MODE_DESTROY_DUMB, &dreq);
     }
     close(drm->fd);
+    drm->fd = -1;
     return false;
 }
 
 void lidrm_clear(lidrm_t *drm, uint32_t color) {
-    if (!drm || !drm->pixels) return;
-    for (size_t i = 0; i < drm->size / sizeof(uint32_t); i++) {
+    if (!drm || !drm->pixels || drm->pixels == MAP_FAILED) return;
+    size_t count = (size_t)(drm->size / sizeof(uint32_t));
+    for (size_t i = 0; i < count; i++) {
         drm->pixels[i] = color;
     }
 }
 
 bool lidrm_set_mode(lidrm_t *drm) {
-    if (!drm || drm->fd <= 0 || !drm->fb_id || !drm->crtc_id) {
+    if (!drm || drm->fd < 0 || !drm->fb_id || !drm->crtc_id) {
         return false;
     }
 
@@ -220,7 +278,7 @@ bool lidrm_set_mode(lidrm_t *drm) {
 }
 
 void lidrm_cleanup(lidrm_t *drm) {
-    if (!drm || drm->fd <= 0) return;
+    if (!drm || drm->fd < 0) return;
 
     if (drm->saved_mode_valid) {
         struct drm_mode_crtc crtc = {
@@ -236,7 +294,7 @@ void lidrm_cleanup(lidrm_t *drm) {
         ioctl(drm->fd, DRM_IOCTL_MODE_SETCRTC, &crtc);
     }
 
-    if (drm->pixels) {
+    if (drm->pixels && drm->pixels != MAP_FAILED) {
         munmap(drm->pixels, drm->size);
     }
     if (drm->fb_id) {
@@ -249,5 +307,7 @@ void lidrm_cleanup(lidrm_t *drm) {
 
     ioctl(drm->fd, DRM_IOCTL_DROP_MASTER, 0);
     close(drm->fd);
+    drm->fd = -1;
     memset(drm, 0, sizeof(lidrm_t));
+    drm->fd = -1;
 }

@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <sys/types.h>
+#include <drm/drm_mode.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -16,6 +17,9 @@ typedef struct {
     uint32_t crtc_id;
     uint32_t width;
     uint32_t height;
+
+    // Active mode timings
+    struct drm_mode_modeinfo mode;
 
     // Framebuffer state
     uint32_t fb_id;

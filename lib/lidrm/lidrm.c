@@ -91,7 +91,6 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
                 }
                 free(modes);
             } else {
-                // Default fallback resolution if virtio-gpu supplies zero dynamic mode blobs
                 selected_mode = (struct drm_mode_modeinfo){
                     .clock = 65000,
                     .hdisplay = 1024, .hsync_start = 1048, .hsync_end = 1184, .htotal = 1344,
@@ -123,7 +122,8 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
         found_connector = true;
     }
 
-    // Select compatible CRTC via encoder bitmask matching
+    drm->mode = selected_mode;
+
     if (found_connector && res.count_crtcs > 0) {
         uint32_t chosen_crtc = 0;
         struct drm_mode_get_connector conn_enc = { .connector_id = drm->connector_id };
@@ -154,7 +154,6 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
         return false;
     }
 
-    // Save initial CRTC state for graceful cleanup/restore
     struct drm_mode_crtc saved_crtc = { .crtc_id = drm->crtc_id };
     if (ioctl(drm->fd, DRM_IOCTL_MODE_GETCRTC, &saved_crtc) == 0) {
         drm->saved_fb_id = saved_crtc.fb_id;
@@ -166,7 +165,6 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
         }
     }
 
-    // Create dumb buffer
     struct drm_mode_create_dumb creq = {
         .width = drm->width,
         .height = drm->height,
@@ -184,7 +182,6 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
     drm->pitch = creq.pitch;
     drm->size = creq.size;
 
-    // Attach framebuffer object
     struct drm_mode_fb_cmd cmd = {
         .width = drm->width,
         .height = drm->height,
@@ -200,7 +197,6 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
     }
     drm->fb_id = cmd.fb_id;
 
-    // Memory-map the dumb framebuffer
     struct drm_mode_map_dumb mreq = { .handle = drm->handle };
     if (ioctl(drm->fd, DRM_IOCTL_MODE_MAP_DUMB, &mreq) < 0) {
         perror("[lidrm] MAP_DUMB failed");
@@ -214,18 +210,8 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
         goto err_rm_fb;
     }
 
-    // Perform initial modeset
-    struct drm_mode_crtc crtc = {
-        .crtc_id = drm->crtc_id,
-        .fb_id = drm->fb_id,
-        .set_connectors_ptr = (uint64_t)(uintptr_t)&drm->connector_id,
-        .count_connectors = 1,
-        .mode = selected_mode,
-        .mode_valid = 1
-    };
-
-    if (ioctl(drm->fd, DRM_IOCTL_MODE_SETCRTC, &crtc) < 0) {
-        perror("[lidrm] SETCRTC failed");
+    // Initial modeset
+    if (!lidrm_set_mode(drm)) {
         goto err_unmap;
     }
 
@@ -266,7 +252,8 @@ bool lidrm_set_mode(lidrm_t *drm) {
         .fb_id = drm->fb_id,
         .set_connectors_ptr = (uint64_t)(uintptr_t)&drm->connector_id,
         .count_connectors = 1,
-        .mode_valid = 0
+        .mode = drm->mode,
+        .mode_valid = 1
     };
 
     if (ioctl(drm->fd, DRM_IOCTL_MODE_SETCRTC, &crtc) < 0) {

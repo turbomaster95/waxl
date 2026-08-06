@@ -6,8 +6,7 @@
 #include <unistd.h>
 #include <signal.h>
 #include <time.h>
-
-#include "lib/lidrm/lidrm.h"
+#include <lidrm.h>
 
 static volatile bool running = true;
 
@@ -16,7 +15,6 @@ static void handle_signal(int sig) {
     running = false;
 }
 
-// Helper: Fill a rectangle on the framebuffer with clipping
 static void draw_rect(lidrm_t *drm, int rx, int ry, int rw, int rh, uint32_t color) {
     int x1 = rx < 0 ? 0 : rx;
     int y1 = ry < 0 ? 0 : ry;
@@ -31,14 +29,10 @@ static void draw_rect(lidrm_t *drm, int rx, int ry, int rw, int rh, uint32_t col
     }
 }
 
-// Helper: Render a simulated window with title bar and border
 static void draw_window(lidrm_t *drm, int x, int y, int w, int h, const char *title, uint32_t title_color) {
     (void)title;
-    // Window Border
     draw_rect(drm, x - 2, y - 2, w + 4, h + 4, 0xFF555555);
-    // Window Titlebar
     draw_rect(drm, x, y, w, 24, title_color);
-    // Window Client Area
     draw_rect(drm, x, y + 24, w, h - 24, 0xFF1E1E1E);
 }
 
@@ -49,13 +43,13 @@ int main(int argc, char *argv[]) {
     signal(SIGINT, handle_signal);
     signal(SIGTERM, handle_signal);
 
-    printf("[waxl-compositor] Initializing DRM on %s...\n", dev_path);
+    printf("[waxl-comp] Initializing DRM on %s...\n", dev_path);
     if (!lidrm_init(&drm, dev_path)) {
-        fprintf(stderr, "[waxl-compositor] Failed to initialize DRM!\n");
+        fprintf(stderr, "[waxl-comp] Failed to initialize DRM!\n");
         return EXIT_FAILURE;
     }
 
-    printf("[waxl-compositor] DRM Mode set: %ux%u\n", drm.width, drm.height);
+    printf("[waxl-comp] DRM Mode set: %ux%u\n", drm.width, drm.height);
 
     // Initial display mode setup
     if (!lidrm_set_mode(&drm)) {

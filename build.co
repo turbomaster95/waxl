@@ -56,6 +56,11 @@ sources \
 deps ../lib/nu/build/libnu.a waxl-lidrm.a
 order sysroot/gen.c
 
+target_bin test-comp
+sources \
+        sys/compositor/test-comp.c
+order sysroot/gen.c
+
 target_so hello.so
 sources \
         apps/hello/main.c

@@ -9,7 +9,7 @@
 #include <linux/types.h>
 #include <drm/drm.h>
 #include <drm/drm_mode.h>
-  
+
 #define DRM_MODE_CONNECTED 1
 
 bool lidrm_init(lidrm_t *drm, const char *device_path) {
@@ -32,18 +32,25 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
         return false;
     }
 
-    uint32_t *conn_ids = calloc(res.count_connectors, sizeof(uint32_t));
-    uint32_t *crtc_ids = calloc(res.count_crtcs, sizeof(uint32_t));
+    uint32_t *conn_ids = res.count_connectors ? calloc(res.count_connectors, sizeof(uint32_t)) : NULL;
+    uint32_t *crtc_ids = res.count_crtcs ? calloc(res.count_crtcs, sizeof(uint32_t)) : NULL;
+    uint32_t *enc_ids  = res.count_encoders ? calloc(res.count_encoders, sizeof(uint32_t)) : NULL;
+    uint32_t *fb_ids   = res.count_fbs ? calloc(res.count_fbs, sizeof(uint32_t)) : NULL;
 
     res.connector_id_ptr = (uint64_t)(uintptr_t)conn_ids;
-    res.crtc_id_ptr = (uint64_t)(uintptr_t)crtc_ids;
+    res.crtc_id_ptr      = (uint64_t)(uintptr_t)crtc_ids;
+    res.encoder_id_ptr   = (uint64_t)(uintptr_t)enc_ids;
+    res.fb_id_ptr        = (uint64_t)(uintptr_t)fb_ids;
 
     if (ioctl(drm->fd, DRM_IOCTL_MODE_GETRESOURCES, &res) < 0) {
         perror("[lidrm] GETRESOURCES populated query failed");
-        free(conn_ids); free(crtc_ids);
+        free(conn_ids); free(crtc_ids); free(enc_ids); free(fb_ids);
         close(drm->fd);
         return false;
     }
+
+    free(enc_ids);
+    free(fb_ids);
 
     struct drm_mode_modeinfo selected_mode = {0};
     bool found_connector = false;
@@ -55,18 +62,33 @@ bool lidrm_init(lidrm_t *drm, const char *device_path) {
 
         if (ioctl(drm->fd, DRM_IOCTL_MODE_GETCONNECTOR, &conn) < 0) continue;
 
-        if (conn.connection == DRM_MODE_CONNECTED && conn.count_modes > 0) {
-            struct drm_mode_modeinfo *modes = calloc(conn.count_modes, sizeof(struct drm_mode_modeinfo));
-            conn.modes_ptr = (uint64_t)(uintptr_t)modes;
+        if (conn.connection == DRM_MODE_CONNECTED || conn.connection == 2 /* UNKNOWN */) {
+            if (conn.count_modes > 0) {
+                struct drm_mode_modeinfo *modes = calloc(conn.count_modes, sizeof(struct drm_mode_modeinfo));
+                conn.modes_ptr = (uint64_t)(uintptr_t)modes;
 
-            if (ioctl(drm->fd, DRM_IOCTL_MODE_GETCONNECTOR, &conn) == 0) {
-                selected_mode = modes[0];
+                if (ioctl(drm->fd, DRM_IOCTL_MODE_GETCONNECTOR, &conn) == 0) {
+                    selected_mode = modes[0];
+                    drm->connector_id = conn.connector_id;
+                    drm->width = selected_mode.hdisplay;
+                    drm->height = selected_mode.vdisplay;
+                    found_connector = true;
+                }
+                free(modes);
+            } else {
+                selected_mode = (struct drm_mode_modeinfo){
+                    .clock = 65000,
+                    .hdisplay = 1024, .hsync_start = 1048, .hsync_end = 1184, .htotal = 1344,
+                    .vdisplay = 768,  .vsync_start = 771,  .vsync_end = 777,  .vtotal = 806,
+                    .vrefresh = 60,
+                    .name = "1024x768"
+                };
                 drm->connector_id = conn.connector_id;
-                drm->width = selected_mode.hdisplay;
-                drm->height = selected_mode.vdisplay;
+                drm->width = 1024;
+                drm->height = 768;
                 found_connector = true;
             }
-            free(modes);
+
             if (found_connector) break;
         }
     }
@@ -174,6 +196,27 @@ void lidrm_clear(lidrm_t *drm, uint32_t color) {
     for (size_t i = 0; i < drm->size / sizeof(uint32_t); i++) {
         drm->pixels[i] = color;
     }
+}
+
+bool lidrm_set_mode(lidrm_t *drm) {
+    if (!drm || drm->fd <= 0 || !drm->fb_id || !drm->crtc_id) {
+        return false;
+    }
+
+    struct drm_mode_crtc crtc = {
+        .crtc_id = drm->crtc_id,
+        .fb_id = drm->fb_id,
+        .set_connectors_ptr = (uint64_t)(uintptr_t)&drm->connector_id,
+        .count_connectors = 1,
+        .mode_valid = 0
+    };
+
+    if (ioctl(drm->fd, DRM_IOCTL_MODE_SETCRTC, &crtc) < 0) {
+        perror("[lidrm] SETCRTC failed in lidrm_set_mode");
+        return false;
+    }
+
+    return true;
 }
 
 void lidrm_cleanup(lidrm_t *drm) {

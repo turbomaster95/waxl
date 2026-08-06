@@ -50,10 +50,10 @@ sources \
         sys/oomkd.c
 order sysroot/gen.c
 
-target_bin user/recovery/sh
+target_bin waxl-comp
 sources \
-        sys/recovery/sh.c
-deps ../lib/nu/build/libnu.a
+        sys/compositor/waxl-comp.c
+deps ../lib/nu/build/libnu.a waxl-lidrm.a
 order sysroot/gen.c
 
 target_so hello.so

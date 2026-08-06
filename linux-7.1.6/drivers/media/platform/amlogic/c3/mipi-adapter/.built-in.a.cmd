@@ -1,0 +1,1 @@
+savedcmd_drivers/media/platform/amlogic/c3/mipi-adapter/built-in.a := rm -f drivers/media/platform/amlogic/c3/mipi-adapter/built-in.a;  ar cDPrST drivers/media/platform/amlogic/c3/mipi-adapter/built-in.a

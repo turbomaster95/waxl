@@ -1,0 +1,54 @@
+!<thin>
+//                                              440       `
+core/fb_notify.o/
+core/fb_info.o/
+core/fbmem.o/
+core/fbcmap.o/
+core/modedb.o/
+core/fbcvt.o/
+core/fb_cmdline.o/
+core/fb_backlight.o/
+core/fbmon.o/
+core/fb_defio.o/
+core/fb_chrdev.o/
+core/fb_procfs.o/
+core/fbsysfs.o/
+core/fbcon.o/
+core/bitblit.o/
+core/softcursor.o/
+core/cfbfillrect.o/
+core/cfbcopyarea.o/
+core/cfbimgblt.o/
+core/fb_io_fops.o/
+core/sysfillrect.o/
+core/syscopyarea.o/
+core/sysimgblt.o/
+core/fb_sys_fops.o/
+vesafb.o/
+vga16fb.o/
+/0              0           0     0     644     2504      `
+/18             0           0     0     644     2048      `
+/34             0           0     0     644     12936     `
+/48             0           0     0     644     6960      `
+/63             0           0     0     644     12000     `
+/78             0           0     0     644     3896      `
+/92             0           0     0     644     2088      `
+/111            0           0     0     644     968       `
+/132            0           0     0     644     2952      `
+/146            0           0     0     644     7624      `
+/163            0           0     0     644     6432      `
+/181            0           0     0     644     2616      `
+/199            0           0     0     644     9512      `
+/215            0           0     0     644     39696     `
+/229            0           0     0     644     5208      `
+/245            0           0     0     644     1768      `
+/264            0           0     0     644     4760      `
+/284            0           0     0     644     5392      `
+/304            0           0     0     644     5648      `
+/322            0           0     0     644     4568      `
+/341            0           0     0     644     4656      `
+/361            0           0     0     644     5448      `
+/381            0           0     0     644     5544      `
+/399            0           0     0     644     3424      `
+/419            0           0     0     644     13400     `
+/429            0           0     0     644     16864     `

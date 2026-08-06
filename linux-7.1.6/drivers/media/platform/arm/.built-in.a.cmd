@@ -1,0 +1,1 @@
+savedcmd_drivers/media/platform/arm/built-in.a := rm -f drivers/media/platform/arm/built-in.a;  printf "drivers/media/platform/arm/%s " mali-c55/built-in.a | xargs ar cDPrST drivers/media/platform/arm/built-in.a

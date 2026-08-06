@@ -1,0 +1,1 @@
+savedcmd_drivers/virtio/virtio_dma_buf.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T ./scripts/module.lds -o drivers/virtio/virtio_dma_buf.ko drivers/virtio/virtio_dma_buf.o drivers/virtio/virtio_dma_buf.mod.o .module-common.o

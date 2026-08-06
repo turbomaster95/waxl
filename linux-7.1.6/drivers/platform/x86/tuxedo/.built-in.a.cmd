@@ -1,0 +1,1 @@
+savedcmd_drivers/platform/x86/tuxedo/built-in.a := rm -f drivers/platform/x86/tuxedo/built-in.a;  printf "drivers/platform/x86/tuxedo/%s " nb04/built-in.a | xargs ar cDPrST drivers/platform/x86/tuxedo/built-in.a

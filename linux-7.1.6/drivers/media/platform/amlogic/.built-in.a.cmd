@@ -1,0 +1,1 @@
+savedcmd_drivers/media/platform/amlogic/built-in.a := rm -f drivers/media/platform/amlogic/built-in.a;  printf "drivers/media/platform/amlogic/%s " c3/built-in.a meson-ge2d/built-in.a | xargs ar cDPrST drivers/media/platform/amlogic/built-in.a

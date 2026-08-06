@@ -1,0 +1,1 @@
+savedcmd_drivers/media/platform/amlogic/c3/built-in.a := rm -f drivers/media/platform/amlogic/c3/built-in.a;  printf "drivers/media/platform/amlogic/c3/%s " isp/built-in.a mipi-adapter/built-in.a mipi-csi2/built-in.a | xargs ar cDPrST drivers/media/platform/amlogic/c3/built-in.a

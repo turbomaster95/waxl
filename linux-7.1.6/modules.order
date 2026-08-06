@@ -1,0 +1,8 @@
+drivers/virtio/virtio.o
+drivers/virtio/virtio_ring.o
+drivers/virtio/virtio_pci_modern_dev.o
+drivers/virtio/virtio_pci_legacy_dev.o
+drivers/virtio/virtio_pci.o
+drivers/virtio/virtio_dma_buf.o
+drivers/gpu/drm/virtio/virtio-gpu.o
+drivers/block/virtio_blk.o

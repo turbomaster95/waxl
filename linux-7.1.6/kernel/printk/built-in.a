@@ -1,0 +1,13 @@
+!<thin>
+//                                              66        `
+printk.o/
+printk_safe.o/
+nbcon.o/
+printk_ringbuffer.o/
+sysctl.o/
+
+/0              0           0     0     644     520360    `
+/10             0           0     0     644     2536      `
+/25             0           0     0     644     14320     `
+/34             0           0     0     644     7104      `
+/55             0           0     0     644     3640      `

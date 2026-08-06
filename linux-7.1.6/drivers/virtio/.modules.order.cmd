@@ -1,0 +1,1 @@
+savedcmd_drivers/virtio/modules.order := {   echo drivers/virtio/virtio.o;   echo drivers/virtio/virtio_ring.o;   echo drivers/virtio/virtio_pci_modern_dev.o;   echo drivers/virtio/virtio_pci_legacy_dev.o;   echo drivers/virtio/virtio_pci.o;   echo drivers/virtio/virtio_dma_buf.o; :; } > drivers/virtio/modules.order

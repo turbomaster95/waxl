@@ -38,6 +38,7 @@ bool lidrm_init(lidrm_t *drm, const char *device_path);
 bool lidrm_set_mode(lidrm_t *drm);
 void lidrm_clear(lidrm_t *drm, uint32_t color);
 void lidrm_cleanup(lidrm_t *drm);
+void lidrm_flush(lidrm_t *drm);
 
 #ifdef __cplusplus
 }

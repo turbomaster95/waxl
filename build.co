@@ -3,11 +3,11 @@ package waxl 0.1.0
 script sysroot/gen.c "bash ../scripts/mkmusl.sh && touch sysroot/gen.c"
 
 set CC "${CC:-gcc}"
-set CFLAGS "-Wall -Wextra -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -nostdinc -nostdlib -isystem $PWD/build/sysroot/include -D__user= -ffreestanding"
-set LDFLAGS "-B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib -Wl,-dynamic-linker=/lib/ld-musl-x86_64.so.1 -rdynamic -lc -static-libgcc"
+set CFLAGS "-Wall -Wextra -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -nostdinc -nostdlib -isystem $PWD/build/sysroot/include -D__user= -ffreestanding -Wno-unused"
+set LDFLAGS "-B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib -Wl,-dynamic-linker=/lib/ld-musl-x86_64.so.1 -rdynamic -lc -static-libgcc -lpthread"
 
 # pls remember to update .clangd when updating this line
-INCLUDES -I../include/ -I../lib/nu/include -I. -I../lib/lidrm -Isysroot/include/luajit-2.1 -I../lib/common
+INCLUDES -I../include/ -I../lib/nu/include -I. -I../lib/lidrm -I../lib/libinder -Isysroot/include/luajit-2.1 -I../lib/common
 
 script sysroot/lib/libluajit.a "../scripts/mkluajit.sh"
 order sysroot/gen.c
@@ -22,9 +22,20 @@ sources \
         lib/lidrm/lidrm.c
 order sysroot/gen.c
 
+target_a waxl-libinder.a
+sources \
+        lib/libinder/libinder.c
+order sysroot/gen.c
+
 target_a waxl-common.a
 sources \
 	lib/common/log.c
+order sysroot/gen.c
+
+target_bin waxl-wm
+sources \
+        sys/wm/waxl-wm.c
+deps waxl-lidrm.a waxl-libinder.a
 order sysroot/gen.c
 
 target_bin waxl-init
@@ -53,12 +64,25 @@ order sysroot/gen.c
 target_bin waxl-comp
 sources \
         sys/compositor/waxl-comp.c
-deps ../lib/nu/build/libnu.a waxl-lidrm.a
+deps ../lib/nu/build/libnu.a waxl-lidrm.a waxl-libinder.a
 order sysroot/gen.c
 
 target_bin test-comp
 sources \
         sys/compositor/test-comp.c
+deps waxl-libinder.a
+order sysroot/gen.c
+
+target_bin test-bindaemon
+sources \
+        sys/test/bindaemon.c
+deps waxl-libinder.a
+order sysroot/gen.c
+
+target_bin test-bindclie
+sources \
+        sys/test/bindclie.c
+deps waxl-libinder.a
 order sysroot/gen.c
 
 target_so hello.so

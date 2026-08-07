@@ -3,6 +3,7 @@ CompileFlags:
     - -Iinclude
     - -Ilib/nu/include
     - -Ilib/lidrm
+    - -Ilib/libinder
     - -Ibuild/sysroot/include/luajit-2.1
     - -Ilib/common
 

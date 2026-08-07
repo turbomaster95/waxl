@@ -1,357 +1,385 @@
-#define _GNU_SOURCE
+/*
+ * waxl-comp: Dumb DRM Compositor
+ * 
+ * A simple software-rendered compositor that:
+ * - Opens DRM via lidrm
+ * - Receives surface buffers from waxl-wm via shared memory / unix sockets
+ * - Composites windows onto the framebuffer
+ * - Handles basic input via evdev (optional)
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
-#include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
 #include <signal.h>
-#include <time.h>
-#include <fcntl.h>
 #include <errno.h>
-#include <poll.h>
 #include <sys/socket.h>
 #include <sys/un.h>
-#include <sys/mman.h>
-#include <sys/stat.h>
-#include <lidrm.h>
+#include <sys/epoll.h>
+#include <linux/input.h>
+#include <fcntl.h>
+#include <poll.h>
 
-#define WAXL_SOCKET_PATH "/tmp/waxl-comp.sock"
-#define MAX_CLIENTS 16
-#define MAX_SURFACES 32
-#define TITLE_BAR_HEIGHT 24
+#include "lidrm.h"
 
-typedef enum {
-    WAXL_CMD_CREATE_SURFACE = 1,
-    WAXL_CMD_COMMIT         = 2,
-    WAXL_CMD_MOVE           = 3,
-    WAXL_CMD_DESTROY        = 4
-} waxl_cmd_type_t;
+#define WAXL_SOCK_PATH  "/tmp/waxl-comp.sock"
+#define MAX_SURFACES    32
+#define MAX_EVENTS      64
 
 typedef struct {
-    uint32_t type;        // waxl_cmd_type_t
-    uint32_t surface_id;
-    int32_t  x, y;
-    uint32_t width, height;
-} waxl_msg_t;
-
-typedef struct surface {
-    uint32_t id;
-    int client_fd;
-    int32_t x, y;
-    uint32_t width, height;
-    int shm_fd;
-    uint32_t *pixels;
-    size_t shm_size;
-    bool active;
-    bool needs_redraw;
-    struct surface *next;
+    int id;
+    int x, y;
+    int width, height;
+    uint32_t *pixels;     // ARGB8888 pixel data
+    size_t pixels_size;
+    bool visible;
+    bool dirty;
 } surface_t;
 
-static volatile bool running = true;
-static surface_t *surface_list = NULL;
-static uint32_t next_surface_id = 1;
+typedef struct {
+    lidrm_t drm;
+    surface_t surfaces[MAX_SURFACES];
+    int surface_count;
+    int sock_fd;
+    int epoll_fd;
+    bool running;
+    uint32_t bg_color;
+} compositor_t;
 
-static void handle_signal(int sig) {
+static compositor_t g_comp = {0};
+
+// ---- Pixel Drawing ----
+
+static inline void put_pixel(compositor_t *c, int x, int y, uint32_t color) {
+    if (x < 0 || y < 0 || x >= (int)c->drm.width || y >= (int)c->drm.height)
+        return;
+    c->drm.pixels[y * (c->drm.pitch / 4) + x] = color;
+}
+
+static inline uint32_t blend_pixel(uint32_t dst, uint32_t src) {
+    uint8_t sa = (src >> 24) & 0xFF;
+    if (sa == 0) return dst;
+    if (sa == 255) return src;
+
+    uint8_t sr = (src >> 16) & 0xFF;
+    uint8_t sg = (src >> 8) & 0xFF;
+    uint8_t sb = src & 0xFF;
+
+    uint8_t dr = (dst >> 16) & 0xFF;
+    uint8_t dg = (dst >> 8) & 0xFF;
+    uint8_t db = dst & 0xFF;
+
+    uint8_t r = (sr * sa + dr * (255 - sa)) / 255;
+    uint8_t g = (sg * sa + dg * (255 - sa)) / 255;
+    uint8_t b = (sb * sa + db * (255 - sa)) / 255;
+
+    return (0xFF << 24) | (r << 16) | (g << 8) | b;
+}
+
+static void draw_rect(compositor_t *c, int x, int y, int w, int h, uint32_t color) {
+    for (int row = y; row < y + h && row < (int)c->drm.height; row++) {
+        for (int col = x; col < x + w && col < (int)c->drm.width; col++) {
+            if (row >= 0 && col >= 0)
+                put_pixel(c, col, row, color);
+        }
+    }
+}
+
+static void draw_surface(compositor_t *c, surface_t *surf) {
+    if (!surf->visible || !surf->pixels) return;
+
+    for (int row = 0; row < surf->height; row++) {
+        int dy = surf->y + row;
+        if (dy < 0 || dy >= (int)c->drm.height) continue;
+
+        for (int col = 0; col < surf->width; col++) {
+            int dx = surf->x + col;
+            if (dx < 0 || dx >= (int)c->drm.width) continue;
+
+            uint32_t src = surf->pixels[row * surf->width + col];
+            uint32_t *dst = &c->drm.pixels[dy * (c->drm.pitch / 4) + dx];
+            *dst = blend_pixel(*dst, src);
+        }
+    }
+}
+
+static void composite(compositor_t *c) {
+    // Clear background
+    lidrm_clear(&c->drm, c->bg_color);
+
+    // Draw all visible surfaces (simple painter's algorithm)
+    for (int i = 0; i < c->surface_count; i++) {
+        if (c->surfaces[i].visible) {
+            draw_surface(c, &c->surfaces[i]);
+        }
+    }
+
+    lidrm_flush(&c->drm);
+}
+
+// ---- Surface Management ----
+
+static surface_t *find_surface(compositor_t *c, int id) {
+    for (int i = 0; i < c->surface_count; i++) {
+        if (c->surfaces[i].id == id)
+            return &c->surfaces[i];
+    }
+    return NULL;
+}
+
+static surface_t *alloc_surface(compositor_t *c) {
+    if (c->surface_count >= MAX_SURFACES) return NULL;
+    surface_t *s = &c->surfaces[c->surface_count++];
+    memset(s, 0, sizeof(*s));
+    s->id = c->surface_count; // simple ID assignment
+    return s;
+}
+
+static void free_surface(surface_t *s) {
+    if (s->pixels) {
+        free(s->pixels);
+        s->pixels = NULL;
+    }
+    s->visible = false;
+}
+
+// ---- Protocol ----
+
+typedef enum {
+    WAXL_MSG_CREATE_SURFACE = 1,
+    WAXL_MSG_DESTROY_SURFACE,
+    WAXL_MSG_UPDATE_SURFACE,
+    WAXL_MSG_MOVE_SURFACE,
+    WAXL_MSG_SHOW_SURFACE,
+    WAXL_MSG_HIDE_SURFACE,
+    WAXL_MSG_SET_BG,
+    WAXL_MSG_COMPOSITE,   // trigger composite
+    WAXL_MSG_QUIT,
+} waxl_msg_type_t;
+
+typedef struct {
+    uint32_t type;
+    uint32_t surface_id;
+    int32_t x, y;
+    int32_t width, height;
+    uint32_t color;
+} waxl_msg_t;
+
+static int handle_client(compositor_t *c, int client_fd) {
+    waxl_msg_t msg;
+    ssize_t n = recv(client_fd, &msg, sizeof(msg), 0);
+    if (n <= 0) return -1;
+    if (n != sizeof(msg)) return 0;
+
+    switch (msg.type) {
+        case WAXL_MSG_CREATE_SURFACE: {
+            surface_t *s = alloc_surface(c);
+            if (!s) {
+                int err = -1;
+                send(client_fd, &err, sizeof(err), 0);
+                break;
+            }
+            s->x = msg.x;
+            s->y = msg.y;
+            s->width = msg.width;
+            s->height = msg.height;
+            s->visible = true;
+            s->pixels_size = msg.width * msg.height * sizeof(uint32_t);
+            s->pixels = calloc(1, s->pixels_size);
+            send(client_fd, &s->id, sizeof(s->id), 0);
+            printf("[comp] Created surface %d (%dx%d @ %d,%d)\n", 
+                   s->id, s->width, s->height, s->x, s->y);
+            break;
+        }
+
+        case WAXL_MSG_DESTROY_SURFACE: {
+            surface_t *s = find_surface(c, msg.surface_id);
+            if (s) free_surface(s);
+            break;
+        }
+
+        case WAXL_MSG_UPDATE_SURFACE: {
+            surface_t *s = find_surface(c, msg.surface_id);
+            if (s && s->pixels) {
+                size_t to_read = s->width * s->height * sizeof(uint32_t);
+                size_t total = 0;
+                while (total < to_read) {
+                    ssize_t r = recv(client_fd, (char*)s->pixels + total, to_read - total, 0);
+                    if (r <= 0) return -1;
+                    total += r;
+                }
+                s->dirty = true;
+            }
+            break;
+        }
+
+        case WAXL_MSG_MOVE_SURFACE: {
+            surface_t *s = find_surface(c, msg.surface_id);
+            if (s) {
+                s->x = msg.x;
+                s->y = msg.y;
+            }
+            break;
+        }
+
+        case WAXL_MSG_SHOW_SURFACE: {
+            surface_t *s = find_surface(c, msg.surface_id);
+            if (s) s->visible = true;
+            break;
+        }
+
+        case WAXL_MSG_HIDE_SURFACE: {
+            surface_t *s = find_surface(c, msg.surface_id);
+            if (s) s->visible = false;
+            break;
+        }
+
+        case WAXL_MSG_SET_BG: {
+            c->bg_color = msg.color;
+            break;
+        }
+
+        case WAXL_MSG_COMPOSITE: {
+            composite(c);
+            break;
+        }
+
+        case WAXL_MSG_QUIT: {
+            c->running = false;
+            break;
+        }
+    }
+
+    return 0;
+}
+
+// ---- Server Setup ----
+
+static int setup_server(void) {
+    int fd = socket(AF_UNIX, SOCK_STREAM, 0);
+    if (fd < 0) {
+        perror("socket");
+        return -1;
+    }
+
+    unlink(WAXL_SOCK_PATH);
+
+    struct sockaddr_un addr = {0};
+    addr.sun_family = AF_UNIX;
+    strncpy(addr.sun_path, WAXL_SOCK_PATH, sizeof(addr.sun_path) - 1);
+
+    if (bind(fd, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
+        perror("bind");
+        close(fd);
+        return -1;
+    }
+
+    if (listen(fd, 4) < 0) {
+        perror("listen");
+        close(fd);
+        return -1;
+    }
+
+    return fd;
+}
+
+// ---- Main ----
+
+static void sigint_handler(int sig) {
     (void)sig;
-    running = false;
+    g_comp.running = false;
 }
 
-static int send_fd(int socket_fd, int fd_to_send, uint32_t surface_id) {
-    struct msghdr msg = {0};
-    char buf[CMSG_SPACE(sizeof(int))];
-    memset(buf, 0, sizeof(buf));
+int main(int argc, char **argv) {
+    (void)argc; (void)argv;
 
-    struct iovec io = { .iov_base = &surface_id, .iov_len = sizeof(surface_id) };
-    msg.msg_iov = &io;
-    msg.msg_iovlen = 1;
-    msg.msg_control = buf;
-    msg.msg_controllen = sizeof(buf);
+    signal(SIGINT, sigint_handler);
+    signal(SIGTERM, sigint_handler);
 
-    struct cmsghdr *cmsg = CMSG_FIRSTHDR(&msg);
-    cmsg->cmsg_level = SOL_SOCKET;
-    cmsg->cmsg_type = SCM_RIGHTS;
-    cmsg->cmsg_len = CMSG_LEN(sizeof(int));
-    memcpy(CMSG_DATA(cmsg), &fd_to_send, sizeof(int));
+    printf("[waxl-comp] Starting compositor...\n");
 
-    return (sendmsg(socket_fd, &msg, 0) < 0) ? -1 : 0;
-}
-
-static surface_t *create_surface(int client_fd, uint32_t width, uint32_t height, int32_t x, int32_t y) {
-    surface_t *surf = calloc(1, sizeof(surface_t));
-    if (!surf) return NULL;
-
-    surf->id = next_surface_id++;
-    surf->client_fd = client_fd;
-    surf->width = width;
-    surf->height = height;
-    surf->x = x;
-    surf->y = y;
-    surf->shm_size = width * height * sizeof(uint32_t);
-
-    char memfd_name[32];
-    snprintf(memfd_name, sizeof(memfd_name), "waxl-surf-%u", surf->id);
-    surf->shm_fd = memfd_create(memfd_name, MFD_CLOEXEC);
-    if (surf->shm_fd < 0) {
-        perror("[waxl-comp] memfd_create failed");
-        free(surf);
-        return NULL;
+    // Init DRM
+    const char *drm_path = getenv("WAXL_DRM_DEVICE");
+    if (!lidrm_init(&g_comp.drm, drm_path)) {
+        fprintf(stderr, "Failed to init DRM\n");
+        return 1;
     }
 
-    if (ftruncate(surf->shm_fd, surf->shm_size) < 0) {
-        perror("[waxl-comp] ftruncate failed");
-        close(surf->shm_fd);
-        free(surf);
-        return NULL;
+    if (!lidrm_set_mode(&g_comp.drm)) {
+        fprintf(stderr, "Failed to set DRM mode\n");
+        lidrm_cleanup(&g_comp.drm);
+        return 1;
     }
 
-    surf->pixels = mmap(NULL, surf->shm_size, PROT_READ | PROT_WRITE, MAP_SHARED, surf->shm_fd, 0);
-    if (surf->pixels == MAP_FAILED) {
-        perror("[waxl-comp] mmap shm failed");
-        close(surf->shm_fd);
-        free(surf);
-        return NULL;
+    printf("[waxl-comp] DRM: %dx%d\n", g_comp.drm.width, g_comp.drm.height);
+
+    // Init server socket
+    g_comp.sock_fd = setup_server();
+    if (g_comp.sock_fd < 0) {
+        lidrm_cleanup(&g_comp.drm);
+        return 1;
     }
 
-    memset(surf->pixels, 0x00, surf->shm_size); // Default transparent
-    surf->active = true;
-
-    surf->next = surface_list;
-    surface_list = surf;
-
-    if (send_fd(client_fd, surf->shm_fd, surf->id) < 0) {
-        perror("[waxl-comp] Failed to pass SHM FD to client");
+    g_comp.epoll_fd = epoll_create1(0);
+    if (g_comp.epoll_fd < 0) {
+        perror("epoll_create1");
+        close(g_comp.sock_fd);
+        lidrm_cleanup(&g_comp.drm);
+        return 1;
     }
 
-    printf("[waxl-comp] Created Surface ID %u (%ux%u) for client FD %d\n", surf->id, width, height, client_fd);
-    return surf;
-}
+    struct epoll_event ev = {0};
+    ev.events = EPOLLIN;
+    ev.data.fd = g_comp.sock_fd;
+    epoll_ctl(g_comp.epoll_fd, EPOLL_CTL_ADD, g_comp.sock_fd, &ev);
 
-static void destroy_surface(uint32_t surface_id) {
-    surface_t **curr = &surface_list;
-    while (*curr) {
-        surface_t *entry = *curr;
-        if (entry->id == surface_id) {
-            *curr = entry->next;
-            if (entry->pixels && entry->pixels != MAP_FAILED) {
-                munmap(entry->pixels, entry->shm_size);
-            }
-            if (entry->shm_fd >= 0) close(entry->shm_fd);
-            printf("[waxl-comp] Destroyed Surface ID %u\n", surface_id);
-            free(entry);
-            return;
-        }
-        curr = &entry->next;
-    }
-}
+    g_comp.running = true;
+    g_comp.bg_color = 0xFF1a1a2e; // Dark blue background
 
-static void remove_client_surfaces(int client_fd) {
-    surface_t **curr = &surface_list;
-    while (*curr) {
-        surface_t *entry = *curr;
-        if (entry->client_fd == client_fd) {
-            *curr = entry->next;
-            if (entry->pixels && entry->pixels != MAP_FAILED) {
-                munmap(entry->pixels, entry->shm_size);
-            }
-            if (entry->shm_fd >= 0) close(entry->shm_fd);
-            printf("[waxl-comp] Cleaned up Surface ID %u for disconnected client FD %d\n", entry->id, client_fd);
-            free(entry);
-        } else {
-            curr = &entry->next;
-        }
-    }
-}
+    // Initial clear
+    lidrm_clear(&g_comp.drm, g_comp.bg_color);
+    lidrm_flush(&g_comp.drm);
 
-static inline uint32_t blend_pixel(uint32_t src, uint32_t dst) {
-    uint32_t a = (src >> 24) & 0xFF;
-    if (a == 255) return src;
-    if (a == 0)   return dst;
+    printf("[waxl-comp] Ready. Listening on %s\n", WAXL_SOCK_PATH);
 
-    uint32_t sr = (src >> 16) & 0xFF, sg = (src >> 8) & 0xFF, sb = src & 0xFF;
-    uint32_t dr = (dst >> 16) & 0xFF, dg = (dst >> 8) & 0xFF, db = dst & 0xFF;
+    struct epoll_event events[MAX_EVENTS];
+    while (g_comp.running) {
+        int nfds = epoll_wait(g_comp.epoll_fd, events, MAX_EVENTS, 16); // 16ms ~ 60fps
 
-    uint32_t r = (sr * a + dr * (255 - a)) / 255;
-    uint32_t g = (sg * a + dg * (255 - a)) / 255;
-    uint32_t b = (sb * a + db * (255 - a)) / 255;
+        for (int i = 0; i < nfds; i++) {
+            if (events[i].data.fd == g_comp.sock_fd) {
+                int client = accept(g_comp.sock_fd, NULL, NULL);
+                if (client >= 0) {
+                    int flags = fcntl(client, F_GETFL, 0);
+                    fcntl(client, F_SETFL, flags | O_NONBLOCK);
 
-    return 0xFF000000 | (r << 16) | (g << 8) | b;
-}
-
-static void draw_rect(lidrm_t *drm, int rx, int ry, int rw, int rh, uint32_t color) {
-    int x1 = rx < 0 ? 0 : rx;
-    int y1 = ry < 0 ? 0 : ry;
-    int x2 = (rx + rw > (int)drm->width) ? (int)drm->width : (rx + rw);
-    int y2 = (ry + rh > (int)drm->height) ? (int)drm->height : (ry + rh);
-
-    for (int y = y1; y < y2; y++) {
-        uint32_t *row = drm->pixels + (y * (drm->pitch / 4));
-        for (int x = x1; x < x2; x++) {
-            row[x] = color;
-        }
-    }
-}
-
-static void composite_surface(lidrm_t *drm, surface_t *surf) {
-    if (!surf->active || !surf->pixels) return;
-
-    int win_x = surf->x;
-    int win_y = surf->y;
-    int win_w = surf->width;
-    int win_h = surf->height;
-
-    draw_rect(drm, win_x - 2, win_y - TITLE_BAR_HEIGHT - 2, win_w + 4, win_h + TITLE_BAR_HEIGHT + 4, 0xFF3C3C3C);
-    draw_rect(drm, win_x, win_y - TITLE_BAR_HEIGHT, win_w, TITLE_BAR_HEIGHT, 0xFF0055AA);
-
-    int start_x = win_x < 0 ? 0 : win_x;
-    int start_y = win_y < 0 ? 0 : win_y;
-    int end_x = (win_x + win_w > (int)drm->width) ? (int)drm->width : (win_x + win_w);
-    int end_y = (win_y + win_h > (int)drm->height) ? (int)drm->height : (win_y + win_h);
-
-    for (int y = start_y; y < end_y; y++) {
-        uint32_t *dst_row = drm->pixels + (y * (drm->pitch / 4));
-        uint32_t *src_row = surf->pixels + ((y - win_y) * surf->width);
-
-        for (int x = start_x; x < end_x; x++) {
-            uint32_t src_pixel = src_row[x - win_x];
-            dst_row[x] = blend_pixel(src_pixel, dst_row[x]);
-        }
-    }
-}
-
-int main(int argc, char *argv[]) {
-    const char *dev_path = (argc > 1) ? argv[1] : "/dev/dri/card0";
-    lidrm_t drm = {0};
-
-    signal(SIGINT, handle_signal);
-    signal(SIGTERM, handle_signal);
-
-    printf("[waxl-comp] Initializing DRM on %s...\n", dev_path);
-    if (!lidrm_init(&drm, dev_path)) {
-        fprintf(stderr, "[waxl-comp] Failed to initialize DRM!\n");
-        return EXIT_FAILURE;
-    }
-
-    if (!lidrm_set_mode(&drm)) {
-        fprintf(stderr, "[waxl-comp] Failed to apply CRTC mode!\n");
-        lidrm_cleanup(&drm);
-        return EXIT_FAILURE;
-    }
-
-    unlink(WAXL_SOCKET_PATH);
-    int server_fd = socket(AF_UNIX, SOCK_STREAM | SOCK_NONBLOCK, 0);
-    if (server_fd < 0) {
-        perror("[waxl-comp] Socket creation failed");
-        lidrm_cleanup(&drm);
-        return EXIT_FAILURE;
-    }
-
-    struct sockaddr_un sun = { .sun_family = AF_UNIX };
-    strncpy(sun.sun_path, WAXL_SOCKET_PATH, sizeof(sun.sun_path) - 1);
-
-    if (bind(server_fd, (struct sockaddr *)&sun, sizeof(sun)) < 0) {
-        perror("[waxl-comp] Socket bind failed");
-        close(server_fd);
-        lidrm_cleanup(&drm);
-        return EXIT_FAILURE;
-    }
-
-    listen(server_fd, MAX_CLIENTS);
-    printf("[waxl-comp] SurfaceFlinger listening on %s\n", WAXL_SOCKET_PATH);
-
-    struct pollf_fds {
-        struct pollfd fds[MAX_CLIENTS + 1];
-        int count;
-    } pfds = {0};
-
-    pfds.fds[0].fd = server_fd;
-    pfds.fds[0].events = POLLIN;
-    pfds.count = 1;
-
-    struct timespec target_time;
-    clock_gettime(CLOCK_MONOTONIC, &target_time);
-
-    while (running) {
-        int poll_res = poll(pfds.fds, pfds.count, 0);
-        if (poll_res > 0) {
-            if (pfds.fds[0].revents & POLLIN) {
-                int client_fd = accept(server_fd, NULL, NULL);
-                if (client_fd >= 0 && pfds.count < MAX_CLIENTS + 1) {
-                    fcntl(client_fd, F_SETFL, O_NONBLOCK);
-                    pfds.fds[pfds.count].fd = client_fd;
-                    pfds.fds[pfds.count].events = POLLIN | POLLHUP;
-                    pfds.count++;
-                    printf("[waxl-comp] Client connected on FD %d\n", client_fd);
+                    ev.events = EPOLLIN | EPOLLET;
+                    ev.data.fd = client;
+                    epoll_ctl(g_comp.epoll_fd, EPOLL_CTL_ADD, client, &ev);
                 }
-            }
-
-            for (int i = 1; i < pfds.count; i++) {
-                if (pfds.fds[i].revents & (POLLHUP | POLLERR)) {
-                    printf("[waxl-comp] Client FD %d disconnected\n", pfds.fds[i].fd);
-                    remove_client_surfaces(pfds.fds[i].fd);
-                    close(pfds.fds[i].fd);
-                    pfds.fds[i] = pfds.fds[pfds.count - 1];
-                    pfds.count--;
-                    i--;
-                    continue;
-                }
-
-                if (pfds.fds[i].revents & POLLIN) {
-                    waxl_msg_t msg;
-                    ssize_t bytes = read(pfds.fds[i].fd, &msg, sizeof(msg));
-                    if (bytes == sizeof(msg)) {
-                        switch (msg.type) {
-                            case WAXL_CMD_CREATE_SURFACE:
-                                create_surface(pfds.fds[i].fd, msg.width, msg.height, msg.x, msg.y);
-                                break;
-                            case WAXL_CMD_MOVE: {
-                                surface_t *s = surface_list;
-                                while (s) {
-                                    if (s->id == msg.surface_id) {
-                                        s->x = msg.x;
-                                        s->y = msg.y;
-                                        break;
-                                    }
-                                    s = s->next;
-                                }
-                                break;
-                            }
-                            case WAXL_CMD_DESTROY:
-                                destroy_surface(msg.surface_id);
-                                break;
-                            case WAXL_CMD_COMMIT:
-                                break;
-                        }
-                    }
+            } else {
+                if (handle_client(&g_comp, events[i].data.fd) < 0) {
+                    epoll_ctl(g_comp.epoll_fd, EPOLL_CTL_DEL, events[i].data.fd, NULL);
+                    close(events[i].data.fd);
                 }
             }
         }
 
-        lidrm_clear(&drm, 0xFF121212); // Background
-
-        draw_rect(&drm, 0, 0, drm.width, 32, 0xFF282828);
-        draw_rect(&drm, 0, 31, drm.width, 1, 0xFF3C3C3C);
-
-        surface_t *curr = surface_list;
-        while (curr) {
-            composite_surface(&drm, curr);
-            curr = curr->next;
-        }
-
-        lidrm_set_mode(&drm);
-
-        target_time.tv_nsec += 16666666;
-        if (target_time.tv_nsec >= 1000000000) {
-            target_time.tv_sec += 1;
-            target_time.tv_nsec -= 1000000000;
-        }
-        clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &target_time, NULL);
+        // Periodic composite for animations (optional)
+        // composite(&g_comp);
     }
 
-    printf("\n[waxl-comp] Shutting down compositor...\n");
-    for (int i = 1; i < pfds.count; i++) close(pfds.fds[i].fd);
-    close(server_fd);
-    unlink(WAXL_SOCKET_PATH);
-    lidrm_cleanup(&drm);
-    return EXIT_SUCCESS;
+    printf("[waxl-comp] Shutting down...\n");
+
+    close(g_comp.epoll_fd);
+    close(g_comp.sock_fd);
+    unlink(WAXL_SOCK_PATH);
+
+    for (int i = 0; i < g_comp.surface_count; i++) {
+        free_surface(&g_comp.surfaces[i]);
+    }
+
+    lidrm_cleanup(&g_comp.drm);
+    return 0;
 }

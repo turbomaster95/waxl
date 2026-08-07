@@ -264,6 +264,19 @@ bool lidrm_set_mode(lidrm_t *drm) {
     return true;
 }
 
+void lidrm_flush(lidrm_t *drm) {
+    if (!drm || drm->fd < 0 || !drm->fb_id) return;
+
+    struct drm_mode_fb_dirty_cmd dirty = {
+        .fb_id = drm->fb_id,
+        .flags = 0,
+        .color = 0,
+        .num_clips = 0,
+        .clips_ptr = 0
+    };
+    ioctl(drm->fd, DRM_IOCTL_MODE_DIRTYFB, &dirty);
+}
+
 void lidrm_cleanup(lidrm_t *drm) {
     if (!drm || drm->fd < 0) return;
 

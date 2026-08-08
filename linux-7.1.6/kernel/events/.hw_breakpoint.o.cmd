@@ -1372,8 +1372,8 @@ deps_kernel/events/hw_breakpoint.o := \
 kernel/events/hw_breakpoint.o: $(deps_kernel/events/hw_breakpoint.o)
 
 $(deps_kernel/events/hw_breakpoint.o):
-#SYMVER register_user_hw_breakpoint 0xd6cd5636
-#SYMVER modify_user_hw_breakpoint 0x4a744973
-#SYMVER unregister_hw_breakpoint 0xaf8b0951
-#SYMVER register_wide_hw_breakpoint 0x6918acff
-#SYMVER unregister_wide_hw_breakpoint 0x87f4d742
+#SYMVER register_user_hw_breakpoint 0x93636e45
+#SYMVER modify_user_hw_breakpoint 0xc95902b9
+#SYMVER unregister_hw_breakpoint 0x3d5eba01
+#SYMVER register_wide_hw_breakpoint 0x771d9a7f
+#SYMVER unregister_wide_hw_breakpoint 0x27d735c4

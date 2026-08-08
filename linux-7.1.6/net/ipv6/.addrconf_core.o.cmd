@@ -1623,7 +1623,7 @@ deps_net/ipv6/addrconf_core.o := \
 net/ipv6/addrconf_core.o: $(deps_net/ipv6/addrconf_core.o)
 
 $(deps_net/ipv6/addrconf_core.o):
-#SYMVER __fib6_flush_trees 0x1ff11413
+#SYMVER __fib6_flush_trees 0xe3c0477c
 #SYMVER __ipv6_addr_type 0x0d542439
 #SYMVER register_inet6addr_notifier 0x60352082
 #SYMVER unregister_inet6addr_notifier 0x2fe252cc
@@ -1638,4 +1638,4 @@ $(deps_net/ipv6/addrconf_core.o):
 #SYMVER in6addr_interfacelocal_allnodes 0xc872fd85
 #SYMVER in6addr_interfacelocal_allrouters 0x5f098b2a
 #SYMVER in6addr_sitelocal_allrouters 0xb9e8e2cc
-#SYMVER in6_dev_finish_destroy 0xfb37dc0a
+#SYMVER in6_dev_finish_destroy 0xe044b3fe

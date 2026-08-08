@@ -1156,6 +1156,6 @@ deps_drivers/tty/vt/consolemap.o := \
 drivers/tty/vt/consolemap.o: $(deps_drivers/tty/vt/consolemap.o)
 
 $(deps_drivers/tty/vt/consolemap.o):
-#SYMVER inverse_translate 0x12f703ca
-#SYMVER con_set_default_unimap 0xba29bc14
-#SYMVER con_copy_unimap 0xd0c56821
+#SYMVER inverse_translate 0xf17551b4
+#SYMVER con_set_default_unimap 0xa6914773
+#SYMVER con_copy_unimap 0x1a62566d

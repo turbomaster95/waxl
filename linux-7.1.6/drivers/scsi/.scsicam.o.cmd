@@ -1170,6 +1170,6 @@ deps_drivers/scsi/scsicam.o := \
 drivers/scsi/scsicam.o: $(deps_drivers/scsi/scsicam.o)
 
 $(deps_drivers/scsi/scsicam.o):
-#SYMVER scsi_bios_ptable 0x28d5c31e
-#SYMVER scsi_partsize 0xb844571d
-#SYMVER scsicam_bios_param 0x19c32ad6
+#SYMVER scsi_bios_ptable 0xb0cd5876
+#SYMVER scsi_partsize 0x235f86c0
+#SYMVER scsicam_bios_param 0xa22e4028

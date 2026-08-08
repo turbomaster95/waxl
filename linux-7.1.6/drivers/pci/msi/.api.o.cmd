@@ -1261,18 +1261,18 @@ deps_drivers/pci/msi/api.o := \
 drivers/pci/msi/api.o: $(deps_drivers/pci/msi/api.o)
 
 $(deps_drivers/pci/msi/api.o):
-#SYMVER pci_enable_msi 0x6757f93d
-#SYMVER pci_disable_msi 0x2e266d8f
-#SYMVER pci_msix_vec_count 0x165325ed
-#SYMVER pci_enable_msix_range 0xfa11c009
-#SYMVER pci_msix_can_alloc_dyn 0xd9900f7c
-#SYMVER pci_msix_alloc_irq_at 0x8516a2c1
-#SYMVER pci_msix_free_irq 0x14daed11
-#SYMVER pci_disable_msix 0x2ac695ff
-#SYMVER pci_alloc_irq_vectors 0xad759a5f
-#SYMVER pci_alloc_irq_vectors_affinity 0x1e5b32cf
-#SYMVER pci_irq_vector 0x3390b00e
-#SYMVER pci_irq_get_affinity 0x76729ac5
-#SYMVER pci_free_irq_vectors 0x9f10d1c0
-#SYMVER pci_restore_msi_state 0xa974079e
+#SYMVER pci_enable_msi 0xdfe4046d
+#SYMVER pci_disable_msi 0x73c99c71
+#SYMVER pci_msix_vec_count 0x94941107
+#SYMVER pci_enable_msix_range 0x6b749bfe
+#SYMVER pci_msix_can_alloc_dyn 0x2c847c2d
+#SYMVER pci_msix_alloc_irq_at 0x6db3713b
+#SYMVER pci_msix_free_irq 0x3fa27511
+#SYMVER pci_disable_msix 0xacaa309d
+#SYMVER pci_alloc_irq_vectors 0x7aa0e3d2
+#SYMVER pci_alloc_irq_vectors_affinity 0xc15d2135
+#SYMVER pci_irq_vector 0xb04fad2d
+#SYMVER pci_irq_get_affinity 0x8bfbb449
+#SYMVER pci_free_irq_vectors 0xd94306d9
+#SYMVER pci_restore_msi_state 0x24e6c273
 #SYMVER pci_msi_enabled 0x411a1913

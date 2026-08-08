@@ -1251,13 +1251,13 @@ deps_drivers/pci/search.o := \
 drivers/pci/search.o: $(deps_drivers/pci/search.o)
 
 $(deps_drivers/pci/search.o):
-#SYMVER pci_find_bus 0xf20d9652
-#SYMVER pci_find_next_bus 0x71c86541
-#SYMVER pci_get_slot 0x622ab2df
-#SYMVER pci_get_domain_bus_and_slot 0xa9e0cf82
-#SYMVER pci_get_subsys 0x64a374b8
-#SYMVER pci_get_device 0x9df22cb6
-#SYMVER pci_get_device_reverse 0xa770cbfe
-#SYMVER pci_get_class 0xb4ee8299
-#SYMVER pci_get_base_class 0xf61b9a62
+#SYMVER pci_find_bus 0x35f5008f
+#SYMVER pci_find_next_bus 0x5d3ac0b0
+#SYMVER pci_get_slot 0xd1c6b928
+#SYMVER pci_get_domain_bus_and_slot 0x10190fde
+#SYMVER pci_get_subsys 0x1876a1b1
+#SYMVER pci_get_device 0x240becea
+#SYMVER pci_get_device_reverse 0x46ae9048
+#SYMVER pci_get_class 0x9784092d
+#SYMVER pci_get_base_class 0xd2ed3c1b
 #SYMVER pci_dev_present 0x7483dc59

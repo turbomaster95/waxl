@@ -1215,6 +1215,6 @@ drivers/scsi/scsi_devinfo.o: $(deps_drivers/scsi/scsi_devinfo.o)
 
 $(deps_drivers/scsi/scsi_devinfo.o):
 #SYMVER scsi_dev_info_list_add_keyed 0x2733eaf7
-#SYMVER scsi_get_device_flags_keyed 0x8528270f
+#SYMVER scsi_get_device_flags_keyed 0x814465c1
 #SYMVER scsi_dev_info_add_list 0x204c5067
 #SYMVER scsi_dev_info_remove_list 0x97bdfa60

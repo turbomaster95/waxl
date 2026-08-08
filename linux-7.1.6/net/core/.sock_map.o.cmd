@@ -1696,6 +1696,6 @@ deps_net/core/sock_map.o := \
 net/core/sock_map.o: $(deps_net/core/sock_map.o)
 
 $(deps_net/core/sock_map.o):
-#SYMVER sock_map_unhash 0x44223fe5
-#SYMVER sock_map_destroy 0xb5575e8a
-#SYMVER sock_map_close 0xeb508f39
+#SYMVER sock_map_unhash 0xd4e3c1a2
+#SYMVER sock_map_destroy 0xcba62837
+#SYMVER sock_map_close 0x73f393af

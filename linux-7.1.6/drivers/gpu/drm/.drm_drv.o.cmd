@@ -1452,17 +1452,17 @@ deps_drivers/gpu/drm/drm_drv.o := \
 drivers/gpu/drm/drm_drv.o: $(deps_drivers/gpu/drm/drm_drv.o)
 
 $(deps_drivers/gpu/drm/drm_drv.o):
-#SYMVER drm_put_dev 0xea53a6d6
-#SYMVER drm_dev_enter 0xb2903581
+#SYMVER drm_put_dev 0x104d769e
+#SYMVER drm_dev_enter 0x82f80e5f
 #SYMVER drm_dev_exit 0xe8a034df
-#SYMVER drm_dev_unplug 0x47871224
-#SYMVER drm_dev_set_dma_dev 0xb64c0988
-#SYMVER drm_dev_wedged_event 0xa4dc5c1d
-#SYMVER __devm_drm_dev_alloc 0x19f50dfd
-#SYMVER __drm_dev_alloc 0x6aadb905
-#SYMVER drm_dev_alloc 0x9bf9ac60
-#SYMVER drm_dev_get 0x5f0127b6
-#SYMVER drm_dev_put 0xa1c1e203
-#SYMVER drmm_cgroup_register_region 0xfd2ec0e8
-#SYMVER drm_dev_register 0x2d99a906
-#SYMVER drm_dev_unregister 0xeff2149e
+#SYMVER drm_dev_unplug 0x14401ea2
+#SYMVER drm_dev_set_dma_dev 0xa116c242
+#SYMVER drm_dev_wedged_event 0xf4429c0c
+#SYMVER __devm_drm_dev_alloc 0x7464f089
+#SYMVER __drm_dev_alloc 0x32fa0e15
+#SYMVER drm_dev_alloc 0x0e858534
+#SYMVER drm_dev_get 0xccf49df0
+#SYMVER drm_dev_put 0xd123f4f2
+#SYMVER drmm_cgroup_register_region 0xd5c082ce
+#SYMVER drm_dev_register 0xecf3ca78
+#SYMVER drm_dev_unregister 0x0611ef28

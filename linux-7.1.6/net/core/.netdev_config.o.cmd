@@ -1594,4 +1594,4 @@ deps_net/core/netdev_config.o := \
 net/core/netdev_config.o: $(deps_net/core/netdev_config.o)
 
 $(deps_net/core/netdev_config.o):
-#SYMVER netdev_queue_config 0xb9ac85ff
+#SYMVER netdev_queue_config 0xc5ec42a6

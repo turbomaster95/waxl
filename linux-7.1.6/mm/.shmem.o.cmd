@@ -1484,12 +1484,12 @@ deps_mm/shmem.o := \
 mm/shmem.o: $(deps_mm/shmem.o)
 
 $(deps_mm/shmem.o):
-#SYMVER shmem_mapping 0x8457fbee
-#SYMVER shmem_truncate_range 0xab9a4013
-#SYMVER shmem_writeout 0xcf3f15ab
-#SYMVER shmem_get_folio 0x695a4dc9
-#SYMVER shmem_kernel_file_setup 0x11de7a41
-#SYMVER shmem_file_setup 0x1dc61d93
-#SYMVER shmem_file_setup_with_mnt 0x04a748d7
-#SYMVER shmem_read_folio_gfp 0x8f0488e0
-#SYMVER shmem_read_mapping_page_gfp 0xa5807e63
+#SYMVER shmem_mapping 0x449b7ccb
+#SYMVER shmem_truncate_range 0xd4100d0b
+#SYMVER shmem_writeout 0x93487de6
+#SYMVER shmem_get_folio 0x7ddc4827
+#SYMVER shmem_kernel_file_setup 0x7df9b5ec
+#SYMVER shmem_file_setup 0x58db002f
+#SYMVER shmem_file_setup_with_mnt 0xcba569a4
+#SYMVER shmem_read_folio_gfp 0x8165bdf7
+#SYMVER shmem_read_mapping_page_gfp 0x5387f528

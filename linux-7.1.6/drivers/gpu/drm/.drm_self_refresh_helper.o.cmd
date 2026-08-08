@@ -1251,7 +1251,7 @@ deps_drivers/gpu/drm/drm_self_refresh_helper.o := \
 drivers/gpu/drm/drm_self_refresh_helper.o: $(deps_drivers/gpu/drm/drm_self_refresh_helper.o)
 
 $(deps_drivers/gpu/drm/drm_self_refresh_helper.o):
-#SYMVER drm_self_refresh_helper_update_avg_times 0xb19d34ac
-#SYMVER drm_self_refresh_helper_alter_state 0x50b358ab
-#SYMVER drm_self_refresh_helper_init 0x28b9fe8b
-#SYMVER drm_self_refresh_helper_cleanup 0xdfc193b5
+#SYMVER drm_self_refresh_helper_update_avg_times 0xcb359f7a
+#SYMVER drm_self_refresh_helper_alter_state 0x2632b799
+#SYMVER drm_self_refresh_helper_init 0xeb9c8b99
+#SYMVER drm_self_refresh_helper_cleanup 0xba9d8e76

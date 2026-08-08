@@ -1255,8 +1255,8 @@ deps_drivers/gpu/drm/drm_modeset_helper.o := \
 drivers/gpu/drm/drm_modeset_helper.o: $(deps_drivers/gpu/drm/drm_modeset_helper.o)
 
 $(deps_drivers/gpu/drm/drm_modeset_helper.o):
-#SYMVER drm_helper_move_panel_connectors_to_head 0x2b95cd77
-#SYMVER drm_helper_mode_fill_fb_struct 0x5980bb05
-#SYMVER drm_crtc_init 0x689e82cb
-#SYMVER drm_mode_config_helper_suspend 0x9be74d6b
-#SYMVER drm_mode_config_helper_resume 0xc82e81b7
+#SYMVER drm_helper_move_panel_connectors_to_head 0x48a29793
+#SYMVER drm_helper_mode_fill_fb_struct 0x77dd93cc
+#SYMVER drm_crtc_init 0xdeb2102f
+#SYMVER drm_mode_config_helper_suspend 0x6b7234b3
+#SYMVER drm_mode_config_helper_resume 0x885abf33

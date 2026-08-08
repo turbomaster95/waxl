@@ -1577,13 +1577,13 @@ deps_net/sched/sch_mq.o := \
 net/sched/sch_mq.o: $(deps_net/sched/sch_mq.o)
 
 $(deps_net/sched/sch_mq.o):
-#SYMVER mq_destroy_common 0x623b65e1
-#SYMVER mq_init_common 0xe79c5b93
-#SYMVER mq_attach 0xc7f4cfeb
-#SYMVER mq_dump_common 0xc3a62193
-#SYMVER mq_select_queue 0x7da7874f
-#SYMVER mq_leaf 0xd3dfc21d
-#SYMVER mq_find 0x963e66fd
-#SYMVER mq_dump_class 0x7000c334
-#SYMVER mq_dump_class_stats 0xf6d25c19
-#SYMVER mq_walk 0xaf7d6a3e
+#SYMVER mq_destroy_common 0x571f4750
+#SYMVER mq_init_common 0xdfb71658
+#SYMVER mq_attach 0xf14cc0fa
+#SYMVER mq_dump_common 0xff4a446b
+#SYMVER mq_select_queue 0x3f5110f1
+#SYMVER mq_leaf 0x57a978df
+#SYMVER mq_find 0x6091321d
+#SYMVER mq_dump_class 0xe385f489
+#SYMVER mq_dump_class_stats 0xec38ff33
+#SYMVER mq_walk 0x63295c41

@@ -1286,6 +1286,7 @@ deps_drivers/video/aperture.o := \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
   include/linux/ctype.h \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1303,6 +1304,33 @@ deps_drivers/video/aperture.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/regulator/consumer.h \
     $(wildcard include/config/REGULATOR) \
   include/linux/suspend.h \
@@ -1427,7 +1455,7 @@ deps_drivers/video/aperture.o := \
 drivers/video/aperture.o: $(deps_drivers/video/aperture.o)
 
 $(deps_drivers/video/aperture.o):
-#SYMVER devm_aperture_acquire_for_platform_device 0xe0f55738
+#SYMVER devm_aperture_acquire_for_platform_device 0x11268a44
 #SYMVER aperture_remove_conflicting_devices 0xee0118df
-#SYMVER __aperture_remove_legacy_vga_devices 0xe90b84ea
-#SYMVER aperture_remove_conflicting_pci_devices 0x2c6352e5
+#SYMVER __aperture_remove_legacy_vga_devices 0x5ab88225
+#SYMVER aperture_remove_conflicting_pci_devices 0x7014b162

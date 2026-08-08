@@ -1574,6 +1574,6 @@ deps_lib/kobject_uevent.o := \
 lib/kobject_uevent.o: $(deps_lib/kobject_uevent.o)
 
 $(deps_lib/kobject_uevent.o):
-#SYMVER kobject_uevent_env 0x2614dc5b
-#SYMVER kobject_uevent 0xe24ac7db
+#SYMVER kobject_uevent_env 0x15dae9cb
+#SYMVER kobject_uevent 0x96c9ab68
 #SYMVER add_uevent_var 0x9c6febfc

@@ -936,47 +936,24 @@ deps_kernel/time/tick-common.o := \
     $(wildcard include/config/HARDLOCKUP_CHECK_TIMESTAMP) \
     $(wildcard include/config/HAVE_ACPI_APEI_NMI) \
     $(wildcard include/config/NMI_CHECK_CPU) \
-  include/linux/profile.h \
-    $(wildcard include/config/PROFILING) \
-  include/trace/events/power.h \
-    $(wildcard include/config/ARM_PSCI_CPUIDLE) \
-    $(wildcard include/config/ARCH_OMAP2PLUS) \
-  include/linux/cpufreq.h \
-    $(wildcard include/config/CPU_FREQ_STAT) \
-    $(wildcard include/config/CPU_THERMAL) \
-  include/linux/clk.h \
-    $(wildcard include/config/COMMON_CLK) \
-    $(wildcard include/config/HAVE_CLK_PREPARE) \
-    $(wildcard include/config/HAVE_CLK) \
-  include/linux/of.h \
-    $(wildcard include/config/OF_DYNAMIC) \
-    $(wildcard include/config/SPARC) \
-    $(wildcard include/config/OF_PROMTREE) \
-    $(wildcard include/config/OF_KOBJ) \
-    $(wildcard include/config/OF_NUMA) \
-    $(wildcard include/config/OF_OVERLAY) \
-  include/linux/mod_devicetable.h \
-  include/uapi/linux/mei.h \
-  include/uapi/linux/mei_uuid.h \
-  include/linux/uuid.h \
-  include/linux/property.h \
-  include/linux/fwnode.h \
-  include/linux/pm_opp.h \
-    $(wildcard include/config/PM_OPP) \
-  include/linux/pm_qos.h \
-    $(wildcard include/config/CPU_IDLE) \
-    $(wildcard include/config/PM_QOS_CPU_SYSTEM_WAKEUP) \
-  include/linux/plist.h \
-    $(wildcard include/config/DEBUG_PLIST) \
-  include/linux/tracepoint.h \
-    $(wildcard include/config/HAVE_SYSCALL_TRACEPOINTS) \
-  include/linux/rcupdate_trace.h \
-    $(wildcard include/config/TASKS_TRACE_RCU_NO_MB) \
-  include/linux/static_call.h \
-  arch/x86/include/asm/static_call.h \
-  arch/x86/include/asm/text-patching.h \
-    $(wildcard include/config/UML_X86) \
-  include/linux/cfi.h \
+  arch/x86/include/asm/nmi.h \
+  include/linux/irq_work.h \
+    $(wildcard include/config/IRQ_WORK) \
+  include/linux/rcuwait.h \
+  include/linux/sched/signal.h \
+    $(wildcard include/config/SCHED_AUTOGROUP) \
+    $(wildcard include/config/BSD_PROCESS_ACCT) \
+    $(wildcard include/config/TASKSTATS) \
+    $(wildcard include/config/STACK_GROWSUP) \
+  include/linux/rculist.h \
+    $(wildcard include/config/PROVE_RCU_LIST) \
+  include/linux/signal.h \
+    $(wildcard include/config/DYNAMIC_SIGFRAME) \
+  include/linux/sched/jobctl.h \
+  include/linux/sched/task.h \
+    $(wildcard include/config/HAVE_EXIT_THREAD) \
+    $(wildcard include/config/ARCH_WANTS_DYNAMIC_TASK_STRUCT) \
+    $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
   include/linux/uaccess.h \
     $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
     $(wildcard include/config/HARDENED_USERCOPY) \
@@ -1029,6 +1006,87 @@ deps_kernel/time/tick-common.o := \
   arch/x86/include/asm/runtime-const.h \
   include/asm-generic/access_ok.h \
     $(wildcard include/config/ALTERNATE_USER_ADDRESS_SPACE) \
+  include/linux/cred.h \
+  include/linux/capability.h \
+  include/uapi/linux/capability.h \
+  include/linux/key.h \
+    $(wildcard include/config/KEY_NOTIFICATIONS) \
+    $(wildcard include/config/NET) \
+  include/linux/assoc_array.h \
+    $(wildcard include/config/ASSOCIATIVE_ARRAY) \
+  include/linux/sched/user.h \
+    $(wildcard include/config/EPOLL) \
+    $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
+    $(wildcard include/config/IOMMUFD) \
+    $(wildcard include/config/WATCH_QUEUE) \
+  include/linux/pid.h \
+  include/linux/rhashtable-types.h \
+  include/linux/posix-timers.h \
+  include/linux/alarmtimer.h \
+    $(wildcard include/config/RTC_CLASS) \
+  include/linux/rcuref.h \
+  arch/x86/include/asm/irq_work.h \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/PCI) \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  include/linux/fwnode.h \
+  include/linux/profile.h \
+    $(wildcard include/config/PROFILING) \
+  include/trace/events/power.h \
+    $(wildcard include/config/ARM_PSCI_CPUIDLE) \
+    $(wildcard include/config/ARCH_OMAP2PLUS) \
+  include/linux/cpufreq.h \
+    $(wildcard include/config/CPU_FREQ_STAT) \
+    $(wildcard include/config/CPU_THERMAL) \
+  include/linux/clk.h \
+    $(wildcard include/config/COMMON_CLK) \
+    $(wildcard include/config/HAVE_CLK_PREPARE) \
+    $(wildcard include/config/HAVE_CLK) \
+  include/linux/of.h \
+    $(wildcard include/config/OF_DYNAMIC) \
+    $(wildcard include/config/SPARC) \
+    $(wildcard include/config/OF_PROMTREE) \
+    $(wildcard include/config/OF_KOBJ) \
+    $(wildcard include/config/OF_NUMA) \
+    $(wildcard include/config/OF_OVERLAY) \
+  include/linux/mod_devicetable.h \
+  include/uapi/linux/mei.h \
+  include/uapi/linux/mei_uuid.h \
+  include/linux/uuid.h \
+  include/linux/property.h \
+  include/linux/pm_opp.h \
+    $(wildcard include/config/PM_OPP) \
+  include/linux/pm_qos.h \
+    $(wildcard include/config/CPU_IDLE) \
+    $(wildcard include/config/PM_QOS_CPU_SYSTEM_WAKEUP) \
+  include/linux/plist.h \
+    $(wildcard include/config/DEBUG_PLIST) \
+  include/linux/tracepoint.h \
+    $(wildcard include/config/HAVE_SYSCALL_TRACEPOINTS) \
+  include/linux/rcupdate_trace.h \
+    $(wildcard include/config/TASKS_TRACE_RCU_NO_MB) \
+  include/linux/static_call.h \
+  arch/x86/include/asm/static_call.h \
+  arch/x86/include/asm/text-patching.h \
+    $(wildcard include/config/UML_X86) \
+  include/linux/cfi.h \
   arch/x86/include/asm/cfi.h \
     $(wildcard include/config/FINEIBT_BHI) \
     $(wildcard include/config/FUNCTION_PADDING_CFI) \
@@ -1047,7 +1105,6 @@ deps_kernel/time/tick-common.o := \
     $(wildcard include/config/PPC32) \
     $(wildcard include/config/RISCV_USER_CFI) \
     $(wildcard include/config/ARM64_GCS) \
-    $(wildcard include/config/STACK_GROWSUP) \
     $(wildcard include/config/ARCH_HAS_PKEYS) \
     $(wildcard include/config/ARCH_PKEY_BITS) \
     $(wildcard include/config/PARISC) \
@@ -1111,39 +1168,6 @@ deps_kernel/time/tick-common.o := \
     $(wildcard include/config/ACPI_PPTT) \
     $(wildcard include/config/ARM) \
     $(wildcard include/config/ARCH_HAS_CPU_CACHE_ALIASING) \
-  include/linux/rcuwait.h \
-  include/linux/sched/signal.h \
-    $(wildcard include/config/SCHED_AUTOGROUP) \
-    $(wildcard include/config/BSD_PROCESS_ACCT) \
-    $(wildcard include/config/TASKSTATS) \
-  include/linux/rculist.h \
-    $(wildcard include/config/PROVE_RCU_LIST) \
-  include/linux/signal.h \
-    $(wildcard include/config/DYNAMIC_SIGFRAME) \
-  include/linux/sched/jobctl.h \
-  include/linux/sched/task.h \
-    $(wildcard include/config/HAVE_EXIT_THREAD) \
-    $(wildcard include/config/ARCH_WANTS_DYNAMIC_TASK_STRUCT) \
-    $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
-  include/linux/cred.h \
-  include/linux/capability.h \
-  include/uapi/linux/capability.h \
-  include/linux/key.h \
-    $(wildcard include/config/KEY_NOTIFICATIONS) \
-    $(wildcard include/config/NET) \
-  include/linux/assoc_array.h \
-    $(wildcard include/config/ASSOCIATIVE_ARRAY) \
-  include/linux/sched/user.h \
-    $(wildcard include/config/EPOLL) \
-    $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
-    $(wildcard include/config/IOMMUFD) \
-    $(wildcard include/config/WATCH_QUEUE) \
-  include/linux/pid.h \
-  include/linux/rhashtable-types.h \
-  include/linux/posix-timers.h \
-  include/linux/alarmtimer.h \
-    $(wildcard include/config/RTC_CLASS) \
-  include/linux/rcuref.h \
   include/linux/iommu-debug-pagealloc.h \
     $(wildcard include/config/IOMMU_DEBUG_PAGEALLOC) \
   include/linux/huge_mm.h \
@@ -1309,9 +1333,6 @@ deps_kernel/time/tick-common.o := \
     $(wildcard include/config/KALLSYMS_ALL) \
   arch/x86/include/asm/ftrace.h \
     $(wildcard include/config/HAVE_FENTRY) \
-  include/linux/irq_work.h \
-    $(wildcard include/config/IRQ_WORK) \
-  arch/x86/include/asm/irq_work.h \
   include/linux/jump_label_ratelimit.h \
   include/linux/perf_regs.h \
     $(wildcard include/config/HAVE_PERF_REGS) \
@@ -1437,26 +1458,6 @@ deps_kernel/time/tick-common.o := \
     $(wildcard include/config/CLOCKSOURCE_WATCHDOG) \
     $(wildcard include/config/ARCH_CLOCKSOURCE_INIT) \
     $(wildcard include/config/TIMER_PROBE) \
-  arch/x86/include/asm/io.h \
-    $(wildcard include/config/MTRR) \
-    $(wildcard include/config/X86_PAT) \
-  arch/x86/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  arch/x86/include/asm/shared/io.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/HAS_IOPORT) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-  include/asm-generic/iomap.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/PCI) \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
   arch/x86/include/asm/clocksource.h \
   arch/x86/include/asm/vdso/clocksource.h \
   include/vdso/clocksource.h \

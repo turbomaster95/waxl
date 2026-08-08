@@ -1649,27 +1649,27 @@ deps_net/netlink/af_netlink.o := \
 net/netlink/af_netlink.o: $(deps_net/netlink/af_netlink.o)
 
 $(deps_net/netlink/af_netlink.o):
-#SYMVER nl_table 0x21d2cb94
+#SYMVER nl_table 0x43952903
 #SYMVER nl_table_lock 0x16f012f8
 #SYMVER do_trace_netlink_extack 0xe6d2458e
-#SYMVER netlink_add_tap 0xcbd99c3e
-#SYMVER netlink_remove_tap 0xb34b89a5
-#SYMVER __netlink_ns_capable 0x8fdaf649
-#SYMVER netlink_ns_capable 0xff69ab99
-#SYMVER netlink_capable 0xa295d8d4
-#SYMVER netlink_net_capable 0x80ce04a4
-#SYMVER netlink_unicast 0xac310486
-#SYMVER netlink_has_listeners 0xf89c6a73
-#SYMVER netlink_strict_get_check 0xcd247dbd
-#SYMVER netlink_broadcast_filtered 0xae9199b5
-#SYMVER netlink_broadcast 0xe275a7f8
-#SYMVER netlink_set_err 0xd0c71742
-#SYMVER __netlink_kernel_create 0x54de0125
-#SYMVER netlink_kernel_release 0x3b855f5b
-#SYMVER __nlmsg_put 0x7b346257
-#SYMVER __netlink_dump_start 0xbfed6a48
-#SYMVER netlink_ack 0xb0ede6bb
-#SYMVER netlink_rcv_skb 0x80a74797
-#SYMVER nlmsg_notify 0xa8426226
+#SYMVER netlink_add_tap 0xac411bec
+#SYMVER netlink_remove_tap 0x04133b8d
+#SYMVER __netlink_ns_capable 0x8e2bb711
+#SYMVER netlink_ns_capable 0x592ee65d
+#SYMVER netlink_capable 0x5aba9323
+#SYMVER netlink_net_capable 0xb2472bd5
+#SYMVER netlink_unicast 0xc099a997
+#SYMVER netlink_has_listeners 0x4b63bb61
+#SYMVER netlink_strict_get_check 0x5c7145d0
+#SYMVER netlink_broadcast_filtered 0xa1764d7e
+#SYMVER netlink_broadcast 0xa5fcfe8d
+#SYMVER netlink_set_err 0xa18aa8f5
+#SYMVER __netlink_kernel_create 0xcdc24c80
+#SYMVER netlink_kernel_release 0xb4e0385b
+#SYMVER __nlmsg_put 0x8e1e7b61
+#SYMVER __netlink_dump_start 0xde0deae6
+#SYMVER netlink_ack 0x51a44ca3
+#SYMVER netlink_rcv_skb 0x1830d347
+#SYMVER nlmsg_notify 0x9b944960
 #SYMVER netlink_register_notifier 0xfa599bb2
 #SYMVER netlink_unregister_notifier 0xdf54a8f7

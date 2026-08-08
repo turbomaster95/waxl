@@ -1281,9 +1281,9 @@ deps_drivers/gpu/drm/drm_auth.o := \
 drivers/gpu/drm/drm_auth.o: $(deps_drivers/gpu/drm/drm_auth.o)
 
 $(deps_drivers/gpu/drm/drm_auth.o):
-#SYMVER drm_is_current_master 0x6abf2322
-#SYMVER drm_master_get 0xa5eb22e5
-#SYMVER drm_file_get_master 0x6dad1b1d
-#SYMVER drm_master_put 0x70d29a5d
-#SYMVER drm_master_internal_acquire 0x3adee814
-#SYMVER drm_master_internal_release 0x23107a0b
+#SYMVER drm_is_current_master 0x253d57d8
+#SYMVER drm_master_get 0xd7eb6382
+#SYMVER drm_file_get_master 0xc957b88e
+#SYMVER drm_master_put 0x565cddee
+#SYMVER drm_master_internal_acquire 0x37955a88
+#SYMVER drm_master_internal_release 0xc20d2de7

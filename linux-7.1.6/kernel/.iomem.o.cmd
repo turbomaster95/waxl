@@ -1143,5 +1143,5 @@ kernel/iomem.o: $(deps_kernel/iomem.o)
 $(deps_kernel/iomem.o):
 #SYMVER memremap 0x4d924f20
 #SYMVER memunmap 0x9e9fdd9d
-#SYMVER devm_memremap 0xdd21929d
-#SYMVER devm_memunmap 0x2458ac2f
+#SYMVER devm_memremap 0xf3c5f87d
+#SYMVER devm_memunmap 0x971377c3

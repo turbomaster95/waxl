@@ -892,10 +892,10 @@ deps_drivers/base/driver.o := \
 drivers/base/driver.o: $(deps_drivers/base/driver.o)
 
 $(deps_drivers/base/driver.o):
-#SYMVER driver_set_override 0x08cd17c3
-#SYMVER driver_for_each_device 0x86f35922
-#SYMVER driver_find_device 0x7750572f
-#SYMVER driver_create_file 0x367c9331
-#SYMVER driver_remove_file 0xbb6bee90
-#SYMVER driver_register 0x5b7d6f6f
-#SYMVER driver_unregister 0xa5f885c6
+#SYMVER driver_set_override 0x50dea29f
+#SYMVER driver_for_each_device 0x1275fff7
+#SYMVER driver_find_device 0xdaf2619b
+#SYMVER driver_create_file 0xa49db777
+#SYMVER driver_remove_file 0x313f5634
+#SYMVER driver_register 0x76f2d9fd
+#SYMVER driver_unregister 0x226cce75

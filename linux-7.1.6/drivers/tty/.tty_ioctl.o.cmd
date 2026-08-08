@@ -1199,16 +1199,16 @@ deps_drivers/tty/tty_ioctl.o := \
 drivers/tty/tty_ioctl.o: $(deps_drivers/tty/tty_ioctl.o)
 
 $(deps_drivers/tty/tty_ioctl.o):
-#SYMVER tty_chars_in_buffer 0xf6ef3497
-#SYMVER tty_write_room 0x321e2217
-#SYMVER tty_driver_flush_buffer 0x16a570b5
-#SYMVER tty_unthrottle 0xdc94b474
-#SYMVER tty_wait_until_sent 0x414532b8
+#SYMVER tty_chars_in_buffer 0x6e5f56cf
+#SYMVER tty_write_room 0x5292d5fb
+#SYMVER tty_driver_flush_buffer 0xeea8783f
+#SYMVER tty_unthrottle 0x250f7f9a
+#SYMVER tty_wait_until_sent 0xf621b78e
 #SYMVER tty_termios_copy_hw 0xe816048f
 #SYMVER tty_termios_hw_change 0xcd9c13a3
 #SYMVER tty_get_char_size 0xf72a65ea
 #SYMVER tty_get_frame_size 0x1687ec20
-#SYMVER tty_set_termios 0xd8e4d4cb
-#SYMVER tty_mode_ioctl 0x18002948
-#SYMVER tty_perform_flush 0x9107635b
-#SYMVER n_tty_ioctl_helper 0x6dbb1d53
+#SYMVER tty_set_termios 0xa5c8378a
+#SYMVER tty_mode_ioctl 0xb6ca86e9
+#SYMVER tty_perform_flush 0x8e4b2a2d
+#SYMVER n_tty_ioctl_helper 0xb966e5ef

@@ -1096,13 +1096,13 @@ deps_drivers/input/serio/libps2.o := \
 drivers/input/serio/libps2.o: $(deps_drivers/input/serio/libps2.o)
 
 $(deps_drivers/input/serio/libps2.o):
-#SYMVER ps2_sendbyte 0x685fc3f5
-#SYMVER ps2_begin_command 0xb06e204c
-#SYMVER ps2_end_command 0x152828a1
-#SYMVER ps2_drain 0x860627e6
+#SYMVER ps2_sendbyte 0xabd9f07c
+#SYMVER ps2_begin_command 0x3179a430
+#SYMVER ps2_end_command 0x9bb035d9
+#SYMVER ps2_drain 0x283d761b
 #SYMVER ps2_is_keyboard_id 0x213e4965
-#SYMVER __ps2_command 0x215312b4
-#SYMVER ps2_command 0x67ea44db
-#SYMVER ps2_sliced_command 0x94aec125
-#SYMVER ps2_init 0x9646cfd6
-#SYMVER ps2_interrupt 0xb88f007e
+#SYMVER __ps2_command 0xead20e9a
+#SYMVER ps2_command 0x9c594cd0
+#SYMVER ps2_sliced_command 0xc57666c1
+#SYMVER ps2_init 0x72ace7fa
+#SYMVER ps2_interrupt 0xc7696c7f

@@ -1601,9 +1601,9 @@ deps_kernel/bpf/offload.o := \
 kernel/bpf/offload.o: $(deps_kernel/bpf/offload.o)
 
 $(deps_kernel/bpf/offload.o):
-#SYMVER bpf_offload_dev_match 0x6f4a1f52
-#SYMVER bpf_offload_dev_netdev_register 0x35f87b57
-#SYMVER bpf_offload_dev_netdev_unregister 0x5adfcf61
-#SYMVER bpf_offload_dev_create 0x5095b029
+#SYMVER bpf_offload_dev_match 0xa093e206
+#SYMVER bpf_offload_dev_netdev_register 0x28dfa179
+#SYMVER bpf_offload_dev_netdev_unregister 0xa409d2d3
+#SYMVER bpf_offload_dev_create 0x27d7dd74
 #SYMVER bpf_offload_dev_destroy 0x352ec68b
 #SYMVER bpf_offload_dev_priv 0x1f563160

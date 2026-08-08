@@ -1429,15 +1429,15 @@ deps_fs/xattr.o := \
 fs/xattr.o: $(deps_fs/xattr.o)
 
 $(deps_fs/xattr.o):
-#SYMVER xattr_supports_user_prefix 0x77a2a3ed
-#SYMVER __vfs_setxattr 0xcacbdfde
-#SYMVER __vfs_setxattr_locked 0x9c007f3c
-#SYMVER vfs_setxattr 0x92af93e8
-#SYMVER __vfs_getxattr 0x3674b2c7
-#SYMVER vfs_getxattr 0x28ad2705
-#SYMVER vfs_listxattr 0xd3281080
-#SYMVER __vfs_removexattr 0x7be3ac9d
-#SYMVER __vfs_removexattr_locked 0x894a6505
-#SYMVER vfs_removexattr 0x94ae0b6e
-#SYMVER generic_listxattr 0xb8a2dfd5
-#SYMVER xattr_full_name 0xc1ee9e29
+#SYMVER xattr_supports_user_prefix 0x6f7d5d3d
+#SYMVER __vfs_setxattr 0xd13fa440
+#SYMVER __vfs_setxattr_locked 0x5e1f19c0
+#SYMVER vfs_setxattr 0x56f7fd0d
+#SYMVER __vfs_getxattr 0xf2664648
+#SYMVER vfs_getxattr 0xaf95a7e5
+#SYMVER vfs_listxattr 0xe76cd1a7
+#SYMVER __vfs_removexattr 0xed22e9fa
+#SYMVER __vfs_removexattr_locked 0x583e8087
+#SYMVER vfs_removexattr 0xf5a8afbd
+#SYMVER generic_listxattr 0x5b8a381c
+#SYMVER xattr_full_name 0xac27d769

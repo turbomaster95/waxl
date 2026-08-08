@@ -1218,4 +1218,4 @@ deps_drivers/scsi/scsi_proc.o := \
 drivers/scsi/scsi_proc.o: $(deps_drivers/scsi/scsi_proc.o)
 
 $(deps_drivers/scsi/scsi_proc.o):
-#SYMVER scsi_template_proc_dir 0x86361c5d
+#SYMVER scsi_template_proc_dir 0x0c745765

@@ -1310,7 +1310,7 @@ deps_fs/kernfs/dir.o := \
 fs/kernfs/dir.o: $(deps_fs/kernfs/dir.o)
 
 $(deps_fs/kernfs/dir.o):
-#SYMVER kernfs_path_from_node 0xd66088be
-#SYMVER kernfs_get 0x0a8a2397
-#SYMVER kernfs_put 0x831aca5a
-#SYMVER kernfs_find_and_get_ns 0x4583ca04
+#SYMVER kernfs_path_from_node 0x54e67f6c
+#SYMVER kernfs_get 0x7f44c227
+#SYMVER kernfs_put 0xd05a1ea7
+#SYMVER kernfs_find_and_get_ns 0x5b2472d1

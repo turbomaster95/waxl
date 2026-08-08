@@ -1311,6 +1311,7 @@ deps_drivers/input/serio/i8042.o := \
   include/acpi/platform/aclinux.h \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1328,14 +1329,55 @@ deps_drivers/input/serio/i8042.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  include/linux/io.h \
+    $(wildcard include/config/STRICT_DEVMEM) \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/dmi.h \
     $(wildcard include/config/DMI) \
+  include/linux/pnp.h \
+    $(wildcard include/config/ISAPNP) \
+    $(wildcard include/config/PNPBIOS) \
+    $(wildcard include/config/PNPACPI) \
+  include/linux/console.h \
+    $(wildcard include/config/VGA_CONSOLE) \
+    $(wildcard include/config/PRINTK_EXECUTION_CTX) \
+    $(wildcard include/config/TTY) \
+  include/linux/irq_work.h \
+    $(wildcard include/config/IRQ_WORK) \
+  arch/x86/include/asm/irq_work.h \
+  include/uapi/linux/vesa.h \
 
 drivers/input/serio/i8042.o: $(deps_drivers/input/serio/i8042.o)
 
 $(deps_drivers/input/serio/i8042.o):
 #SYMVER i8042_lock_chip 0x17f341a0
 #SYMVER i8042_unlock_chip 0x1b8b95ad
-#SYMVER i8042_install_filter 0xc662e753
-#SYMVER i8042_remove_filter 0xe0a4a5c7
+#SYMVER i8042_install_filter 0xd36b30ef
+#SYMVER i8042_remove_filter 0x7d3dc4a1
 #SYMVER i8042_command 0x4fdee897

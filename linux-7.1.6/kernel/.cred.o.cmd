@@ -1525,12 +1525,12 @@ deps_kernel/cred.o := \
 kernel/cred.o: $(deps_kernel/cred.o)
 
 $(deps_kernel/cred.o):
-#SYMVER __put_cred 0x80e0d779
-#SYMVER get_task_cred 0xb5f8e37c
-#SYMVER prepare_creds 0x7b3592df
-#SYMVER commit_creds 0xb3c5cbb4
-#SYMVER abort_creds 0x6bb5a737
-#SYMVER cred_fscmp 0x6e5686b2
-#SYMVER prepare_kernel_cred 0x8bfeeeab
-#SYMVER set_security_override 0xf5c1e91e
-#SYMVER set_create_files_as 0xc32015aa
+#SYMVER __put_cred 0x9d37ed30
+#SYMVER get_task_cred 0x4703c25e
+#SYMVER prepare_creds 0xe37c61dd
+#SYMVER commit_creds 0x96db38b7
+#SYMVER abort_creds 0x28d755ca
+#SYMVER cred_fscmp 0x0c178243
+#SYMVER prepare_kernel_cred 0x8978f193
+#SYMVER set_security_override 0x7aafce40
+#SYMVER set_create_files_as 0xb3ca5f57

@@ -1418,6 +1418,6 @@ fs/file_attr.o: $(deps_fs/file_attr.o)
 $(deps_fs/file_attr.o):
 #SYMVER fileattr_fill_xflags 0xd7d7739c
 #SYMVER fileattr_fill_flags 0xc3fdb2b9
-#SYMVER vfs_fileattr_get 0xd0284d70
+#SYMVER vfs_fileattr_get 0xbd95b3d4
 #SYMVER copy_fsxattr_to_user 0xfb54b7a4
-#SYMVER vfs_fileattr_set 0xa911fa25
+#SYMVER vfs_fileattr_set 0x777411ae

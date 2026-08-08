@@ -916,7 +916,7 @@ $(deps_lib/bitmap.o):
 #SYMVER bitmap_alloc_node 0x862c8035
 #SYMVER bitmap_zalloc_node 0x84a0ca4d
 #SYMVER bitmap_free 0xca21ebd3
-#SYMVER devm_bitmap_alloc 0xb418fc3b
-#SYMVER devm_bitmap_zalloc 0xaeff2dda
+#SYMVER devm_bitmap_alloc 0x9380ca0b
+#SYMVER devm_bitmap_zalloc 0xcc026ab4
 #SYMVER bitmap_from_arr32 0xf8d07858
 #SYMVER bitmap_to_arr32 0x4ec54e78

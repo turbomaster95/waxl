@@ -1333,8 +1333,8 @@ deps_drivers/gpu/drm/drm_ioctl.o := \
 drivers/gpu/drm/drm_ioctl.o: $(deps_drivers/gpu/drm/drm_ioctl.o)
 
 $(deps_drivers/gpu/drm/drm_ioctl.o):
-#SYMVER drm_noop 0x513bb8d3
-#SYMVER drm_invalid_op 0x44d5d910
-#SYMVER drm_ioctl_kernel 0x867ee1d9
+#SYMVER drm_noop 0xbc87b78e
+#SYMVER drm_invalid_op 0x02065996
+#SYMVER drm_ioctl_kernel 0x117326fd
 #SYMVER drm_ioctl 0xe3b57ecc
 #SYMVER drm_ioctl_flags 0x57b6efe3

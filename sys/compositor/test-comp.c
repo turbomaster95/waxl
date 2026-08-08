@@ -1,319 +1,294 @@
-/*
- * test-wm: Test Window Manager Client
- *
- * Connects to waxl-wm via Unix socket and creates 4 test windows.
- * Demonstrates the window creation, content update, and movement APIs.
- */
-
+#include <waxlc.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#include <errno.h>
-#include <signal.h>
-#include <sys/socket.h>
-#include <sys/un.h>
-#include <time.h>
 #include <stdint.h>
+#include <unistd.h>
 #include <math.h>
-#include <stdbool.h>
+#include <time.h>
+#include <signal.h>
 
-#define WAXL_WM_SOCK "/tmp/waxl-wm.sock"
-
-typedef enum {
-    WM_CMD_CREATE_WINDOW = 1,
-    WM_CMD_DESTROY_WINDOW,
-    WM_CMD_MOVE_WINDOW,
-    WM_CMD_RESIZE_WINDOW,
-    WM_CMD_SET_TITLE,
-    WM_CMD_SHOW_WINDOW,
-    WM_CMD_HIDE_WINDOW,
-    WM_CMD_UPDATE_CONTENT,
-    WM_CMD_GET_EVENT,
-    WM_CMD_QUIT,
-} wm_cmd_t;
-
-typedef struct {
-    uint32_t cmd;
-    int32_t win_id;
-    int32_t x, y;
-    int32_t w, h;
-    char title[256];
-} wm_cmd_msg_t;
-
-typedef struct {
-    int32_t status;
-    int32_t win_id;
-} wm_reply_t;
-
-typedef struct {
-    int wm_fd;
-    int win_id;
-    int width;
-    int height;
-    int x;
-    int y;
-} test_win_t;
+#define ANIMATION_FPS 30
 
 static volatile int g_running = 1;
+static void sigint_handler(int sig) { g_running = 0; }
 
-static void sigint_handler(int sig) {
-    (void)sig;
-    g_running = 0;
+/* Simple pseudo-random */
+static uint32_t lcg_state = 1;
+static inline uint32_t lcg_rand(void) {
+    lcg_state = lcg_state * 1103515245 + 12345;
+    return lcg_state;
+}
+static inline uint32_t rand_color(void) {
+    return waxl_rgb(lcg_rand() & 0xFF, lcg_rand() & 0xFF, lcg_rand() & 0xFF);
 }
 
-static int connect_to_wm(void) {
-    int fd = socket(AF_UNIX, SOCK_STREAM, 0);
-    if (fd < 0) {
-        perror("socket");
-        return -1;
-    }
-
-    struct sockaddr_un addr = {0};
-    addr.sun_family = AF_UNIX;
-    strncpy(addr.sun_path, WAXL_WM_SOCK, sizeof(addr.sun_path) - 1);
-
-    if (connect(fd, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
-        perror("connect");
-        close(fd);
-        return -1;
-    }
-
-    return fd;
-}
-
-static int wm_send_cmd(int fd, wm_cmd_msg_t *cmd, wm_reply_t *reply) {
-    ssize_t n = send(fd, cmd, sizeof(*cmd), 0);
-    if (n != sizeof(*cmd)) return -1;
-
-    n = recv(fd, reply, sizeof(*reply), 0);
-    if (n != sizeof(*reply)) return -1;
-
-    return reply->status;
-}
-
-static int create_window(int fd, int x, int y, int w, int h, const char *title) {
-    wm_cmd_msg_t cmd = {
-        .cmd = WM_CMD_CREATE_WINDOW,
-        .x = x, .y = y,
-        .w = w, .h = h,
-    };
-    strncpy(cmd.title, title, sizeof(cmd.title) - 1);
-
-    wm_reply_t reply;
-    if (wm_send_cmd(fd, &cmd, &reply) < 0) {
-        fprintf(stderr, "Failed to create window\n");
-        return -1;
-    }
-
-    printf("[test-wm] Created window %d ('%s')\n", reply.win_id, title);
-    return reply.win_id;
-}
-
-static int move_window(int fd, int win_id, int x, int y) {
-    wm_cmd_msg_t cmd = {
-        .cmd = WM_CMD_MOVE_WINDOW,
-        .win_id = win_id,
-        .x = x, .y = y,
-    };
-    wm_reply_t reply;
-    return wm_send_cmd(fd, &cmd, &reply);
-}
-
-static int update_content(int fd, int win_id, uint32_t *pixels, int w, int h) {
-    wm_cmd_msg_t cmd = {
-        .cmd = WM_CMD_UPDATE_CONTENT,
-        .win_id = win_id,
-    };
-
-    ssize_t n = send(fd, &cmd, sizeof(cmd), 0);
-    if (n != sizeof(cmd)) return -1;
-
-    size_t size = w * h * sizeof(uint32_t);
-    size_t total = 0;
-    while (total < size) {
-        n = send(fd, (char*)pixels + total, size - total, 0);
-        if (n < 0) {
-            if (errno == EAGAIN || errno == EINTR) continue;
-            return -1;
-        }
-        total += n;
-    }
-
-    wm_reply_t reply;
-    n = recv(fd, &reply, sizeof(reply), 0);
-    if (n != sizeof(reply)) return -1;
-
-    return reply.status;
-}
-
-static int destroy_window(int fd, int win_id) {
-    wm_cmd_msg_t cmd = {
-        .cmd = WM_CMD_DESTROY_WINDOW,
-        .win_id = win_id,
-    };
-    wm_reply_t reply;
-    return wm_send_cmd(fd, &cmd, &reply);
-}
-
-// ---- Drawing Helpers ----
-
-static inline void set_pixel(uint32_t *pixels, int w, int h, int x, int y, uint32_t color) {
-    if (x < 0 || y < 0 || x >= w || y >= h) return;
-    pixels[y * w + x] = color;
-}
-
-static void fill_rect(uint32_t *pixels, int w, int h, int x, int y, int rw, int rh, uint32_t color) {
-    for (int row = y; row < y + rh && row < h; row++) {
-        for (int col = x; col < x + rw && col < w; col++) {
-            if (row >= 0 && col >= 0)
-                pixels[row * w + col] = color;
+/* Draw a filled rectangle into the framebuffer */
+static void draw_rect(uint32_t *fb, uint32_t fb_w, uint32_t fb_h,
+                      int x, int y, int w, int h, uint32_t color) {
+    int x0 = x < 0 ? 0 : x;
+    int y0 = y < 0 ? 0 : y;
+    int x1 = x + w > (int)fb_w ? (int)fb_w : x + w;
+    int y1 = y + h > (int)fb_h ? (int)fb_h : y + h;
+    for (int py = y0; py < y1; py++) {
+        for (int px = x0; px < x1; px++) {
+            fb[py * fb_w + px] = color;
         }
     }
 }
 
-static void draw_gradient(uint32_t *pixels, int w, int h) {
-    for (int y = 0; y < h; y++) {
-        for (int x = 0; x < w; x++) {
-            uint8_t r = (x * 255) / w;
-            uint8_t g = (y * 255) / h;
-            uint8_t b = 128;
-            pixels[y * w + x] = (0xFF << 24) | (r << 16) | (g << 8) | b;
-        }
-    }
-}
-
-static void draw_checkerboard(uint32_t *pixels, int w, int h, int size) {
-    for (int y = 0; y < h; y++) {
-        for (int x = 0; x < w; x++) {
-            bool dark = ((x / size) + (y / size)) % 2 == 0;
-            uint8_t c = dark ? 0x44 : 0x88;
-            pixels[y * w + x] = (0xFF << 24) | (c << 16) | (c << 8) | c;
-        }
-    }
-}
-
-static void draw_circle(uint32_t *pixels, int w, int h, int cx, int cy, int r, uint32_t color) {
-    for (int y = cy - r; y <= cy + r; y++) {
-        for (int x = cx - r; x <= cx + r; x++) {
-            int dx = x - cx;
-            int dy = y - cy;
-            if (dx*dx + dy*dy <= r*r) {
-                set_pixel(pixels, w, h, x, y, color);
+/* Draw a circle */
+static void draw_circle(uint32_t *fb, uint32_t fb_w, uint32_t fb_h,
+                        int cx, int cy, int r, uint32_t color) {
+    for (int y = -r; y <= r; y++) {
+        for (int x = -r; x <= r; x++) {
+            if (x*x + y*y <= r*r) {
+                int px = cx + x;
+                int py = cy + y;
+                if (px >= 0 && py >= 0 && (uint32_t)px < fb_w && (uint32_t)py < fb_h) {
+                    fb[py * fb_w + px] = color;
+                }
             }
         }
     }
 }
 
-// ---- Demo Render Functions ----
+/* Draw text using a simple built-in font */
+static const uint8_t font6x8[96][8] = {
+    {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00},
+    {0x18,0x3C,0x3C,0x18,0x18,0x00,0x18,0x00},
+    {0x36,0x36,0x00,0x00,0x00,0x00,0x00,0x00},
+    {0x36,0x36,0x7F,0x36,0x7F,0x36,0x36,0x00},
+    {0x0C,0x3E,0x03,0x1E,0x30,0x1F,0x0C,0x00},
+    {0x00,0x63,0x33,0x18,0x0C,0x66,0x63,0x00},
+    {0x1C,0x36,0x1C,0x6E,0x3B,0x33,0x6E,0x00},
+    {0x06,0x06,0x03,0x00,0x00,0x00,0x00,0x00},
+    {0x18,0x0C,0x06,0x06,0x06,0x0C,0x18,0x00},
+    {0x06,0x0C,0x18,0x18,0x18,0x0C,0x06,0x00},
+    {0x00,0x66,0x3C,0xFF,0x3C,0x66,0x00,0x00},
+    {0x00,0x0C,0x0C,0x3F,0x0C,0x0C,0x00,0x00},
+    {0x00,0x00,0x00,0x00,0x00,0x0C,0x0C,0x06},
+    {0x00,0x00,0x00,0x3F,0x00,0x00,0x00,0x00},
+    {0x00,0x00,0x00,0x00,0x00,0x0C,0x0C,0x00},
+    {0x60,0x30,0x18,0x0C,0x06,0x03,0x01,0x00},
+    {0x3E,0x63,0x73,0x7B,0x6F,0x67,0x3E,0x00},
+    {0x0C,0x0E,0x0C,0x0C,0x0C,0x0C,0x3F,0x00},
+    {0x1E,0x33,0x30,0x1C,0x06,0x33,0x3F,0x00},
+    {0x1E,0x33,0x30,0x1C,0x30,0x33,0x1E,0x00},
+    {0x38,0x3C,0x36,0x33,0x7F,0x30,0x78,0x00},
+    {0x3F,0x03,0x1F,0x30,0x30,0x33,0x1E,0x00},
+    {0x1C,0x06,0x03,0x1F,0x33,0x33,0x1E,0x00},
+    {0x3F,0x33,0x30,0x18,0x0C,0x0C,0x0C,0x00},
+    {0x1E,0x33,0x33,0x1E,0x33,0x33,0x1E,0x00},
+    {0x1E,0x33,0x33,0x3E,0x30,0x18,0x0E,0x00},
+    {0x00,0x0C,0x0C,0x00,0x00,0x0C,0x0C,0x00},
+    {0x00,0x0C,0x0C,0x00,0x00,0x0C,0x0C,0x06},
+    {0x18,0x0C,0x06,0x03,0x06,0x0C,0x18,0x00},
+    {0x00,0x00,0x3F,0x00,0x00,0x3F,0x00,0x00},
+    {0x06,0x0C,0x18,0x30,0x18,0x0C,0x06,0x00},
+    {0x1E,0x33,0x30,0x18,0x0C,0x00,0x0C,0x00},
+    {0x3E,0x63,0x7B,0x7B,0x7B,0x03,0x1E,0x00},
+    {0x0C,0x1E,0x33,0x33,0x3F,0x33,0x33,0x00},
+    {0x3F,0x66,0x66,0x3E,0x66,0x66,0x3F,0x00},
+    {0x3C,0x66,0x03,0x03,0x03,0x66,0x3C,0x00},
+    {0x1F,0x36,0x66,0x66,0x66,0x36,0x1F,0x00},
+    {0x7F,0x46,0x16,0x1E,0x16,0x46,0x7F,0x00},
+    {0x7F,0x46,0x16,0x1E,0x16,0x06,0x0F,0x00},
+    {0x3C,0x66,0x03,0x03,0x73,0x66,0x7C,0x00},
+    {0x33,0x33,0x33,0x3F,0x33,0x33,0x33,0x00},
+    {0x1E,0x0C,0x0C,0x0C,0x0C,0x0C,0x1E,0x00},
+    {0x78,0x30,0x30,0x30,0x33,0x33,0x1E,0x00},
+    {0x67,0x66,0x36,0x1E,0x36,0x66,0x67,0x00},
+    {0x0F,0x06,0x06,0x06,0x46,0x66,0x7F,0x00},
+    {0x63,0x77,0x7F,0x7F,0x6B,0x63,0x63,0x00},
+    {0x63,0x67,0x6F,0x7B,0x73,0x63,0x63,0x00},
+    {0x1C,0x36,0x63,0x63,0x63,0x36,0x1C,0x00},
+    {0x3F,0x66,0x66,0x3E,0x06,0x06,0x0F,0x00},
+    {0x1E,0x33,0x33,0x33,0x3B,0x1E,0x38,0x00},
+    {0x3F,0x66,0x66,0x3E,0x36,0x66,0x67,0x00},
+    {0x1E,0x33,0x07,0x0E,0x38,0x33,0x1E,0x00},
+    {0x3F,0x2D,0x0C,0x0C,0x0C,0x0C,0x1E,0x00},
+    {0x33,0x33,0x33,0x33,0x33,0x33,0x3F,0x00},
+    {0x33,0x33,0x33,0x33,0x33,0x1E,0x0C,0x00},
+    {0x63,0x63,0x63,0x6B,0x7F,0x77,0x63,0x00},
+    {0x63,0x63,0x36,0x1C,0x1C,0x36,0x63,0x00},
+    {0x33,0x33,0x33,0x1E,0x0C,0x0C,0x1E,0x00},
+    {0x7F,0x63,0x31,0x18,0x4C,0x66,0x7F,0x00},
+    {0x1E,0x06,0x06,0x06,0x06,0x06,0x1E,0x00},
+    {0x03,0x06,0x0C,0x18,0x30,0x60,0x40,0x00},
+    {0x1E,0x18,0x18,0x18,0x18,0x18,0x1E,0x00},
+    {0x08,0x1C,0x36,0x63,0x00,0x00,0x00,0x00},
+    {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xFF},
+    {0x0C,0x0C,0x18,0x00,0x00,0x00,0x00,0x00},
+    {0x00,0x00,0x1E,0x30,0x3E,0x33,0x6E,0x00},
+    {0x07,0x06,0x06,0x3E,0x66,0x66,0x3B,0x00},
+    {0x00,0x00,0x1E,0x33,0x03,0x33,0x1E,0x00},
+    {0x38,0x30,0x30,0x3e,0x33,0x33,0x6E,0x00},
+    {0x00,0x00,0x1E,0x33,0x3f,0x03,0x1E,0x00},
+    {0x1C,0x36,0x06,0x0f,0x06,0x06,0x0F,0x00},
+    {0x00,0x00,0x6E,0x33,0x33,0x3E,0x30,0x1F},
+    {0x07,0x06,0x36,0x6E,0x66,0x66,0x67,0x00},
+    {0x0C,0x00,0x0E,0x0C,0x0C,0x0C,0x1E,0x00},
+    {0x30,0x00,0x30,0x30,0x30,0x33,0x33,0x1E},
+    {0x07,0x06,0x66,0x36,0x1E,0x36,0x67,0x00},
+    {0x0E,0x0C,0x0C,0x0C,0x0C,0x0C,0x1E,0x00},
+    {0x00,0x00,0x33,0x7F,0x7F,0x6B,0x63,0x00},
+    {0x00,0x00,0x1F,0x33,0x33,0x33,0x33,0x00},
+    {0x00,0x00,0x1E,0x33,0x33,0x33,0x1E,0x00},
+    {0x00,0x00,0x3B,0x66,0x66,0x3E,0x06,0x0F},
+    {0x00,0x00,0x6E,0x33,0x33,0x3E,0x30,0x78},
+    {0x00,0x00,0x3B,0x6E,0x66,0x06,0x0F,0x00},
+    {0x00,0x00,0x3E,0x03,0x1E,0x30,0x1F,0x00},
+    {0x08,0x0C,0x3E,0x0C,0x0C,0x2C,0x18,0x00},
+    {0x00,0x00,0x33,0x33,0x33,0x33,0x6E,0x00},
+    {0x00,0x00,0x33,0x33,0x33,0x1E,0x0C,0x00},
+    {0x00,0x00,0x63,0x6B,0x7F,0x36,0x36,0x00},
+    {0x00,0x00,0x63,0x36,0x1C,0x36,0x63,0x00},
+    {0x00,0x00,0x33,0x33,0x33,0x3E,0x30,0x1F},
+    {0x00,0x00,0x3F,0x19,0x0C,0x26,0x3F,0x00},
+};
 
-static void demo_gradient(test_win_t *win) {
-    uint32_t *pixels = calloc(win->width * win->height, sizeof(uint32_t));
-    if (!pixels) return;
-
-    draw_gradient(pixels, win->width, win->height);
-    draw_circle(pixels, win->width, win->height, win->width/2, win->height/2, 60, 0xFFFF0000);
-    draw_circle(pixels, win->width, win->height, win->width/2 - 40, win->height/2 - 30, 20, 0xFF00FF00);
-    draw_circle(pixels, win->width, win->height, win->width/2 + 40, win->height/2 - 30, 20, 0xFF00FF00);
-    draw_circle(pixels, win->width, win->height, win->width/2, win->height/2 + 20, 25, 0xFF0000FF);
-
-    update_content(win->wm_fd, win->win_id, pixels, win->width, win->height);
-    free(pixels);
+static void draw_char(uint32_t *fb, uint32_t fb_w, uint32_t fb_h,
+                      int x, int y, char ch, uint32_t color) {
+    if (ch < 32 || ch > 127) ch = '?';
+    const uint8_t *bmp = font6x8[ch - 32];
+    for (int row = 0; row < 8; row++) {
+        for (int col = 0; col < 6; col++) {
+            if (bmp[row] & (1 << col)) {
+                int px = x + col;
+                int py = y + row;
+                if (px >= 0 && py >= 0 && (uint32_t)px < fb_w && (uint32_t)py < fb_h) {
+                    fb[py * fb_w + px] = color;
+                }
+            }
+        }
+    }
 }
 
-static void demo_checkerboard(test_win_t *win) {
-    uint32_t *pixels = calloc(win->width * win->height, sizeof(uint32_t));
-    if (!pixels) return;
-
-    draw_checkerboard(pixels, win->width, win->height, 40);
-    update_content(win->wm_fd, win->win_id, pixels, win->width, win->height);
-    free(pixels);
+static void draw_string(uint32_t *fb, uint32_t fb_w, uint32_t fb_h,
+                        int x, int y, const char *str, uint32_t color) {
+    while (*str) {
+        draw_char(fb, fb_w, fb_h, x, y, *str, color);
+        x += 6;
+        str++;
+    }
 }
 
-static void demo_animated(test_win_t *win, int frame) {
-    uint32_t *pixels = calloc(win->width * win->height, sizeof(uint32_t));
-    if (!pixels) return;
+/* === Scenes === */
 
-    fill_rect(pixels, win->width, win->height, 0, 0, win->width, win->height, 0xFF111111);
+static void scene_gradient(uint32_t *fb, uint32_t w, uint32_t h, int frame) {
+    (void)frame;
+    for (uint32_t y = 0; y < h; y++) {
+        for (uint32_t x = 0; x < w; x++) {
+            uint8_t r = (x * 255) / w;
+            uint8_t g = (y * 255) / h;
+            uint8_t b = 128;
+            fb[y * w + x] = waxl_rgb(r, g, b);
+        }
+    }
+}
 
+static void scene_bouncing_balls(uint32_t *fb, uint32_t w, uint32_t h, int frame) {
+    for (uint32_t i = 0; i < w * h; i++) fb[i] = waxl_rgb(0x1A, 0x1A, 0x2E);
+
+    const int num_balls = 5;
+    for (int i = 0; i < num_balls; i++) {
+        float t = (frame + i * 73) * 0.02f;
+        int cx = (int)((w / 2) + (w / 3) * sinf(t * 1.3f + i));
+        int cy = (int)((h / 2) + (h / 3) * cosf(t * 0.9f + i * 2));
+        int r = 15 + (i * 8);
+        uint32_t col = waxl_rgb(100 + i * 30, 150 + i * 20, 200 + i * 10);
+        draw_circle(fb, w, h, cx, cy, r, col);
+    }
+
+    draw_string(fb, w, h, 10, 10, "Bouncing Balls Demo", waxl_rgb(0xFF, 0xFF, 0xFF));
+    draw_string(fb, w, h, 10, 22, "Close with Super+Q", waxl_rgb(0xAA, 0xAA, 0xAA));
+}
+
+static void scene_plasma(uint32_t *fb, uint32_t w, uint32_t h, int frame) {
     float t = frame * 0.05f;
-    int bx = (int)(win->width/2 + (win->width/3) * sinf(t));
-    int by = (int)(win->height/2 + (win->height/3) * cosf(t * 1.3f));
-
-    draw_circle(pixels, win->width, win->height, bx, by, 30, 0xFFFF4444);
-    draw_circle(pixels, win->width, win->height,
-                (int)(win->width/2 + (win->width/4) * cosf(t * 0.7f)),
-                (int)(win->height/2 + (win->height/4) * sinf(t * 0.9f)),
-                20, 0xFF44FF44);
-
-    update_content(win->wm_fd, win->win_id, pixels, win->width, win->height);
-    free(pixels);
+    for (uint32_t y = 0; y < h; y++) {
+        for (uint32_t x = 0; x < w; x++) {
+            float fx = (float)x / w * 4.0f;
+            float fy = (float)y / h * 4.0f;
+            float v = sinf(fx + t) + sinf(fy + t) + sinf(fx + fy + t);
+            uint8_t r = (uint8_t)(128 + 127 * sinf(v));
+            uint8_t g = (uint8_t)(128 + 127 * sinf(v + 2.0f));
+            uint8_t b = (uint8_t)(128 + 127 * sinf(v + 4.0f));
+            fb[y * w + x] = waxl_rgb(r, g, b);
+        }
+    }
 }
 
-// ---- Main ----
+static void scene_checkerboard(uint32_t *fb, uint32_t w, uint32_t h, int frame) {
+    int sz = 32 + (frame % 64);
+    for (uint32_t y = 0; y < h; y++) {
+        for (uint32_t x = 0; x < w; x++) {
+            int cx = (x / sz) & 1;
+            int cy = (y / sz) & 1;
+            uint32_t col = (cx ^ cy) ? waxl_rgb(0xDD, 0xDD, 0xDD) : waxl_rgb(0x44, 0x44, 0x44);
+            fb[y * w + x] = col;
+        }
+    }
+    draw_string(fb, w, h, 10, 10, "Checkerboard", waxl_rgb(0xFF, 0x00, 0x00));
+}
+
+/* === Main === */
 
 int main(int argc, char **argv) {
-    (void)argc;
-    (void)argv;
-
+    (void)argc; (void)argv;
     signal(SIGINT, sigint_handler);
+    signal(SIGTERM, sigint_handler);
 
-    int wm_fd = connect_to_wm();
-    if (wm_fd < 0) {
-        fprintf(stderr, "Failed to connect to window manager at %s\n", WAXL_WM_SOCK);
-        fprintf(stderr, "Make sure waxl-wm is running first.\n");
+    lcg_state = (uint32_t)time(NULL);
+
+    printf("[test-wm] Starting waxl test app...\n");
+
+    uint32_t win = waxl_wm_create_window("Waxl Test", 500, 350, 0x222222);
+    if (win == 0) {
+        fprintf(stderr, "[test-wm] Failed to create window\n");
         return 1;
     }
 
-    test_win_t wins[4] = {
-        { .wm_fd = wm_fd, .x = 50,  .y = 50,  .width = 400, .height = 300 }, // Gradient
-        { .wm_fd = wm_fd, .x = 480, .y = 50,  .width = 400, .height = 300 }, // Checkerboard
-        { .wm_fd = wm_fd, .x = 50,  .y = 380, .width = 400, .height = 300 }, // Bouncing Ball Animation
-        { .wm_fd = wm_fd, .x = 480, .y = 380, .width = 400, .height = 300 }  // Moving Window
-    };
+    printf("[test-wm] Window created: id=%u\n", win);
 
-    wins[0].win_id = create_window(wm_fd, wins[0].x, wins[0].y, wins[0].width, wins[0].height, "Gradient Demo");
-    wins[1].win_id = create_window(wm_fd, wins[1].x, wins[1].y, wins[1].width, wins[1].height, "Checkerboard Demo");
-    wins[2].win_id = create_window(wm_fd, wins[2].x, wins[2].y, wins[2].width, wins[2].height, "Animation Demo");
-    wins[3].win_id = create_window(wm_fd, wins[3].x, wins[3].y, wins[3].width, wins[3].height, "Move Demo");
-
-    for (int i = 0; i < 4; i++) {
-        if (wins[i].win_id < 0) {
-            close(wm_fd);
-            return 1;
-        }
+    uint32_t fb_w, fb_h;
+    uint32_t *fb = waxl_wm_get_framebuffer(win, &fb_w, &fb_h);
+    if (!fb) {
+        fprintf(stderr, "[test-wm] Failed to get framebuffer\n");
+        waxl_wm_destroy_window(win);
+        return 1;
     }
 
-    // Static contents render once
-    demo_gradient(&wins[0]);
-    demo_checkerboard(&wins[1]);
-    demo_gradient(&wins[3]);
-
-    printf("[test-wm] Created 4 demo windows. Running render loop. Press Ctrl+C to exit.\n");
+    printf("[test-wm] Framebuffer: %ux%u\n", fb_w, fb_h);
 
     int frame = 0;
-    int move_dx = 3, move_dy = 2;
-    struct timespec ts = {.tv_sec = 0, .tv_nsec = 16666666}; // ~60 FPS
-
+    int scene = 0;
     while (g_running) {
-        // Update bouncing animation in Window 3
-        demo_animated(&wins[2], frame++);
+        switch (scene) {
+            case 0: scene_gradient(fb, fb_w, fb_h, frame); break;
+            case 1: scene_bouncing_balls(fb, fb_w, fb_h, frame); break;
+            case 2: scene_plasma(fb, fb_w, fb_h, frame); break;
+            case 3: scene_checkerboard(fb, fb_w, fb_h, frame); break;
+        }
 
-        // Move Window 4 position
-        wins[3].x += move_dx;
-        wins[3].y += move_dy;
-        if (wins[3].x > 800 || wins[3].x < 480) move_dx = -move_dx;
-        if (wins[3].y > 600 || wins[3].y < 380) move_dy = -move_dy;
-        move_window(wm_fd, wins[3].win_id, wins[3].x, wins[3].y);
+        const char *labels[] = {"Gradient", "Balls", "Plasma", "Checker"};
+        char buf[64];
+        snprintf(buf, sizeof(buf), "Scene: %s (frame %d)", labels[scene], frame);
+        draw_string(fb, fb_w, fb_h, 10, fb_h - 20, buf, waxl_rgb(0xFF, 0xFF, 0xFF));
 
-        nanosleep(&ts, NULL);
+        waxl_wm_present(win);
+
+        frame++;
+        if (frame % 300 == 0) {
+            scene = (scene + 1) % 4;
+            printf("[test-wm] Switched to scene %d\n", scene);
+        }
+
+        usleep(1000000 / ANIMATION_FPS);
     }
 
     printf("[test-wm] Cleaning up...\n");
-    for (int i = 0; i < 4; i++) {
-        destroy_window(wm_fd, wins[i].win_id);
-    }
-    close(wm_fd);
-
+    waxl_wm_destroy_window(win);
     return 0;
 }

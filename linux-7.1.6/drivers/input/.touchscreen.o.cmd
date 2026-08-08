@@ -1060,6 +1060,6 @@ deps_drivers/input/touchscreen.o := \
 drivers/input/touchscreen.o: $(deps_drivers/input/touchscreen.o)
 
 $(deps_drivers/input/touchscreen.o):
-#SYMVER touchscreen_parse_properties 0xaa4fda44
+#SYMVER touchscreen_parse_properties 0x7b4f8efd
 #SYMVER touchscreen_set_mt_pos 0xcf9b558d
-#SYMVER touchscreen_report_pos 0x380c0dff
+#SYMVER touchscreen_report_pos 0xa2b5bb61

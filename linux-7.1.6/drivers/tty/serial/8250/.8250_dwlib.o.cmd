@@ -1254,5 +1254,5 @@ deps_drivers/tty/serial/8250/8250_dwlib.o := \
 drivers/tty/serial/8250/8250_dwlib.o: $(deps_drivers/tty/serial/8250/8250_dwlib.o)
 
 $(deps_drivers/tty/serial/8250/8250_dwlib.o):
-#SYMVER dw8250_do_set_termios 0xfea20a41
-#SYMVER dw8250_setup_port 0xa1bd9c8f
+#SYMVER dw8250_do_set_termios 0xa3ac44cd
+#SYMVER dw8250_setup_port 0xb6acb3c9

@@ -1625,4 +1625,4 @@ deps_kernel/bpf/helpers.o := \
 kernel/bpf/helpers.o: $(deps_kernel/bpf/helpers.o)
 
 $(deps_kernel/bpf/helpers.o):
-#SYMVER bpf_base_func_proto 0x7aa3d2a1
+#SYMVER bpf_base_func_proto 0x13416124

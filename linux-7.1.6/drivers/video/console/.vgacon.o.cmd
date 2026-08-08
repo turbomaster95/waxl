@@ -1189,4 +1189,4 @@ deps_drivers/video/console/vgacon.o := \
 drivers/video/console/vgacon.o: $(deps_drivers/video/console/vgacon.o)
 
 $(deps_drivers/video/console/vgacon.o):
-#SYMVER vga_con 0x953e9172
+#SYMVER vga_con 0x85a61a80

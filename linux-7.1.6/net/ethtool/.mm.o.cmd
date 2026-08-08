@@ -1582,10 +1582,10 @@ deps_net/ethtool/mm.o := \
 net/ethtool/mm.o: $(deps_net/ethtool/mm.o)
 
 $(deps_net/ethtool/mm.o):
-#SYMVER ethtool_dev_mm_supported 0xf68623d2
-#SYMVER ethtool_mmsv_stop 0xf85bbc12
-#SYMVER ethtool_mmsv_link_state_handle 0x36da86c6
-#SYMVER ethtool_mmsv_event_handle 0x1c687cfe
-#SYMVER ethtool_mmsv_get_mm 0xcbfdb5d0
-#SYMVER ethtool_mmsv_set_mm 0x758c240f
-#SYMVER ethtool_mmsv_init 0x4760e4f2
+#SYMVER ethtool_dev_mm_supported 0x85462180
+#SYMVER ethtool_mmsv_stop 0xcc163cef
+#SYMVER ethtool_mmsv_link_state_handle 0x2bc12669
+#SYMVER ethtool_mmsv_event_handle 0xd91f7754
+#SYMVER ethtool_mmsv_get_mm 0xa66eb9df
+#SYMVER ethtool_mmsv_set_mm 0x2f8cab51
+#SYMVER ethtool_mmsv_init 0xfa0c1198

@@ -1555,5 +1555,5 @@ deps_net/devres.o := \
 net/devres.o: $(deps_net/devres.o)
 
 $(deps_net/devres.o):
-#SYMVER devm_alloc_etherdev_mqs 0xc503130e
-#SYMVER devm_register_netdev 0xa52a9d8d
+#SYMVER devm_alloc_etherdev_mqs 0x55c1504d
+#SYMVER devm_register_netdev 0x96b52580

@@ -1251,7 +1251,7 @@ deps_drivers/pci/rom.o := \
 drivers/pci/rom.o: $(deps_drivers/pci/rom.o)
 
 $(deps_drivers/pci/rom.o):
-#SYMVER pci_enable_rom 0x036bed24
-#SYMVER pci_disable_rom 0x597f754e
-#SYMVER pci_map_rom 0x16f41daf
-#SYMVER pci_unmap_rom 0x3dd4eb59
+#SYMVER pci_enable_rom 0x4d647b89
+#SYMVER pci_disable_rom 0x5ee6d9ff
+#SYMVER pci_map_rom 0xad348e67
+#SYMVER pci_unmap_rom 0xa1f585d1

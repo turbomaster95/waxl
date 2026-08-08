@@ -1630,8 +1630,8 @@ deps_net/core/gso.o := \
 net/core/gso.o: $(deps_net/core/gso.o)
 
 $(deps_net/core/gso.o):
-#SYMVER skb_eth_gso_segment 0x938e1542
-#SYMVER skb_mac_gso_segment 0x4a69fbcb
-#SYMVER __skb_gso_segment 0xe419d9bc
-#SYMVER skb_gso_validate_network_len 0x67963d7f
-#SYMVER skb_gso_validate_mac_len 0x8882e6a2
+#SYMVER skb_eth_gso_segment 0x90d4d0b7
+#SYMVER skb_mac_gso_segment 0x81470326
+#SYMVER __skb_gso_segment 0x6d5281f5
+#SYMVER skb_gso_validate_network_len 0x05dd1da9
+#SYMVER skb_gso_validate_mac_len 0x7f52821b

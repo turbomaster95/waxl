@@ -1253,4 +1253,4 @@ deps_block/partitions/core.o := \
 block/partitions/core.o: $(deps_block/partitions/core.o)
 
 $(deps_block/partitions/core.o):
-#SYMVER bdev_disk_changed 0x91e00123
+#SYMVER bdev_disk_changed 0xe3a15daa

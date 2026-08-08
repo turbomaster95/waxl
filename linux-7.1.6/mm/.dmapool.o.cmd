@@ -1150,9 +1150,9 @@ deps_mm/dmapool.o := \
 mm/dmapool.o: $(deps_mm/dmapool.o)
 
 $(deps_mm/dmapool.o):
-#SYMVER dma_pool_create_node 0xb7d07d23
+#SYMVER dma_pool_create_node 0xd9fac09b
 #SYMVER dma_pool_destroy 0xb5aa7165
 #SYMVER dma_pool_alloc 0x678b96ec
 #SYMVER dma_pool_free 0x2f7754a8
-#SYMVER dmam_pool_create 0x71a73210
+#SYMVER dmam_pool_create 0x92054b5d
 #SYMVER dmam_pool_destroy 0x71a672ef

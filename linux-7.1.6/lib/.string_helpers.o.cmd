@@ -1139,7 +1139,7 @@ $(deps_lib/string_helpers.o):
 #SYMVER kstrdup_and_replace 0x94a90ea8
 #SYMVER kasprintf_strarray 0x28310bcd
 #SYMVER kfree_strarray 0x248e1473
-#SYMVER devm_kasprintf_strarray 0x3554f451
+#SYMVER devm_kasprintf_strarray 0xd5ce838f
 #SYMVER skip_spaces 0xb71589f0
 #SYMVER strim 0x77bc13a0
 #SYMVER sysfs_streq 0x222e7ce2

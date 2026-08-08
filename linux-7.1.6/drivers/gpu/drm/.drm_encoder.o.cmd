@@ -1294,7 +1294,7 @@ deps_drivers/gpu/drm/drm_encoder.o := \
 drivers/gpu/drm/drm_encoder.o: $(deps_drivers/gpu/drm/drm_encoder.o)
 
 $(deps_drivers/gpu/drm/drm_encoder.o):
-#SYMVER drm_encoder_init 0x0ec054de
-#SYMVER drm_encoder_cleanup 0x41ddef97
-#SYMVER __drmm_encoder_alloc 0x1f61fdc5
-#SYMVER drmm_encoder_init 0x70f957e2
+#SYMVER drm_encoder_init 0xd9ae59d0
+#SYMVER drm_encoder_cleanup 0x818c29ea
+#SYMVER __drmm_encoder_alloc 0x38d24bf9
+#SYMVER drmm_encoder_init 0xe575c62a

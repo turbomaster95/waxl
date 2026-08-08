@@ -1419,6 +1419,10 @@ deps_kernel/power/qos.o := \
 kernel/power/qos.o: $(deps_kernel/power/qos.o)
 
 $(deps_kernel/power/qos.o):
+#SYMVER cpu_latency_qos_request_active 0x1f66ece2
+#SYMVER cpu_latency_qos_add_request 0x29e75101
+#SYMVER cpu_latency_qos_update_request 0x4d09e223
+#SYMVER cpu_latency_qos_remove_request 0x4b0cef27
 #SYMVER freq_qos_add_request 0x1ebe8f3d
 #SYMVER freq_qos_update_request 0x2e56133e
 #SYMVER freq_qos_remove_request 0x5c473fb0

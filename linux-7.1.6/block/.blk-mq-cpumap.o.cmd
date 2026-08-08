@@ -1263,4 +1263,4 @@ $(deps_block/blk-mq-cpumap.o):
 #SYMVER blk_mq_num_possible_queues 0x360682ec
 #SYMVER blk_mq_num_online_queues 0xfdd546d6
 #SYMVER blk_mq_map_queues 0xb2fa093e
-#SYMVER blk_mq_map_hw_queues 0x12c1714f
+#SYMVER blk_mq_map_hw_queues 0xf3938996

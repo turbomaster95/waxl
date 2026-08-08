@@ -1491,5 +1491,5 @@ $(deps_kernel/time/hrtimer.o):
 #SYMVER hrtimer_setup 0x3112cb02
 #SYMVER hrtimer_setup_on_stack 0x71eb2757
 #SYMVER hrtimer_active 0x8022fc72
-#SYMVER hrtimer_sleeper_start_expires 0xcb35fd6d
-#SYMVER hrtimer_setup_sleeper_on_stack 0xa186dfe2
+#SYMVER hrtimer_sleeper_start_expires 0xc118280c
+#SYMVER hrtimer_setup_sleeper_on_stack 0x4a423f45

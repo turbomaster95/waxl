@@ -1473,14 +1473,14 @@ kernel/signal.o: $(deps_kernel/signal.o)
 
 $(deps_kernel/signal.o):
 #SYMVER recalc_sigpending 0xfb6af58d
-#SYMVER flush_signals 0xce705b89
+#SYMVER flush_signals 0x104271dc
 #SYMVER dequeue_signal 0xc095479f
-#SYMVER kill_pid_usb_asyncio 0xe85951ec
-#SYMVER send_sig_info 0x77bf4a5c
-#SYMVER send_sig 0xb2f74440
+#SYMVER kill_pid_usb_asyncio 0x80bf8439
+#SYMVER send_sig_info 0x94de0e48
+#SYMVER send_sig 0x100623a7
 #SYMVER force_sig 0x6ea9363b
-#SYMVER send_sig_mceerr 0xcb4005b9
-#SYMVER kill_pgrp 0x6e5388e7
-#SYMVER kill_pid 0xd26c97de
+#SYMVER send_sig_mceerr 0xb1f20f9e
+#SYMVER kill_pgrp 0xb27142c6
+#SYMVER kill_pid 0x6ac82766
 #SYMVER sigprocmask 0x6a5fa363
 #SYMVER kernel_sigaction 0x6df1aaf1

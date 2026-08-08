@@ -1286,8 +1286,8 @@ deps_drivers/gpu/drm/drm_vblank_work.o := \
 drivers/gpu/drm/drm_vblank_work.o: $(deps_drivers/gpu/drm/drm_vblank_work.o)
 
 $(deps_drivers/gpu/drm/drm_vblank_work.o):
-#SYMVER drm_vblank_work_schedule 0xd6e78dec
-#SYMVER drm_vblank_work_cancel_sync 0x38a3c38a
-#SYMVER drm_vblank_work_flush 0x40e82eb5
-#SYMVER drm_vblank_work_flush_all 0xbc6268a2
-#SYMVER drm_vblank_work_init 0x165605b4
+#SYMVER drm_vblank_work_schedule 0x2375ef04
+#SYMVER drm_vblank_work_cancel_sync 0xffaedb98
+#SYMVER drm_vblank_work_flush 0x62cc60a0
+#SYMVER drm_vblank_work_flush_all 0xad422eba
+#SYMVER drm_vblank_work_init 0x5e0f9c38

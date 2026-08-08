@@ -4,7 +4,7 @@ set -e
 mkdir -p sysroot
 SYSROOT_ABS="$(cd .. && pwd)/build/sysroot"
 CFLAG="-nostdinc -nostdlib -isystem $SYSROOT_ABS/include -ffreestanding"
-LDFLAG="-B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib -lc"
+LDFLAG="-B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib -lc -static-libgcc"
 
 if [ ! -d luajit-src ]; then
     git clone --depth 1 https://github.com/LuaJIT/LuaJIT luajit-src;

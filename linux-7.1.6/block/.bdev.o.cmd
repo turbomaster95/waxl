@@ -1464,25 +1464,25 @@ deps_block/bdev.o := \
 block/bdev.o: $(deps_block/bdev.o)
 
 $(deps_block/bdev.o):
-#SYMVER I_BDEV 0x0091491d
-#SYMVER file_bdev 0xe770bc22
-#SYMVER invalidate_bdev 0xcb411fca
-#SYMVER bdev_validate_blocksize 0x2c09b2bd
-#SYMVER set_blocksize 0xa3e1b147
-#SYMVER sb_set_blocksize 0x1a6eaae2
-#SYMVER sb_min_blocksize 0x22ba6aaa
-#SYMVER sync_blockdev_nowait 0xac3dafff
-#SYMVER sync_blockdev 0xa24751bb
-#SYMVER sync_blockdev_range 0x1e6357e7
-#SYMVER bdev_freeze 0x1be4ab20
-#SYMVER bdev_thaw 0x542f9c53
-#SYMVER blockdev_superblock 0x4cb898a0
-#SYMVER bd_prepare_to_claim 0xafa4b526
-#SYMVER bd_abort_claiming 0x1a60e10b
-#SYMVER bdev_file_open_by_dev 0x06075378
-#SYMVER bdev_file_open_by_path 0x1ee8d58e
-#SYMVER bdev_fput 0x2a97519a
+#SYMVER I_BDEV 0x845e2555
+#SYMVER file_bdev 0x9bd4d093
+#SYMVER invalidate_bdev 0x9a5db06e
+#SYMVER bdev_validate_blocksize 0x6c29e6b2
+#SYMVER set_blocksize 0xd530fa28
+#SYMVER sb_set_blocksize 0xf9a23ce0
+#SYMVER sb_min_blocksize 0xd202e98a
+#SYMVER sync_blockdev_nowait 0x6745fe3c
+#SYMVER sync_blockdev 0xecd468e8
+#SYMVER sync_blockdev_range 0x13d7cc7c
+#SYMVER bdev_freeze 0x6988019c
+#SYMVER bdev_thaw 0x6040d2d3
+#SYMVER blockdev_superblock 0xde45a9c1
+#SYMVER bd_prepare_to_claim 0x4c9665e8
+#SYMVER bd_abort_claiming 0x9ae9a940
+#SYMVER bdev_file_open_by_dev 0x0d7b928a
+#SYMVER bdev_file_open_by_path 0xc2fcae2d
+#SYMVER bdev_fput 0x322bb678
 #SYMVER lookup_bdev 0x34c7cdbc
-#SYMVER bdev_mark_dead 0xe38084af
-#SYMVER disk_live 0x83f49657
-#SYMVER block_size 0x2f759244
+#SYMVER bdev_mark_dead 0xc6a7dd11
+#SYMVER disk_live 0x9769ad6f
+#SYMVER block_size 0x3e6ec4d3

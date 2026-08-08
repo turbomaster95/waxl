@@ -1420,8 +1420,8 @@ deps_block/blk-merge.o := \
 block/blk-merge.o: $(deps_block/blk-merge.o)
 
 $(deps_block/blk-merge.o):
-#SYMVER bio_submit_split_bioset 0x67176d4c
-#SYMVER bio_split_io_at 0x0f04dbd6
-#SYMVER bio_split_to_limits 0x1d5ce5c4
-#SYMVER blk_bio_list_merge 0xc365a5b6
-#SYMVER blk_mq_sched_try_merge 0xac2d152b
+#SYMVER bio_submit_split_bioset 0x486276b3
+#SYMVER bio_split_io_at 0x74330429
+#SYMVER bio_split_to_limits 0x10bd3937
+#SYMVER blk_bio_list_merge 0x620b246d
+#SYMVER blk_mq_sched_try_merge 0xb0fcf040

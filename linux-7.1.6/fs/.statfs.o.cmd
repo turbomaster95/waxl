@@ -1426,5 +1426,5 @@ deps_fs/statfs.o := \
 fs/statfs.o: $(deps_fs/statfs.o)
 
 $(deps_fs/statfs.o):
-#SYMVER vfs_get_fsid 0xb991d0a2
-#SYMVER vfs_statfs 0x90dc1bde
+#SYMVER vfs_get_fsid 0x9b192814
+#SYMVER vfs_statfs 0xdbb7473a

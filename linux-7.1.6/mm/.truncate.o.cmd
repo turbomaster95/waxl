@@ -1342,15 +1342,15 @@ deps_mm/truncate.o := \
 mm/truncate.o: $(deps_mm/truncate.o)
 
 $(deps_mm/truncate.o):
-#SYMVER folio_invalidate 0x113af760
-#SYMVER generic_error_remove_folio 0x06d3d501
-#SYMVER truncate_inode_pages_range 0x51d7c4a9
-#SYMVER truncate_inode_pages 0x09aa05f3
-#SYMVER truncate_inode_pages_final 0xdb245cb7
-#SYMVER invalidate_mapping_pages 0xc1143389
-#SYMVER invalidate_inode_pages2_range 0x7c547de6
-#SYMVER invalidate_inode_pages2 0x2d6f4818
-#SYMVER truncate_pagecache 0x5b806af5
-#SYMVER truncate_setsize 0xa22e2b1d
-#SYMVER pagecache_isize_extended 0x9ea8304e
-#SYMVER truncate_pagecache_range 0xe045c737
+#SYMVER folio_invalidate 0x94188ba2
+#SYMVER generic_error_remove_folio 0x2fb4a055
+#SYMVER truncate_inode_pages_range 0xb0f599b9
+#SYMVER truncate_inode_pages 0x68b97bb5
+#SYMVER truncate_inode_pages_final 0xd3eb0ff0
+#SYMVER invalidate_mapping_pages 0x2e805721
+#SYMVER invalidate_inode_pages2_range 0xdefcd7f1
+#SYMVER invalidate_inode_pages2 0xff867a4d
+#SYMVER truncate_pagecache 0x30bae22d
+#SYMVER truncate_setsize 0x1e14d53f
+#SYMVER pagecache_isize_extended 0xa5ac1e3b
+#SYMVER truncate_pagecache_range 0xd4afb8a6

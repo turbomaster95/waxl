@@ -1260,18 +1260,20 @@ deps_drivers/gpu/drm/drm_panel.o := \
 drivers/gpu/drm/drm_panel.o: $(deps_drivers/gpu/drm/drm_panel.o)
 
 $(deps_drivers/gpu/drm/drm_panel.o):
-#SYMVER drm_panel_init 0x1818b04f
-#SYMVER drm_panel_add 0x697f819b
-#SYMVER drm_panel_remove 0x5506c8be
-#SYMVER drm_panel_prepare 0x2c203dfb
-#SYMVER drm_panel_unprepare 0x21d7fe9f
-#SYMVER drm_panel_enable 0x45207787
-#SYMVER drm_panel_disable 0x1b4de46e
-#SYMVER drm_panel_get_modes 0x9491810a
-#SYMVER drm_panel_get 0x0c846b0f
-#SYMVER drm_panel_put 0xe0435d93
-#SYMVER __devm_drm_panel_alloc 0x51925ed2
-#SYMVER drm_is_panel_follower 0xd6a09948
-#SYMVER drm_panel_add_follower 0x12c14020
-#SYMVER drm_panel_remove_follower 0xb4f95c5e
-#SYMVER devm_drm_panel_add_follower 0x4f3cb6ad
+#SYMVER drm_panel_init 0x73a4b722
+#SYMVER drm_panel_add 0x18a5d0ec
+#SYMVER drm_panel_remove 0x7baf8cb8
+#SYMVER drm_panel_prepare 0xca95f1b8
+#SYMVER drm_panel_unprepare 0x9e620322
+#SYMVER drm_panel_enable 0x6f482f4d
+#SYMVER drm_panel_disable 0x9b6d0e3a
+#SYMVER drm_panel_get_modes 0xdbd79e2e
+#SYMVER drm_panel_get 0x05e043c5
+#SYMVER drm_panel_put 0x5afcdeaf
+#SYMVER __devm_drm_panel_alloc 0x115e2523
+#SYMVER of_drm_find_panel 0x5cbf15bb
+#SYMVER of_drm_get_panel_orientation 0x1115d3ea
+#SYMVER drm_is_panel_follower 0x3d30eee5
+#SYMVER drm_panel_add_follower 0xcc83166b
+#SYMVER drm_panel_remove_follower 0x0cab0fe6
+#SYMVER devm_drm_panel_add_follower 0x8496aeb9

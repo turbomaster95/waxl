@@ -1290,5 +1290,5 @@ deps_drivers/tty/serial/8250/8250_pcilib.o := \
 drivers/tty/serial/8250/8250_pcilib.o: $(deps_drivers/tty/serial/8250/8250_pcilib.o)
 
 $(deps_drivers/tty/serial/8250/8250_pcilib.o):
-#SYMVER serial_8250_warn_need_ioport 0x4620c648
-#SYMVER serial8250_pci_setup_port 0xbf58af7d
+#SYMVER serial_8250_warn_need_ioport 0x9346a63a
+#SYMVER serial8250_pci_setup_port 0x9344067e

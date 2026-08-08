@@ -1145,5 +1145,5 @@ deps_drivers/tty/tty_mutex.o := \
 drivers/tty/tty_mutex.o: $(deps_drivers/tty/tty_mutex.o)
 
 $(deps_drivers/tty/tty_mutex.o):
-#SYMVER tty_lock 0x43497cb0
-#SYMVER tty_unlock 0x025a96f1
+#SYMVER tty_lock 0xd8ca0519
+#SYMVER tty_unlock 0xa8f77f2b

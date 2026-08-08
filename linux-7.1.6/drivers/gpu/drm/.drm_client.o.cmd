@@ -1351,14 +1351,14 @@ deps_drivers/gpu/drm/drm_client.o := \
 drivers/gpu/drm/drm_client.o: $(deps_drivers/gpu/drm/drm_client.o)
 
 $(deps_drivers/gpu/drm/drm_client.o):
-#SYMVER drm_client_init 0xd22f1d80
-#SYMVER drm_client_register 0x8f28736a
-#SYMVER drm_client_release 0x69d1edaf
-#SYMVER drm_client_buffer_delete 0x674a5f3e
-#SYMVER drm_client_buffer_create 0x310ee430
-#SYMVER drm_client_buffer_vmap_local 0x84823823
-#SYMVER drm_client_buffer_vunmap_local 0xb85f333b
-#SYMVER drm_client_buffer_vmap 0x2fced637
-#SYMVER drm_client_buffer_vunmap 0xfce652cf
-#SYMVER drm_client_buffer_create_dumb 0x099afaeb
-#SYMVER drm_client_buffer_flush 0xec9fe88a
+#SYMVER drm_client_init 0xb29e4f78
+#SYMVER drm_client_register 0x276682a7
+#SYMVER drm_client_release 0x54d7cd69
+#SYMVER drm_client_buffer_delete 0x282d5849
+#SYMVER drm_client_buffer_create 0x566927af
+#SYMVER drm_client_buffer_vmap_local 0x69f5edc5
+#SYMVER drm_client_buffer_vunmap_local 0x7e6200ad
+#SYMVER drm_client_buffer_vmap 0x4497bfaa
+#SYMVER drm_client_buffer_vunmap 0x82db8900
+#SYMVER drm_client_buffer_create_dumb 0x768010d6
+#SYMVER drm_client_buffer_flush 0xf5a50b1d

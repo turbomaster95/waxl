@@ -1736,19 +1736,19 @@ deps_kernel/bpf/syscall.o := \
 kernel/bpf/syscall.o: $(deps_kernel/bpf/syscall.o)
 
 $(deps_kernel/bpf/syscall.o):
-#SYMVER bpf_map_put 0x23a3e9fb
+#SYMVER bpf_map_put 0x66c7a894
 #SYMVER bpf_obj_name_cpy 0x7c9dec8c
-#SYMVER bpf_map_inc 0xd4b8e9bb
-#SYMVER bpf_map_inc_with_uref 0x56b0379b
-#SYMVER bpf_map_get 0x54dd9629
-#SYMVER bpf_map_inc_not_zero 0x887fba73
-#SYMVER bpf_prog_put 0x62a5f6ab
-#SYMVER bpf_prog_add 0xcd21ce04
-#SYMVER bpf_prog_sub 0xbe0cccbf
-#SYMVER bpf_prog_inc 0x148eac3b
-#SYMVER bpf_prog_inc_not_zero 0xbc0ab21c
-#SYMVER bpf_prog_get_type_dev 0x5099d095
-#SYMVER bpf_link_put 0x9008826f
-#SYMVER bpf_link_get_from_fd 0x5e781721
-#SYMVER bpf_link_inc_not_zero 0xa2e78a7c
+#SYMVER bpf_map_inc 0x7ba4bacf
+#SYMVER bpf_map_inc_with_uref 0x20444f02
+#SYMVER bpf_map_get 0x2a1593cf
+#SYMVER bpf_map_inc_not_zero 0x353b1e2a
+#SYMVER bpf_prog_put 0xab76e4de
+#SYMVER bpf_prog_add 0x23dc9e3f
+#SYMVER bpf_prog_sub 0x9140933e
+#SYMVER bpf_prog_inc 0x57d20fb0
+#SYMVER bpf_prog_inc_not_zero 0x4ff1ec2d
+#SYMVER bpf_prog_get_type_dev 0x6c92fbd9
+#SYMVER bpf_link_put 0x3f314985
+#SYMVER bpf_link_get_from_fd 0x8186fbf1
+#SYMVER bpf_link_inc_not_zero 0x89f290ad
 #SYMVER kern_sys_bpf 0x9ac5ab10

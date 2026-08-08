@@ -1347,7 +1347,7 @@ deps_drivers/gpu/drm/drm_client_event.o := \
 drivers/gpu/drm/drm_client_event.o: $(deps_drivers/gpu/drm/drm_client_event.o)
 
 $(deps_drivers/gpu/drm/drm_client_event.o):
-#SYMVER drm_client_dev_unregister 0x62982387
-#SYMVER drm_client_dev_hotplug 0x9a234db9
-#SYMVER drm_client_dev_suspend 0xb54d867c
-#SYMVER drm_client_dev_resume 0xe1c95318
+#SYMVER drm_client_dev_unregister 0x04995111
+#SYMVER drm_client_dev_hotplug 0x38c74ed8
+#SYMVER drm_client_dev_suspend 0xf35cdb83
+#SYMVER drm_client_dev_resume 0xfeb7916b

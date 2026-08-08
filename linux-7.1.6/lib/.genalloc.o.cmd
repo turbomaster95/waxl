@@ -979,5 +979,6 @@ $(deps_lib/genalloc.o):
 #SYMVER gen_pool_fixed_alloc 0x08e6bb43
 #SYMVER gen_pool_first_fit_order_align 0x05f3678f
 #SYMVER gen_pool_best_fit 0x2bf1c53a
-#SYMVER gen_pool_get 0x209a1a25
-#SYMVER devm_gen_pool_create 0x2460506c
+#SYMVER gen_pool_get 0x59c93b93
+#SYMVER devm_gen_pool_create 0x0fe6a583
+#SYMVER of_gen_pool_get 0xdfac57c4

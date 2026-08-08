@@ -1274,6 +1274,7 @@ deps_drivers/base/platform.o := \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
   include/linux/ctype.h \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1291,6 +1292,33 @@ deps_drivers/base/platform.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/clk/clk-conf.h \
     $(wildcard include/config/COMMON_CLK) \
   include/linux/kmemleak.h \
@@ -1331,35 +1359,35 @@ deps_drivers/base/platform.o := \
 drivers/base/platform.o: $(deps_drivers/base/platform.o)
 
 $(deps_drivers/base/platform.o):
-#SYMVER platform_bus 0xd82b990c
-#SYMVER platform_get_resource 0xbaa1e491
-#SYMVER platform_get_mem_or_io 0x2f9970e9
-#SYMVER devm_platform_get_and_ioremap_resource 0xa662a3ac
-#SYMVER devm_platform_ioremap_resource 0xc8e5f20c
-#SYMVER devm_platform_ioremap_resource_byname 0x4f8e8c8c
-#SYMVER platform_get_irq_affinity 0x54bb083d
-#SYMVER platform_get_irq_optional 0x9507f14e
-#SYMVER platform_get_irq 0xc6019f87
-#SYMVER platform_irq_count 0x84f35185
-#SYMVER devm_platform_get_irqs_affinity 0x75d47d52
-#SYMVER platform_get_resource_byname 0xfcab9000
-#SYMVER platform_get_irq_byname 0x4c7e382c
-#SYMVER platform_get_irq_byname_optional 0x27325f64
-#SYMVER platform_add_devices 0x089adb85
-#SYMVER platform_device_put 0x2ec6ca41
-#SYMVER platform_device_alloc 0x1df18b05
-#SYMVER platform_device_add_resources 0x48a84522
-#SYMVER platform_device_add_data 0x7e8d196f
-#SYMVER platform_device_add 0xa367629d
-#SYMVER platform_device_del 0x395eab23
-#SYMVER platform_device_register 0x49fdf234
-#SYMVER platform_device_unregister 0x41e3309c
-#SYMVER platform_device_register_full 0xa3d8a00b
-#SYMVER __platform_driver_register 0x11f158c5
-#SYMVER platform_driver_unregister 0x2bc11239
-#SYMVER __platform_driver_probe 0x73d607ee
-#SYMVER __platform_create_bundle 0x074d75d4
-#SYMVER __platform_register_drivers 0x09e65470
-#SYMVER platform_unregister_drivers 0xd6d8e5b7
-#SYMVER platform_bus_type 0x6d5df04e
-#SYMVER platform_find_device_by_driver 0x344fedd9
+#SYMVER platform_bus 0x55bf5625
+#SYMVER platform_get_resource 0x5aa92b2b
+#SYMVER platform_get_mem_or_io 0x34a2a2f0
+#SYMVER devm_platform_get_and_ioremap_resource 0xec6e1e11
+#SYMVER devm_platform_ioremap_resource 0x14f3e75e
+#SYMVER devm_platform_ioremap_resource_byname 0x1e00f72f
+#SYMVER platform_get_irq_affinity 0x3b66e000
+#SYMVER platform_get_irq_optional 0xa79acb4d
+#SYMVER platform_get_irq 0x14398285
+#SYMVER platform_irq_count 0x13a3dc18
+#SYMVER devm_platform_get_irqs_affinity 0x83b3b96d
+#SYMVER platform_get_resource_byname 0x0a75d1a2
+#SYMVER platform_get_irq_byname 0x4c58ce03
+#SYMVER platform_get_irq_byname_optional 0xd0bc6313
+#SYMVER platform_add_devices 0xec7e6720
+#SYMVER platform_device_put 0x9273874b
+#SYMVER platform_device_alloc 0xf20a9a76
+#SYMVER platform_device_add_resources 0x13c99110
+#SYMVER platform_device_add_data 0xb65b1198
+#SYMVER platform_device_add 0x49b624e4
+#SYMVER platform_device_del 0xd7a31ca1
+#SYMVER platform_device_register 0xcc91608b
+#SYMVER platform_device_unregister 0x7633d8e8
+#SYMVER platform_device_register_full 0x890b26bb
+#SYMVER __platform_driver_register 0xe325547d
+#SYMVER platform_driver_unregister 0x4a1c6f95
+#SYMVER __platform_driver_probe 0x90c071e6
+#SYMVER __platform_create_bundle 0xf3c71a15
+#SYMVER __platform_register_drivers 0xa19a355e
+#SYMVER platform_unregister_drivers 0xbc8b2d51
+#SYMVER platform_bus_type 0x3acc5315
+#SYMVER platform_find_device_by_driver 0x7df1f3f7

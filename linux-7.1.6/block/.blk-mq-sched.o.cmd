@@ -1303,5 +1303,5 @@ deps_block/blk-mq-sched.o := \
 block/blk-mq-sched.o: $(deps_block/blk-mq-sched.o)
 
 $(deps_block/blk-mq-sched.o):
-#SYMVER blk_mq_sched_mark_restart_hctx 0xcb593068
-#SYMVER blk_mq_sched_try_insert_merge 0x501f1df7
+#SYMVER blk_mq_sched_mark_restart_hctx 0xd871d9c2
+#SYMVER blk_mq_sched_try_insert_merge 0xc201f4bd

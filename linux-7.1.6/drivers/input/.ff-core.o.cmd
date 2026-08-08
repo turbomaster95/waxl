@@ -1056,9 +1056,9 @@ deps_drivers/input/ff-core.o := \
 drivers/input/ff-core.o: $(deps_drivers/input/ff-core.o)
 
 $(deps_drivers/input/ff-core.o):
-#SYMVER input_ff_upload 0x0bcb0562
-#SYMVER input_ff_erase 0x23e3b714
-#SYMVER input_ff_flush 0xad56a442
-#SYMVER input_ff_event 0x5f03e6c2
-#SYMVER input_ff_create 0xa4f59761
-#SYMVER input_ff_destroy 0x987f0f58
+#SYMVER input_ff_upload 0x21c6a2c2
+#SYMVER input_ff_erase 0xcbdc5052
+#SYMVER input_ff_flush 0x00483dbf
+#SYMVER input_ff_event 0x4a3dbe23
+#SYMVER input_ff_create 0x35ce163a
+#SYMVER input_ff_destroy 0xe2861348

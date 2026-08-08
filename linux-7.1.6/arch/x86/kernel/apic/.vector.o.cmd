@@ -1554,5 +1554,5 @@ deps_arch/x86/kernel/apic/vector.o := \
 arch/x86/kernel/apic/vector.o: $(deps_arch/x86/kernel/apic/vector.o)
 
 $(deps_arch/x86/kernel/apic/vector.o):
-#SYMVER x86_vector_domain 0x442ecbc1
-#SYMVER irqd_cfg 0x5230372e
+#SYMVER x86_vector_domain 0xea2368ef
+#SYMVER irqd_cfg 0xf62e4840

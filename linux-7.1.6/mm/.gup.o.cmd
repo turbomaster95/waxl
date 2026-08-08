@@ -1361,26 +1361,26 @@ deps_mm/gup.o := \
 mm/gup.o: $(deps_mm/gup.o)
 
 $(deps_mm/gup.o):
-#SYMVER unpin_user_page 0x232789d5
-#SYMVER unpin_folio 0xbd3ef595
-#SYMVER unpin_user_pages_dirty_lock 0x6b2b6f39
-#SYMVER unpin_user_page_range_dirty_lock 0x1f582056
-#SYMVER unpin_user_pages 0xbf70a278
-#SYMVER unpin_user_folio 0xd07ef464
-#SYMVER unpin_folios 0xc3e7acc0
-#SYMVER fixup_user_fault 0x08dbb215
+#SYMVER unpin_user_page 0xbbcdcb64
+#SYMVER unpin_folio 0xa10e3eb7
+#SYMVER unpin_user_pages_dirty_lock 0xd9f9fee9
+#SYMVER unpin_user_page_range_dirty_lock 0xe2bccadf
+#SYMVER unpin_user_pages 0x9da22d52
+#SYMVER unpin_user_folio 0x397f607a
+#SYMVER unpin_folios 0x6289aa70
+#SYMVER fixup_user_fault 0xe0191d28
 #SYMVER fault_in_writeable 0xc0364007
 #SYMVER fault_in_subpage_writeable 0x1d9672bd
 #SYMVER fault_in_safe_writeable 0xfb348fea
 #SYMVER fault_in_readable 0x8e3e0f7d
-#SYMVER get_user_pages_remote 0xa8d47b34
-#SYMVER get_user_pages 0xea998d41
-#SYMVER get_user_pages_unlocked 0x2a22b4a6
-#SYMVER get_user_pages_fast_only 0x5441ede7
-#SYMVER get_user_pages_fast 0x36779f91
-#SYMVER pin_user_pages_fast 0x55716ff4
-#SYMVER pin_user_pages_remote 0x00112c73
-#SYMVER pin_user_pages 0x7770270d
-#SYMVER pin_user_pages_unlocked 0x1ec959a8
-#SYMVER memfd_pin_folios 0x34571f96
-#SYMVER folio_add_pins 0x8f8d8eb1
+#SYMVER get_user_pages_remote 0x1b61958b
+#SYMVER get_user_pages 0xe49c16da
+#SYMVER get_user_pages_unlocked 0xfe41ba4a
+#SYMVER get_user_pages_fast_only 0x176dfb47
+#SYMVER get_user_pages_fast 0x01a8a2c0
+#SYMVER pin_user_pages_fast 0x17cd3ea1
+#SYMVER pin_user_pages_remote 0x4ac1668a
+#SYMVER pin_user_pages 0xe5dcaa27
+#SYMVER pin_user_pages_unlocked 0x97f6fbb3
+#SYMVER memfd_pin_folios 0x3e2a4359
+#SYMVER folio_add_pins 0x6219f006

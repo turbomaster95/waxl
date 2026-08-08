@@ -1735,20 +1735,20 @@ deps_kernel/events/core.o := \
 kernel/events/core.o: $(deps_kernel/events/core.o)
 
 $(deps_kernel/events/core.o):
-#SYMVER perf_event_disable 0xf1a9ad12
-#SYMVER perf_event_enable 0x324bee84
-#SYMVER perf_event_addr_filters_sync 0x013cf73e
-#SYMVER perf_event_refresh 0xa9b6adbe
-#SYMVER perf_event_release_kernel 0x9bd37e29
-#SYMVER perf_event_read_value 0x8236b04f
-#SYMVER perf_event_pause 0x1ea9321c
-#SYMVER perf_event_period 0x49f455c5
-#SYMVER perf_event_update_userpage 0xf6a22602
-#SYMVER perf_report_aux_output_id 0x1a72a36e
+#SYMVER perf_event_disable 0x86de31b6
+#SYMVER perf_event_enable 0xa22da1f2
+#SYMVER perf_event_addr_filters_sync 0x71111262
+#SYMVER perf_event_refresh 0x13cf8a32
+#SYMVER perf_event_release_kernel 0x997b62b2
+#SYMVER perf_event_read_value 0x33db43e1
+#SYMVER perf_event_pause 0xc446dba8
+#SYMVER perf_event_period 0xbb53554f
+#SYMVER perf_event_update_userpage 0xd817f675
+#SYMVER perf_report_aux_output_id 0x5e80fc9f
 #SYMVER perf_swevent_get_recursion_context 0x4ef5bcf4
-#SYMVER perf_pmu_register 0x7e550e0f
-#SYMVER perf_pmu_unregister 0x74368b12
-#SYMVER perf_event_create_kernel_counter 0x03128e00
-#SYMVER perf_pmu_migrate_context 0xd366c587
+#SYMVER perf_pmu_register 0x20d74872
+#SYMVER perf_pmu_unregister 0xda02d05b
+#SYMVER perf_event_create_kernel_counter 0x7c4c0683
+#SYMVER perf_pmu_migrate_context 0x6150c383
 #SYMVER perf_allow_kernel 0xe05fb37d
-#SYMVER perf_event_sysfs_show 0xd7e58aa2
+#SYMVER perf_event_sysfs_show 0x01a8a303

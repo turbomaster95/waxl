@@ -1477,25 +1477,25 @@ deps_mm/memory.o := \
 mm/memory.o: $(deps_mm/memory.o)
 
 $(deps_mm/memory.o):
-#SYMVER zap_special_vma_range 0xf1844bba
-#SYMVER vm_insert_pages 0xe10e1f98
-#SYMVER map_kernel_pages_prepare 0xe75f914f
-#SYMVER map_kernel_pages_complete 0xdd5a69d8
-#SYMVER vm_insert_page 0x384151ad
-#SYMVER vm_map_pages 0x49b3906b
-#SYMVER vm_map_pages_zero 0xff25e1ac
-#SYMVER vmf_insert_pfn_prot 0x95354e30
-#SYMVER vmf_insert_pfn 0x2e3aeb52
-#SYMVER vmf_insert_page_mkwrite 0x8f964828
-#SYMVER vmf_insert_mixed 0xf1409a95
-#SYMVER remap_pfn_range 0xcad86ecd
-#SYMVER vm_iomap_memory 0xe872d692
-#SYMVER apply_to_page_range 0x323b3830
-#SYMVER unmap_mapping_pages 0xb09cf50b
-#SYMVER unmap_mapping_range 0x28e17630
-#SYMVER handle_mm_fault 0xadfbb5e7
-#SYMVER follow_pfnmap_start 0x19ce3334
-#SYMVER follow_pfnmap_end 0x21cd6cc4
-#SYMVER generic_access_phys 0x3d9c56fd
-#SYMVER access_process_vm 0x0c622eab
-#SYMVER copy_remote_vm_str 0x9f265d65
+#SYMVER zap_special_vma_range 0x66ac8ede
+#SYMVER vm_insert_pages 0x4033249c
+#SYMVER map_kernel_pages_prepare 0x81e137d0
+#SYMVER map_kernel_pages_complete 0x320c2d4f
+#SYMVER vm_insert_page 0x5cb9e317
+#SYMVER vm_map_pages 0xf09078e5
+#SYMVER vm_map_pages_zero 0x43342bf7
+#SYMVER vmf_insert_pfn_prot 0x3191507e
+#SYMVER vmf_insert_pfn 0x82b2d412
+#SYMVER vmf_insert_page_mkwrite 0xad8d8d19
+#SYMVER vmf_insert_mixed 0x9cddbe50
+#SYMVER remap_pfn_range 0x01cfc58b
+#SYMVER vm_iomap_memory 0x5b00271e
+#SYMVER apply_to_page_range 0x365efb3d
+#SYMVER unmap_mapping_pages 0xe5b6011c
+#SYMVER unmap_mapping_range 0x0f9b96b9
+#SYMVER handle_mm_fault 0xa0580e55
+#SYMVER follow_pfnmap_start 0x3aa926cf
+#SYMVER follow_pfnmap_end 0x9a0c69f7
+#SYMVER generic_access_phys 0x117ef40c
+#SYMVER access_process_vm 0xd0ca8a01
+#SYMVER copy_remote_vm_str 0xbb6672fd

@@ -1427,5 +1427,5 @@ deps_mm/fadvise.o := \
 mm/fadvise.o: $(deps_mm/fadvise.o)
 
 $(deps_mm/fadvise.o):
-#SYMVER generic_fadvise 0xd0a6ca2c
-#SYMVER vfs_fadvise 0x5d05ec41
+#SYMVER generic_fadvise 0xa9da8ad2
+#SYMVER vfs_fadvise 0x35b21e53

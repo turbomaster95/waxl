@@ -1168,6 +1168,28 @@ deps_kernel/printk/printk.o := \
   arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/HYPERV) \
     $(wildcard include/config/PCI_MSI) \
+  arch/x86/include/asm/nmi.h \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/PCI) \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  include/linux/fwnode.h \
   include/linux/delay.h \
   arch/x86/include/asm/delay.h \
   include/asm-generic/delay.h \
@@ -1358,27 +1380,6 @@ deps_kernel/printk/printk.o := \
   arch/x86/include/asm/dma.h \
     $(wildcard include/config/ISA_DMA_API) \
     $(wildcard include/config/GENERIC_ISA_DMA) \
-  arch/x86/include/asm/io.h \
-    $(wildcard include/config/MTRR) \
-    $(wildcard include/config/X86_PAT) \
-  arch/x86/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  arch/x86/include/asm/shared/io.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/HAS_IOPORT) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-  include/asm-generic/iomap.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/PCI) \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
-  include/linux/fwnode.h \
   include/linux/syscalls.h \
     $(wildcard include/config/ARCH_HAS_SYSCALL_WRAPPER) \
     $(wildcard include/config/FTRACE_SYSCALLS) \
@@ -1520,11 +1521,11 @@ $(deps_kernel/printk/printk.o):
 #SYMVER console_trylock 0x40d04664
 #SYMVER is_console_locked 0x944a564d
 #SYMVER console_unlock 0xc631580a
-#SYMVER console_suspend 0x2313c794
-#SYMVER console_resume 0xa6676c5c
-#SYMVER register_console 0x6957bbb8
-#SYMVER unregister_console 0xdbb2a588
-#SYMVER console_force_preferred_locked 0x931ea02c
+#SYMVER console_suspend 0x56d0d97f
+#SYMVER console_resume 0x122618c0
+#SYMVER register_console 0x458e6045
+#SYMVER unregister_console 0x4c762856
+#SYMVER console_force_preferred_locked 0x73fa3d7d
 #SYMVER __printk_ratelimit 0x6128b5fc
 #SYMVER printk_timed_ratelimit 0x07cc4a5d
 #SYMVER kmsg_dump_register 0x3f5c0201

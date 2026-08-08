@@ -1247,4 +1247,4 @@ deps_fs/iomap/swapfile.o := \
 fs/iomap/swapfile.o: $(deps_fs/iomap/swapfile.o)
 
 $(deps_fs/iomap/swapfile.o):
-#SYMVER iomap_swapfile_activate 0x86efe005
+#SYMVER iomap_swapfile_activate 0xf7f2a166

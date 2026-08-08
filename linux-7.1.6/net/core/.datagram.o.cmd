@@ -1669,18 +1669,18 @@ deps_net/core/datagram.o := \
 net/core/datagram.o: $(deps_net/core/datagram.o)
 
 $(deps_net/core/datagram.o):
-#SYMVER __skb_wait_for_more_packets 0xa6b271e4
-#SYMVER __skb_try_recv_datagram 0x91499ab8
-#SYMVER __skb_recv_datagram 0xd612ad51
-#SYMVER skb_recv_datagram 0xa35b9706
-#SYMVER skb_free_datagram 0x4493fc4d
-#SYMVER __sk_queue_drop_skb 0xc703702a
-#SYMVER skb_kill_datagram 0x448bf722
-#SYMVER skb_copy_datagram_iter 0xf0abdaf0
-#SYMVER skb_copy_datagram_from_iter 0xf613bf88
-#SYMVER skb_copy_datagram_from_iter_full 0x156c1aef
-#SYMVER __zerocopy_sg_from_iter 0xe27125c0
-#SYMVER zerocopy_sg_from_iter 0x557859b5
-#SYMVER skb_copy_and_csum_datagram_msg 0xda76e99c
-#SYMVER datagram_poll_queue 0x4e9133a5
-#SYMVER datagram_poll 0x2405f5d1
+#SYMVER __skb_wait_for_more_packets 0x08ee3e5f
+#SYMVER __skb_try_recv_datagram 0xc3f8fe0f
+#SYMVER __skb_recv_datagram 0xaa377108
+#SYMVER skb_recv_datagram 0x4ef2cafa
+#SYMVER skb_free_datagram 0xf6dbd2fe
+#SYMVER __sk_queue_drop_skb 0x63fe9e47
+#SYMVER skb_kill_datagram 0x3c501988
+#SYMVER skb_copy_datagram_iter 0xf406c56b
+#SYMVER skb_copy_datagram_from_iter 0xf9a03bda
+#SYMVER skb_copy_datagram_from_iter_full 0x64a15d2d
+#SYMVER __zerocopy_sg_from_iter 0xdca853a4
+#SYMVER zerocopy_sg_from_iter 0xa4123154
+#SYMVER skb_copy_and_csum_datagram_msg 0x8e74b756
+#SYMVER datagram_poll_queue 0x4881b267
+#SYMVER datagram_poll 0x185d20a3

@@ -939,6 +939,7 @@ deps_drivers/pci/pci.o := \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
   include/linux/ctype.h \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -956,6 +957,66 @@ deps_drivers/pci/pci.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  include/linux/io.h \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+    $(wildcard include/config/STRICT_DEVMEM) \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/apicdef.h \
+  arch/x86/include/asm/fixmap.h \
+    $(wildcard include/config/PROVIDE_OHCI1394_DMA_INIT) \
+    $(wildcard include/config/PCI_MMCONFIG) \
+    $(wildcard include/config/ACPI_APEI_GHES) \
+    $(wildcard include/config/INTEL_TXT) \
+  arch/x86/include/uapi/asm/vsyscall.h \
+  include/asm-generic/fixmap.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/x86_init.h \
+  arch/x86/include/asm/irq_vectors.h \
+    $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/PCI_MSI) \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/delay.h \
     $(wildcard include/config/HIGH_RES_TIMERS) \
   arch/x86/include/asm/delay.h \
@@ -1033,7 +1094,6 @@ deps_drivers/pci/pci.o := \
     $(wildcard include/config/DEBUG_WX) \
     $(wildcard include/config/PAGE_TABLE_CHECK) \
     $(wildcard include/config/X86_SGX) \
-  arch/x86/include/asm/x86_init.h \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
     $(wildcard include/config/MATH_EMULATION) \
@@ -1042,14 +1102,6 @@ deps_drivers/pci/pci.o := \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
   include/linux/page_table_check.h \
   arch/x86/include/asm/pgtable_64.h \
-  arch/x86/include/asm/fixmap.h \
-    $(wildcard include/config/PROVIDE_OHCI1394_DMA_INIT) \
-    $(wildcard include/config/PCI_MMCONFIG) \
-    $(wildcard include/config/ACPI_APEI_GHES) \
-    $(wildcard include/config/INTEL_TXT) \
-  arch/x86/include/asm/apicdef.h \
-  arch/x86/include/uapi/asm/vsyscall.h \
-  include/asm-generic/fixmap.h \
   arch/x86/include/asm/pgtable-invert.h \
   include/linux/memremap.h \
     $(wildcard include/config/DEVICE_PRIVATE) \
@@ -1199,25 +1251,6 @@ deps_drivers/pci/pci.o := \
     $(wildcard include/config/BALLOON) \
     $(wildcard include/config/BALLOON_MIGRATION) \
     $(wildcard include/config/DEBUG_STACK_USAGE) \
-  arch/x86/include/asm/io.h \
-    $(wildcard include/config/MTRR) \
-    $(wildcard include/config/X86_PAT) \
-  arch/x86/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  arch/x86/include/asm/shared/io.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/HAS_IOPORT) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-  include/asm-generic/iomap.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
   include/linux/of.h \
     $(wildcard include/config/OF_DYNAMIC) \
     $(wildcard include/config/SPARC) \
@@ -1231,7 +1264,6 @@ deps_drivers/pci/pci.o := \
   include/linux/msi.h \
     $(wildcard include/config/PCI_MSI_ARCH_FALLBACKS) \
     $(wildcard include/config/PCI_XEN) \
-    $(wildcard include/config/PCI_MSI) \
   include/linux/irqdomain_defs.h \
   include/linux/msi_api.h \
   include/linux/irq.h \
@@ -1246,12 +1278,8 @@ deps_drivers/pci/pci.o := \
     $(wildcard include/config/GENERIC_IRQ_MULTI_HANDLER) \
   include/linux/irqhandler.h \
   include/linux/irqreturn.h \
-  include/linux/io.h \
-    $(wildcard include/config/STRICT_DEVMEM) \
   arch/x86/include/asm/irq.h \
     $(wildcard include/config/KVM) \
-  arch/x86/include/asm/irq_vectors.h \
-    $(wildcard include/config/HYPERV) \
   arch/x86/include/generated/asm/irq_regs.h \
   include/asm-generic/irq_regs.h \
   include/linux/irqdesc.h \
@@ -1375,92 +1403,93 @@ $(deps_drivers/pci/pci.o):
 #SYMVER pci_power_names 0x1ebf6c2a
 #SYMVER pci_pci_problems 0xdc14eda7
 #SYMVER pci_ats_disabled 0x75e9c735
-#SYMVER pci_bus_max_busnr 0x8a33139d
-#SYMVER pci_status_get_and_clear_errors 0xfb5137d2
-#SYMVER pci_ioremap_bar 0x5e069c9d
-#SYMVER pci_ioremap_wc_bar 0x9a98ca91
-#SYMVER pci_find_next_capability 0xeb2ee9c3
-#SYMVER pci_find_capability 0x8f207018
-#SYMVER pci_bus_find_capability 0x6937a749
-#SYMVER pci_find_next_ext_capability 0x57b43600
-#SYMVER pci_find_ext_capability 0x990e6260
-#SYMVER pci_get_dsn 0x013bb38a
-#SYMVER pci_find_next_ht_capability 0x8f288bed
-#SYMVER pci_find_ht_capability 0x70587d58
-#SYMVER pci_find_vsec_capability 0x707780e9
-#SYMVER pci_find_dvsec_capability 0x3d7c6876
-#SYMVER pci_find_parent_resource 0xc6d0a0ed
-#SYMVER pci_find_resource 0xc1a46953
-#SYMVER pci_platform_power_transition 0xaaac9b5a
-#SYMVER pci_set_power_state 0xf691a4de
-#SYMVER pci_set_power_state_locked 0x68b384f9
-#SYMVER pci_save_state 0x1803351c
-#SYMVER pci_restore_state 0xcef02300
-#SYMVER pci_store_saved_state 0xb4015b86
-#SYMVER pci_load_saved_state 0x780cb1e4
-#SYMVER pci_load_and_free_saved_state 0xe58515e1
-#SYMVER pci_reenable_device 0x04eb00ea
-#SYMVER pci_enable_device_mem 0xec3e3853
-#SYMVER pci_enable_device 0x6786e75e
-#SYMVER pci_disable_device 0xac2031d0
-#SYMVER pci_set_pcie_reset_state 0xbeb2e7d7
-#SYMVER pci_pme_capable 0xbddbe2fa
-#SYMVER pci_pme_active 0x5fee1459
-#SYMVER pci_enable_wake 0x86f0fb0e
-#SYMVER pci_wake_from_d3 0xbfe3fe46
-#SYMVER pci_prepare_to_sleep 0x0a26f2c6
-#SYMVER pci_back_from_sleep 0x841c7ae2
-#SYMVER pci_dev_run_wake 0xd965e1a3
-#SYMVER pci_choose_state 0xdc656981
-#SYMVER pci_d3cold_enable 0x8c8b61e3
-#SYMVER pci_d3cold_disable 0x681e547c
-#SYMVER pci_enable_atomic_ops_to_root 0x66cca46a
-#SYMVER pci_release_region 0x50fc948c
-#SYMVER pci_request_region 0xee3dcea2
-#SYMVER pci_release_selected_regions 0x4ed1c44f
-#SYMVER pci_request_selected_regions 0x6c43a64b
-#SYMVER pci_request_selected_regions_exclusive 0x63de2ad0
-#SYMVER pci_release_regions 0x186d313a
-#SYMVER pci_request_regions 0xfd193609
-#SYMVER pci_request_regions_exclusive 0x5ae69914
+#SYMVER pci_bus_max_busnr 0x3d73557e
+#SYMVER pci_status_get_and_clear_errors 0x3d2a38e1
+#SYMVER pci_ioremap_bar 0x7f70379e
+#SYMVER pci_ioremap_wc_bar 0x3390957c
+#SYMVER pci_find_next_capability 0x74e6ac22
+#SYMVER pci_find_capability 0x1757cea5
+#SYMVER pci_bus_find_capability 0x3a467688
+#SYMVER pci_find_next_ext_capability 0xad514c39
+#SYMVER pci_find_ext_capability 0x9b09ee0b
+#SYMVER pci_get_dsn 0x42b7ad5c
+#SYMVER pci_find_next_ht_capability 0xa2c07038
+#SYMVER pci_find_ht_capability 0x4c2e583a
+#SYMVER pci_find_vsec_capability 0x23579241
+#SYMVER pci_find_dvsec_capability 0x7e21a4ea
+#SYMVER pci_find_parent_resource 0x37fa4b4b
+#SYMVER pci_find_resource 0xf1579e80
+#SYMVER pci_platform_power_transition 0x3f4ed23a
+#SYMVER pci_set_power_state 0xd83dc315
+#SYMVER pci_set_power_state_locked 0x329ddca3
+#SYMVER pci_save_state 0x3e3825de
+#SYMVER pci_restore_state 0x68027223
+#SYMVER pci_store_saved_state 0xfe5b0bfd
+#SYMVER pci_load_saved_state 0x1195e82b
+#SYMVER pci_load_and_free_saved_state 0x1af2d7c7
+#SYMVER pci_reenable_device 0xbdf27580
+#SYMVER pci_enable_device_mem 0x8b368a56
+#SYMVER pci_enable_device 0xf1e59e9d
+#SYMVER pci_disable_device 0x32bfc040
+#SYMVER pci_set_pcie_reset_state 0xd9dc728c
+#SYMVER pci_pme_capable 0xc078ebad
+#SYMVER pci_pme_active 0x6e8d9103
+#SYMVER pci_enable_wake 0xd4c6ca98
+#SYMVER pci_wake_from_d3 0x3c1dda69
+#SYMVER pci_prepare_to_sleep 0xb53607d7
+#SYMVER pci_back_from_sleep 0xc823e2d0
+#SYMVER pci_dev_run_wake 0x4a569138
+#SYMVER pci_choose_state 0x192c5c9c
+#SYMVER pci_d3cold_enable 0x415c3dcd
+#SYMVER pci_d3cold_disable 0x2aaf6156
+#SYMVER pci_enable_atomic_ops_to_root 0x56c8751d
+#SYMVER pci_release_region 0x779db783
+#SYMVER pci_request_region 0xa172ebb9
+#SYMVER pci_release_selected_regions 0xcebcfcbf
+#SYMVER pci_request_selected_regions 0xa98d177d
+#SYMVER pci_request_selected_regions_exclusive 0x31b3297c
+#SYMVER pci_release_regions 0x39bd4411
+#SYMVER pci_request_regions 0x076c1bdf
+#SYMVER pci_request_regions_exclusive 0x7645b28e
 #SYMVER pci_pio_to_address 0xf05fbf09
 #SYMVER pci_remap_iospace 0x0aaccc92
 #SYMVER pci_unmap_iospace 0x07f57478
-#SYMVER pci_set_master 0xe4e2aede
-#SYMVER pci_clear_master 0xd2eabae3
-#SYMVER pci_set_cacheline_size 0x611ff503
-#SYMVER pci_set_mwi 0xa2c1e0d7
-#SYMVER pci_try_set_mwi 0x513eb297
-#SYMVER pci_clear_mwi 0xcc582037
-#SYMVER pci_intx 0x062ec3b5
-#SYMVER pci_wait_for_pending_transaction 0xd2c534bf
-#SYMVER pcie_flr 0x986ce3c4
-#SYMVER pcie_reset_flr 0x399d18db
-#SYMVER pci_bridge_secondary_bus_reset 0x04e18a97
-#SYMVER pci_dev_lock 0x69e81720
-#SYMVER pci_dev_trylock 0x516563c3
-#SYMVER pci_dev_unlock 0x51cd622b
-#SYMVER __pci_reset_function_locked 0x1e5f19e7
-#SYMVER pci_reset_function 0xc8cd762c
-#SYMVER pci_reset_function_locked 0xe776ca5f
-#SYMVER pci_try_reset_function 0x3696ec70
-#SYMVER pci_probe_reset_slot 0x15fc3b70
-#SYMVER pci_probe_reset_bus 0x6d87890a
-#SYMVER pci_reset_bus 0x854a9c92
-#SYMVER pcix_get_max_mmrbc 0x8edfca03
-#SYMVER pcix_get_mmrbc 0x6d429e5e
-#SYMVER pcix_set_mmrbc 0x2af186c4
-#SYMVER pcie_get_readrq 0xaa85f413
-#SYMVER pcie_set_readrq 0x61f67a3b
-#SYMVER pcie_get_mps 0x49cd94ed
-#SYMVER pcie_set_mps 0xa235b417
-#SYMVER pcie_link_speed_mbps 0xb24ac7f0
-#SYMVER pcie_bandwidth_available 0x203a6648
-#SYMVER pcie_get_speed_cap 0xad71dc42
-#SYMVER pcie_get_width_cap 0x9ece1a8c
-#SYMVER pcie_print_link_status 0xbd7f4361
-#SYMVER pci_select_bars 0x71a1105d
-#SYMVER pci_device_is_present 0xeffc8e1e
-#SYMVER pci_ignore_hotplug 0x89d9a2d5
+#SYMVER pci_set_master 0x8b5ef1dd
+#SYMVER pci_clear_master 0xc351271e
+#SYMVER pci_set_cacheline_size 0xc31f9e5a
+#SYMVER pci_set_mwi 0x29079a47
+#SYMVER pci_try_set_mwi 0x22b46a28
+#SYMVER pci_clear_mwi 0x4d755724
+#SYMVER pci_intx 0x3e35259a
+#SYMVER pci_wait_for_pending_transaction 0xec22ecaf
+#SYMVER pcie_flr 0x11566001
+#SYMVER pcie_reset_flr 0x8ff8f264
+#SYMVER pci_bridge_secondary_bus_reset 0x1584b182
+#SYMVER pci_dev_lock 0x065355a2
+#SYMVER pci_dev_trylock 0xe5be285f
+#SYMVER pci_dev_unlock 0x4f440f36
+#SYMVER __pci_reset_function_locked 0x8ee6ae37
+#SYMVER pci_reset_function 0x32704022
+#SYMVER pci_reset_function_locked 0x9469e877
+#SYMVER pci_try_reset_function 0xc959d82c
+#SYMVER pci_probe_reset_slot 0x7b4d8efd
+#SYMVER pci_probe_reset_bus 0x7b2937d4
+#SYMVER pci_reset_bus 0xf437ef1a
+#SYMVER pcix_get_max_mmrbc 0x509f9bcf
+#SYMVER pcix_get_mmrbc 0x0062ba87
+#SYMVER pcix_set_mmrbc 0x378b1ffd
+#SYMVER pcie_get_readrq 0xf3038c07
+#SYMVER pcie_set_readrq 0x6ebf9e9d
+#SYMVER pcie_get_mps 0x108aa1d0
+#SYMVER pcie_set_mps 0x8a7a40b4
+#SYMVER pcie_link_speed_mbps 0xbb8a60bc
+#SYMVER pcie_bandwidth_available 0x0b5d4da1
+#SYMVER pcie_get_speed_cap 0xb18ea6be
+#SYMVER pcie_get_width_cap 0x5ea916cf
+#SYMVER pcie_print_link_status 0xae75ac3b
+#SYMVER pci_select_bars 0x09bc94df
+#SYMVER pci_pr3_present 0xbe8aea31
+#SYMVER pci_device_is_present 0xbb7e84e6
+#SYMVER pci_ignore_hotplug 0xd3988684
 #SYMVER pci_bus_find_emul_domain_nr 0x4de56452
 #SYMVER pci_bus_release_emul_domain_nr 0x04f5698a

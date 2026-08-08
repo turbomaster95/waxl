@@ -1,1 +1,1 @@
-cmd_/home/deva/linux-7.1.6/tools/objtool/arch/x86/objtool-in.o :=  printf "/home/deva/linux-7.1.6/tools/objtool/arch/x86/%s " decode.o special.o orc.o | xargs ld -r -o /home/deva/linux-7.1.6/tools/objtool/arch/x86/objtool-in.o
+cmd_/home/deva/waxl/linux-7.1.6/tools/objtool/arch/x86/objtool-in.o :=  printf "/home/deva/waxl/linux-7.1.6/tools/objtool/arch/x86/%s " decode.o special.o orc.o | xargs ld -r -o /home/deva/waxl/linux-7.1.6/tools/objtool/arch/x86/objtool-in.o

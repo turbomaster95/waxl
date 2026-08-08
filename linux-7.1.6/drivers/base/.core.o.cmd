@@ -933,6 +933,7 @@ deps_drivers/base/core.o := \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
   include/linux/ctype.h \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -950,6 +951,66 @@ deps_drivers/base/core.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  include/linux/io.h \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+    $(wildcard include/config/STRICT_DEVMEM) \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/apicdef.h \
+  arch/x86/include/asm/fixmap.h \
+    $(wildcard include/config/PROVIDE_OHCI1394_DMA_INIT) \
+    $(wildcard include/config/PCI_MMCONFIG) \
+    $(wildcard include/config/ACPI_APEI_GHES) \
+    $(wildcard include/config/INTEL_TXT) \
+  arch/x86/include/uapi/asm/vsyscall.h \
+  include/asm-generic/fixmap.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/x86_init.h \
+  arch/x86/include/asm/irq_vectors.h \
+    $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/PCI_MSI) \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/blkdev.h \
     $(wildcard include/config/BLOCK_HOLDER_DEPRECATED) \
     $(wildcard include/config/BLK_DEV_ZONED) \
@@ -1034,7 +1095,6 @@ deps_drivers/base/core.o := \
     $(wildcard include/config/ARCH_ENABLE_THP_MIGRATION) \
     $(wildcard include/config/PAGE_TABLE_CHECK) \
     $(wildcard include/config/X86_SGX) \
-  arch/x86/include/asm/x86_init.h \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
     $(wildcard include/config/MATH_EMULATION) \
@@ -1043,14 +1103,6 @@ deps_drivers/base/core.o := \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
   include/linux/page_table_check.h \
   arch/x86/include/asm/pgtable_64.h \
-  arch/x86/include/asm/fixmap.h \
-    $(wildcard include/config/PROVIDE_OHCI1394_DMA_INIT) \
-    $(wildcard include/config/PCI_MMCONFIG) \
-    $(wildcard include/config/ACPI_APEI_GHES) \
-    $(wildcard include/config/INTEL_TXT) \
-  arch/x86/include/asm/apicdef.h \
-  arch/x86/include/uapi/asm/vsyscall.h \
-  include/asm-generic/fixmap.h \
   arch/x86/include/asm/pgtable-invert.h \
   arch/x86/include/asm/uaccess_64.h \
   arch/x86/include/asm/runtime-const.h \
@@ -1211,7 +1263,6 @@ deps_drivers/base/core.o := \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
-    $(wildcard include/config/HYPERV) \
     $(wildcard include/config/X86_POSTED_MSI) \
   include/linux/highmem-internal.h \
   include/linux/bio.h \
@@ -1271,25 +1322,6 @@ deps_drivers/base/core.o := \
     $(wildcard include/config/SGL_ALLOC) \
     $(wildcard include/config/ARCH_NO_SG_CHAIN) \
     $(wildcard include/config/SG_POOL) \
-  arch/x86/include/asm/io.h \
-    $(wildcard include/config/MTRR) \
-    $(wildcard include/config/X86_PAT) \
-  arch/x86/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  arch/x86/include/asm/shared/io.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/HAS_IOPORT) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-  include/asm-generic/iomap.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
   include/linux/netdevice.h \
     $(wildcard include/config/DCB) \
     $(wildcard include/config/HYPERV_NET) \
@@ -1508,8 +1540,6 @@ deps_drivers/base/core.o := \
     $(wildcard include/config/GENERIC_IRQ_PROBE) \
   include/linux/irqreturn.h \
   arch/x86/include/asm/irq.h \
-  arch/x86/include/asm/irq_vectors.h \
-    $(wildcard include/config/PCI_MSI) \
   arch/x86/include/asm/sections.h \
   include/asm-generic/sections.h \
     $(wildcard include/config/HAVE_FUNCTION_DESCRIPTORS) \
@@ -1654,71 +1684,71 @@ deps_drivers/base/core.o := \
 drivers/base/core.o: $(deps_drivers/base/core.o)
 
 $(deps_drivers/base/core.o):
-#SYMVER fw_devlink_purge_absent_suppliers 0x628263c4
+#SYMVER fw_devlink_purge_absent_suppliers 0xd1122c1d
 #SYMVER device_link_wait_removal 0x29a1491b
-#SYMVER device_link_add 0x298960be
-#SYMVER device_link_del 0xb22e80f1
-#SYMVER device_link_remove 0xcd3ca59c
-#SYMVER dev_driver_string 0x7ef6896a
-#SYMVER device_store_ulong 0x125f436f
-#SYMVER device_show_ulong 0x09179525
-#SYMVER device_store_int 0xd457487f
-#SYMVER device_show_int 0xfed631a0
-#SYMVER device_store_bool 0xcfe9a6b8
-#SYMVER device_show_bool 0x142e0f0c
-#SYMVER device_show_string 0x2861ec95
-#SYMVER device_add_groups 0x63eb505c
-#SYMVER device_remove_groups 0x528aac35
-#SYMVER devm_device_add_group 0xa539f898
-#SYMVER device_create_file 0xc7346b0b
-#SYMVER device_remove_file 0x02a96b36
-#SYMVER device_remove_file_self 0xe27edd1b
-#SYMVER device_create_bin_file 0x0faf23ef
-#SYMVER device_remove_bin_file 0x9936eee0
-#SYMVER device_initialize 0x2f93d3b7
-#SYMVER dev_set_name 0x54178729
-#SYMVER device_add 0x514f5a69
-#SYMVER device_register 0x3523cdf8
-#SYMVER get_device 0x96af2530
-#SYMVER put_device 0x9c99819b
-#SYMVER kill_device 0x471dff69
-#SYMVER device_del 0xf1a2bbdb
-#SYMVER device_unregister 0x904f4458
-#SYMVER device_for_each_child 0x15720a3e
-#SYMVER device_for_each_child_reverse 0xbb799611
-#SYMVER device_for_each_child_reverse_from 0x810f1b49
-#SYMVER device_find_child 0xdf74d704
-#SYMVER __root_device_register 0x7ffcfc5e
-#SYMVER root_device_unregister 0xead8465d
-#SYMVER device_create 0xc5e99300
-#SYMVER device_create_with_groups 0xda6d579c
-#SYMVER device_destroy 0xd3da017f
-#SYMVER device_rename 0x3802cb6a
-#SYMVER device_move 0x7e75194a
-#SYMVER dev_vprintk_emit 0xbb252b19
-#SYMVER dev_printk_emit 0xeea081e8
-#SYMVER _dev_printk 0xd6dd0738
-#SYMVER _dev_emerg 0xc1adf73d
-#SYMVER _dev_alert 0xa1eed36e
-#SYMVER _dev_crit 0x8ebc1ab2
-#SYMVER _dev_err 0x0822e936
-#SYMVER _dev_warn 0x7fc503f7
-#SYMVER _dev_notice 0x4ec1ae33
-#SYMVER _dev_info 0x35ea8db8
-#SYMVER dev_err_probe 0x4fe5c67b
-#SYMVER dev_warn_probe 0xbdca6486
-#SYMVER set_primary_fwnode 0x376942a9
-#SYMVER set_secondary_fwnode 0xe9e86229
-#SYMVER device_remove_of_node 0xff9b5186
-#SYMVER device_add_of_node 0xf2fb8632
-#SYMVER device_set_of_node_from_dev 0x62192202
-#SYMVER device_set_node 0xee2d9990
-#SYMVER get_dev_from_fwnode 0x15c3493d
-#SYMVER device_match_name 0x758d9a01
-#SYMVER device_match_type 0x4ef9ec0f
-#SYMVER device_match_of_node 0xc289ac45
-#SYMVER device_match_fwnode 0xddaf4803
-#SYMVER device_match_devt 0xfcaa3608
-#SYMVER device_match_acpi_dev 0x59725399
-#SYMVER device_match_acpi_handle 0xd4453e7b
-#SYMVER device_match_any 0x520d96f8
+#SYMVER device_link_add 0xd3fe4db9
+#SYMVER device_link_del 0xc29b1df2
+#SYMVER device_link_remove 0xefaf37f7
+#SYMVER dev_driver_string 0x90a8fd05
+#SYMVER device_store_ulong 0xe518d09e
+#SYMVER device_show_ulong 0xf451714c
+#SYMVER device_store_int 0x2dea0623
+#SYMVER device_show_int 0xd05f0ec6
+#SYMVER device_store_bool 0xd60b99b3
+#SYMVER device_show_bool 0x433b0c75
+#SYMVER device_show_string 0xc8b781ae
+#SYMVER device_add_groups 0x1b3390e4
+#SYMVER device_remove_groups 0xb63fc951
+#SYMVER devm_device_add_group 0xb4d8e7a8
+#SYMVER device_create_file 0xf5b097c4
+#SYMVER device_remove_file 0x9f84203d
+#SYMVER device_remove_file_self 0x4c9ceccc
+#SYMVER device_create_bin_file 0xeb3c0ba1
+#SYMVER device_remove_bin_file 0x6b859504
+#SYMVER device_initialize 0x9cf47ad6
+#SYMVER dev_set_name 0x3dd95a3d
+#SYMVER device_add 0x226b5302
+#SYMVER device_register 0x74f8a88d
+#SYMVER get_device 0x297e75e6
+#SYMVER put_device 0x3ae01e1c
+#SYMVER kill_device 0x3f52b391
+#SYMVER device_del 0x0ebaa926
+#SYMVER device_unregister 0x3b5081f4
+#SYMVER device_for_each_child 0x8a92337b
+#SYMVER device_for_each_child_reverse 0xda842a7b
+#SYMVER device_for_each_child_reverse_from 0xef58fa73
+#SYMVER device_find_child 0x99c69ac4
+#SYMVER __root_device_register 0x0b46af27
+#SYMVER root_device_unregister 0xe5a4defd
+#SYMVER device_create 0x83a1c59b
+#SYMVER device_create_with_groups 0xf3611bd2
+#SYMVER device_destroy 0xa0f56357
+#SYMVER device_rename 0x72e8672b
+#SYMVER device_move 0x2a6ab034
+#SYMVER dev_vprintk_emit 0xe4874707
+#SYMVER dev_printk_emit 0xc55a0536
+#SYMVER _dev_printk 0xe45d499c
+#SYMVER _dev_emerg 0x308b968c
+#SYMVER _dev_alert 0x4ccaf184
+#SYMVER _dev_crit 0x8dbb5b2b
+#SYMVER _dev_err 0x97d7a840
+#SYMVER _dev_warn 0xdae9bd19
+#SYMVER _dev_notice 0x22d9c5bd
+#SYMVER _dev_info 0x20ff1674
+#SYMVER dev_err_probe 0x20172a1a
+#SYMVER dev_warn_probe 0xc42aab6a
+#SYMVER set_primary_fwnode 0xcc8342d0
+#SYMVER set_secondary_fwnode 0x645eadec
+#SYMVER device_remove_of_node 0x1b1b1b80
+#SYMVER device_add_of_node 0x4d021ad5
+#SYMVER device_set_of_node_from_dev 0xa8451c4c
+#SYMVER device_set_node 0x69933d65
+#SYMVER get_dev_from_fwnode 0xe57b397f
+#SYMVER device_match_name 0xbb427642
+#SYMVER device_match_type 0x8c299de3
+#SYMVER device_match_of_node 0xdbfcfdc4
+#SYMVER device_match_fwnode 0x5c063594
+#SYMVER device_match_devt 0x57bcdfb7
+#SYMVER device_match_acpi_dev 0x9bb2aef3
+#SYMVER device_match_acpi_handle 0x68cd11b6
+#SYMVER device_match_any 0xc591a637

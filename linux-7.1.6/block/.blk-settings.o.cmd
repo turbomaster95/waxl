@@ -1285,15 +1285,15 @@ deps_block/blk-settings.o := \
 block/blk-settings.o: $(deps_block/blk-settings.o)
 
 $(deps_block/blk-settings.o):
-#SYMVER blk_queue_rq_timeout 0xb7488bb5
+#SYMVER blk_queue_rq_timeout 0xc938727a
 #SYMVER blk_set_stacking_limits 0x201f9e53
 #SYMVER blk_validate_limits 0x255257a3
-#SYMVER queue_limits_commit_update 0x458dbf80
-#SYMVER queue_limits_commit_update_frozen 0x37e288af
-#SYMVER queue_limits_set 0xc002abe5
+#SYMVER queue_limits_commit_update 0xea5cc49c
+#SYMVER queue_limits_commit_update_frozen 0x8715e7de
+#SYMVER queue_limits_set 0x26fdcc80
 #SYMVER blk_stack_limits 0x48a8fd04
-#SYMVER queue_limits_stack_bdev 0x3f36c42a
+#SYMVER queue_limits_stack_bdev 0xad15c91e
 #SYMVER queue_limits_stack_integrity 0x794c4169
-#SYMVER blk_set_queue_depth 0x5210d598
-#SYMVER bdev_alignment_offset 0x9cb549a7
-#SYMVER bdev_discard_alignment 0xda90cb03
+#SYMVER blk_set_queue_depth 0x44c16fe4
+#SYMVER bdev_alignment_offset 0x1e60fcce
+#SYMVER bdev_discard_alignment 0x5d7a773d

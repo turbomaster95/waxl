@@ -1275,16 +1275,16 @@ deps_drivers/scsi/scsi.o := \
 drivers/scsi/scsi.o: $(deps_drivers/scsi/scsi.o)
 
 $(deps_drivers/scsi/scsi.o):
-#SYMVER scsi_change_queue_depth 0x383d918b
-#SYMVER scsi_track_queue_full 0x91e1acb9
-#SYMVER scsi_get_vpd_page 0xe9ae2a9f
-#SYMVER scsi_report_opcode 0x14600a5e
-#SYMVER scsi_device_get 0x62e3913f
-#SYMVER scsi_device_put 0x44544fe4
-#SYMVER __scsi_iterate_devices 0xdca04727
-#SYMVER starget_for_each_device 0xf304b9fb
-#SYMVER __starget_for_each_device 0x71d8c9e4
-#SYMVER __scsi_device_lookup_by_target 0xbec211dc
-#SYMVER scsi_device_lookup_by_target 0x15242287
-#SYMVER __scsi_device_lookup 0xcc89304a
-#SYMVER scsi_device_lookup 0x42a5dbfc
+#SYMVER scsi_change_queue_depth 0xe618617f
+#SYMVER scsi_track_queue_full 0x19eeefea
+#SYMVER scsi_get_vpd_page 0xbf1e5365
+#SYMVER scsi_report_opcode 0x8405f8a1
+#SYMVER scsi_device_get 0xa68f2915
+#SYMVER scsi_device_put 0x33c7e0f7
+#SYMVER __scsi_iterate_devices 0x956784d7
+#SYMVER starget_for_each_device 0xf6e1cf65
+#SYMVER __starget_for_each_device 0x8dc7c981
+#SYMVER __scsi_device_lookup_by_target 0xec588376
+#SYMVER scsi_device_lookup_by_target 0x07b8dfd4
+#SYMVER __scsi_device_lookup 0x470ca688
+#SYMVER scsi_device_lookup 0x02ad49dc

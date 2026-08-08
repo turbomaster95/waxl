@@ -1406,4 +1406,4 @@ kernel/nstree.o: $(deps_kernel/nstree.o)
 
 $(deps_kernel/nstree.o):
 #SYMVER net_ns_tree 0xde15474a
-#SYMVER __ns_tree_remove 0xed0f07dc
+#SYMVER __ns_tree_remove 0xa08497e5

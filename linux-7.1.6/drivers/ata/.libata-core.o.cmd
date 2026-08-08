@@ -1384,6 +1384,7 @@ deps_drivers/ata/libata-core.o := \
   include/acpi/platform/aclinux.h \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1401,6 +1402,33 @@ deps_drivers/ata/libata-core.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/cdrom.h \
   include/uapi/linux/cdrom.h \
   include/linux/async.h \
@@ -1474,8 +1502,8 @@ deps_drivers/ata/libata-core.o := \
 drivers/ata/libata-core.o: $(deps_drivers/ata/libata-core.o)
 
 $(deps_drivers/ata/libata-core.o):
-#SYMVER ata_link_next 0x6e030cf1
-#SYMVER ata_dev_next 0xf6e9b06e
+#SYMVER ata_link_next 0x303138d5
+#SYMVER ata_dev_next 0xba11362e
 #SYMVER atapi_cmd_type 0x8462cb62
 #SYMVER ata_pack_xfermask 0x3a15013b
 #SYMVER ata_xfer_mask2mode 0xc2368ea5
@@ -1486,41 +1514,49 @@ $(deps_drivers/ata/libata-core.o):
 #SYMVER ata_id_string 0xccd86806
 #SYMVER ata_id_c_string 0xafddd545
 #SYMVER ata_id_xfermask 0x030cbca2
-#SYMVER ata_pio_need_iordy 0x00529546
-#SYMVER ata_do_dev_read_id 0xbc412e3a
-#SYMVER ata_cable_40wire 0x702b09c5
-#SYMVER ata_cable_80wire 0xa7ab745b
-#SYMVER ata_cable_unknown 0x604b06e1
-#SYMVER ata_cable_ignore 0x38937377
-#SYMVER ata_cable_sata 0x1b388f92
-#SYMVER ata_dev_pair 0x12d50449
-#SYMVER ata_set_mode 0xe8214048
-#SYMVER ata_wait_after_reset 0xc8a6465e
-#SYMVER ata_std_prereset 0x994ba147
-#SYMVER ata_std_postreset 0xd53a5f15
-#SYMVER ata_dev_set_feature 0xc7f8662f
-#SYMVER ata_std_qc_defer 0x6bddff97
-#SYMVER ata_qc_complete 0xc6827719
-#SYMVER ata_qc_get_active 0x710efa09
-#SYMVER ata_link_online 0xae4d98f5
-#SYMVER ata_link_offline 0x53ab1f00
-#SYMVER ata_port_alloc 0x89863130
-#SYMVER ata_port_free 0x87f279e4
-#SYMVER ata_host_put 0xfd65aab6
-#SYMVER ata_host_alloc 0x9c7c63de
-#SYMVER ata_host_alloc_pinfo 0xfe43238f
-#SYMVER ata_host_start 0xee1b8167
-#SYMVER ata_host_init 0x4e38e4d1
-#SYMVER ata_port_probe 0xaa2d2b62
-#SYMVER ata_host_register 0xc4e1677e
-#SYMVER ata_host_activate 0x5c8f949c
-#SYMVER ata_host_detach 0xb0632194
-#SYMVER ata_pci_remove_one 0xbb623ad6
-#SYMVER ata_pci_shutdown_one 0x494c1976
-#SYMVER pci_test_config_bits 0x97844fb7
-#SYMVER ata_platform_remove_one 0x7ac25913
+#SYMVER ata_pio_need_iordy 0xfadb89b6
+#SYMVER ata_do_dev_read_id 0xc8382974
+#SYMVER ata_cable_40wire 0xd2064d7c
+#SYMVER ata_cable_80wire 0xc7a882c8
+#SYMVER ata_cable_unknown 0x3b62c14d
+#SYMVER ata_cable_ignore 0x45c92a40
+#SYMVER ata_cable_sata 0xd5b6eea7
+#SYMVER ata_dev_pair 0x600b0b65
+#SYMVER ata_set_mode 0xeb2c8d08
+#SYMVER ata_wait_after_reset 0x40a7e99e
+#SYMVER ata_std_prereset 0xedc29289
+#SYMVER ata_std_postreset 0x9740b98d
+#SYMVER ata_dev_set_feature 0x43916981
+#SYMVER ata_std_qc_defer 0x21d87625
+#SYMVER ata_qc_complete 0xf0060d33
+#SYMVER ata_qc_get_active 0xa99eeb3c
+#SYMVER ata_link_online 0x2729f64f
+#SYMVER ata_link_offline 0x950d097d
+#SYMVER ata_sas_port_suspend 0x061953ff
+#SYMVER ata_sas_port_resume 0x77890446
+#SYMVER ata_host_suspend 0x8e3a94bb
+#SYMVER ata_host_resume 0x47ee2ed8
+#SYMVER ata_port_alloc 0xbbefe07d
+#SYMVER ata_port_free 0x636d409b
+#SYMVER ata_host_put 0x5e0c3498
+#SYMVER ata_host_alloc 0x4b04e53e
+#SYMVER ata_host_alloc_pinfo 0xe639a2d3
+#SYMVER ata_host_start 0x124b1893
+#SYMVER ata_host_init 0x575d6d68
+#SYMVER ata_port_probe 0x8557a0ba
+#SYMVER ata_host_register 0x754f9531
+#SYMVER ata_host_activate 0xc71b9ff8
+#SYMVER ata_host_detach 0xdba26ae1
+#SYMVER ata_pci_remove_one 0x067da854
+#SYMVER ata_pci_shutdown_one 0x9275d46f
+#SYMVER pci_test_config_bits 0xe6ee0c87
+#SYMVER ata_pci_device_do_suspend 0x98df19fa
+#SYMVER ata_pci_device_do_resume 0xf3504511
+#SYMVER ata_pci_device_suspend 0xc5a7fbb0
+#SYMVER ata_pci_device_resume 0x72347929
+#SYMVER ata_platform_remove_one 0x3ee7cb13
 #SYMVER ata_ratelimit 0xf8f3a0fb
-#SYMVER ata_msleep 0x6829dd6c
-#SYMVER ata_wait_register 0x6a21d094
-#SYMVER ata_dummy_port_ops 0x9d6c7c87
-#SYMVER ata_dummy_port_info 0x8be2a0de
+#SYMVER ata_msleep 0x3ca67aa8
+#SYMVER ata_wait_register 0x3a2d98c6
+#SYMVER ata_dummy_port_ops 0xb75f6ca0
+#SYMVER ata_dummy_port_info 0xdbafee91

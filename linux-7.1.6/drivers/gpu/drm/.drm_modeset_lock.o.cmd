@@ -1245,9 +1245,9 @@ deps_drivers/gpu/drm/drm_modeset_lock.o := \
 drivers/gpu/drm/drm_modeset_lock.o: $(deps_drivers/gpu/drm/drm_modeset_lock.o)
 
 $(deps_drivers/gpu/drm/drm_modeset_lock.o):
-#SYMVER drm_modeset_lock_all 0xb7074cec
-#SYMVER drm_modeset_unlock_all 0xf52f24d7
-#SYMVER drm_warn_on_modeset_not_all_locked 0x1b564f87
+#SYMVER drm_modeset_lock_all 0x218186f7
+#SYMVER drm_modeset_unlock_all 0x661f0335
+#SYMVER drm_warn_on_modeset_not_all_locked 0x360b5635
 #SYMVER drm_modeset_acquire_init 0xe9876b7f
 #SYMVER drm_modeset_acquire_fini 0xa23cdc16
 #SYMVER drm_modeset_drop_locks 0x5404ac6c
@@ -1256,4 +1256,4 @@ $(deps_drivers/gpu/drm/drm_modeset_lock.o):
 #SYMVER drm_modeset_lock 0x64ad893c
 #SYMVER drm_modeset_lock_single_interruptible 0x45afb1b0
 #SYMVER drm_modeset_unlock 0x86b0b273
-#SYMVER drm_modeset_lock_all_ctx 0xabc367bf
+#SYMVER drm_modeset_lock_all_ctx 0xcac91972

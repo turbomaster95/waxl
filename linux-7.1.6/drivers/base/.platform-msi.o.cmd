@@ -1062,5 +1062,5 @@ deps_drivers/base/platform-msi.o := \
 drivers/base/platform-msi.o: $(deps_drivers/base/platform-msi.o)
 
 $(deps_drivers/base/platform-msi.o):
-#SYMVER platform_device_msi_init_and_alloc_irqs 0xe7626ec4
-#SYMVER platform_device_msi_free_irqs_all 0x04a7096f
+#SYMVER platform_device_msi_init_and_alloc_irqs 0xc0dbf142
+#SYMVER platform_device_msi_free_irqs_all 0xd0298ee6

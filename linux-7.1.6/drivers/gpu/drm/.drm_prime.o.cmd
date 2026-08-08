@@ -1336,25 +1336,25 @@ deps_drivers/gpu/drm/drm_prime.o := \
 drivers/gpu/drm/drm_prime.o: $(deps_drivers/gpu/drm/drm_prime.o)
 
 $(deps_drivers/gpu/drm/drm_prime.o):
-#SYMVER drm_gem_dmabuf_export 0x3ae206ba
-#SYMVER drm_gem_dmabuf_release 0x42148afd
-#SYMVER drm_gem_prime_fd_to_handle 0x8e616a9c
-#SYMVER drm_gem_prime_handle_to_dmabuf 0x7418244a
-#SYMVER drm_gem_prime_handle_to_fd 0x654a9978
-#SYMVER drm_gem_map_attach 0x3615c2f0
-#SYMVER drm_gem_map_detach 0xe4f95961
-#SYMVER drm_gem_map_dma_buf 0x0344d127
-#SYMVER drm_gem_unmap_dma_buf 0xa83a6ae1
-#SYMVER drm_gem_dmabuf_vmap 0xacfbacce
-#SYMVER drm_gem_dmabuf_vunmap 0x08f3947b
-#SYMVER drm_gem_prime_mmap 0xd2e54ad4
-#SYMVER drm_gem_dmabuf_mmap 0x2af09af6
-#SYMVER drm_prime_pages_to_sg 0x0794f347
+#SYMVER drm_gem_dmabuf_export 0x3c2a621a
+#SYMVER drm_gem_dmabuf_release 0x05fb65f6
+#SYMVER drm_gem_prime_fd_to_handle 0xb402f94d
+#SYMVER drm_gem_prime_handle_to_dmabuf 0x30a71d2a
+#SYMVER drm_gem_prime_handle_to_fd 0xab4b3960
+#SYMVER drm_gem_map_attach 0xcc7066f5
+#SYMVER drm_gem_map_detach 0x3a8ff2cf
+#SYMVER drm_gem_map_dma_buf 0xe6852ecf
+#SYMVER drm_gem_unmap_dma_buf 0x1929e3e3
+#SYMVER drm_gem_dmabuf_vmap 0x34562142
+#SYMVER drm_gem_dmabuf_vunmap 0x15851d1b
+#SYMVER drm_gem_prime_mmap 0x6d0fa263
+#SYMVER drm_gem_dmabuf_mmap 0x426ac261
+#SYMVER drm_prime_pages_to_sg 0x842a6fab
 #SYMVER drm_prime_get_contiguous_size 0xd05fda43
-#SYMVER drm_gem_prime_export 0xe26e1df0
-#SYMVER drm_gem_is_prime_exported_dma_buf 0x4e22e1a1
-#SYMVER drm_gem_prime_import_dev 0x5bfd46e1
-#SYMVER drm_gem_prime_import 0x0b03d221
+#SYMVER drm_gem_prime_export 0x5cd07a00
+#SYMVER drm_gem_is_prime_exported_dma_buf 0x0799dc8b
+#SYMVER drm_gem_prime_import_dev 0x0f008b8a
+#SYMVER drm_gem_prime_import 0x4882aee3
 #SYMVER drm_prime_sg_to_page_array 0x9db44804
 #SYMVER drm_prime_sg_to_dma_addr_array 0x44a2cadb
-#SYMVER drm_prime_gem_destroy 0x47f739c5
+#SYMVER drm_prime_gem_destroy 0x6402439f

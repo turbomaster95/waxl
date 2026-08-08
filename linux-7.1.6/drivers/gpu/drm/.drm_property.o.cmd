@@ -1281,19 +1281,19 @@ deps_drivers/gpu/drm/drm_property.o := \
 drivers/gpu/drm/drm_property.o: $(deps_drivers/gpu/drm/drm_property.o)
 
 $(deps_drivers/gpu/drm/drm_property.o):
-#SYMVER drm_property_create 0x2a4ae1f2
-#SYMVER drm_property_create_enum 0x5b83a94d
-#SYMVER drm_property_create_bitmask 0x232ef447
-#SYMVER drm_property_create_range 0x04f9c15a
-#SYMVER drm_property_create_signed_range 0xed29ef12
-#SYMVER drm_property_create_object 0x34549dbf
-#SYMVER drm_property_create_bool 0xe6ac9405
-#SYMVER drm_property_add_enum 0x361ad4cd
-#SYMVER drm_property_destroy 0x93bba654
-#SYMVER drm_property_create_blob 0xd85e8242
-#SYMVER drm_property_blob_put 0xf453feab
-#SYMVER drm_property_blob_get 0x2fade6a2
-#SYMVER drm_property_lookup_blob 0xd27948a4
-#SYMVER drm_property_replace_global_blob 0x7bdc821e
-#SYMVER drm_property_replace_blob 0xf4fa14b2
-#SYMVER drm_property_replace_blob_from_id 0xf35c8e11
+#SYMVER drm_property_create 0x207a6992
+#SYMVER drm_property_create_enum 0x079c5de0
+#SYMVER drm_property_create_bitmask 0x0ccc1d4d
+#SYMVER drm_property_create_range 0xd64604d1
+#SYMVER drm_property_create_signed_range 0x794b84dd
+#SYMVER drm_property_create_object 0x2cf92dcb
+#SYMVER drm_property_create_bool 0xd68ad38b
+#SYMVER drm_property_add_enum 0x2b5a5e0e
+#SYMVER drm_property_destroy 0x0b7f36d9
+#SYMVER drm_property_create_blob 0xc7624315
+#SYMVER drm_property_blob_put 0x5208309d
+#SYMVER drm_property_blob_get 0xc97b8da4
+#SYMVER drm_property_lookup_blob 0x263b161a
+#SYMVER drm_property_replace_global_blob 0x796f98e4
+#SYMVER drm_property_replace_blob 0x0bb1763a
+#SYMVER drm_property_replace_blob_from_id 0xf5bd4f07

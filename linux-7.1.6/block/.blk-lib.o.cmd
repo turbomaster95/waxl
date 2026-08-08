@@ -1218,8 +1218,8 @@ deps_block/blk-lib.o := \
 block/blk-lib.o: $(deps_block/blk-lib.o)
 
 $(deps_block/blk-lib.o):
-#SYMVER __blkdev_issue_discard 0xdf331c03
-#SYMVER blkdev_issue_discard 0x6ac7cf20
-#SYMVER __blkdev_issue_zeroout 0xa79bb906
-#SYMVER blkdev_issue_zeroout 0x888d58bc
-#SYMVER blkdev_issue_secure_erase 0xd6cc9c0e
+#SYMVER __blkdev_issue_discard 0x3296aeca
+#SYMVER blkdev_issue_discard 0xe2f8d98f
+#SYMVER __blkdev_issue_zeroout 0x55aab174
+#SYMVER blkdev_issue_zeroout 0xc26480a5
+#SYMVER blkdev_issue_secure_erase 0x64b2ea63

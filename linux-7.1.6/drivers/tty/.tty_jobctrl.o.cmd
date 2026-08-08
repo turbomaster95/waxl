@@ -1075,6 +1075,6 @@ deps_drivers/tty/tty_jobctrl.o := \
 drivers/tty/tty_jobctrl.o: $(deps_drivers/tty/tty_jobctrl.o)
 
 $(deps_drivers/tty/tty_jobctrl.o):
-#SYMVER tty_check_change 0x20e45c27
-#SYMVER get_current_tty 0xc91427c4
-#SYMVER tty_get_pgrp 0x69904a67
+#SYMVER tty_check_change 0xf34731e6
+#SYMVER get_current_tty 0xeabf1c05
+#SYMVER tty_get_pgrp 0x83d6ba32

@@ -1610,16 +1610,16 @@ deps_net/core/page_pool.o := \
 net/core/page_pool.o: $(deps_net/core/page_pool.o)
 
 $(deps_net/core/page_pool.o):
-#SYMVER page_pool_create_percpu 0x517def1b
-#SYMVER page_pool_create 0xe28657d8
-#SYMVER page_pool_alloc_netmems 0x14cc7cbb
-#SYMVER page_pool_alloc_pages 0x6df0b7a4
-#SYMVER page_pool_put_unrefed_netmem 0xfd08e2b6
-#SYMVER page_pool_put_unrefed_page 0xe022beae
+#SYMVER page_pool_create_percpu 0xcfb47643
+#SYMVER page_pool_create 0x1da7b339
+#SYMVER page_pool_alloc_netmems 0x6a2d9816
+#SYMVER page_pool_alloc_pages 0x45157b19
+#SYMVER page_pool_put_unrefed_netmem 0xf1615a5c
+#SYMVER page_pool_put_unrefed_page 0x5c30973d
 #SYMVER page_pool_put_netmem_bulk 0xbe179e15
-#SYMVER page_pool_alloc_frag_netmem 0x5aa58abb
-#SYMVER page_pool_alloc_frag 0xf1c0d2cd
-#SYMVER page_pool_enable_direct_recycling 0xf8a7b436
-#SYMVER page_pool_disable_direct_recycling 0x2a242bb1
-#SYMVER page_pool_destroy 0xfd4723a0
-#SYMVER page_pool_update_nid 0x5afa68db
+#SYMVER page_pool_alloc_frag_netmem 0x5a9693a9
+#SYMVER page_pool_alloc_frag 0xe6b81850
+#SYMVER page_pool_enable_direct_recycling 0xe141dbbd
+#SYMVER page_pool_disable_direct_recycling 0x771b75be
+#SYMVER page_pool_destroy 0x192ce8b7
+#SYMVER page_pool_update_nid 0xe56f1df9

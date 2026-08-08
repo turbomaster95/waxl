@@ -1419,8 +1419,8 @@ deps_fs/pipe.o := \
 fs/pipe.o: $(deps_fs/pipe.o)
 
 $(deps_fs/pipe.o):
-#SYMVER pipe_lock 0xa3d94113
-#SYMVER pipe_unlock 0xcdce36f3
-#SYMVER generic_pipe_buf_try_steal 0xf4d4a23b
-#SYMVER generic_pipe_buf_get 0x27305f30
-#SYMVER generic_pipe_buf_release 0x0e784bcd
+#SYMVER pipe_lock 0x8ebf8ff1
+#SYMVER pipe_unlock 0xdd31aa07
+#SYMVER generic_pipe_buf_try_steal 0xf7ada380
+#SYMVER generic_pipe_buf_get 0x4cafa2ca
+#SYMVER generic_pipe_buf_release 0x29545998

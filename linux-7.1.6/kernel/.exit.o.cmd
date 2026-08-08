@@ -1693,6 +1693,6 @@ deps_kernel/exit.o := \
 kernel/exit.o: $(deps_kernel/exit.o)
 
 $(deps_kernel/exit.o):
-#SYMVER rcuwait_wake_up 0xdfd1c0b3
+#SYMVER rcuwait_wake_up 0x07a62dbe
 #SYMVER do_exit 0x92e16c8e
 #SYMVER abort 0xc359fb65

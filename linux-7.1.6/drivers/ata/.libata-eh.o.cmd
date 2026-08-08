@@ -1316,6 +1316,7 @@ deps_drivers/ata/libata-eh.o := \
   include/acpi/platform/aclinux.h \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1333,6 +1334,33 @@ deps_drivers/ata/libata-eh.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/cdrom.h \
   include/uapi/linux/cdrom.h \
   include/linux/async.h \
@@ -1368,21 +1396,21 @@ deps_drivers/ata/libata-eh.o := \
 drivers/ata/libata-eh.o: $(deps_drivers/ata/libata-eh.o)
 
 $(deps_drivers/ata/libata-eh.o):
-#SYMVER __ata_ehi_push_desc 0xf24e788e
-#SYMVER ata_ehi_push_desc 0xe77c1d87
-#SYMVER ata_ehi_clear_desc 0x5c0d7415
-#SYMVER ata_port_desc 0x3b3610c8
-#SYMVER ata_port_pbar_desc 0x148a65c9
-#SYMVER ata_scsi_cmd_error_handler 0xa232edad
-#SYMVER ata_scsi_port_error_handler 0x927a737d
-#SYMVER ata_port_wait_eh 0x670c3552
-#SYMVER ata_std_sched_eh 0x039033d8
-#SYMVER ata_std_end_eh 0xb3c23628
-#SYMVER ata_port_schedule_eh 0xbcb6d4ec
-#SYMVER ata_link_abort 0x3bddda67
-#SYMVER ata_port_abort 0xc090ed5c
-#SYMVER ata_port_freeze 0xe7c71756
-#SYMVER ata_eh_freeze_port 0x5bf565f5
-#SYMVER ata_dev_disable 0x15346622
+#SYMVER __ata_ehi_push_desc 0x3a29219a
+#SYMVER ata_ehi_push_desc 0xc93ac094
+#SYMVER ata_ehi_clear_desc 0x9b7543c9
+#SYMVER ata_port_desc 0xfd68d378
+#SYMVER ata_port_pbar_desc 0xede97e7d
+#SYMVER ata_scsi_cmd_error_handler 0x22d9a00f
+#SYMVER ata_scsi_port_error_handler 0xa1628c45
+#SYMVER ata_port_wait_eh 0x794d3906
+#SYMVER ata_std_sched_eh 0xe8ab2e5b
+#SYMVER ata_std_end_eh 0xecceef7b
+#SYMVER ata_port_schedule_eh 0x1d0c31e6
+#SYMVER ata_link_abort 0xcc027da4
+#SYMVER ata_port_abort 0x692550ae
+#SYMVER ata_port_freeze 0xc840d132
+#SYMVER ata_eh_freeze_port 0x189b564b
+#SYMVER ata_dev_disable 0x4d496641
 #SYMVER ata_get_cmd_name 0xbd06f3a9
-#SYMVER ata_std_error_handler 0xba66c89d
+#SYMVER ata_std_error_handler 0xa3928367

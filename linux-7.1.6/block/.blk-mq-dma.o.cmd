@@ -1274,6 +1274,6 @@ deps_block/blk-mq-dma.o := \
 block/blk-mq-dma.o: $(deps_block/blk-mq-dma.o)
 
 $(deps_block/blk-mq-dma.o):
-#SYMVER blk_rq_dma_map_iter_start 0xf62f3e8d
-#SYMVER blk_rq_dma_map_iter_next 0x86bb8c6e
-#SYMVER __blk_rq_map_sg 0x19d83fb9
+#SYMVER blk_rq_dma_map_iter_start 0x190c5eba
+#SYMVER blk_rq_dma_map_iter_next 0xd524c92f
+#SYMVER __blk_rq_map_sg 0x378c1a74

@@ -1207,5 +1207,5 @@ deps_fs/jbd2/commit.o := \
 fs/jbd2/commit.o: $(deps_fs/jbd2/commit.o)
 
 $(deps_fs/jbd2/commit.o):
-#SYMVER jbd2_submit_inode_data 0x5a76f7c2
-#SYMVER jbd2_wait_inode_data 0x1a49925a
+#SYMVER jbd2_submit_inode_data 0x9e11a485
+#SYMVER jbd2_wait_inode_data 0x04754c5c

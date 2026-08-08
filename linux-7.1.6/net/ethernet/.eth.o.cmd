@@ -1592,6 +1592,14 @@ deps_net/ethernet/eth.o := \
   include/linux/io.h \
     $(wildcard include/config/STRICT_DEVMEM) \
   include/net/eee.h \
+  include/linux/of.h \
+    $(wildcard include/config/OF_DYNAMIC) \
+    $(wildcard include/config/SPARC) \
+    $(wildcard include/config/OF_PROMTREE) \
+    $(wildcard include/config/OF_KOBJ) \
+    $(wildcard include/config/OF_NUMA) \
+    $(wildcard include/config/OF_OVERLAY) \
+  include/linux/property.h \
   include/linux/pci.h \
     $(wildcard include/config/PCI_IOV) \
     $(wildcard include/config/PCIEAER) \
@@ -1625,7 +1633,6 @@ deps_net/ethernet/eth.o := \
   arch/x86/include/asm/pci.h \
     $(wildcard include/config/VMD) \
   arch/x86/include/asm/memtype.h \
-  include/linux/property.h \
   include/net/dst.h \
   include/linux/rtnetlink.h \
     $(wildcard include/config/NET_INGRESS) \
@@ -1694,13 +1701,6 @@ deps_net/ethernet/eth.o := \
   include/net/lwtunnel.h \
   include/uapi/linux/lwtunnel.h \
   include/net/dsa.h \
-  include/linux/of.h \
-    $(wildcard include/config/OF_DYNAMIC) \
-    $(wildcard include/config/SPARC) \
-    $(wildcard include/config/OF_PROMTREE) \
-    $(wildcard include/config/OF_KOBJ) \
-    $(wildcard include/config/OF_NUMA) \
-    $(wildcard include/config/OF_OVERLAY) \
   include/linux/platform_data/dsa.h \
   include/linux/phylink.h \
   include/net/devlink.h \
@@ -1730,24 +1730,24 @@ deps_net/ethernet/eth.o := \
 net/ethernet/eth.o: $(deps_net/ethernet/eth.o)
 
 $(deps_net/ethernet/eth.o):
-#SYMVER eth_header 0xf9de2c80
-#SYMVER eth_get_headlen 0x9e091c1a
-#SYMVER eth_type_trans 0x15cb38d0
-#SYMVER eth_header_parse 0xde12576a
-#SYMVER eth_header_cache 0x774dd5d9
-#SYMVER eth_header_cache_update 0xdef315b0
-#SYMVER eth_header_parse_protocol 0x4d3f9268
-#SYMVER eth_prepare_mac_addr_change 0x59cd64c2
-#SYMVER eth_commit_mac_addr_change 0xdf2cde5e
-#SYMVER eth_mac_addr 0x48eedcd9
-#SYMVER eth_validate_addr 0x5159ff95
-#SYMVER ether_setup 0x08eed9ac
-#SYMVER alloc_etherdev_mqs 0xf637991c
+#SYMVER eth_header 0x1a415c7f
+#SYMVER eth_get_headlen 0x31993db9
+#SYMVER eth_type_trans 0x635ebd6a
+#SYMVER eth_header_parse 0x23ab4846
+#SYMVER eth_header_cache 0x2d13e5b5
+#SYMVER eth_header_cache_update 0x74b76ea3
+#SYMVER eth_header_parse_protocol 0x3ad8fccd
+#SYMVER eth_prepare_mac_addr_change 0xad7a11bf
+#SYMVER eth_commit_mac_addr_change 0x7f53c365
+#SYMVER eth_mac_addr 0x153f235e
+#SYMVER eth_validate_addr 0x190ca6e7
+#SYMVER ether_setup 0x2fde1356
+#SYMVER alloc_etherdev_mqs 0xc8191162
 #SYMVER sysfs_format_mac 0x81533963
-#SYMVER eth_gro_receive 0x2f5450a3
-#SYMVER eth_gro_complete 0xea3ea85f
-#SYMVER eth_platform_get_mac_address 0x542a98af
-#SYMVER platform_get_ethdev_address 0xd516d56e
-#SYMVER fwnode_get_mac_address 0xa46aed11
-#SYMVER device_get_mac_address 0x71af76f7
-#SYMVER device_get_ethdev_address 0x766b6a03
+#SYMVER eth_gro_receive 0xfbff4fb8
+#SYMVER eth_gro_complete 0x9fb82c6c
+#SYMVER eth_platform_get_mac_address 0xba2e4d32
+#SYMVER platform_get_ethdev_address 0x7d8f2460
+#SYMVER fwnode_get_mac_address 0x7a8f1659
+#SYMVER device_get_mac_address 0x345c8bdf
+#SYMVER device_get_ethdev_address 0x736a25a8

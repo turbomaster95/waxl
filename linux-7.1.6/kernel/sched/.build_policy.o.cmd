@@ -1601,11 +1601,11 @@ kernel/sched/build_policy.o: $(deps_kernel/sched/build_policy.o)
 
 $(deps_kernel/sched/build_policy.o):
 #SYMVER play_idle_precise 0x02394899
-#SYMVER task_cputime_adjusted 0xad98983a
-#SYMVER set_user_nice 0x1a5f7a4f
-#SYMVER sched_setattr_nocheck 0xa3148c31
-#SYMVER sched_set_fifo 0xb5528389
-#SYMVER sched_set_fifo_low 0x7f313d4b
-#SYMVER sched_set_normal 0x47322fa6
+#SYMVER task_cputime_adjusted 0xa3bd78de
+#SYMVER set_user_nice 0x06a48b9d
+#SYMVER sched_setattr_nocheck 0xc687cffb
+#SYMVER sched_set_fifo 0x1b23c837
+#SYMVER sched_set_fifo_low 0xa6a78e89
+#SYMVER sched_set_normal 0x79acf73e
 #SYMVER yield 0x760a0f4f
-#SYMVER yield_to 0x18264439
+#SYMVER yield_to 0x31d82935

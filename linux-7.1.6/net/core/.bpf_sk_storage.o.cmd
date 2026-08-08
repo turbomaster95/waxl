@@ -1610,4 +1610,4 @@ net/core/bpf_sk_storage.o: $(deps_net/core/bpf_sk_storage.o)
 $(deps_net/core/bpf_sk_storage.o):
 #SYMVER bpf_sk_storage_diag_free 0x8e4eb451
 #SYMVER bpf_sk_storage_diag_alloc 0x5d8476d3
-#SYMVER bpf_sk_storage_diag_put 0x2e9bb83c
+#SYMVER bpf_sk_storage_diag_put 0xd9948b18

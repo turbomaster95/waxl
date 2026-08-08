@@ -1136,5 +1136,5 @@ deps_drivers/misc/mei/main.o := \
 drivers/misc/mei/main.o: $(deps_drivers/misc/mei/main.o)
 
 $(deps_drivers/misc/mei/main.o):
-#SYMVER mei_register 0x55fb6cd1
-#SYMVER mei_deregister 0x0f9ff360
+#SYMVER mei_register 0x4c503c7d
+#SYMVER mei_deregister 0xc79ca732

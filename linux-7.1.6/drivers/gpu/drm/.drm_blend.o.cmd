@@ -1249,11 +1249,11 @@ deps_drivers/gpu/drm/drm_blend.o := \
 drivers/gpu/drm/drm_blend.o: $(deps_drivers/gpu/drm/drm_blend.o)
 
 $(deps_drivers/gpu/drm/drm_blend.o):
-#SYMVER drm_plane_create_alpha_property 0xfea769b8
-#SYMVER drm_plane_create_rotation_property 0x7b42d103
+#SYMVER drm_plane_create_alpha_property 0x88243620
+#SYMVER drm_plane_create_rotation_property 0xe9faabc0
 #SYMVER drm_rotation_simplify 0xdf666902
-#SYMVER drm_plane_create_zpos_property 0xd637c69d
-#SYMVER drm_plane_create_zpos_immutable_property 0x7e7428a1
-#SYMVER drm_atomic_normalize_zpos 0x43e99845
-#SYMVER drm_plane_create_blend_mode_property 0x2ab96ea5
-#SYMVER drm_crtc_attach_background_color_property 0xa142f9f1
+#SYMVER drm_plane_create_zpos_property 0x7cf2ba58
+#SYMVER drm_plane_create_zpos_immutable_property 0x72a85d2b
+#SYMVER drm_atomic_normalize_zpos 0x024f8881
+#SYMVER drm_plane_create_blend_mode_property 0x1bcc18ab
+#SYMVER drm_crtc_attach_background_color_property 0xc4e80552

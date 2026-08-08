@@ -1307,6 +1307,7 @@ deps_drivers/ata/libata-sff.o := \
   include/acpi/platform/aclinux.h \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1324,6 +1325,33 @@ deps_drivers/ata/libata-sff.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/cdrom.h \
   include/uapi/linux/cdrom.h \
   include/linux/async.h \
@@ -1359,59 +1387,59 @@ deps_drivers/ata/libata-sff.o := \
 drivers/ata/libata-sff.o: $(deps_drivers/ata/libata-sff.o)
 
 $(deps_drivers/ata/libata-sff.o):
-#SYMVER ata_sff_port_ops 0x3c9d6a22
-#SYMVER ata_sff_check_status 0xf4d2e438
-#SYMVER ata_sff_pause 0xd8b335c6
-#SYMVER ata_sff_dma_pause 0x95345a53
-#SYMVER ata_sff_wait_ready 0x8e511930
-#SYMVER ata_sff_dev_select 0xb99125a4
-#SYMVER ata_sff_irq_on 0xbcaee405
-#SYMVER ata_sff_tf_load 0x1ce04976
-#SYMVER ata_sff_tf_read 0x6313eec2
-#SYMVER ata_sff_exec_command 0xa8a817e2
-#SYMVER ata_sff_data_xfer 0x6a3cf2aa
-#SYMVER ata_sff_data_xfer32 0x9007c523
-#SYMVER ata_sff_hsm_move 0x52283a5a
+#SYMVER ata_sff_port_ops 0x940c27cb
+#SYMVER ata_sff_check_status 0x295acb8c
+#SYMVER ata_sff_pause 0xcea97d42
+#SYMVER ata_sff_dma_pause 0xedaf83ac
+#SYMVER ata_sff_wait_ready 0x0e522ec5
+#SYMVER ata_sff_dev_select 0x11db17e1
+#SYMVER ata_sff_irq_on 0xe8357b6b
+#SYMVER ata_sff_tf_load 0x3254c7bf
+#SYMVER ata_sff_tf_read 0xf2864f78
+#SYMVER ata_sff_exec_command 0x8a5725e3
+#SYMVER ata_sff_data_xfer 0x3dcd1d62
+#SYMVER ata_sff_data_xfer32 0xcfee14e2
+#SYMVER ata_sff_hsm_move 0xba7e31a1
 #SYMVER ata_sff_queue_work 0xa6b06f65
 #SYMVER ata_sff_queue_delayed_work 0x4e17c613
-#SYMVER ata_sff_queue_pio_task 0x0a4de22e
-#SYMVER ata_sff_qc_issue 0xe4801d60
-#SYMVER ata_sff_qc_fill_rtf 0x4a0b056a
-#SYMVER ata_sff_port_intr 0x2f401995
+#SYMVER ata_sff_queue_pio_task 0xd7c12fce
+#SYMVER ata_sff_qc_issue 0x8cea4137
+#SYMVER ata_sff_qc_fill_rtf 0x491a2b7d
+#SYMVER ata_sff_port_intr 0x875b423b
 #SYMVER ata_sff_interrupt 0x3a4f6a32
-#SYMVER ata_sff_lost_interrupt 0x4de9eadf
-#SYMVER ata_sff_freeze 0x0d48ae5b
-#SYMVER ata_sff_thaw 0xba040048
-#SYMVER ata_sff_prereset 0x6c7df403
-#SYMVER ata_sff_dev_classify 0xa9932f9e
-#SYMVER ata_sff_wait_after_reset 0x16e6e702
-#SYMVER ata_sff_softreset 0x184a328f
-#SYMVER sata_sff_hardreset 0x9b25d126
-#SYMVER ata_sff_postreset 0x482f8365
-#SYMVER ata_sff_drain_fifo 0xa2fbb39c
-#SYMVER ata_sff_error_handler 0x18d4eb27
+#SYMVER ata_sff_lost_interrupt 0xf905768d
+#SYMVER ata_sff_freeze 0xcf911052
+#SYMVER ata_sff_thaw 0xc0af4056
+#SYMVER ata_sff_prereset 0x799e3ca5
+#SYMVER ata_sff_dev_classify 0xebede082
+#SYMVER ata_sff_wait_after_reset 0xf2a0d3ef
+#SYMVER ata_sff_softreset 0xd586085e
+#SYMVER sata_sff_hardreset 0x559a0ef8
+#SYMVER ata_sff_postreset 0x158abc94
+#SYMVER ata_sff_drain_fifo 0x51a95043
+#SYMVER ata_sff_error_handler 0x99a1c719
 #SYMVER ata_sff_std_ports 0x73a48b4a
-#SYMVER ata_pci_sff_init_host 0x05d38dce
-#SYMVER ata_pci_sff_prepare_host 0xffa81ff1
-#SYMVER ata_pci_sff_activate_host 0xbc36b5c1
-#SYMVER ata_pci_sff_init_one 0xe83fbd6b
-#SYMVER ata_bmdma_port_ops 0xa4aac0ed
-#SYMVER ata_bmdma32_port_ops 0x3820219b
-#SYMVER ata_bmdma_qc_prep 0xf04609b7
-#SYMVER ata_bmdma_dumb_qc_prep 0xa0e92dff
-#SYMVER ata_bmdma_qc_issue 0x7d5b2540
-#SYMVER ata_bmdma_port_intr 0xc90e27fb
+#SYMVER ata_pci_sff_init_host 0x4b522c3b
+#SYMVER ata_pci_sff_prepare_host 0x96927951
+#SYMVER ata_pci_sff_activate_host 0x60a76f39
+#SYMVER ata_pci_sff_init_one 0x5e627db8
+#SYMVER ata_bmdma_port_ops 0x237b1df4
+#SYMVER ata_bmdma32_port_ops 0x5b42a13b
+#SYMVER ata_bmdma_qc_prep 0x4cae487e
+#SYMVER ata_bmdma_dumb_qc_prep 0x2de23d6b
+#SYMVER ata_bmdma_qc_issue 0xcecf3a2f
+#SYMVER ata_bmdma_port_intr 0xb3aa79ac
 #SYMVER ata_bmdma_interrupt 0xe818b32b
-#SYMVER ata_bmdma_error_handler 0xa2e0386e
-#SYMVER ata_bmdma_post_internal_cmd 0x4a98d9f7
-#SYMVER ata_bmdma_irq_clear 0x37ea7b29
-#SYMVER ata_bmdma_setup 0x9a1d08be
-#SYMVER ata_bmdma_start 0x15c8a56b
-#SYMVER ata_bmdma_stop 0x2598739f
-#SYMVER ata_bmdma_status 0x3c2fd0ea
-#SYMVER ata_bmdma_port_start 0x357daf4f
-#SYMVER ata_bmdma_port_start32 0x2ac524f6
-#SYMVER ata_pci_bmdma_clear_simplex 0x93d3f2bd
-#SYMVER ata_pci_bmdma_init 0x8ca3d5b4
-#SYMVER ata_pci_bmdma_prepare_host 0x011da826
-#SYMVER ata_pci_bmdma_init_one 0x6936ba44
+#SYMVER ata_bmdma_error_handler 0x7f840ba2
+#SYMVER ata_bmdma_post_internal_cmd 0x0787c57f
+#SYMVER ata_bmdma_irq_clear 0x9356b78a
+#SYMVER ata_bmdma_setup 0x4c2d6932
+#SYMVER ata_bmdma_start 0x2edaca52
+#SYMVER ata_bmdma_stop 0x05985594
+#SYMVER ata_bmdma_status 0x2f5e255b
+#SYMVER ata_bmdma_port_start 0xfc28ff47
+#SYMVER ata_bmdma_port_start32 0x94901dfb
+#SYMVER ata_pci_bmdma_clear_simplex 0xbb517ddb
+#SYMVER ata_pci_bmdma_init 0xdc02eca5
+#SYMVER ata_pci_bmdma_prepare_host 0xb6e10877
+#SYMVER ata_pci_bmdma_init_one 0x5bf4790d

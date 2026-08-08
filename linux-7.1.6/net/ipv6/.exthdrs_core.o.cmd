@@ -1606,6 +1606,6 @@ net/ipv6/exthdrs_core.o: $(deps_net/ipv6/exthdrs_core.o)
 
 $(deps_net/ipv6/exthdrs_core.o):
 #SYMVER ipv6_ext_hdr 0x452ba683
-#SYMVER ipv6_skip_exthdr 0xa00fc904
-#SYMVER ipv6_find_tlv 0x5662a4fd
-#SYMVER ipv6_find_hdr 0xa8683904
+#SYMVER ipv6_skip_exthdr 0xa96f41d8
+#SYMVER ipv6_find_tlv 0xaae63347
+#SYMVER ipv6_find_hdr 0x6d6ad555

@@ -1212,11 +1212,11 @@ deps_drivers/scsi/scsi_logging.o := \
 drivers/scsi/scsi_logging.o: $(deps_drivers/scsi/scsi_logging.o)
 
 $(deps_drivers/scsi/scsi_logging.o):
-#SYMVER sdev_prefix_printk 0x4a4c61b2
-#SYMVER scmd_printk 0x6e102f6d
+#SYMVER sdev_prefix_printk 0x6396e7e5
+#SYMVER scmd_printk 0x13414111
 #SYMVER __scsi_format_command 0x93022ba6
-#SYMVER scsi_print_command 0xe1b11252
-#SYMVER scsi_print_sense_hdr 0xabe9c0d5
-#SYMVER __scsi_print_sense 0x89c5f75c
-#SYMVER scsi_print_sense 0x67bd9cae
-#SYMVER scsi_print_result 0xf1af2d81
+#SYMVER scsi_print_command 0x8d87b0e4
+#SYMVER scsi_print_sense_hdr 0xba47b682
+#SYMVER __scsi_print_sense 0x4561988e
+#SYMVER scsi_print_sense 0x468c1a18
+#SYMVER scsi_print_result 0x9634fe45

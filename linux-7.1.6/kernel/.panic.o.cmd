@@ -1310,13 +1310,14 @@ deps_kernel/panic.o := \
     $(wildcard include/config/HARDLOCKUP_CHECK_TIMESTAMP) \
     $(wildcard include/config/HAVE_ACPI_APEI_NMI) \
     $(wildcard include/config/NMI_CHECK_CPU) \
+  arch/x86/include/asm/nmi.h \
+  include/linux/irq_work.h \
+    $(wildcard include/config/IRQ_WORK) \
+  arch/x86/include/asm/irq_work.h \
   include/linux/console.h \
     $(wildcard include/config/VGA_CONSOLE) \
     $(wildcard include/config/VT) \
     $(wildcard include/config/PRINTK_EXECUTION_CTX) \
-  include/linux/irq_work.h \
-    $(wildcard include/config/IRQ_WORK) \
-  arch/x86/include/asm/irq_work.h \
   include/uapi/linux/vesa.h \
   include/linux/debugfs.h \
     $(wildcard include/config/DEBUG_FS) \

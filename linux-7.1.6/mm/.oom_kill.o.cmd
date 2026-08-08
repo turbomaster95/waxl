@@ -1433,6 +1433,28 @@ deps_mm/oom_kill.o := \
     $(wildcard include/config/HARDLOCKUP_CHECK_TIMESTAMP) \
     $(wildcard include/config/HAVE_ACPI_APEI_NMI) \
     $(wildcard include/config/NMI_CHECK_CPU) \
+  arch/x86/include/asm/nmi.h \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/PCI) \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  include/linux/fwnode.h \
   arch/x86/include/asm/tlb.h \
   include/asm-generic/tlb.h \
     $(wildcard include/config/MMU_GATHER_TABLE_FREE) \

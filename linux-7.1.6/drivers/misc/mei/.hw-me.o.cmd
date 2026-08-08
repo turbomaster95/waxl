@@ -1266,5 +1266,5 @@ $(deps_drivers/misc/mei/hw-me.o):
 #SYMVER mei_me_irq_quick_handler 0x922c6ae5
 #SYMVER mei_me_irq_thread_handler 0xd0eef98f
 #SYMVER mei_me_polling_thread 0x051f202c
-#SYMVER mei_me_get_cfg 0x6a23c830
-#SYMVER mei_me_dev_init 0xd4cec1d0
+#SYMVER mei_me_get_cfg 0xb758ac36
+#SYMVER mei_me_dev_init 0x6f5cd4c1

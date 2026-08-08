@@ -1269,11 +1269,11 @@ deps_fs/fs-writeback.o := \
 fs/fs-writeback.o: $(deps_fs/fs-writeback.o)
 
 $(deps_fs/fs-writeback.o):
-#SYMVER inode_io_list_del 0x623cf62c
-#SYMVER __mark_inode_dirty 0xbf58aea6
-#SYMVER writeback_inodes_sb_nr 0xc4dc1480
-#SYMVER writeback_inodes_sb 0xf77c80ee
-#SYMVER try_to_writeback_inodes_sb 0xc14ae1ab
-#SYMVER sync_inodes_sb 0x09dc6528
-#SYMVER write_inode_now 0x9c67b8d4
-#SYMVER sync_inode_metadata 0x017d8e1b
+#SYMVER inode_io_list_del 0x13cae342
+#SYMVER __mark_inode_dirty 0x5034187a
+#SYMVER writeback_inodes_sb_nr 0xdddd8371
+#SYMVER writeback_inodes_sb 0x59eef0c9
+#SYMVER try_to_writeback_inodes_sb 0x939b5489
+#SYMVER sync_inodes_sb 0x93d80322
+#SYMVER write_inode_now 0x0bfd4d66
+#SYMVER sync_inode_metadata 0xc32d09f0

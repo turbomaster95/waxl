@@ -1670,10 +1670,10 @@ deps_kernel/bpf/core.o := \
 kernel/bpf/core.o: $(deps_kernel/bpf/core.o)
 
 $(deps_kernel/bpf/core.o):
-#SYMVER bpf_prog_alloc 0x19991b15
+#SYMVER bpf_prog_alloc 0x727d244c
 #SYMVER __bpf_call_base 0xc9827693
-#SYMVER bpf_prog_select_runtime 0xa635e6d9
-#SYMVER bpf_empty_prog_array 0x98e7837f
-#SYMVER bpf_prog_free 0x2866014d
-#SYMVER bpf_event_output 0xffb96f84
+#SYMVER bpf_prog_select_runtime 0x3707c3f5
+#SYMVER bpf_empty_prog_array 0x7ddd215f
+#SYMVER bpf_prog_free 0x5f07e7ba
+#SYMVER bpf_event_output 0x53ca57cd
 #SYMVER bpf_stats_enabled_key 0xeba70c2d

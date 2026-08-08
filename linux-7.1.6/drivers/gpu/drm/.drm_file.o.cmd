@@ -1280,6 +1280,7 @@ deps_drivers/gpu/drm/drm_file.o := \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
   include/linux/ctype.h \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1297,6 +1298,33 @@ deps_drivers/gpu/drm/drm_file.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/regulator/consumer.h \
     $(wildcard include/config/REGULATOR) \
   include/linux/suspend.h \
@@ -1511,20 +1539,20 @@ deps_drivers/gpu/drm/drm_file.o := \
 drivers/gpu/drm/drm_file.o: $(deps_drivers/gpu/drm/drm_file.o)
 
 $(deps_drivers/gpu/drm/drm_file.o):
-#SYMVER drm_open 0xb0ebe0ce
-#SYMVER drm_release 0x49cdf36c
-#SYMVER drm_release_noglobal 0x88ae27eb
-#SYMVER drm_read 0x07fa465d
-#SYMVER drm_poll 0x151834e0
-#SYMVER drm_event_reserve_init_locked 0x5824d585
-#SYMVER drm_event_reserve_init 0xee612ba0
-#SYMVER drm_event_cancel_free 0x3a7a04e0
-#SYMVER drm_send_event_timestamp_locked 0x948fba26
-#SYMVER drm_send_event_locked 0xd043d0a6
-#SYMVER drm_send_event 0x80b5d71d
+#SYMVER drm_open 0x08e663ef
+#SYMVER drm_release 0xbc42327c
+#SYMVER drm_release_noglobal 0x4145e901
+#SYMVER drm_read 0xe80241de
+#SYMVER drm_poll 0xec4aae4a
+#SYMVER drm_event_reserve_init_locked 0xcc3024f8
+#SYMVER drm_event_reserve_init 0xb4a0444e
+#SYMVER drm_event_cancel_free 0x3286d20e
+#SYMVER drm_send_event_timestamp_locked 0xf2ac221e
+#SYMVER drm_send_event_locked 0xddb7dbdb
+#SYMVER drm_send_event 0x106bcfee
 #SYMVER drm_fdinfo_print_size 0x73a57917
 #SYMVER drm_memory_stats_is_zero 0x07650d87
 #SYMVER drm_print_memory_stats 0x3a586a55
-#SYMVER drm_show_memory_stats 0xd534f043
-#SYMVER drm_show_fdinfo 0x9c53de00
-#SYMVER drm_file_err 0xec5d2611
+#SYMVER drm_show_memory_stats 0x22642c9e
+#SYMVER drm_show_fdinfo 0xc8a2ff6a
+#SYMVER drm_file_err 0xf6197e10

@@ -1218,6 +1218,17 @@ deps_arch/x86/kernel/dumpstack_64.o := \
     $(wildcard include/config/HARDLOCKUP_CHECK_TIMESTAMP) \
     $(wildcard include/config/HAVE_ACPI_APEI_NMI) \
     $(wildcard include/config/NMI_CHECK_CPU) \
+  arch/x86/include/asm/nmi.h \
+  include/linux/irq_work.h \
+    $(wildcard include/config/IRQ_WORK) \
+  arch/x86/include/asm/irq_work.h \
+  include/linux/pm.h \
+    $(wildcard include/config/VT_CONSOLE_SLEEP) \
+    $(wildcard include/config/CXL_SUSPEND) \
+    $(wildcard include/config/PM) \
+    $(wildcard include/config/PM_SLEEP) \
+    $(wildcard include/config/PM_CLK) \
+    $(wildcard include/config/PM_GENERIC_DOMAINS) \
   arch/x86/include/asm/cpu_entry_area.h \
   arch/x86/include/asm/intel_ds.h \
   arch/x86/include/asm/pgtable_areas.h \

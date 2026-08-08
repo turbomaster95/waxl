@@ -1196,6 +1196,6 @@ deps_fs/iomap/bio.o := \
 fs/iomap/bio.o: $(deps_fs/iomap/bio.o)
 
 $(deps_fs/iomap/bio.o):
-#SYMVER iomap_bio_submit_read_endio 0x1a9646e1
-#SYMVER iomap_bio_read_folio_range 0xcf0c3134
-#SYMVER iomap_bio_read_ops 0xcda7c8e7
+#SYMVER iomap_bio_submit_read_endio 0x998f65f9
+#SYMVER iomap_bio_read_folio_range 0xb87b436e
+#SYMVER iomap_bio_read_ops 0xe84d9efe

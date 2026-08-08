@@ -1440,15 +1440,15 @@ deps_fs/stat.o := \
 fs/stat.o: $(deps_fs/stat.o)
 
 $(deps_fs/stat.o):
-#SYMVER fill_mg_cmtime 0x0a9ed59f
-#SYMVER generic_fillattr 0x7db3f023
-#SYMVER generic_fill_statx_attr 0x3b948664
+#SYMVER fill_mg_cmtime 0xd9a70e7f
+#SYMVER generic_fillattr 0x67c4eee0
+#SYMVER generic_fill_statx_attr 0x0e749bf7
 #SYMVER generic_fill_statx_atomic_writes 0x4a7ca560
-#SYMVER vfs_getattr_nosec 0xedccdb97
-#SYMVER vfs_getattr 0x7e7a8f0f
-#SYMVER __inode_add_bytes 0x920d92d8
-#SYMVER inode_add_bytes 0x1343b08f
-#SYMVER __inode_sub_bytes 0xada58127
-#SYMVER inode_sub_bytes 0x2ceba370
-#SYMVER inode_get_bytes 0x3130bdf8
-#SYMVER inode_set_bytes 0x370f2c76
+#SYMVER vfs_getattr_nosec 0x324a2516
+#SYMVER vfs_getattr 0xd5a139e7
+#SYMVER __inode_add_bytes 0xd9f7779f
+#SYMVER inode_add_bytes 0x26b93628
+#SYMVER __inode_sub_bytes 0x01e724ee
+#SYMVER inode_sub_bytes 0xfea96559
+#SYMVER inode_get_bytes 0x512df487
+#SYMVER inode_set_bytes 0x33836438

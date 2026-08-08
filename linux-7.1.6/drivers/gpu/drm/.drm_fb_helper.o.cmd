@@ -1313,6 +1313,7 @@ deps_drivers/gpu/drm/drm_fb_helper.o := \
   include/acpi/platform/aclinux.h \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1330,6 +1331,54 @@ deps_drivers/gpu/drm/drm_fb_helper.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  include/linux/io.h \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+    $(wildcard include/config/STRICT_DEVMEM) \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/regulator/consumer.h \
     $(wildcard include/config/REGULATOR) \
   include/linux/suspend.h \
@@ -1427,27 +1476,6 @@ deps_drivers/gpu/drm/drm_fb_helper.o := \
   arch/x86/include/asm/video.h \
     $(wildcard include/config/VIDEO) \
   include/asm-generic/video.h \
-  include/linux/io.h \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-    $(wildcard include/config/STRICT_DEVMEM) \
-  arch/x86/include/asm/io.h \
-    $(wildcard include/config/MTRR) \
-    $(wildcard include/config/X86_PAT) \
-  arch/x86/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  arch/x86/include/asm/shared/io.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/HAS_IOPORT) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-  include/asm-generic/iomap.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
   include/drm/drm_client.h \
   include/linux/iosys-map.h \
   include/drm/drm_fourcc.h \
@@ -1524,24 +1552,24 @@ deps_drivers/gpu/drm/drm_fb_helper.o := \
 drivers/gpu/drm/drm_fb_helper.o: $(deps_drivers/gpu/drm/drm_fb_helper.o)
 
 $(deps_drivers/gpu/drm/drm_fb_helper.o):
-#SYMVER drm_fb_helper_restore_fbdev_mode_unlocked 0xc227aac6
-#SYMVER drm_fb_helper_blank 0xabe39d87
-#SYMVER drm_fb_helper_prepare 0xf5eb8f1f
-#SYMVER drm_fb_helper_unprepare 0x8bcbe42e
-#SYMVER drm_fb_helper_init 0x0e293d07
-#SYMVER drm_fb_helper_unregister_info 0x4fa26650
-#SYMVER drm_fb_helper_fini 0x8e5485f4
-#SYMVER drm_fb_helper_damage_range 0x89f1f3cd
-#SYMVER drm_fb_helper_damage_area 0xae417bee
-#SYMVER drm_fb_helper_deferred_io 0xb708a30b
-#SYMVER drm_fb_helper_set_suspend 0x2941e182
-#SYMVER drm_fb_helper_set_suspend_unlocked 0x3309eb6d
-#SYMVER drm_fb_helper_setcmap 0x9334b88e
-#SYMVER drm_fb_helper_ioctl 0x3ca731e9
-#SYMVER drm_fb_helper_check_var 0xe64fee44
-#SYMVER drm_fb_helper_set_par 0x6b5c9a81
-#SYMVER drm_fb_helper_pan_display 0x6a294fe9
-#SYMVER drm_fb_helper_fill_info 0xaa95343c
-#SYMVER drm_fb_helper_initial_config 0x9e12afb5
-#SYMVER drm_fb_helper_hotplug_event 0x80cdf9bc
-#SYMVER drm_fb_helper_gem_is_fb 0xb143a037
+#SYMVER drm_fb_helper_restore_fbdev_mode_unlocked 0x86bab3d5
+#SYMVER drm_fb_helper_blank 0x9f03eb1c
+#SYMVER drm_fb_helper_prepare 0x6bfb4380
+#SYMVER drm_fb_helper_unprepare 0x942b3137
+#SYMVER drm_fb_helper_init 0xd4f56300
+#SYMVER drm_fb_helper_unregister_info 0x480317f1
+#SYMVER drm_fb_helper_fini 0xff2f16fe
+#SYMVER drm_fb_helper_damage_range 0x14b4d017
+#SYMVER drm_fb_helper_damage_area 0xd437f3db
+#SYMVER drm_fb_helper_deferred_io 0x82535c4f
+#SYMVER drm_fb_helper_set_suspend 0xa1007038
+#SYMVER drm_fb_helper_set_suspend_unlocked 0x24390975
+#SYMVER drm_fb_helper_setcmap 0x89b3f43d
+#SYMVER drm_fb_helper_ioctl 0x1af04de4
+#SYMVER drm_fb_helper_check_var 0x3dfb6163
+#SYMVER drm_fb_helper_set_par 0xdc06d602
+#SYMVER drm_fb_helper_pan_display 0x0cfcb86e
+#SYMVER drm_fb_helper_fill_info 0xe26e06c7
+#SYMVER drm_fb_helper_initial_config 0xc40f58c3
+#SYMVER drm_fb_helper_hotplug_event 0x5ca44f3d
+#SYMVER drm_fb_helper_gem_is_fb 0xecc016b9

@@ -1297,6 +1297,6 @@ deps_drivers/gpu/drm/drm_mode_config.o := \
 drivers/gpu/drm/drm_mode_config.o: $(deps_drivers/gpu/drm/drm_mode_config.o)
 
 $(deps_drivers/gpu/drm/drm_mode_config.o):
-#SYMVER drm_mode_config_reset 0x93765dae
-#SYMVER drmm_mode_config_init 0xd01505c1
-#SYMVER drm_mode_config_cleanup 0x2600c3a1
+#SYMVER drm_mode_config_reset 0x06c3aa1c
+#SYMVER drmm_mode_config_init 0x7236ac33
+#SYMVER drm_mode_config_cleanup 0xf163e279

@@ -1199,5 +1199,5 @@ drivers/tty/vt/selection.o: $(deps_drivers/tty/vt/selection.o)
 
 $(deps_drivers/tty/vt/selection.o):
 #SYMVER clear_selection 0x38374815
-#SYMVER set_selection_kernel 0xe70c198f
-#SYMVER paste_selection 0x44876e2e
+#SYMVER set_selection_kernel 0x81612c27
+#SYMVER paste_selection 0xfeef4e85

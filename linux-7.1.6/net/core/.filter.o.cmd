@@ -1779,18 +1779,18 @@ net/core/filter.o: $(deps_net/core/filter.o)
 
 $(deps_net/core/filter.o):
 #SYMVER copy_bpf_fprog_from_user 0x6d09843f
-#SYMVER sk_filter_trim_cap 0xf6d6708d
-#SYMVER bpf_prog_create 0xc286b14a
-#SYMVER bpf_prog_create_from_user 0xd1769264
-#SYMVER bpf_prog_destroy 0x1e773b1f
-#SYMVER sk_attach_filter 0xa8b84400
+#SYMVER sk_filter_trim_cap 0xbebdf1fe
+#SYMVER bpf_prog_create 0x6fc4c1d4
+#SYMVER bpf_prog_create_from_user 0xdfc4d741
+#SYMVER bpf_prog_destroy 0xfae46646
+#SYMVER sk_attach_filter 0x0fa34e7b
 #SYMVER xdp_do_flush 0xb9681621
 #SYMVER bpf_master_redirect_enabled_key 0x848400f7
-#SYMVER xdp_master_redirect 0x1a2ce072
-#SYMVER xdp_do_redirect 0xc71c8d44
-#SYMVER xdp_do_redirect_frame 0x633d07bd
+#SYMVER xdp_master_redirect 0xea098133
+#SYMVER xdp_do_redirect 0x2cf96251
+#SYMVER xdp_do_redirect_frame 0x4d3bc212
 #SYMVER nf_conn_btf_access_lock 0x3b86caf1
-#SYMVER nfct_btf_struct_access 0x13428c1a
-#SYMVER bpf_warn_invalid_xdp_action 0xed25a142
-#SYMVER sk_detach_filter 0x47e9a21b
+#SYMVER nfct_btf_struct_access 0x16d35a18
+#SYMVER bpf_warn_invalid_xdp_action 0xbfbddea2
+#SYMVER sk_detach_filter 0x603d80dd
 #SYMVER bpf_dispatcher_xdp_func 0x03b814ca

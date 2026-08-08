@@ -1253,7 +1253,7 @@ drivers/pci/rebar.o: $(deps_drivers/pci/rebar.o)
 $(deps_drivers/pci/rebar.o):
 #SYMVER pci_rebar_bytes_to_size 0x2d38e7f2
 #SYMVER pci_rebar_size_to_bytes 0xd8adf56b
-#SYMVER pci_rebar_get_possible_sizes 0x74d52fd8
-#SYMVER pci_rebar_size_supported 0xbdc1a84e
-#SYMVER pci_rebar_get_max_size 0xcf2725c2
-#SYMVER pci_resize_resource 0xd6ba8872
+#SYMVER pci_rebar_get_possible_sizes 0xc6f1f68c
+#SYMVER pci_rebar_size_supported 0x70c3562d
+#SYMVER pci_rebar_get_max_size 0x433866aa
+#SYMVER pci_resize_resource 0x6096f599

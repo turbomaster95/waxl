@@ -1482,13 +1482,13 @@ deps_fs/fs_context.o := \
 fs/fs_context.o: $(deps_fs/fs_context.o)
 
 $(deps_fs/fs_context.o):
-#SYMVER vfs_parse_fs_param_source 0xa19b1ad8
-#SYMVER vfs_parse_fs_param 0xf0ccf28e
-#SYMVER vfs_parse_fs_qstr 0x8e8119c0
-#SYMVER vfs_parse_monolithic_sep 0x9a6e7de6
-#SYMVER generic_parse_monolithic 0xc605fee0
-#SYMVER fs_context_for_mount 0x4eb84cfd
-#SYMVER fs_context_for_submount 0xb559f8dc
-#SYMVER vfs_dup_fs_context 0xb238ee39
-#SYMVER logfc 0x4e57e85b
-#SYMVER put_fs_context 0x3f0f6fc4
+#SYMVER vfs_parse_fs_param_source 0x4c72af1b
+#SYMVER vfs_parse_fs_param 0xd9601862
+#SYMVER vfs_parse_fs_qstr 0x6204fb15
+#SYMVER vfs_parse_monolithic_sep 0xff5300c4
+#SYMVER generic_parse_monolithic 0x73666a3c
+#SYMVER fs_context_for_mount 0x70889c4c
+#SYMVER fs_context_for_submount 0x33e4776e
+#SYMVER vfs_dup_fs_context 0x8e6a64ec
+#SYMVER logfc 0x4c65ad3f
+#SYMVER put_fs_context 0x72524c1e

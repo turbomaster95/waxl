@@ -1269,9 +1269,9 @@ deps_drivers/scsi/scsi_ioctl.o := \
 drivers/scsi/scsi_ioctl.o: $(deps_drivers/scsi/scsi_ioctl.o)
 
 $(deps_drivers/scsi/scsi_ioctl.o):
-#SYMVER scsi_set_medium_removal 0x6529c4ae
+#SYMVER scsi_set_medium_removal 0x2e97d585
 #SYMVER scsi_cmd_allowed 0xeda2e038
 #SYMVER put_sg_io_hdr 0x5ec4aee6
 #SYMVER get_sg_io_hdr 0x1de4ccb2
-#SYMVER scsi_ioctl 0x8844e8a6
-#SYMVER scsi_ioctl_block_when_processing_errors 0x3af4386b
+#SYMVER scsi_ioctl 0x1f18084d
+#SYMVER scsi_ioctl_block_when_processing_errors 0x6d6c9964

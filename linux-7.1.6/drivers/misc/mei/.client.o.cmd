@@ -1167,4 +1167,4 @@ deps_drivers/misc/mei/client.o := \
 drivers/misc/mei/client.o: $(deps_drivers/misc/mei/client.o)
 
 $(deps_drivers/misc/mei/client.o):
-#SYMVER mei_cl_all_disconnect 0x39bc56d1
+#SYMVER mei_cl_all_disconnect 0xf9ee5a38

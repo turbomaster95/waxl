@@ -1409,22 +1409,22 @@ deps_drivers/tty/serial/serial_core.o := \
 drivers/tty/serial/serial_core.o: $(deps_drivers/tty/serial/serial_core.o)
 
 $(deps_drivers/tty/serial/serial_core.o):
-#SYMVER uart_write_wakeup 0x98120581
-#SYMVER uart_update_timeout 0xa2b7c469
-#SYMVER uart_get_baud_rate 0x84ed411b
-#SYMVER uart_get_divisor 0x73e5a8f9
-#SYMVER uart_xchar_out 0x105cdcdf
-#SYMVER uart_console_write 0x9688f559
+#SYMVER uart_write_wakeup 0x85a85432
+#SYMVER uart_update_timeout 0x5cbb2eb7
+#SYMVER uart_get_baud_rate 0x159fe8c7
+#SYMVER uart_get_divisor 0x1a211a24
+#SYMVER uart_xchar_out 0xd80a5ccc
+#SYMVER uart_console_write 0x554de67b
 #SYMVER uart_parse_earlycon 0x8c1cfae9
 #SYMVER uart_parse_options 0x4f72a987
-#SYMVER uart_set_options 0x2f123798
-#SYMVER uart_suspend_port 0x61f9b587
-#SYMVER uart_resume_port 0xd65c41b0
-#SYMVER uart_register_driver 0x4f0506ee
-#SYMVER uart_unregister_driver 0xd5fc068c
-#SYMVER uart_console_device 0x33537bc6
-#SYMVER uart_match_port 0x49df2f1f
-#SYMVER uart_handle_dcd_change 0x4c348989
-#SYMVER uart_handle_cts_change 0xc59f7a49
-#SYMVER uart_insert_char 0x07a64cee
-#SYMVER uart_get_rs485_mode 0xe3b96ac5
+#SYMVER uart_set_options 0x7ba2760e
+#SYMVER uart_suspend_port 0x876f4f4a
+#SYMVER uart_resume_port 0xd4144163
+#SYMVER uart_register_driver 0x0c2b55cb
+#SYMVER uart_unregister_driver 0x24611843
+#SYMVER uart_console_device 0x9458a68f
+#SYMVER uart_match_port 0x6a6d06f4
+#SYMVER uart_handle_dcd_change 0xcbc73fd3
+#SYMVER uart_handle_cts_change 0xf0918a8f
+#SYMVER uart_insert_char 0x084ea7d7
+#SYMVER uart_get_rs485_mode 0xe00b251a

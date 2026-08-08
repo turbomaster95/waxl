@@ -899,23 +899,23 @@ deps_drivers/base/bus.o := \
 drivers/base/bus.o: $(deps_drivers/base/bus.o)
 
 $(deps_drivers/base/bus.o):
-#SYMVER bus_create_file 0x11a24a16
-#SYMVER bus_remove_file 0x9c3a10c3
-#SYMVER bus_for_each_dev 0xafdbec94
-#SYMVER bus_find_device 0x4dbb2aff
-#SYMVER bus_find_device_reverse 0xb057dacf
-#SYMVER bus_for_each_drv 0x6407d950
-#SYMVER bus_rescan_devices 0x2b2a10f3
-#SYMVER device_reprobe 0xc1694cfe
-#SYMVER bus_register 0xbb59a756
-#SYMVER bus_unregister 0xc30c57cd
-#SYMVER bus_register_notifier 0xab75558f
-#SYMVER bus_unregister_notifier 0x6cdd8799
-#SYMVER bus_get_kset 0x3990a32f
-#SYMVER bus_sort_breadthfirst 0x6ab4611b
-#SYMVER subsys_interface_register 0x2f490e19
-#SYMVER subsys_interface_unregister 0x303f995d
-#SYMVER subsys_system_register 0x33277bb5
-#SYMVER subsys_virtual_register 0x68980c20
-#SYMVER driver_find 0x963adfbb
-#SYMVER bus_get_dev_root 0x61e8329c
+#SYMVER bus_create_file 0x003372c8
+#SYMVER bus_remove_file 0xf00cad3e
+#SYMVER bus_for_each_dev 0xef44e671
+#SYMVER bus_find_device 0x82bedad4
+#SYMVER bus_find_device_reverse 0x4bbd70af
+#SYMVER bus_for_each_drv 0xd1b0d5dd
+#SYMVER bus_rescan_devices 0x780b1350
+#SYMVER device_reprobe 0xb25e52e3
+#SYMVER bus_register 0x43547d76
+#SYMVER bus_unregister 0x1b261961
+#SYMVER bus_register_notifier 0xae07f495
+#SYMVER bus_unregister_notifier 0x65a35680
+#SYMVER bus_get_kset 0xbe1adf48
+#SYMVER bus_sort_breadthfirst 0x47cf92ed
+#SYMVER subsys_interface_register 0x00921cca
+#SYMVER subsys_interface_unregister 0xb0e9e5f1
+#SYMVER subsys_system_register 0x7481d61a
+#SYMVER subsys_virtual_register 0x358377e6
+#SYMVER driver_find 0x0867afd5
+#SYMVER bus_get_dev_root 0x63f64d94

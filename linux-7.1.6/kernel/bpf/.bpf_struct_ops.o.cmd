@@ -1595,4 +1595,4 @@ $(deps_kernel/bpf/bpf_struct_ops.o):
 #SYMVER bpf_struct_ops_get 0xa7418894
 #SYMVER bpf_struct_ops_put 0x9da65930
 #SYMVER bpf_struct_ops_id 0xc8a7599a
-#SYMVER bpf_prog_get_assoc_struct_ops 0xde584da9
+#SYMVER bpf_prog_get_assoc_struct_ops 0xdfbd084b

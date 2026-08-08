@@ -1625,4 +1625,4 @@ deps_net/ipv6/ip6_checksum.o := \
 net/ipv6/ip6_checksum.o: $(deps_net/ipv6/ip6_checksum.o)
 
 $(deps_net/ipv6/ip6_checksum.o):
-#SYMVER udp6_set_csum 0x245f2a91
+#SYMVER udp6_set_csum 0x294b404e

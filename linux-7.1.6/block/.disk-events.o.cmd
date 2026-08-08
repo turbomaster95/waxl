@@ -1218,5 +1218,5 @@ deps_block/disk-events.o := \
 block/disk-events.o: $(deps_block/disk-events.o)
 
 $(deps_block/disk-events.o):
-#SYMVER disk_check_media_change 0x8b6c7833
-#SYMVER disk_force_media_change 0xa70586b1
+#SYMVER disk_check_media_change 0xd25db464
+#SYMVER disk_force_media_change 0x4167bdd4

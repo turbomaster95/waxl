@@ -1253,6 +1253,18 @@ deps_drivers/gpu/drm/bridge/panel.o := \
   include/drm/drm_of.h \
     $(wildcard include/config/DRM_MIPI_DSI) \
   include/linux/of_graph.h \
+  include/linux/of.h \
+    $(wildcard include/config/OF_DYNAMIC) \
+    $(wildcard include/config/SPARC) \
+    $(wildcard include/config/OF_PROMTREE) \
+    $(wildcard include/config/OF_KOBJ) \
+    $(wildcard include/config/OF_NUMA) \
+    $(wildcard include/config/OF_OVERLAY) \
+  include/linux/mod_devicetable.h \
+  include/uapi/linux/mei.h \
+  include/uapi/linux/mei_uuid.h \
+  include/linux/property.h \
+  include/linux/fwnode.h \
   include/drm/drm_panel.h \
     $(wildcard include/config/DRM_PANEL) \
     $(wildcard include/config/BACKLIGHT_CLASS_DEVICE) \
@@ -1264,12 +1276,14 @@ deps_drivers/gpu/drm/bridge/panel.o := \
 drivers/gpu/drm/bridge/panel.o: $(deps_drivers/gpu/drm/bridge/panel.o)
 
 $(deps_drivers/gpu/drm/bridge/panel.o):
-#SYMVER drm_bridge_is_panel 0x6b5b8638
-#SYMVER drm_panel_bridge_add 0x4712986d
-#SYMVER drm_panel_bridge_add_typed 0x6c6dd16f
-#SYMVER drm_panel_bridge_remove 0x61ba473c
-#SYMVER drm_panel_bridge_set_orientation 0x4215b6ac
-#SYMVER devm_drm_panel_bridge_add 0x6577ec57
-#SYMVER devm_drm_panel_bridge_add_typed 0x12996620
-#SYMVER drmm_panel_bridge_add 0x4b52e750
-#SYMVER drm_panel_bridge_connector 0xb8ba40fb
+#SYMVER drm_bridge_is_panel 0x380d0fdc
+#SYMVER drm_panel_bridge_add 0xe6645a2e
+#SYMVER drm_panel_bridge_add_typed 0xdadd42ae
+#SYMVER drm_panel_bridge_remove 0x7e4dadea
+#SYMVER drm_panel_bridge_set_orientation 0x0b00c7ba
+#SYMVER devm_drm_panel_bridge_add 0x773133b0
+#SYMVER devm_drm_panel_bridge_add_typed 0xa3a18d2a
+#SYMVER drmm_panel_bridge_add 0x591438b7
+#SYMVER drm_panel_bridge_connector 0xa99b6dbd
+#SYMVER devm_drm_of_get_bridge 0xa11ae1f4
+#SYMVER drmm_of_get_bridge 0xd9db13a4

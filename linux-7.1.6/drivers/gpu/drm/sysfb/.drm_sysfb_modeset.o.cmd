@@ -1343,18 +1343,18 @@ drivers/gpu/drm/sysfb/drm_sysfb_modeset.o: $(deps_drivers/gpu/drm/sysfb/drm_sysf
 
 $(deps_drivers/gpu/drm/sysfb/drm_sysfb_modeset.o):
 #SYMVER drm_sysfb_mode 0x17f4b618
-#SYMVER drm_sysfb_build_fourcc_list 0x82013629
-#SYMVER drm_sysfb_plane_helper_begin_fb_access 0xe0671d9e
-#SYMVER drm_sysfb_plane_helper_atomic_check 0xf136b843
-#SYMVER drm_sysfb_plane_helper_atomic_update 0x1ce8d311
-#SYMVER drm_sysfb_plane_helper_atomic_disable 0x33766436
-#SYMVER drm_sysfb_plane_helper_get_scanout_buffer 0xdeb735ca
-#SYMVER drm_sysfb_plane_reset 0x8c9e060d
-#SYMVER drm_sysfb_plane_atomic_duplicate_state 0x4f858ba4
-#SYMVER drm_sysfb_plane_atomic_destroy_state 0xf1668d5a
-#SYMVER drm_sysfb_crtc_helper_mode_valid 0x7c6941da
-#SYMVER drm_sysfb_crtc_helper_atomic_check 0x1a55874f
-#SYMVER drm_sysfb_crtc_reset 0x6ffeff5d
-#SYMVER drm_sysfb_crtc_atomic_duplicate_state 0x37fdcb5f
-#SYMVER drm_sysfb_crtc_atomic_destroy_state 0x2f30d821
-#SYMVER drm_sysfb_connector_helper_get_modes 0x31490a90
+#SYMVER drm_sysfb_build_fourcc_list 0xdd90b900
+#SYMVER drm_sysfb_plane_helper_begin_fb_access 0xead1f971
+#SYMVER drm_sysfb_plane_helper_atomic_check 0x77ec6648
+#SYMVER drm_sysfb_plane_helper_atomic_update 0x63795c71
+#SYMVER drm_sysfb_plane_helper_atomic_disable 0xc90bce55
+#SYMVER drm_sysfb_plane_helper_get_scanout_buffer 0xb44d53bf
+#SYMVER drm_sysfb_plane_reset 0x057ad477
+#SYMVER drm_sysfb_plane_atomic_duplicate_state 0x1f27fe89
+#SYMVER drm_sysfb_plane_atomic_destroy_state 0x0b6351f2
+#SYMVER drm_sysfb_crtc_helper_mode_valid 0xfd28e078
+#SYMVER drm_sysfb_crtc_helper_atomic_check 0xbfaf5621
+#SYMVER drm_sysfb_crtc_reset 0x414e38eb
+#SYMVER drm_sysfb_crtc_atomic_duplicate_state 0x62f85bb0
+#SYMVER drm_sysfb_crtc_atomic_destroy_state 0x85c43ead
+#SYMVER drm_sysfb_connector_helper_get_modes 0xa0b32ecb

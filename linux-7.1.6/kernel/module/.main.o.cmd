@@ -1481,11 +1481,11 @@ kernel/module/main.o: $(deps_kernel/module/main.o)
 $(deps_kernel/module/main.o):
 #SYMVER register_module_notifier 0xf353a698
 #SYMVER unregister_module_notifier 0x6a5ecb18
-#SYMVER __module_put_and_kthread_exit 0x55cab291
-#SYMVER module_refcount 0xb1fbff4d
+#SYMVER __module_put_and_kthread_exit 0xe17618d5
+#SYMVER module_refcount 0x5b67fd97
 #SYMVER __symbol_put 0x6e9dd606
 #SYMVER symbol_put_addr 0x66d87d38
-#SYMVER __module_get 0x9705dc8e
-#SYMVER try_module_get 0xebbbbfd2
-#SYMVER module_put 0x006237cc
+#SYMVER __module_get 0x1f087da9
+#SYMVER try_module_get 0xe654c1b5
+#SYMVER module_put 0x3d7fc09d
 #SYMVER __symbol_get 0x868784cb

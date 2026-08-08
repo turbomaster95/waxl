@@ -1427,24 +1427,24 @@ deps_drivers/gpu/drm/drm_gem_shmem_helper.o := \
 drivers/gpu/drm/drm_gem_shmem_helper.o: $(deps_drivers/gpu/drm/drm_gem_shmem_helper.o)
 
 $(deps_drivers/gpu/drm/drm_gem_shmem_helper.o):
-#SYMVER drm_gem_shmem_init 0xdcae6c64
-#SYMVER drm_gem_shmem_create 0x0dc23971
-#SYMVER drm_gem_shmem_release 0x4f4101fd
-#SYMVER drm_gem_shmem_free 0x820e9b58
-#SYMVER drm_gem_shmem_put_pages_locked 0xdbe23ffe
-#SYMVER drm_gem_shmem_pin_locked 0x6e3bd95a
-#SYMVER drm_gem_shmem_unpin_locked 0x89302afb
-#SYMVER drm_gem_shmem_pin 0x03d18a8f
-#SYMVER drm_gem_shmem_unpin 0x47d12ae2
-#SYMVER drm_gem_shmem_vmap_locked 0x78fb0f41
-#SYMVER drm_gem_shmem_vunmap_locked 0x2fc172d6
-#SYMVER drm_gem_shmem_madvise_locked 0xab29c269
-#SYMVER drm_gem_shmem_purge_locked 0x892a0ee4
-#SYMVER drm_gem_shmem_dumb_create 0xcef98d8c
-#SYMVER drm_gem_shmem_vm_ops 0xc96c5257
-#SYMVER drm_gem_shmem_mmap 0x58c3f143
-#SYMVER drm_gem_shmem_print_info 0x68176bf3
-#SYMVER drm_gem_shmem_get_sg_table 0x37a7248b
-#SYMVER drm_gem_shmem_get_pages_sgt 0xb6213f4a
-#SYMVER drm_gem_shmem_prime_import_sg_table 0x9fef3d64
-#SYMVER drm_gem_shmem_prime_import_no_map 0x3aba3d7b
+#SYMVER drm_gem_shmem_init 0x1ec6eb8a
+#SYMVER drm_gem_shmem_create 0x26321a0a
+#SYMVER drm_gem_shmem_release 0x9c0e80f9
+#SYMVER drm_gem_shmem_free 0x6866d05c
+#SYMVER drm_gem_shmem_put_pages_locked 0x4c30f074
+#SYMVER drm_gem_shmem_pin_locked 0x97c30274
+#SYMVER drm_gem_shmem_unpin_locked 0x7fd81f4d
+#SYMVER drm_gem_shmem_pin 0x4fbc6296
+#SYMVER drm_gem_shmem_unpin 0x5291fa31
+#SYMVER drm_gem_shmem_vmap_locked 0x4c9ede5f
+#SYMVER drm_gem_shmem_vunmap_locked 0xdffcc9c8
+#SYMVER drm_gem_shmem_madvise_locked 0xb7b93292
+#SYMVER drm_gem_shmem_purge_locked 0x649c8ab1
+#SYMVER drm_gem_shmem_dumb_create 0xa12cfabe
+#SYMVER drm_gem_shmem_vm_ops 0x3ea0b46f
+#SYMVER drm_gem_shmem_mmap 0x166872b5
+#SYMVER drm_gem_shmem_print_info 0x69ef4394
+#SYMVER drm_gem_shmem_get_sg_table 0x64191b78
+#SYMVER drm_gem_shmem_get_pages_sgt 0xe515f168
+#SYMVER drm_gem_shmem_prime_import_sg_table 0x58db8461
+#SYMVER drm_gem_shmem_prime_import_no_map 0x94aa0504

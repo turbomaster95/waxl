@@ -1420,6 +1420,6 @@ deps_fs/sync.o := \
 fs/sync.o: $(deps_fs/sync.o)
 
 $(deps_fs/sync.o):
-#SYMVER sync_filesystem 0xfcc1282a
-#SYMVER vfs_fsync_range 0xe4b9808a
-#SYMVER vfs_fsync 0x8da23a52
+#SYMVER sync_filesystem 0x0b03ee19
+#SYMVER vfs_fsync_range 0xf7700550
+#SYMVER vfs_fsync 0x060aaaab

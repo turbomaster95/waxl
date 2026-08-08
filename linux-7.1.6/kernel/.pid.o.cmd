@@ -1678,16 +1678,16 @@ deps_kernel/pid.o := \
 kernel/pid.o: $(deps_kernel/pid.o)
 
 $(deps_kernel/pid.o):
-#SYMVER init_pid_ns 0x105c6cb5
-#SYMVER put_pid 0xf3b4f8cb
-#SYMVER find_pid_ns 0x3f8e310b
-#SYMVER find_vpid 0x29741bdb
-#SYMVER pid_task 0x6786bfa4
-#SYMVER get_task_pid 0x7af9f4e5
-#SYMVER get_pid_task 0x9c10da6e
-#SYMVER find_get_pid 0xb9aadb85
-#SYMVER pid_nr_ns 0x9ab10751
-#SYMVER pid_vnr 0x41a38725
-#SYMVER __task_pid_nr_ns 0x01fda551
-#SYMVER task_active_pid_ns 0xde541792
-#SYMVER find_ge_pid 0x0a1a2089
+#SYMVER init_pid_ns 0xb6f5471b
+#SYMVER put_pid 0x5c1afeb1
+#SYMVER find_pid_ns 0x3f0e58ad
+#SYMVER find_vpid 0xedd0049f
+#SYMVER pid_task 0x6230475f
+#SYMVER get_task_pid 0xaaf55ee1
+#SYMVER get_pid_task 0xb4559411
+#SYMVER find_get_pid 0xd2d89732
+#SYMVER pid_nr_ns 0xc2f50277
+#SYMVER pid_vnr 0xb293d1c3
+#SYMVER __task_pid_nr_ns 0xca1cbd86
+#SYMVER task_active_pid_ns 0xe5d93346
+#SYMVER find_ge_pid 0x0a9a492f

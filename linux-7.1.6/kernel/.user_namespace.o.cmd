@@ -1317,14 +1317,14 @@ deps_kernel/user_namespace.o := \
 kernel/user_namespace.o: $(deps_kernel/user_namespace.o)
 
 $(deps_kernel/user_namespace.o):
-#SYMVER __put_user_ns 0xd73c86c9
-#SYMVER make_kuid 0xb1f6e847
-#SYMVER from_kuid 0x92b687d9
-#SYMVER from_kuid_munged 0x6da0101a
-#SYMVER make_kgid 0x35113c55
-#SYMVER from_kgid 0x1e72a711
-#SYMVER from_kgid_munged 0x4a878b5c
-#SYMVER make_kprojid 0x696f6d91
-#SYMVER from_kprojid 0x922dda8d
-#SYMVER from_kprojid_munged 0x3c95d170
-#SYMVER current_in_userns 0xa5390805
+#SYMVER __put_user_ns 0xa371ec93
+#SYMVER make_kuid 0x8fa63fe6
+#SYMVER from_kuid 0xcdabcbb7
+#SYMVER from_kuid_munged 0xc313c487
+#SYMVER make_kgid 0xfa71deeb
+#SYMVER from_kgid 0xf80af770
+#SYMVER from_kgid_munged 0xed43eeb8
+#SYMVER make_kprojid 0x04d595f8
+#SYMVER from_kprojid 0x2789b3c9
+#SYMVER from_kprojid_munged 0x40000fae
+#SYMVER current_in_userns 0xf6996118

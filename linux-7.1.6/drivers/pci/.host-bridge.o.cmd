@@ -1251,8 +1251,8 @@ deps_drivers/pci/host-bridge.o := \
 drivers/pci/host-bridge.o: $(deps_drivers/pci/host-bridge.o)
 
 $(deps_drivers/pci/host-bridge.o):
-#SYMVER pci_find_host_bridge 0xea3a9e8d
-#SYMVER pci_get_host_bridge_device 0xf7465b42
-#SYMVER pci_set_host_bridge_release 0x78bf6b50
-#SYMVER pcibios_resource_to_bus 0x23fae210
-#SYMVER pcibios_bus_to_resource 0x5d52369f
+#SYMVER pci_find_host_bridge 0x50a018eb
+#SYMVER pci_get_host_bridge_device 0x95ea31b4
+#SYMVER pci_set_host_bridge_release 0xf3dc3b10
+#SYMVER pcibios_resource_to_bus 0x75689940
+#SYMVER pcibios_bus_to_resource 0x795a7813

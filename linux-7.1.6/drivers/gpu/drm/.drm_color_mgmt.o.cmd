@@ -1251,17 +1251,17 @@ drivers/gpu/drm/drm_color_mgmt.o: $(deps_drivers/gpu/drm/drm_color_mgmt.o)
 
 $(deps_drivers/gpu/drm/drm_color_mgmt.o):
 #SYMVER drm_color_ctm_s31_32_to_qm_n 0xad4e902b
-#SYMVER drm_crtc_enable_color_mgmt 0xff15b1bc
-#SYMVER drm_mode_crtc_set_gamma_size 0x3d0f15e3
-#SYMVER drm_plane_create_color_properties 0x8a969ab9
-#SYMVER drm_color_lut_check 0x8f4d8ca8
-#SYMVER drm_crtc_load_gamma_888 0x6ff7017d
-#SYMVER drm_crtc_load_gamma_565_from_888 0x7ebd333e
-#SYMVER drm_crtc_load_gamma_555_from_888 0xa91df87a
-#SYMVER drm_crtc_fill_gamma_888 0x28a3a002
-#SYMVER drm_crtc_fill_gamma_565 0x17691813
-#SYMVER drm_crtc_fill_gamma_555 0x40dbc006
-#SYMVER drm_crtc_load_palette_8 0x18fce144
-#SYMVER drm_crtc_fill_palette_332 0xd110b03c
-#SYMVER drm_crtc_fill_palette_8 0x5cf75389
-#SYMVER drm_color_lut32_check 0x0eda005e
+#SYMVER drm_crtc_enable_color_mgmt 0xcec624cd
+#SYMVER drm_mode_crtc_set_gamma_size 0x8ff75196
+#SYMVER drm_plane_create_color_properties 0x7d21d55a
+#SYMVER drm_color_lut_check 0x94855788
+#SYMVER drm_crtc_load_gamma_888 0xc4e18673
+#SYMVER drm_crtc_load_gamma_565_from_888 0x73bcf6d4
+#SYMVER drm_crtc_load_gamma_555_from_888 0xf6716844
+#SYMVER drm_crtc_fill_gamma_888 0x4c75c079
+#SYMVER drm_crtc_fill_gamma_565 0xc02f3ee7
+#SYMVER drm_crtc_fill_gamma_555 0xf343778c
+#SYMVER drm_crtc_load_palette_8 0x63fb708f
+#SYMVER drm_crtc_fill_palette_332 0xb5a9f20b
+#SYMVER drm_crtc_fill_palette_8 0x24ae5fba
+#SYMVER drm_color_lut32_check 0x97d1e2da

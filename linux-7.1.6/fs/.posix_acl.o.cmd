@@ -1336,28 +1336,28 @@ deps_fs/posix_acl.o := \
 fs/posix_acl.o: $(deps_fs/posix_acl.o)
 
 $(deps_fs/posix_acl.o):
-#SYMVER get_cached_acl 0x485b6624
-#SYMVER get_cached_acl_rcu 0x5a3eff42
-#SYMVER set_cached_acl 0x8895c299
-#SYMVER forget_cached_acl 0x7932f084
-#SYMVER forget_all_cached_acls 0x71e7d839
-#SYMVER get_inode_acl 0x6f1373a9
+#SYMVER get_cached_acl 0x430c3d94
+#SYMVER get_cached_acl_rcu 0xe6a6ad9e
+#SYMVER set_cached_acl 0x309560b2
+#SYMVER forget_cached_acl 0xbf74d045
+#SYMVER forget_all_cached_acls 0x1654aa6a
+#SYMVER get_inode_acl 0x93a45038
 #SYMVER posix_acl_init 0xc10ddb0a
 #SYMVER posix_acl_alloc 0x012a0e5f
 #SYMVER posix_acl_clone 0x44f7bcfb
-#SYMVER posix_acl_valid 0x5d46566b
+#SYMVER posix_acl_valid 0xf41256d1
 #SYMVER posix_acl_equiv_mode 0xb4a852b6
 #SYMVER posix_acl_from_mode 0x182136a3
 #SYMVER __posix_acl_create 0x02468d02
 #SYMVER __posix_acl_chmod 0x828b36e4
-#SYMVER posix_acl_chmod 0xa600b9bb
-#SYMVER posix_acl_create 0x110973cf
-#SYMVER posix_acl_update_mode 0xb9d58c25
-#SYMVER posix_acl_from_xattr 0x2caf3e77
-#SYMVER posix_acl_to_xattr 0x45f4e1ac
-#SYMVER set_posix_acl 0x058a8ff9
-#SYMVER nop_posix_acl_access 0xce9797c1
-#SYMVER nop_posix_acl_default 0x677a8518
-#SYMVER vfs_set_acl 0xc4dbec3f
-#SYMVER vfs_get_acl 0xf550364f
-#SYMVER vfs_remove_acl 0x3727da9c
+#SYMVER posix_acl_chmod 0x1bf7e0d0
+#SYMVER posix_acl_create 0x0cb1d6ff
+#SYMVER posix_acl_update_mode 0xd4f652d6
+#SYMVER posix_acl_from_xattr 0x6cbbf3cf
+#SYMVER posix_acl_to_xattr 0x9fc1e353
+#SYMVER set_posix_acl 0x9aac5d84
+#SYMVER nop_posix_acl_access 0x8ba67c91
+#SYMVER nop_posix_acl_default 0x0c54e507
+#SYMVER vfs_set_acl 0x2c4e3013
+#SYMVER vfs_get_acl 0x8236ce12
+#SYMVER vfs_remove_acl 0x26666742

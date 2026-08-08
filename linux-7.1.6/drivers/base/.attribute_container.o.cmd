@@ -893,7 +893,7 @@ deps_drivers/base/attribute_container.o := \
 drivers/base/attribute_container.o: $(deps_drivers/base/attribute_container.o)
 
 $(deps_drivers/base/attribute_container.o):
-#SYMVER attribute_container_classdev_to_container 0xbf7fcbda
-#SYMVER attribute_container_register 0x8000a085
-#SYMVER attribute_container_unregister 0x5ffd1639
-#SYMVER attribute_container_find_class_device 0x45663811
+#SYMVER attribute_container_classdev_to_container 0xc36692a9
+#SYMVER attribute_container_register 0x1e5e67aa
+#SYMVER attribute_container_unregister 0x76e7cea4
+#SYMVER attribute_container_find_class_device 0x1a10db06

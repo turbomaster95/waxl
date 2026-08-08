@@ -1611,11 +1611,11 @@ deps_net/ethtool/cabletest.o := \
 net/ethtool/cabletest.o: $(deps_net/ethtool/cabletest.o)
 
 $(deps_net/ethtool/cabletest.o):
-#SYMVER ethnl_cable_test_alloc 0xcab8bc16
-#SYMVER ethnl_cable_test_free 0x49524f35
-#SYMVER ethnl_cable_test_finished 0xa2174e9e
-#SYMVER ethnl_cable_test_result_with_src 0x6c47efc6
-#SYMVER ethnl_cable_test_fault_length_with_src 0x614e1ec1
-#SYMVER ethnl_cable_test_amplitude 0xa47f042f
-#SYMVER ethnl_cable_test_pulse 0xb2f0d6e5
-#SYMVER ethnl_cable_test_step 0xee111fdc
+#SYMVER ethnl_cable_test_alloc 0xbc68095e
+#SYMVER ethnl_cable_test_free 0x2297ac63
+#SYMVER ethnl_cable_test_finished 0xf99e6ee6
+#SYMVER ethnl_cable_test_result_with_src 0xd51b16d6
+#SYMVER ethnl_cable_test_fault_length_with_src 0x27313f28
+#SYMVER ethnl_cable_test_amplitude 0xf439936f
+#SYMVER ethnl_cable_test_pulse 0x856f5736
+#SYMVER ethnl_cable_test_step 0x9f6da91e

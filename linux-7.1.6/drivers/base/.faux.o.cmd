@@ -893,6 +893,6 @@ deps_drivers/base/faux.o := \
 drivers/base/faux.o: $(deps_drivers/base/faux.o)
 
 $(deps_drivers/base/faux.o):
-#SYMVER faux_device_create_with_groups 0x8ffbd8c4
-#SYMVER faux_device_create 0x554019dd
-#SYMVER faux_device_destroy 0xa16b2f1e
+#SYMVER faux_device_create_with_groups 0xd4936e0b
+#SYMVER faux_device_create 0x36d502a2
+#SYMVER faux_device_destroy 0x2c325d63

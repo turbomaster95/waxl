@@ -1257,6 +1257,6 @@ deps_fs/mpage.o := \
 fs/mpage.o: $(deps_fs/mpage.o)
 
 $(deps_fs/mpage.o):
-#SYMVER mpage_readahead 0x30aa3de1
-#SYMVER mpage_read_folio 0x84c23acd
-#SYMVER __mpage_writepages 0x7dc74ffc
+#SYMVER mpage_readahead 0x957860df
+#SYMVER mpage_read_folio 0x9a4eceb8
+#SYMVER __mpage_writepages 0x57f3b76f

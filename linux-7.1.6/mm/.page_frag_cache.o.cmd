@@ -1253,6 +1253,6 @@ mm/page_frag_cache.o: $(deps_mm/page_frag_cache.o)
 
 $(deps_mm/page_frag_cache.o):
 #SYMVER page_frag_cache_drain 0xdae93f68
-#SYMVER __page_frag_cache_drain 0x044af839
+#SYMVER __page_frag_cache_drain 0xb75cc4bb
 #SYMVER __page_frag_alloc_align 0xcde435a5
 #SYMVER page_frag_free 0x88e1d0f0

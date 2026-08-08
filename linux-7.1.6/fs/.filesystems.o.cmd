@@ -1407,6 +1407,6 @@ deps_fs/filesystems.o := \
 fs/filesystems.o: $(deps_fs/filesystems.o)
 
 $(deps_fs/filesystems.o):
-#SYMVER register_filesystem 0xf78b3246
-#SYMVER unregister_filesystem 0x5b2594a9
-#SYMVER get_fs_type 0x22822472
+#SYMVER register_filesystem 0xa432ae55
+#SYMVER unregister_filesystem 0x4b85a493
+#SYMVER get_fs_type 0x8a84c979

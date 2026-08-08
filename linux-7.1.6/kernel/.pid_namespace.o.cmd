@@ -1414,4 +1414,4 @@ deps_kernel/pid_namespace.o := \
 kernel/pid_namespace.o: $(deps_kernel/pid_namespace.o)
 
 $(deps_kernel/pid_namespace.o):
-#SYMVER put_pid_ns 0x4061b38e
+#SYMVER put_pid_ns 0xd38eaa84

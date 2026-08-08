@@ -1349,17 +1349,17 @@ deps_drivers/gpu/drm/drm_gem_atomic_helper.o := \
 drivers/gpu/drm/drm_gem_atomic_helper.o: $(deps_drivers/gpu/drm/drm_gem_atomic_helper.o)
 
 $(deps_drivers/gpu/drm/drm_gem_atomic_helper.o):
-#SYMVER drm_gem_plane_helper_prepare_fb 0x72187ee0
-#SYMVER __drm_gem_duplicate_shadow_plane_state 0xcc216257
-#SYMVER drm_gem_duplicate_shadow_plane_state 0x936aa6de
-#SYMVER __drm_gem_destroy_shadow_plane_state 0x2e8e551b
-#SYMVER drm_gem_destroy_shadow_plane_state 0xb07a5f51
-#SYMVER __drm_gem_reset_shadow_plane 0x70393337
-#SYMVER drm_gem_reset_shadow_plane 0x4302adaa
-#SYMVER drm_gem_begin_shadow_fb_access 0x70a9b719
-#SYMVER drm_gem_end_shadow_fb_access 0x2c2ba07c
-#SYMVER drm_gem_simple_kms_begin_shadow_fb_access 0x4418098f
-#SYMVER drm_gem_simple_kms_end_shadow_fb_access 0x62473547
-#SYMVER drm_gem_simple_kms_reset_shadow_plane 0x074838f5
-#SYMVER drm_gem_simple_kms_duplicate_shadow_plane_state 0x2562a936
-#SYMVER drm_gem_simple_kms_destroy_shadow_plane_state 0x99b0da81
+#SYMVER drm_gem_plane_helper_prepare_fb 0x9b6d3eef
+#SYMVER __drm_gem_duplicate_shadow_plane_state 0x51dd1c3c
+#SYMVER drm_gem_duplicate_shadow_plane_state 0x64b82df1
+#SYMVER __drm_gem_destroy_shadow_plane_state 0xb6e348a9
+#SYMVER drm_gem_destroy_shadow_plane_state 0x85a1fa23
+#SYMVER __drm_gem_reset_shadow_plane 0xcdb23f3e
+#SYMVER drm_gem_reset_shadow_plane 0x91c1301b
+#SYMVER drm_gem_begin_shadow_fb_access 0x60fea453
+#SYMVER drm_gem_end_shadow_fb_access 0x8ac1f410
+#SYMVER drm_gem_simple_kms_begin_shadow_fb_access 0x0280d0c7
+#SYMVER drm_gem_simple_kms_end_shadow_fb_access 0x19d86c85
+#SYMVER drm_gem_simple_kms_reset_shadow_plane 0xc7e115f2
+#SYMVER drm_gem_simple_kms_duplicate_shadow_plane_state 0x7c622dbc
+#SYMVER drm_gem_simple_kms_destroy_shadow_plane_state 0xd2fddd81

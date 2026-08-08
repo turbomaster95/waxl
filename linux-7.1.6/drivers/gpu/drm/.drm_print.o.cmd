@@ -1109,8 +1109,8 @@ $(deps_drivers/gpu/drm/drm_print.o):
 #SYMVER drm_puts 0x1401b42f
 #SYMVER drm_printf 0x4a59a39a
 #SYMVER drm_print_bits 0x873bb918
-#SYMVER drm_dev_printk 0xc747fd73
-#SYMVER __drm_dev_dbg 0x85add349
+#SYMVER drm_dev_printk 0x4ff87da5
+#SYMVER __drm_dev_dbg 0x1b903315
 #SYMVER __drm_err 0xb11ac7a7
-#SYMVER drm_print_regset32 0x067c05c2
+#SYMVER drm_print_regset32 0x9ffa6529
 #SYMVER drm_print_hex_dump 0x6b09f02c

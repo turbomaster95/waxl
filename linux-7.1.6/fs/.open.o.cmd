@@ -1462,16 +1462,16 @@ deps_fs/open.o := \
 fs/open.o: $(deps_fs/open.o)
 
 $(deps_fs/open.o):
-#SYMVER vfs_truncate 0xf94ed3ca
-#SYMVER vfs_fallocate 0x0f961b0d
-#SYMVER finish_open 0x0ee1f73a
-#SYMVER finish_no_open 0xa93f2ae9
-#SYMVER file_path 0x5b048c83
-#SYMVER dentry_open 0x4fd864f3
-#SYMVER kernel_file_open 0xf87c0a78
-#SYMVER filp_open 0x7a4daf70
-#SYMVER file_open_root 0xf0343ad4
-#SYMVER filp_close 0x4ead4718
-#SYMVER generic_file_open 0x0fb25f71
-#SYMVER nonseekable_open 0x788ed074
-#SYMVER stream_open 0xc8816351
+#SYMVER vfs_truncate 0x5bb1b5cb
+#SYMVER vfs_fallocate 0x6800e54d
+#SYMVER finish_open 0x98dd0218
+#SYMVER finish_no_open 0x732e0999
+#SYMVER file_path 0x20bc5dd1
+#SYMVER dentry_open 0x77271066
+#SYMVER kernel_file_open 0xacc01dc5
+#SYMVER filp_open 0x62a83ef4
+#SYMVER file_open_root 0x45b049f2
+#SYMVER filp_close 0x42f0a24f
+#SYMVER generic_file_open 0xdcbfc4f8
+#SYMVER nonseekable_open 0xe499f295
+#SYMVER stream_open 0xae89e13e

@@ -1,0 +1,1 @@
+drivers/of/empty_root.dtb: drivers/of/.empty_root.dtb.dts.tmp

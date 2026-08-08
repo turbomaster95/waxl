@@ -1229,15 +1229,15 @@ deps_drivers/scsi/hosts.o := \
 drivers/scsi/hosts.o: $(deps_drivers/scsi/hosts.o)
 
 $(deps_drivers/scsi/hosts.o):
-#SYMVER scsi_remove_host 0x4e08e9b8
-#SYMVER scsi_add_host_with_dma 0x2f49bbdd
-#SYMVER scsi_host_alloc 0xe8e77def
-#SYMVER scsi_host_lookup 0xd1640c51
-#SYMVER scsi_host_get 0x1b5f9d39
-#SYMVER scsi_host_busy 0xf0ab0b5e
-#SYMVER scsi_host_put 0x9a9e0a00
-#SYMVER scsi_is_host_device 0xf4a04e26
-#SYMVER scsi_queue_work 0x8e21c67e
-#SYMVER scsi_flush_work 0xc14d60f3
-#SYMVER scsi_host_complete_all_commands 0xb61fe83a
-#SYMVER scsi_host_busy_iter 0x3b196928
+#SYMVER scsi_remove_host 0x47b21e4b
+#SYMVER scsi_add_host_with_dma 0xe9b5efec
+#SYMVER scsi_host_alloc 0x7833650a
+#SYMVER scsi_host_lookup 0xacf4937a
+#SYMVER scsi_host_get 0x299131d4
+#SYMVER scsi_host_busy 0x17836cc0
+#SYMVER scsi_host_put 0xf8944778
+#SYMVER scsi_is_host_device 0xed7ad335
+#SYMVER scsi_queue_work 0x5c216331
+#SYMVER scsi_flush_work 0xdd4725fc
+#SYMVER scsi_host_complete_all_commands 0xc2ec06f0
+#SYMVER scsi_host_busy_iter 0xe68e61e1

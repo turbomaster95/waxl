@@ -1384,7 +1384,7 @@ deps_drivers/hid/hid-quirks.o := \
 drivers/hid/hid-quirks.o: $(deps_drivers/hid/hid-quirks.o)
 
 $(deps_drivers/hid/hid-quirks.o):
-#SYMVER hid_ignore 0x915d103e
+#SYMVER hid_ignore 0xe8fb6843
 #SYMVER hid_quirks_init 0xfa355613
 #SYMVER hid_quirks_exit 0x19d52f1f
-#SYMVER hid_lookup_quirk 0x242953b9
+#SYMVER hid_lookup_quirk 0x5638357a

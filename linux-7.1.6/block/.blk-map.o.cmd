@@ -1220,9 +1220,9 @@ deps_block/blk-map.o := \
 block/blk-map.o: $(deps_block/blk-map.o)
 
 $(deps_block/blk-map.o):
-#SYMVER blk_rq_append_bio 0xe61b61d3
-#SYMVER blk_rq_map_user_iov 0xc184202b
-#SYMVER blk_rq_map_user 0x03ede577
-#SYMVER blk_rq_map_user_io 0x467e3163
-#SYMVER blk_rq_unmap_user 0x98386022
-#SYMVER blk_rq_map_kern 0x790e835b
+#SYMVER blk_rq_append_bio 0x67821496
+#SYMVER blk_rq_map_user_iov 0xf693244c
+#SYMVER blk_rq_map_user 0x9ea52a8f
+#SYMVER blk_rq_map_user_io 0x9eb37243
+#SYMVER blk_rq_unmap_user 0x4bf43e13
+#SYMVER blk_rq_map_kern 0x4a59aab6

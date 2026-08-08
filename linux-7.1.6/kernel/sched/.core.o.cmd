@@ -1689,6 +1689,7 @@ deps_kernel/sched/core.o := \
     $(wildcard include/config/HARDLOCKUP_CHECK_TIMESTAMP) \
     $(wildcard include/config/HAVE_ACPI_APEI_NMI) \
     $(wildcard include/config/NMI_CHECK_CPU) \
+  arch/x86/include/asm/nmi.h \
   include/linux/perf_event_api.h \
   include/linux/profile.h \
     $(wildcard include/config/PROFILING) \
@@ -1791,13 +1792,13 @@ kernel/sched/core.o: $(deps_kernel/sched/core.o)
 
 $(deps_kernel/sched/core.o):
 #SYMVER __trace_set_current_state 0x53bbefe1
-#SYMVER __trace_set_need_resched 0x47b4ed55
+#SYMVER __trace_set_need_resched 0xd0e63dd2
 #SYMVER ___migrate_enable 0xa79203c0
 #SYMVER migrate_disable 0x49608959
 #SYMVER migrate_enable 0x4d7272e4
-#SYMVER set_cpus_allowed_ptr 0x5d191639
-#SYMVER kick_process 0x84534c04
-#SYMVER wake_up_process 0x82bd5a45
+#SYMVER set_cpus_allowed_ptr 0x84cae98f
+#SYMVER kick_process 0xbc56b002
+#SYMVER wake_up_process 0xd7a7d458
 #SYMVER single_task_running 0x4248ae3c
 #SYMVER kstat 0x78105cb7
 #SYMVER kernel_cpustat 0x2205bd5e
@@ -1810,4 +1811,4 @@ $(deps_kernel/sched/core.o):
 #SYMVER __cond_resched_rwlock_write 0xcee722d3
 #SYMVER io_schedule_timeout 0xfbc4f89e
 #SYMVER io_schedule 0x93a6e0b2
-#SYMVER sched_show_task 0x82fc6824
+#SYMVER sched_show_task 0x41cd9254

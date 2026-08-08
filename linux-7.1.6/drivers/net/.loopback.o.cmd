@@ -1616,5 +1616,5 @@ deps_drivers/net/loopback.o := \
 drivers/net/loopback.o: $(deps_drivers/net/loopback.o)
 
 $(deps_drivers/net/loopback.o):
-#SYMVER blackhole_netdev 0xdff4cae0
-#SYMVER dev_lstats_read 0x7f684457
+#SYMVER blackhole_netdev 0x4c466611
+#SYMVER dev_lstats_read 0xa14840e0

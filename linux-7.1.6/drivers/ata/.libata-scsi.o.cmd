@@ -1318,6 +1318,7 @@ deps_drivers/ata/libata-scsi.o := \
   include/acpi/platform/aclinux.h \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1335,6 +1336,33 @@ deps_drivers/ata/libata-scsi.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/cdrom.h \
   include/uapi/linux/cdrom.h \
   include/linux/async.h \
@@ -1428,14 +1456,14 @@ deps_drivers/ata/libata-scsi.o := \
 drivers/ata/libata-scsi.o: $(deps_drivers/ata/libata-scsi.o)
 
 $(deps_drivers/ata/libata-scsi.o):
-#SYMVER dev_attr_unload_heads 0x8679f72f
-#SYMVER ata_common_sdev_groups 0x97780b6f
-#SYMVER ata_std_bios_param 0xfc08ae03
-#SYMVER ata_scsi_unlock_native_capacity 0x45216c23
-#SYMVER ata_sas_scsi_ioctl 0xe5218e73
-#SYMVER ata_scsi_ioctl 0x81854dc6
-#SYMVER ata_scsi_dma_need_drain 0xd7ef8fcc
-#SYMVER ata_scsi_sdev_init 0x10e64bbf
-#SYMVER ata_scsi_sdev_configure 0x98f4df8f
-#SYMVER ata_scsi_sdev_destroy 0x69cc65fc
-#SYMVER ata_scsi_queuecmd 0x8ff3e470
+#SYMVER dev_attr_unload_heads 0x2c069536
+#SYMVER ata_common_sdev_groups 0xe7b2b43c
+#SYMVER ata_std_bios_param 0x37a19f20
+#SYMVER ata_scsi_unlock_native_capacity 0x80efe1ef
+#SYMVER ata_sas_scsi_ioctl 0xb733680e
+#SYMVER ata_scsi_ioctl 0x9db8bdb9
+#SYMVER ata_scsi_dma_need_drain 0x72bc8e56
+#SYMVER ata_scsi_sdev_init 0xa167f806
+#SYMVER ata_scsi_sdev_configure 0x94d83565
+#SYMVER ata_scsi_sdev_destroy 0x9c451294
+#SYMVER ata_scsi_queuecmd 0x47fa1f82

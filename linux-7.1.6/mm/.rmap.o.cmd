@@ -1296,5 +1296,5 @@ deps_mm/rmap.o := \
 mm/rmap.o: $(deps_mm/rmap.o)
 
 $(deps_mm/rmap.o):
-#SYMVER folio_mkclean 0x726917bb
-#SYMVER mapping_wrprotect_range 0x9e7f36dd
+#SYMVER folio_mkclean 0x5dec7064
+#SYMVER mapping_wrprotect_range 0x07335db4

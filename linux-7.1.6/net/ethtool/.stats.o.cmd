@@ -1612,8 +1612,8 @@ deps_net/ethtool/stats.o := \
 net/ethtool/stats.o: $(deps_net/ethtool/stats.o)
 
 $(deps_net/ethtool/stats.o):
-#SYMVER ethtool_aggregate_mac_stats 0xbda1d552
-#SYMVER ethtool_aggregate_phy_stats 0xbae39584
-#SYMVER ethtool_aggregate_ctrl_stats 0x65ecc642
-#SYMVER ethtool_aggregate_pause_stats 0x6ba4a7df
-#SYMVER ethtool_aggregate_rmon_stats 0x07d9a6a2
+#SYMVER ethtool_aggregate_mac_stats 0xfd43340b
+#SYMVER ethtool_aggregate_phy_stats 0x7e522d27
+#SYMVER ethtool_aggregate_ctrl_stats 0x5e4c6d7a
+#SYMVER ethtool_aggregate_pause_stats 0xd6a0c750
+#SYMVER ethtool_aggregate_rmon_stats 0x001f3548

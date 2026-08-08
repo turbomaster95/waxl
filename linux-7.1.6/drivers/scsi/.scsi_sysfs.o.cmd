@@ -1232,8 +1232,8 @@ deps_drivers/scsi/scsi_sysfs.o := \
 drivers/scsi/scsi_sysfs.o: $(deps_drivers/scsi/scsi_sysfs.o)
 
 $(deps_drivers/scsi/scsi_sysfs.o):
-#SYMVER scsi_remove_device 0xea610787
-#SYMVER scsi_remove_target 0xfcfe0308
-#SYMVER __scsi_register_driver 0x9cee5c74
-#SYMVER scsi_register_interface 0x5928aa8c
-#SYMVER scsi_is_sdev_device 0xfcedc5ba
+#SYMVER scsi_remove_device 0xb7209c6c
+#SYMVER scsi_remove_target 0xdde57f52
+#SYMVER __scsi_register_driver 0xc3c49b8a
+#SYMVER scsi_register_interface 0x9f5b7a4d
+#SYMVER scsi_is_sdev_device 0x633a7313

@@ -1260,14 +1260,14 @@ deps_mm/list_lru.o := \
 mm/list_lru.o: $(deps_mm/list_lru.o)
 
 $(deps_mm/list_lru.o):
-#SYMVER list_lru_add 0xf0b58205
+#SYMVER list_lru_add 0x78f72a56
 #SYMVER list_lru_add_obj 0x5d25d735
 #SYMVER list_lru_del_obj 0xb81972d4
 #SYMVER list_lru_isolate 0x34090a31
 #SYMVER list_lru_isolate_move 0x6a8f10da
-#SYMVER list_lru_count_one 0x51420b34
+#SYMVER list_lru_count_one 0x3eda53fb
 #SYMVER list_lru_count_node 0xc6f98598
-#SYMVER list_lru_walk_one 0x54094e0a
+#SYMVER list_lru_walk_one 0xb6a4aeba
 #SYMVER list_lru_walk_node 0x8ce2733a
-#SYMVER __list_lru_init 0x6e3ec5e6
+#SYMVER __list_lru_init 0x6711d011
 #SYMVER list_lru_destroy 0x7c2931c2

@@ -1453,20 +1453,20 @@ mm/page-writeback.o: $(deps_mm/page-writeback.o)
 
 $(deps_mm/page-writeback.o):
 #SYMVER dirty_writeback_interval 0x41814cb8
-#SYMVER wb_writeout_inc 0xd1026065
-#SYMVER bdi_set_max_ratio 0xc9caf63b
-#SYMVER balance_dirty_pages_ratelimited_flags 0x5080cc3b
-#SYMVER balance_dirty_pages_ratelimited 0xd6df8a44
-#SYMVER tag_pages_for_writeback 0xe1a33e70
-#SYMVER writeback_iter 0x2e81411d
-#SYMVER noop_dirty_folio 0xfbdac015
-#SYMVER filemap_dirty_folio 0xf2d2e857
-#SYMVER folio_redirty_for_writepage 0x2932d210
-#SYMVER folio_mark_dirty 0x1e3733a5
-#SYMVER folio_mark_dirty_lock 0x6899549b
-#SYMVER __folio_cancel_dirty 0x09783cba
-#SYMVER folio_clear_dirty_for_io 0xa2716a1f
-#SYMVER __folio_start_writeback 0x10f7c729
-#SYMVER folio_wait_writeback 0x5c05571e
-#SYMVER folio_wait_writeback_killable 0x4fb327a8
-#SYMVER folio_wait_stable 0x19e9e037
+#SYMVER wb_writeout_inc 0xa85db966
+#SYMVER bdi_set_max_ratio 0x3d24031c
+#SYMVER balance_dirty_pages_ratelimited_flags 0x319c6e12
+#SYMVER balance_dirty_pages_ratelimited 0xed1f72de
+#SYMVER tag_pages_for_writeback 0x9eb23891
+#SYMVER writeback_iter 0xdd47c381
+#SYMVER noop_dirty_folio 0x8b01f515
+#SYMVER filemap_dirty_folio 0x536770b9
+#SYMVER folio_redirty_for_writepage 0x69e35c0a
+#SYMVER folio_mark_dirty 0x2113ffb1
+#SYMVER folio_mark_dirty_lock 0x377f45d1
+#SYMVER __folio_cancel_dirty 0x9650699a
+#SYMVER folio_clear_dirty_for_io 0x53cc5e7a
+#SYMVER __folio_start_writeback 0x4d8f1b89
+#SYMVER folio_wait_writeback 0xbd95fe54
+#SYMVER folio_wait_writeback_killable 0x42529a8e
+#SYMVER folio_wait_stable 0x5f8e2727

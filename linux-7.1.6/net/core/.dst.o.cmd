@@ -1671,19 +1671,19 @@ deps_net/core/dst.o := \
 net/core/dst.o: $(deps_net/core/dst.o)
 
 $(deps_net/core/dst.o):
-#SYMVER dst_discard_out 0x73d12815
+#SYMVER dst_discard_out 0x6202db2f
 #SYMVER dst_default_metrics 0xeefa3330
-#SYMVER dst_init 0xcdcaceb5
-#SYMVER dst_alloc 0x704b4f70
-#SYMVER dst_dev_put 0x2bf3fca4
-#SYMVER dst_release 0xcbd44b3a
-#SYMVER dst_release_immediate 0x5d62753d
-#SYMVER dst_cow_metrics_generic 0xf74c0d36
-#SYMVER __dst_destroy_metrics_generic 0x69f007e9
-#SYMVER dst_blackhole_update_pmtu 0xeb653552
-#SYMVER dst_blackhole_redirect 0x8effd9bf
-#SYMVER dst_blackhole_mtu 0x99c9bb49
-#SYMVER metadata_dst_alloc 0xa8b52f13
-#SYMVER metadata_dst_free 0x1ab93878
-#SYMVER metadata_dst_alloc_percpu 0xb56045ce
-#SYMVER metadata_dst_free_percpu 0xf85363be
+#SYMVER dst_init 0xc981528a
+#SYMVER dst_alloc 0xad4b0fd3
+#SYMVER dst_dev_put 0xdf0d2262
+#SYMVER dst_release 0x9e99cebd
+#SYMVER dst_release_immediate 0x861a2099
+#SYMVER dst_cow_metrics_generic 0x65a66355
+#SYMVER __dst_destroy_metrics_generic 0xd60d9ebf
+#SYMVER dst_blackhole_update_pmtu 0x768001a6
+#SYMVER dst_blackhole_redirect 0xe2d93fc5
+#SYMVER dst_blackhole_mtu 0x51a9cc8d
+#SYMVER metadata_dst_alloc 0xa2babcdd
+#SYMVER metadata_dst_free 0x2b9a3651
+#SYMVER metadata_dst_alloc_percpu 0x5f5db240
+#SYMVER metadata_dst_free_percpu 0x04b549a6

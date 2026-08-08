@@ -1280,6 +1280,6 @@ deps_arch/x86/kernel/probe_roms.o := \
 arch/x86/kernel/probe_roms.o: $(deps_arch/x86/kernel/probe_roms.o)
 
 $(deps_arch/x86/kernel/probe_roms.o):
-#SYMVER pci_map_biosrom 0xadc98e3b
+#SYMVER pci_map_biosrom 0x45fb47dd
 #SYMVER pci_unmap_biosrom 0x326425ca
-#SYMVER pci_biosrom_size 0xd285681c
+#SYMVER pci_biosrom_size 0x646dbf56

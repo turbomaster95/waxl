@@ -1485,7 +1485,7 @@ deps_mm/mmap.o := \
 mm/mmap.o: $(deps_mm/mmap.o)
 
 $(deps_mm/mmap.o):
-#SYMVER mm_get_unmapped_area 0xefbc242d
-#SYMVER find_vma_intersection 0x1946f460
-#SYMVER find_vma 0x4ce0049e
+#SYMVER mm_get_unmapped_area 0xe55559de
+#SYMVER find_vma_intersection 0x9e9b11c1
+#SYMVER find_vma 0xd3d75e1a
 #SYMVER vm_munmap 0x5b56860c

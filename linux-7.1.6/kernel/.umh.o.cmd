@@ -1429,6 +1429,6 @@ $(deps_kernel/umh.o):
 #SYMVER usermodehelper_read_trylock 0xdb8a1b3f
 #SYMVER usermodehelper_read_lock_wait 0x2d1b02d2
 #SYMVER usermodehelper_read_unlock 0xae69b1c1
-#SYMVER call_usermodehelper_setup 0xbcf1061f
-#SYMVER call_usermodehelper_exec 0x02d6bb8a
+#SYMVER call_usermodehelper_setup 0x4aceb24e
+#SYMVER call_usermodehelper_exec 0x847074c5
 #SYMVER call_usermodehelper 0xa7eedcc4

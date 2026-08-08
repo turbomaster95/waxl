@@ -15,7 +15,7 @@ main:
 #APP
 # 9 "kernel/sched/rq-offsets.c" 1
 	
-.ascii "->RQ_nr_pinned $2856 offsetof(struct rq, nr_pinned)"	#
+.ascii "->RQ_nr_pinned $2864 offsetof(struct rq, nr_pinned)"	#
 # 0 "" 2
 # kernel/sched/rq-offsets.c:12: }
 #NO_APP

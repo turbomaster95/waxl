@@ -1737,5 +1737,5 @@ deps_fs/select.o := \
 fs/select.o: $(deps_fs/select.o)
 
 $(deps_fs/select.o):
-#SYMVER poll_initwait 0xb83e4c0b
-#SYMVER poll_freewait 0x2ef57650
+#SYMVER poll_initwait 0x7f0339e7
+#SYMVER poll_freewait 0x95f83c9c

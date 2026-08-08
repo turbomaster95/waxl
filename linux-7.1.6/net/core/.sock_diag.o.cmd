@@ -1626,12 +1626,12 @@ deps_net/core/sock_diag.o := \
 net/core/sock_diag.o: $(deps_net/core/sock_diag.o)
 
 $(deps_net/core/sock_diag.o):
-#SYMVER sock_diag_check_cookie 0x3f98d020
-#SYMVER sock_diag_save_cookie 0x55a2bc77
-#SYMVER sock_diag_put_meminfo 0x8815049a
-#SYMVER sock_diag_put_filterinfo 0x2f4d0344
-#SYMVER sock_diag_register_inet_compat 0xb499cfec
-#SYMVER sock_diag_unregister_inet_compat 0xe32ea3f9
-#SYMVER sock_diag_register 0x855a9ce4
-#SYMVER sock_diag_unregister 0xe4402fcc
-#SYMVER sock_diag_destroy 0x69722c0d
+#SYMVER sock_diag_check_cookie 0x2c0c7c85
+#SYMVER sock_diag_save_cookie 0xde4f5a90
+#SYMVER sock_diag_put_meminfo 0x9d6552b5
+#SYMVER sock_diag_put_filterinfo 0x8833685b
+#SYMVER sock_diag_register_inet_compat 0xf7ebcd0c
+#SYMVER sock_diag_unregister_inet_compat 0x888c5877
+#SYMVER sock_diag_register 0x6ad2f67b
+#SYMVER sock_diag_unregister 0x517e348d
+#SYMVER sock_diag_destroy 0x32b7b634

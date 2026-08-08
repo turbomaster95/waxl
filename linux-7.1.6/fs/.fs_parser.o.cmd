@@ -1310,16 +1310,16 @@ fs/fs_parser.o: $(deps_fs/fs_parser.o)
 
 $(deps_fs/fs_parser.o):
 #SYMVER lookup_constant 0x86d52ba5
-#SYMVER __fs_parse 0x21535805
-#SYMVER fs_lookup_param 0xfcb0978d
-#SYMVER fs_param_is_bool 0x3247e926
-#SYMVER fs_param_is_u32 0x48f8237a
-#SYMVER fs_param_is_s32 0x6d937ca6
-#SYMVER fs_param_is_u64 0x18694617
-#SYMVER fs_param_is_enum 0x307145b4
-#SYMVER fs_param_is_string 0x37114201
-#SYMVER fs_param_is_fd 0x5d5ce653
-#SYMVER fs_param_is_file_or_string 0xbdd46d60
-#SYMVER fs_param_is_uid 0xc53272ce
-#SYMVER fs_param_is_gid 0x3f22edda
-#SYMVER fs_param_is_blockdev 0x9d6807da
+#SYMVER __fs_parse 0xab42a667
+#SYMVER fs_lookup_param 0xd3652496
+#SYMVER fs_param_is_bool 0xd4149a55
+#SYMVER fs_param_is_u32 0x78d75135
+#SYMVER fs_param_is_s32 0x5dbc0ee9
+#SYMVER fs_param_is_u64 0x28463458
+#SYMVER fs_param_is_enum 0xd62236c7
+#SYMVER fs_param_is_string 0xfa0faee1
+#SYMVER fs_param_is_fd 0xc7d140bc
+#SYMVER fs_param_is_file_or_string 0xd25dcbe3
+#SYMVER fs_param_is_uid 0xf51d0081
+#SYMVER fs_param_is_gid 0x0f0d9f95
+#SYMVER fs_param_is_blockdev 0x6aaa977b

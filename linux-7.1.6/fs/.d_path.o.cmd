@@ -1406,5 +1406,5 @@ deps_fs/d_path.o := \
 fs/d_path.o: $(deps_fs/d_path.o)
 
 $(deps_fs/d_path.o):
-#SYMVER d_path 0x7b9d7bc1
-#SYMVER dentry_path_raw 0xb3155842
+#SYMVER d_path 0x74816368
+#SYMVER dentry_path_raw 0xf96ef07e

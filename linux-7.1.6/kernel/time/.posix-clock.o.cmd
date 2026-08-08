@@ -1404,5 +1404,5 @@ deps_kernel/time/posix-clock.o := \
 kernel/time/posix-clock.o: $(deps_kernel/time/posix-clock.o)
 
 $(deps_kernel/time/posix-clock.o):
-#SYMVER posix_clock_register 0x223c472d
-#SYMVER posix_clock_unregister 0xdf5345c0
+#SYMVER posix_clock_register 0xb592b27c
+#SYMVER posix_clock_unregister 0x4c6850a2

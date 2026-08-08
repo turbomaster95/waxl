@@ -1651,12 +1651,12 @@ deps_net/core/sock_reuseport.o := \
 net/core/sock_reuseport.o: $(deps_net/core/sock_reuseport.o)
 
 $(deps_net/core/sock_reuseport.o):
-#SYMVER reuseport_has_conns_set 0x3312bf83
-#SYMVER reuseport_alloc 0x24cfc218
-#SYMVER reuseport_add_sock 0x7cdcd027
-#SYMVER reuseport_detach_sock 0x6b7818c0
-#SYMVER reuseport_stop_listen_sock 0x7c44f4cc
-#SYMVER reuseport_select_sock 0xb1f4e51a
-#SYMVER reuseport_migrate_sock 0xf0f2d098
-#SYMVER reuseport_attach_prog 0x21449968
-#SYMVER reuseport_detach_prog 0x5b65d922
+#SYMVER reuseport_has_conns_set 0x04f256af
+#SYMVER reuseport_alloc 0x30dceb4c
+#SYMVER reuseport_add_sock 0xb3737c27
+#SYMVER reuseport_detach_sock 0x0b103489
+#SYMVER reuseport_stop_listen_sock 0x3df1f5b5
+#SYMVER reuseport_select_sock 0x2416446c
+#SYMVER reuseport_migrate_sock 0xd5e7c106
+#SYMVER reuseport_attach_prog 0x2136315a
+#SYMVER reuseport_detach_prog 0x689c9018

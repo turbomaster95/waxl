@@ -1176,6 +1176,10 @@ deps_mm/mm_init.o := \
   arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/HYPERV) \
     $(wildcard include/config/PCI_MSI) \
+  arch/x86/include/asm/nmi.h \
+  include/linux/irq_work.h \
+    $(wildcard include/config/IRQ_WORK) \
+  arch/x86/include/asm/irq_work.h \
   include/linux/buffer_head.h \
     $(wildcard include/config/BUFFER_HEAD) \
   include/linux/blk_types.h \
@@ -1410,10 +1414,10 @@ mm/mm_init.o: $(deps_mm/mm_init.o)
 
 $(deps_mm/mm_init.o):
 #SYMVER max_mapnr 0x01139ffc
-#SYMVER mem_map 0xf6422f0a
+#SYMVER mem_map 0x98f82d26
 #SYMVER high_memory 0x8a7d1c31
 #SYMVER zero_page_pfn 0x92c9cd0c
 #SYMVER empty_zero_page 0x26458da9
-#SYMVER __zero_page 0x7168fdce
+#SYMVER __zero_page 0x2c28334b
 #SYMVER init_on_alloc 0x55f577d2
 #SYMVER init_on_free 0xe736b222

@@ -1281,21 +1281,21 @@ deps_fs/iomap/buffered-io.o := \
 fs/iomap/buffered-io.o: $(deps_fs/iomap/buffered-io.o)
 
 $(deps_fs/iomap/buffered-io.o):
-#SYMVER iomap_finish_folio_read 0xa8d83826
-#SYMVER iomap_read_folio 0x5a8e86d8
-#SYMVER iomap_readahead 0xfa8d3e58
-#SYMVER iomap_is_partially_uptodate 0x11dc8fe5
-#SYMVER iomap_get_folio 0x1217b38f
-#SYMVER iomap_release_folio 0xd8c38fac
-#SYMVER iomap_invalidate_folio 0x0a0bdc49
-#SYMVER iomap_dirty_folio 0xf4724cd2
-#SYMVER iomap_file_buffered_write 0xce7accb2
-#SYMVER iomap_write_delalloc_release 0x7b1c7e14
-#SYMVER iomap_file_unshare 0x407e462c
-#SYMVER iomap_fill_dirty_folios 0x17cce365
-#SYMVER iomap_zero_range 0x17a53974
-#SYMVER iomap_truncate_page 0xfb2fccfa
-#SYMVER iomap_page_mkwrite 0x7b1609d6
-#SYMVER iomap_finish_folio_write 0x971a17c0
-#SYMVER iomap_writeback_folio 0xf4d3c7d7
-#SYMVER iomap_writepages 0xf9ac5968
+#SYMVER iomap_finish_folio_read 0x8deb36cc
+#SYMVER iomap_read_folio 0x633c6448
+#SYMVER iomap_readahead 0x77212b55
+#SYMVER iomap_is_partially_uptodate 0x93922841
+#SYMVER iomap_get_folio 0x463050b7
+#SYMVER iomap_release_folio 0x2cf0ae73
+#SYMVER iomap_invalidate_folio 0xdcf18616
+#SYMVER iomap_dirty_folio 0x771c5052
+#SYMVER iomap_file_buffered_write 0x534acd1a
+#SYMVER iomap_write_delalloc_release 0xa844199b
+#SYMVER iomap_file_unshare 0xc9b12898
+#SYMVER iomap_fill_dirty_folios 0xd284d603
+#SYMVER iomap_zero_range 0x9729ce26
+#SYMVER iomap_truncate_page 0xd09da252
+#SYMVER iomap_page_mkwrite 0xc2bc8b4f
+#SYMVER iomap_finish_folio_write 0xf06dfa20
+#SYMVER iomap_writeback_folio 0x81385c26
+#SYMVER iomap_writepages 0xd14820cc

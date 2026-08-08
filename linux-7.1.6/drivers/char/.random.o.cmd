@@ -1527,4 +1527,4 @@ $(deps_drivers/char/random.o):
 #SYMVER add_hwgenerator_randomness 0xc64fd66a
 #SYMVER add_interrupt_randomness 0x16dfbf36
 #SYMVER add_input_randomness 0x3cd06035
-#SYMVER add_disk_randomness 0xa743ef24
+#SYMVER add_disk_randomness 0xd98104c8

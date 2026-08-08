@@ -1202,11 +1202,11 @@ deps_fs/iomap/ioend.o := \
 fs/iomap/ioend.o: $(deps_fs/iomap/ioend.o)
 
 $(deps_fs/iomap/ioend.o):
-#SYMVER iomap_ioend_bioset 0x8f092dd3
-#SYMVER iomap_init_ioend 0xe54489d9
-#SYMVER iomap_ioend_writeback_submit 0x7396c74e
-#SYMVER iomap_add_to_ioend 0x2ef9eb1c
-#SYMVER iomap_finish_ioends 0x52dd7eca
-#SYMVER iomap_ioend_try_merge 0x55e44aac
+#SYMVER iomap_ioend_bioset 0x42479f34
+#SYMVER iomap_init_ioend 0x869c70d5
+#SYMVER iomap_ioend_writeback_submit 0x89efc3e3
+#SYMVER iomap_add_to_ioend 0xb115dca6
+#SYMVER iomap_finish_ioends 0xf2be61db
+#SYMVER iomap_ioend_try_merge 0x11a90cfb
 #SYMVER iomap_sort_ioends 0x22d9409b
-#SYMVER iomap_split_ioend 0x078aaa96
+#SYMVER iomap_split_ioend 0xd91f7f8b

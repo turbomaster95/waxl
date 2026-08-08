@@ -1079,12 +1079,12 @@ deps_drivers/tty/tty_buffer.o := \
 drivers/tty/tty_buffer.o: $(deps_drivers/tty/tty_buffer.o)
 
 $(deps_drivers/tty/tty_buffer.o):
-#SYMVER tty_buffer_lock_exclusive 0x7c1efa94
-#SYMVER tty_buffer_unlock_exclusive 0xf98c94d1
-#SYMVER tty_buffer_space_avail 0x25c37a02
-#SYMVER tty_buffer_request_room 0x9cb903ea
-#SYMVER __tty_insert_flip_string_flags 0x8b052b3e
-#SYMVER tty_prepare_flip_string 0xb3ab7338
-#SYMVER tty_ldisc_receive_buf 0x9f8f0f4c
-#SYMVER tty_flip_buffer_push 0xe9b027a7
-#SYMVER tty_buffer_set_limit 0xd1f03445
+#SYMVER tty_buffer_lock_exclusive 0xb0fb6513
+#SYMVER tty_buffer_unlock_exclusive 0x850a5a91
+#SYMVER tty_buffer_space_avail 0x13bfa84d
+#SYMVER tty_buffer_request_room 0x80c5d7cb
+#SYMVER __tty_insert_flip_string_flags 0xd41d5404
+#SYMVER tty_prepare_flip_string 0x6995545a
+#SYMVER tty_ldisc_receive_buf 0x8c895442
+#SYMVER tty_flip_buffer_push 0xc6c226bf
+#SYMVER tty_buffer_set_limit 0xd08c37ef

@@ -1249,4 +1249,4 @@ block/bsg.o: $(deps_block/bsg.o)
 
 $(deps_block/bsg.o):
 #SYMVER bsg_unregister_queue 0x41b9a6e6
-#SYMVER bsg_register_queue 0xce9834e6
+#SYMVER bsg_register_queue 0xd9282c9c

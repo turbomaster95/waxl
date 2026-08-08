@@ -1170,5 +1170,5 @@ deps_fs/iomap/fiemap.o := \
 fs/iomap/fiemap.o: $(deps_fs/iomap/fiemap.o)
 
 $(deps_fs/iomap/fiemap.o):
-#SYMVER iomap_fiemap 0x8a03c37b
-#SYMVER iomap_bmap 0xd870d778
+#SYMVER iomap_fiemap 0x9462a5b4
+#SYMVER iomap_bmap 0xdc107cad

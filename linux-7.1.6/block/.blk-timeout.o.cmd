@@ -1224,4 +1224,4 @@ deps_block/blk-timeout.o := \
 block/blk-timeout.o: $(deps_block/blk-timeout.o)
 
 $(deps_block/blk-timeout.o):
-#SYMVER blk_abort_request 0x81096338
+#SYMVER blk_abort_request 0x7acf8ebc

@@ -1593,8 +1593,8 @@ deps_net/core/stream.o := \
 net/core/stream.o: $(deps_net/core/stream.o)
 
 $(deps_net/core/stream.o):
-#SYMVER sk_stream_wait_connect 0x8792cc6e
-#SYMVER sk_stream_wait_close 0xb048aa73
-#SYMVER sk_stream_wait_memory 0xd5056bdd
-#SYMVER sk_stream_error 0x34395321
-#SYMVER sk_stream_kill_queues 0x3eeb36b9
+#SYMVER sk_stream_wait_connect 0x175b32f0
+#SYMVER sk_stream_wait_close 0x7d0fb706
+#SYMVER sk_stream_wait_memory 0x5f45425f
+#SYMVER sk_stream_error 0x95221d7a
+#SYMVER sk_stream_kill_queues 0xd97fd6c8

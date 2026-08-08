@@ -1193,6 +1193,7 @@ deps_drivers/tty/serial/8250/8250_port.o := \
     $(wildcard include/config/HARDLOCKUP_CHECK_TIMESTAMP) \
     $(wildcard include/config/HAVE_ACPI_APEI_NMI) \
     $(wildcard include/config/NMI_CHECK_CPU) \
+  arch/x86/include/asm/nmi.h \
   include/linux/pm_runtime.h \
   drivers/tty/serial/8250/8250.h \
     $(wildcard include/config/SERIAL_8250_NR_UARTS) \
@@ -1287,30 +1288,30 @@ deps_drivers/tty/serial/8250/8250_port.o := \
 drivers/tty/serial/8250/8250_port.o: $(deps_drivers/tty/serial/8250/8250_port.o)
 
 $(deps_drivers/tty/serial/8250/8250_port.o):
-#SYMVER serial8250_clear_fifos 0x7c97a9fc
-#SYMVER serial8250_clear_and_reinit_fifos 0xf5b74d33
-#SYMVER serial8250_rpm_get 0x799888ea
-#SYMVER serial8250_rpm_put 0x14743f0e
-#SYMVER serial8250_em485_destroy 0x58f952b1
+#SYMVER serial8250_clear_fifos 0xfc679f76
+#SYMVER serial8250_clear_and_reinit_fifos 0x5d0ee185
+#SYMVER serial8250_rpm_get 0xa8a6d9e2
+#SYMVER serial8250_rpm_put 0xaf6af217
+#SYMVER serial8250_em485_destroy 0x69872def
 #SYMVER serial8250_em485_supported 0xf2ff4bc2
-#SYMVER serial8250_em485_config 0x32a21d38
-#SYMVER serial8250_em485_stop_tx 0x2a363020
-#SYMVER serial8250_em485_start_tx 0xe84d1a1f
-#SYMVER serial8250_read_char 0x3680b553
-#SYMVER serial8250_rx_chars 0xd6fbd59b
-#SYMVER serial8250_tx_chars 0x8fa597d2
-#SYMVER serial8250_modem_status 0x2a4ae931
-#SYMVER serial8250_handle_irq_locked 0xb396ffeb
-#SYMVER serial8250_handle_irq 0x314d020a
-#SYMVER serial8250_do_get_mctrl 0xf53f65a0
-#SYMVER serial8250_do_set_mctrl 0xd062e530
-#SYMVER serial8250_do_startup 0x2f6f6de5
-#SYMVER serial8250_do_shutdown 0x66aa5254
-#SYMVER serial8250_do_set_divisor 0x6ce93cb9
-#SYMVER serial8250_update_uartclk 0xf4565446
-#SYMVER serial8250_do_set_termios 0xb8e8fd49
-#SYMVER serial8250_do_set_ldisc 0x9a80df42
-#SYMVER serial8250_do_pm 0x2abc2ebf
-#SYMVER serial8250_init_port 0x1fa55e8c
-#SYMVER serial8250_set_defaults 0x85830af0
-#SYMVER serial8250_fifo_wait_for_lsr_thre 0x7089c281
+#SYMVER serial8250_em485_config 0xe59a008e
+#SYMVER serial8250_em485_stop_tx 0x89a83f68
+#SYMVER serial8250_em485_start_tx 0xba11def3
+#SYMVER serial8250_read_char 0x440fc9fc
+#SYMVER serial8250_rx_chars 0x3785d719
+#SYMVER serial8250_tx_chars 0x23063c0d
+#SYMVER serial8250_modem_status 0x808bf835
+#SYMVER serial8250_handle_irq_locked 0xdcc89d26
+#SYMVER serial8250_handle_irq 0x70487e8f
+#SYMVER serial8250_do_get_mctrl 0xe9a2ce9b
+#SYMVER serial8250_do_set_mctrl 0x06ade171
+#SYMVER serial8250_do_startup 0x1a4d27c6
+#SYMVER serial8250_do_shutdown 0x4a60cb19
+#SYMVER serial8250_do_set_divisor 0x2f88c597
+#SYMVER serial8250_update_uartclk 0x7648720b
+#SYMVER serial8250_do_set_termios 0xaed38ea8
+#SYMVER serial8250_do_set_ldisc 0xcb724ee7
+#SYMVER serial8250_do_pm 0xd4978195
+#SYMVER serial8250_init_port 0x747c946c
+#SYMVER serial8250_set_defaults 0x53554a0e
+#SYMVER serial8250_fifo_wait_for_lsr_thre 0xd8c2250e

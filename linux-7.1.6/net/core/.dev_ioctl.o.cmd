@@ -1689,6 +1689,6 @@ deps_net/core/dev_ioctl.o := \
 net/core/dev_ioctl.o: $(deps_net/core/dev_ioctl.o)
 
 $(deps_net/core/dev_ioctl.o):
-#SYMVER generic_hwtstamp_get_lower 0xe84fe026
-#SYMVER generic_hwtstamp_set_lower 0x6bd4e93e
-#SYMVER dev_load 0xd748d234
+#SYMVER generic_hwtstamp_get_lower 0x07a1ac83
+#SYMVER generic_hwtstamp_set_lower 0x9851f981
+#SYMVER dev_load 0x38e1736f

@@ -1277,6 +1277,6 @@ deps_mm/shrinker.o := \
 mm/shrinker.o: $(deps_mm/shrinker.o)
 
 $(deps_mm/shrinker.o):
-#SYMVER shrinker_alloc 0xfda7a3d4
-#SYMVER shrinker_register 0x15d9f9c2
-#SYMVER shrinker_free 0x5e53120c
+#SYMVER shrinker_alloc 0xcb3bf659
+#SYMVER shrinker_register 0x029fdb2c
+#SYMVER shrinker_free 0xa9ca5b82

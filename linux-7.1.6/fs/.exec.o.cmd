@@ -1513,15 +1513,15 @@ deps_fs/exec.o := \
 fs/exec.o: $(deps_fs/exec.o)
 
 $(deps_fs/exec.o):
-#SYMVER __register_binfmt 0x53774fa7
-#SYMVER unregister_binfmt 0x54738688
-#SYMVER copy_string_kernel 0xa24b6f15
-#SYMVER setup_arg_pages 0x5f4af309
-#SYMVER open_exec 0x98c68eb1
-#SYMVER begin_new_exec 0xc72f5e76
-#SYMVER would_dump 0x2a76237e
-#SYMVER setup_new_exec 0x6595f6a8
-#SYMVER finalize_exec 0xb64ba7cf
-#SYMVER bprm_change_interp 0x01e45a4d
-#SYMVER remove_arg_zero 0xd510c2c0
-#SYMVER set_binfmt 0xfa803476
+#SYMVER __register_binfmt 0xd6f373fe
+#SYMVER unregister_binfmt 0x3d531173
+#SYMVER copy_string_kernel 0x12f8cb75
+#SYMVER setup_arg_pages 0x982405e2
+#SYMVER open_exec 0xa999766d
+#SYMVER begin_new_exec 0xd50c3fe1
+#SYMVER would_dump 0x82b1cfc5
+#SYMVER setup_new_exec 0x085404b8
+#SYMVER finalize_exec 0x8224e980
+#SYMVER bprm_change_interp 0xbbdf1450
+#SYMVER remove_arg_zero 0x17cccc7b
+#SYMVER set_binfmt 0xc7966d32

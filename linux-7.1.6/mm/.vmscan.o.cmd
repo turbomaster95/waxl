@@ -1400,4 +1400,4 @@ deps_mm/vmscan.o := \
 mm/vmscan.o: $(deps_mm/vmscan.o)
 
 $(deps_mm/vmscan.o):
-#SYMVER check_move_unevictable_folios 0x36b63eee
+#SYMVER check_move_unevictable_folios 0xeae36ef2

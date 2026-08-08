@@ -1262,8 +1262,8 @@ deps_drivers/pci/pcie/aspm.o := \
 drivers/pci/pcie/aspm.o: $(deps_drivers/pci/pcie/aspm.o)
 
 $(deps_drivers/pci/pcie/aspm.o):
-#SYMVER pci_disable_link_state_locked 0x8c394b90
-#SYMVER pci_disable_link_state 0x31b941c5
-#SYMVER pci_enable_link_state 0x6acd17a0
-#SYMVER pci_enable_link_state_locked 0x9f3e0d94
-#SYMVER pcie_aspm_enabled 0xc8374e7a
+#SYMVER pci_disable_link_state_locked 0xbe4cd940
+#SYMVER pci_disable_link_state 0x957ab0d4
+#SYMVER pci_enable_link_state 0x0b7f798c
+#SYMVER pci_enable_link_state_locked 0x0dee280b
+#SYMVER pcie_aspm_enabled 0xdde84d97

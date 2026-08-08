@@ -1252,5 +1252,5 @@ drivers/pci/slot.o: $(deps_drivers/pci/slot.o)
 
 $(deps_drivers/pci/slot.o):
 #SYMVER pci_slots_kset 0x9f4500e9
-#SYMVER pci_create_slot 0xa5522868
-#SYMVER pci_destroy_slot 0x9fd32436
+#SYMVER pci_create_slot 0x32969333
+#SYMVER pci_destroy_slot 0x665e9876

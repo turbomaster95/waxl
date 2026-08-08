@@ -1313,8 +1313,8 @@ deps_fs/anon_inodes.o := \
 fs/anon_inodes.o: $(deps_fs/anon_inodes.o)
 
 $(deps_fs/anon_inodes.o):
-#SYMVER anon_inode_make_secure_inode 0x2dbb2669
-#SYMVER anon_inode_getfile 0x5bbb9c17
-#SYMVER anon_inode_getfile_fmode 0xace64dd4
-#SYMVER anon_inode_create_getfile 0xc0f1441f
-#SYMVER anon_inode_getfd 0x681722b9
+#SYMVER anon_inode_make_secure_inode 0xba3bdce7
+#SYMVER anon_inode_getfile 0x8741d3f2
+#SYMVER anon_inode_getfile_fmode 0xa50165f0
+#SYMVER anon_inode_create_getfile 0xba04ffa6
+#SYMVER anon_inode_getfd 0x4e2a2b03

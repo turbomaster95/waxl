@@ -1271,10 +1271,10 @@ $(deps_drivers/pci/bus.o):
 #SYMVER pci_add_resource_offset 0x218e600b
 #SYMVER pci_add_resource 0x27cdca93
 #SYMVER pci_free_resource_list 0x38a71b7e
-#SYMVER pci_bus_resource_n 0xf9dc1778
-#SYMVER devm_request_pci_bus_resources 0xc394ba29
-#SYMVER pci_bus_alloc_resource 0x622795f2
-#SYMVER pci_bus_add_device 0x1ecfd1b3
-#SYMVER pci_bus_add_devices 0x93e82f3e
-#SYMVER pci_walk_bus 0x339b172b
-#SYMVER pci_walk_bus_reverse 0x9d1446de
+#SYMVER pci_bus_resource_n 0xae0446de
+#SYMVER devm_request_pci_bus_resources 0x07713f39
+#SYMVER pci_bus_alloc_resource 0x78bf1ee5
+#SYMVER pci_bus_add_device 0xfc331e53
+#SYMVER pci_bus_add_devices 0xd62bfcc2
+#SYMVER pci_walk_bus 0x66f6d15b
+#SYMVER pci_walk_bus_reverse 0xa1f9bcd0

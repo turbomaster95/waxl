@@ -1573,5 +1573,5 @@ deps_net/sysctl_net.o := \
 net/sysctl_net.o: $(deps_net/sysctl_net.o)
 
 $(deps_net/sysctl_net.o):
-#SYMVER register_net_sysctl_sz 0xd34a41a6
+#SYMVER register_net_sysctl_sz 0x8b969752
 #SYMVER unregister_net_sysctl_table 0x86f625a0

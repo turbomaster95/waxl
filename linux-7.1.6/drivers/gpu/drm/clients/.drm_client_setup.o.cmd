@@ -898,6 +898,6 @@ deps_drivers/gpu/drm/clients/drm_client_setup.o := \
 drivers/gpu/drm/clients/drm_client_setup.o: $(deps_drivers/gpu/drm/clients/drm_client_setup.o)
 
 $(deps_drivers/gpu/drm/clients/drm_client_setup.o):
-#SYMVER drm_client_setup 0x8d6e766a
-#SYMVER drm_client_setup_with_fourcc 0x4a6e4679
-#SYMVER drm_client_setup_with_color_mode 0xe5092839
+#SYMVER drm_client_setup 0x25166002
+#SYMVER drm_client_setup_with_fourcc 0x1b9f6c22
+#SYMVER drm_client_setup_with_color_mode 0x50cc9405

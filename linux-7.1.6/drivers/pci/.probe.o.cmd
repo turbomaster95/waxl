@@ -1268,7 +1268,6 @@ deps_drivers/pci/probe.o := \
     $(wildcard include/config/HIBERNATE_CALLBACKS) \
     $(wildcard include/config/SUPERH) \
   include/linux/pci_hotplug.h \
-  include/linux/aer.h \
   include/linux/acpi.h \
     $(wildcard include/config/ACPI_TABLE_LIB) \
     $(wildcard include/config/ACPI_DEBUGGER) \
@@ -1305,6 +1304,7 @@ deps_drivers/pci/probe.o := \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
   include/linux/ctype.h \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1322,6 +1322,34 @@ deps_drivers/pci/probe.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
+  include/linux/aer.h \
   include/linux/hypervisor.h \
   arch/x86/include/asm/jailhouse_para.h \
     $(wildcard include/config/JAILHOUSE_GUEST) \
@@ -1361,28 +1389,28 @@ drivers/pci/probe.o: $(deps_drivers/pci/probe.o)
 
 $(deps_drivers/pci/probe.o):
 #SYMVER pci_root_buses 0x082c3213
-#SYMVER pci_alloc_host_bridge 0xdc93913e
-#SYMVER devm_pci_alloc_host_bridge 0x8c8c5827
-#SYMVER pci_free_host_bridge 0xc30cff46
+#SYMVER pci_alloc_host_bridge 0x734bfc85
+#SYMVER devm_pci_alloc_host_bridge 0xe71e5182
+#SYMVER pci_free_host_bridge 0xda9af18e
 #SYMVER pcie_link_speed 0xe4b064f9
 #SYMVER pcie_get_link_speed 0x799186ab
 #SYMVER pci_speed_string 0xb1fc1782
-#SYMVER pcie_update_link_speed 0x236ece2b
-#SYMVER pci_add_new_bus 0xfcbfc975
-#SYMVER pci_scan_bridge 0xd2fcca9e
-#SYMVER pcie_relaxed_ordering_enabled 0xcdc18d06
-#SYMVER pci_alloc_dev 0xc8cc9547
-#SYMVER pci_bus_read_dev_vendor_id 0x4c72231b
-#SYMVER pci_scan_single_device 0x621c5746
-#SYMVER pci_scan_slot 0xbc7a4d7c
-#SYMVER pcie_bus_configure_settings 0x9a4d753a
-#SYMVER pci_scan_child_bus 0x2ba15cce
-#SYMVER pci_create_root_bus 0xff1b5473
-#SYMVER pci_host_probe 0xf9fdb924
-#SYMVER pci_scan_root_bus_bridge 0x98b3097e
-#SYMVER pci_scan_root_bus 0xb3066b99
-#SYMVER pci_scan_bus 0xb355d952
-#SYMVER pci_rescan_bus 0xa2422257
+#SYMVER pcie_update_link_speed 0x881da917
+#SYMVER pci_add_new_bus 0xdb03ddd7
+#SYMVER pci_scan_bridge 0x29d4615e
+#SYMVER pcie_relaxed_ordering_enabled 0xe9831cc8
+#SYMVER pci_alloc_dev 0xb4504b81
+#SYMVER pci_bus_read_dev_vendor_id 0xe4f84195
+#SYMVER pci_scan_single_device 0x04ee8fce
+#SYMVER pci_scan_slot 0x46bbc4a0
+#SYMVER pcie_bus_configure_settings 0x94eba7bc
+#SYMVER pci_scan_child_bus 0x0d1ceeeb
+#SYMVER pci_create_root_bus 0x01bfd6a3
+#SYMVER pci_host_probe 0x088758ca
+#SYMVER pci_scan_root_bus_bridge 0xcf3c05a5
+#SYMVER pci_scan_root_bus 0x40547c9c
+#SYMVER pci_scan_bus 0xe2742105
+#SYMVER pci_rescan_bus 0x66da140d
 #SYMVER pci_lock_rescan_remove 0xddbeeecc
 #SYMVER pci_unlock_rescan_remove 0x5790e7a0
-#SYMVER pci_hp_add_bridge 0xa49fb1e4
+#SYMVER pci_hp_add_bridge 0x2bd3d67d

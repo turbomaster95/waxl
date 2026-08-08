@@ -1677,7 +1677,7 @@ $(deps_arch/x86/kernel/cpu/common.o):
 #SYMVER gdt_page 0x797139d3
 #SYMVER native_write_cr0 0x45e8d7b5
 #SYMVER load_fixmap_gdt 0xf881cecd
-#SYMVER current_task 0x2dd13c2a
-#SYMVER const_current_task 0x6d2f6011
+#SYMVER current_task 0xe809c0c3
+#SYMVER const_current_task 0x0850f0cd
 #SYMVER __preempt_count 0x19d798b9
 #SYMVER __x86_call_depth 0x18f59f4f

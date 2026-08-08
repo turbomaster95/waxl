@@ -1578,8 +1578,8 @@ net/netlink/genetlink.o: $(deps_net/netlink/genetlink.o)
 $(deps_net/netlink/genetlink.o):
 #SYMVER genl_lock 0x2b9da7a4
 #SYMVER genl_unlock 0x2d140a58
-#SYMVER genl_register_family 0xe843c987
-#SYMVER genl_unregister_family 0x52ec70a8
-#SYMVER genlmsg_put 0x48be712d
-#SYMVER genlmsg_multicast_allns 0x96ebaeb3
-#SYMVER genl_notify 0x8d44c1c5
+#SYMVER genl_register_family 0xae32147c
+#SYMVER genl_unregister_family 0xbc48c2db
+#SYMVER genlmsg_put 0x9e11ecc2
+#SYMVER genlmsg_multicast_allns 0xfbaaadc1
+#SYMVER genl_notify 0x49e37ae4

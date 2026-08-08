@@ -1416,6 +1416,7 @@ deps_drivers/pci/pci-driver.o := \
   include/acpi/platform/aclinux.h \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1433,6 +1434,33 @@ deps_drivers/pci/pci-driver.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/dma-map-ops.h \
     $(wildcard include/config/DMA_GLOBAL_POOL) \
     $(wildcard include/config/DMA_BOUNCE_UNALIGNED_KMALLOC) \
@@ -1480,11 +1508,11 @@ deps_drivers/pci/pci-driver.o := \
 drivers/pci/pci-driver.o: $(deps_drivers/pci/pci-driver.o)
 
 $(deps_drivers/pci/pci-driver.o):
-#SYMVER pci_add_dynid 0x67d82200
-#SYMVER pci_match_id 0xfd9fe293
-#SYMVER __pci_register_driver 0xf4944dc5
-#SYMVER pci_unregister_driver 0x47934c12
-#SYMVER pci_dev_driver 0x4a42a898
-#SYMVER pci_dev_get 0x2650e254
-#SYMVER pci_dev_put 0xfffd583b
-#SYMVER pci_bus_type 0xa444d21d
+#SYMVER pci_add_dynid 0x744fc6e0
+#SYMVER pci_match_id 0xaa23a778
+#SYMVER __pci_register_driver 0x08e9622e
+#SYMVER pci_unregister_driver 0x52bef7c7
+#SYMVER pci_dev_driver 0x5f09c342
+#SYMVER pci_dev_get 0x4a02d45f
+#SYMVER pci_dev_put 0x0d4b9973
+#SYMVER pci_bus_type 0xfcaf1fc3

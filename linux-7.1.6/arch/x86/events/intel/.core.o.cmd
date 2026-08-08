@@ -788,95 +788,17 @@ deps_arch/x86/events/intel/core.o := \
     $(wildcard include/config/HYPERV) \
     $(wildcard include/config/X86_IO_APIC) \
     $(wildcard include/config/PCI_MSI) \
-  include/linux/kvm_host.h \
-    $(wildcard include/config/KVM_ASYNC_PF) \
-    $(wildcard include/config/HAS_IOMEM) \
-    $(wildcard include/config/HAVE_KVM_CPU_RELAX_INTERCEPT) \
-    $(wildcard include/config/KVM_GUEST_MEMFD) \
-    $(wildcard include/config/HAVE_KVM_IRQ_ROUTING) \
-    $(wildcard include/config/KVM_GENERIC_MEMORY_ATTRIBUTES) \
-    $(wildcard include/config/HAVE_KVM_READONLY_MEM) \
-    $(wildcard include/config/HAVE_KVM_IRQCHIP) \
-    $(wildcard include/config/KVM_MMIO) \
-    $(wildcard include/config/HAVE_KVM_PM_NOTIFIER) \
-    $(wildcard include/config/KVM_IOAPIC) \
-    $(wildcard include/config/S390) \
-    $(wildcard include/config/KVM_GENERIC_DIRTYLOG_READ_PROTECT) \
-    $(wildcard include/config/KVM_GENERIC_HARDWARE_ENABLING) \
-    $(wildcard include/config/GUEST_PERF_EVENTS) \
-    $(wildcard include/config/HAVE_KVM_IRQ_BYPASS) \
-    $(wildcard include/config/HAVE_KVM_INVALID_WAKEUPS) \
-    $(wildcard include/config/HAVE_KVM_NO_POLL) \
-    $(wildcard include/config/HAVE_KVM_VCPU_RUN_PID_CHANGE) \
-    $(wildcard include/config/HAVE_KVM_ARCH_GMEM_PREPARE) \
-    $(wildcard include/config/HAVE_KVM_ARCH_GMEM_POPULATE) \
-    $(wildcard include/config/HAVE_KVM_ARCH_GMEM_INVALIDATE) \
-    $(wildcard include/config/KVM_GENERIC_PRE_FAULT_MEMORY) \
-  include/linux/entry-virt.h \
-  include/linux/resume_user_mode.h \
-    $(wildcard include/config/KEYS_REQUEST_CACHE) \
-  include/linux/task_work.h \
-  include/linux/memcontrol.h \
-    $(wildcard include/config/MEMCG_NMI_SAFETY_REQUIRES_ATOMIC) \
-    $(wildcard include/config/CGROUP_WRITEBACK) \
-  include/linux/cgroup.h \
-    $(wildcard include/config/DEBUG_CGROUP_REF) \
-    $(wildcard include/config/CGROUP_CPUACCT) \
-    $(wildcard include/config/SOCK_CGROUP_DATA) \
-    $(wildcard include/config/CGROUP_DATA) \
-    $(wildcard include/config/CGROUP_BPF) \
-  include/linux/rculist.h \
-    $(wildcard include/config/PROVE_RCU_LIST) \
-  include/uapi/linux/cgroupstats.h \
-  include/uapi/linux/taskstats.h \
-  include/linux/fs.h \
-    $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
-    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
-    $(wildcard include/config/FS_POSIX_ACL) \
-    $(wildcard include/config/IMA) \
-    $(wildcard include/config/FILE_LOCKING) \
-    $(wildcard include/config/FSNOTIFY) \
-    $(wildcard include/config/EPOLL) \
-    $(wildcard include/config/FS_DAX) \
-    $(wildcard include/config/BLOCK) \
-    $(wildcard include/config/UNICODE) \
-  include/linux/fs/super.h \
-  include/linux/fs/super_types.h \
-    $(wildcard include/config/QUOTA) \
-    $(wildcard include/config/FS_ENCRYPTION) \
-    $(wildcard include/config/FS_VERITY) \
-  include/linux/fs_dirent.h \
-  include/linux/stat.h \
-  arch/x86/include/uapi/asm/stat.h \
-  include/uapi/linux/stat.h \
-  include/linux/uidgid.h \
-    $(wildcard include/config/MULTIUSER) \
-    $(wildcard include/config/USER_NS) \
-  include/linux/highuid.h \
-  include/linux/errseq.h \
-  include/linux/list_lru.h \
-  include/linux/shrinker.h \
-    $(wildcard include/config/SHRINKER_DEBUG) \
-  include/linux/xarray.h \
-    $(wildcard include/config/XARRAY_MULTI) \
-  include/linux/sched/mm.h \
-    $(wildcard include/config/MMU_LAZY_TLB_REFCOUNT) \
-    $(wildcard include/config/ARCH_HAS_MEMBARRIER_CALLBACKS) \
-    $(wildcard include/config/ARCH_HAS_SYNC_CORE_BEFORE_USERMODE) \
-  include/linux/sync_core.h \
-    $(wildcard include/config/ARCH_HAS_PREPARE_SYNC_CORE_CMD) \
-  arch/x86/include/asm/sync_core.h \
-  include/linux/sched/coredump.h \
-  include/linux/list_bl.h \
-  include/linux/bit_spinlock.h \
-  include/linux/uuid.h \
-  include/linux/percpu-rwsem.h \
+  arch/x86/include/asm/nmi.h \
+  include/linux/irq_work.h \
+    $(wildcard include/config/IRQ_WORK) \
   include/linux/rcuwait.h \
   include/linux/sched/signal.h \
     $(wildcard include/config/SCHED_AUTOGROUP) \
     $(wildcard include/config/BSD_PROCESS_ACCT) \
     $(wildcard include/config/TASKSTATS) \
     $(wildcard include/config/STACK_GROWSUP) \
+  include/linux/rculist.h \
+    $(wildcard include/config/PROVE_RCU_LIST) \
   include/linux/signal.h \
     $(wildcard include/config/DYNAMIC_SIGFRAME) \
   include/linux/sched/jobctl.h \
@@ -898,6 +820,14 @@ deps_arch/x86/events/intel/core.o := \
     $(wildcard include/config/ARCH_HAS_COPY_MC) \
     $(wildcard include/config/X86_INTEL_USERCOPY) \
   include/linux/mmap_lock.h \
+  include/linux/sched/mm.h \
+    $(wildcard include/config/MMU_LAZY_TLB_REFCOUNT) \
+    $(wildcard include/config/ARCH_HAS_MEMBARRIER_CALLBACKS) \
+    $(wildcard include/config/ARCH_HAS_SYNC_CORE_BEFORE_USERMODE) \
+  include/linux/sync_core.h \
+    $(wildcard include/config/ARCH_HAS_PREPARE_SYNC_CORE_CMD) \
+  arch/x86/include/asm/sync_core.h \
+  include/linux/sched/coredump.h \
   arch/x86/include/asm/smap.h \
   arch/x86/include/asm/extable.h \
   arch/x86/include/asm/tlbflush.h \
@@ -938,8 +868,12 @@ deps_arch/x86/events/intel/core.o := \
   include/asm-generic/access_ok.h \
     $(wildcard include/config/ALTERNATE_USER_ADDRESS_SPACE) \
   include/linux/cred.h \
+    $(wildcard include/config/MULTIUSER) \
+    $(wildcard include/config/USER_NS) \
   include/linux/capability.h \
   include/uapi/linux/capability.h \
+  include/linux/uidgid.h \
+  include/linux/highuid.h \
   include/linux/key.h \
     $(wildcard include/config/KEY_NOTIFICATIONS) \
     $(wildcard include/config/NET) \
@@ -949,6 +883,7 @@ deps_arch/x86/events/intel/core.o := \
   include/linux/assoc_array.h \
     $(wildcard include/config/ASSOCIATIVE_ARRAY) \
   include/linux/sched/user.h \
+    $(wildcard include/config/EPOLL) \
     $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
     $(wildcard include/config/IOMMUFD) \
     $(wildcard include/config/WATCH_QUEUE) \
@@ -967,6 +902,103 @@ deps_arch/x86/events/intel/core.o := \
   include/linux/hrtimer_rearm.h \
     $(wildcard include/config/HRTIMER_REARM_DEFERRED) \
   include/linux/rcuref.h \
+  arch/x86/include/asm/irq_work.h \
+  include/linux/pm.h \
+    $(wildcard include/config/VT_CONSOLE_SLEEP) \
+    $(wildcard include/config/CXL_SUSPEND) \
+    $(wildcard include/config/PM) \
+    $(wildcard include/config/PM_SLEEP) \
+    $(wildcard include/config/PM_CLK) \
+    $(wildcard include/config/PM_GENERIC_DOMAINS) \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/PCI) \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  include/linux/fwnode.h \
+  include/linux/kvm_host.h \
+    $(wildcard include/config/KVM_ASYNC_PF) \
+    $(wildcard include/config/HAS_IOMEM) \
+    $(wildcard include/config/HAVE_KVM_CPU_RELAX_INTERCEPT) \
+    $(wildcard include/config/KVM_GUEST_MEMFD) \
+    $(wildcard include/config/HAVE_KVM_IRQ_ROUTING) \
+    $(wildcard include/config/KVM_GENERIC_MEMORY_ATTRIBUTES) \
+    $(wildcard include/config/HAVE_KVM_READONLY_MEM) \
+    $(wildcard include/config/HAVE_KVM_IRQCHIP) \
+    $(wildcard include/config/KVM_MMIO) \
+    $(wildcard include/config/HAVE_KVM_PM_NOTIFIER) \
+    $(wildcard include/config/KVM_IOAPIC) \
+    $(wildcard include/config/S390) \
+    $(wildcard include/config/KVM_GENERIC_DIRTYLOG_READ_PROTECT) \
+    $(wildcard include/config/KVM_GENERIC_HARDWARE_ENABLING) \
+    $(wildcard include/config/GUEST_PERF_EVENTS) \
+    $(wildcard include/config/HAVE_KVM_IRQ_BYPASS) \
+    $(wildcard include/config/HAVE_KVM_INVALID_WAKEUPS) \
+    $(wildcard include/config/HAVE_KVM_NO_POLL) \
+    $(wildcard include/config/HAVE_KVM_VCPU_RUN_PID_CHANGE) \
+    $(wildcard include/config/HAVE_KVM_ARCH_GMEM_PREPARE) \
+    $(wildcard include/config/HAVE_KVM_ARCH_GMEM_POPULATE) \
+    $(wildcard include/config/HAVE_KVM_ARCH_GMEM_INVALIDATE) \
+    $(wildcard include/config/KVM_GENERIC_PRE_FAULT_MEMORY) \
+  include/linux/entry-virt.h \
+  include/linux/resume_user_mode.h \
+    $(wildcard include/config/KEYS_REQUEST_CACHE) \
+  include/linux/task_work.h \
+  include/linux/memcontrol.h \
+    $(wildcard include/config/MEMCG_NMI_SAFETY_REQUIRES_ATOMIC) \
+    $(wildcard include/config/CGROUP_WRITEBACK) \
+  include/linux/cgroup.h \
+    $(wildcard include/config/DEBUG_CGROUP_REF) \
+    $(wildcard include/config/CGROUP_CPUACCT) \
+    $(wildcard include/config/SOCK_CGROUP_DATA) \
+    $(wildcard include/config/CGROUP_DATA) \
+    $(wildcard include/config/CGROUP_BPF) \
+  include/uapi/linux/cgroupstats.h \
+  include/uapi/linux/taskstats.h \
+  include/linux/fs.h \
+    $(wildcard include/config/FANOTIFY_ACCESS_PERMISSIONS) \
+    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
+    $(wildcard include/config/FS_POSIX_ACL) \
+    $(wildcard include/config/IMA) \
+    $(wildcard include/config/FILE_LOCKING) \
+    $(wildcard include/config/FSNOTIFY) \
+    $(wildcard include/config/FS_DAX) \
+    $(wildcard include/config/BLOCK) \
+    $(wildcard include/config/UNICODE) \
+  include/linux/fs/super.h \
+  include/linux/fs/super_types.h \
+    $(wildcard include/config/QUOTA) \
+    $(wildcard include/config/FS_ENCRYPTION) \
+    $(wildcard include/config/FS_VERITY) \
+  include/linux/fs_dirent.h \
+  include/linux/stat.h \
+  arch/x86/include/uapi/asm/stat.h \
+  include/uapi/linux/stat.h \
+  include/linux/errseq.h \
+  include/linux/list_lru.h \
+  include/linux/shrinker.h \
+    $(wildcard include/config/SHRINKER_DEBUG) \
+  include/linux/xarray.h \
+    $(wildcard include/config/XARRAY_MULTI) \
+  include/linux/list_bl.h \
+  include/linux/bit_spinlock.h \
+  include/linux/uuid.h \
+  include/linux/percpu-rwsem.h \
   include/linux/rcu_sync.h \
   include/linux/quota.h \
     $(wildcard include/config/QUOTA_NETLINK_INTERFACE) \
@@ -1192,8 +1224,6 @@ deps_arch/x86/events/intel/core.o := \
     $(wildcard include/config/DMA_OPS_BYPASS) \
     $(wildcard include/config/DMA_NEED_SYNC) \
     $(wildcard include/config/IOMMU_DMA) \
-    $(wildcard include/config/PM) \
-    $(wildcard include/config/PM_SLEEP) \
     $(wildcard include/config/OF) \
     $(wildcard include/config/DEVTMPFS) \
   include/linux/dev_printk.h \
@@ -1207,11 +1237,6 @@ deps_arch/x86/events/intel/core.o := \
   include/linux/sched/idle.h \
   include/linux/sched/sd_flags.h \
   include/linux/klist.h \
-  include/linux/pm.h \
-    $(wildcard include/config/VT_CONSOLE_SLEEP) \
-    $(wildcard include/config/CXL_SUSPEND) \
-    $(wildcard include/config/PM_CLK) \
-    $(wildcard include/config/PM_GENERIC_DOMAINS) \
   include/linux/device/bus.h \
     $(wildcard include/config/ACPI) \
   include/linux/device/class.h \
@@ -1385,9 +1410,6 @@ deps_arch/x86/events/intel/core.o := \
     $(wildcard include/config/KALLSYMS_ALL) \
   arch/x86/include/asm/ftrace.h \
     $(wildcard include/config/HAVE_FENTRY) \
-  include/linux/irq_work.h \
-    $(wildcard include/config/IRQ_WORK) \
-  arch/x86/include/asm/irq_work.h \
   include/linux/jump_label_ratelimit.h \
   include/linux/perf_regs.h \
     $(wildcard include/config/HAVE_PERF_REGS) \
@@ -1463,27 +1485,6 @@ deps_arch/x86/events/intel/core.o := \
   include/uapi/linux/mei.h \
   include/uapi/linux/mei_uuid.h \
   include/linux/property.h \
-  include/linux/fwnode.h \
-  arch/x86/include/asm/io.h \
-    $(wildcard include/config/MTRR) \
-    $(wildcard include/config/X86_PAT) \
-  arch/x86/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  arch/x86/include/asm/shared/io.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/HAS_IOPORT) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-  include/asm-generic/iomap.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/PCI) \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
   arch/x86/include/asm/clocksource.h \
   arch/x86/include/asm/vdso/clocksource.h \
   include/vdso/clocksource.h \

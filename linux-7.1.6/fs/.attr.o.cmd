@@ -1325,10 +1325,10 @@ deps_fs/attr.o := \
 fs/attr.o: $(deps_fs/attr.o)
 
 $(deps_fs/attr.o):
-#SYMVER setattr_should_drop_sgid 0xf5212600
-#SYMVER setattr_should_drop_suidgid 0x56858abf
-#SYMVER setattr_prepare 0xe4471191
-#SYMVER inode_newsize_ok 0x3bfe0bee
-#SYMVER setattr_copy 0x570850c1
-#SYMVER may_setattr 0x7f40cce6
-#SYMVER notify_change 0xd804a0e9
+#SYMVER setattr_should_drop_sgid 0x2627493e
+#SYMVER setattr_should_drop_suidgid 0x2aa88a07
+#SYMVER setattr_prepare 0x41377509
+#SYMVER inode_newsize_ok 0xc3294040
+#SYMVER setattr_copy 0x57673777
+#SYMVER may_setattr 0x644288fd
+#SYMVER notify_change 0xfef5f618

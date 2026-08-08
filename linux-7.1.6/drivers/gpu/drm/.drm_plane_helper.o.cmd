@@ -1253,6 +1253,6 @@ deps_drivers/gpu/drm/drm_plane_helper.o := \
 drivers/gpu/drm/drm_plane_helper.o: $(deps_drivers/gpu/drm/drm_plane_helper.o)
 
 $(deps_drivers/gpu/drm/drm_plane_helper.o):
-#SYMVER drm_plane_helper_update_primary 0x7baec0bd
-#SYMVER drm_plane_helper_disable_primary 0x689459f1
-#SYMVER drm_plane_helper_destroy 0x2f663c2e
+#SYMVER drm_plane_helper_update_primary 0xe73d6581
+#SYMVER drm_plane_helper_disable_primary 0xc63456b2
+#SYMVER drm_plane_helper_destroy 0x177ba5e4

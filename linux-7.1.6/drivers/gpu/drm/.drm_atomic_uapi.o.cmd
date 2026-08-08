@@ -1304,9 +1304,9 @@ deps_drivers/gpu/drm/drm_atomic_uapi.o := \
 drivers/gpu/drm/drm_atomic_uapi.o: $(deps_drivers/gpu/drm/drm_atomic_uapi.o)
 
 $(deps_drivers/gpu/drm/drm_atomic_uapi.o):
-#SYMVER drm_atomic_set_mode_for_crtc 0x51780db4
-#SYMVER drm_atomic_set_mode_prop_for_crtc 0xd84d3ecb
-#SYMVER drm_atomic_set_crtc_for_plane 0x28975e05
-#SYMVER drm_atomic_set_fb_for_plane 0xdc56081a
-#SYMVER drm_atomic_set_colorop_for_plane 0x71be2fca
-#SYMVER drm_atomic_set_crtc_for_connector 0x480631c4
+#SYMVER drm_atomic_set_mode_for_crtc 0x1d377f69
+#SYMVER drm_atomic_set_mode_prop_for_crtc 0x32e81b83
+#SYMVER drm_atomic_set_crtc_for_plane 0x3bea9c25
+#SYMVER drm_atomic_set_fb_for_plane 0x7986d520
+#SYMVER drm_atomic_set_colorop_for_plane 0x715b4351
+#SYMVER drm_atomic_set_crtc_for_connector 0x1196d083

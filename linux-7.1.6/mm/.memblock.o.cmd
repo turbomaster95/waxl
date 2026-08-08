@@ -1290,5 +1290,5 @@ deps_mm/memblock.o := \
 mm/memblock.o: $(deps_mm/memblock.o)
 
 $(deps_mm/memblock.o):
-#SYMVER contig_page_data 0x855c8984
+#SYMVER contig_page_data 0xd1a5da41
 #SYMVER reserve_mem_find_by_name 0x716072ec

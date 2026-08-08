@@ -888,12 +888,12 @@ deps_block/badblocks.o := \
 block/badblocks.o: $(deps_block/badblocks.o)
 
 $(deps_block/badblocks.o):
-#SYMVER badblocks_check 0xaff8d6c5
-#SYMVER badblocks_set 0x0986131b
-#SYMVER badblocks_clear 0xee32d1e5
-#SYMVER ack_all_badblocks 0x9ad29e7e
-#SYMVER badblocks_show 0xb87debdc
-#SYMVER badblocks_store 0xc0610d3c
-#SYMVER badblocks_init 0x136d7434
-#SYMVER devm_init_badblocks 0x451c40dc
-#SYMVER badblocks_exit 0x108eba2b
+#SYMVER badblocks_check 0x4b880a9a
+#SYMVER badblocks_set 0xc7ea6eba
+#SYMVER badblocks_clear 0x7525adc2
+#SYMVER ack_all_badblocks 0xc2811385
+#SYMVER badblocks_show 0xb568e37a
+#SYMVER badblocks_store 0x5103c8a5
+#SYMVER badblocks_init 0x461f72b6
+#SYMVER devm_init_badblocks 0x96a8cb8f
+#SYMVER badblocks_exit 0x33d6a3a7

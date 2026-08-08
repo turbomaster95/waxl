@@ -1593,4 +1593,4 @@ deps_net/core/link_watch.o := \
 net/core/link_watch.o: $(deps_net/core/link_watch.o)
 
 $(deps_net/core/link_watch.o):
-#SYMVER linkwatch_fire_event 0xd360fdb4
+#SYMVER linkwatch_fire_event 0xf6e4e732

@@ -1554,8 +1554,8 @@ net/core/fib_notifier.o: $(deps_net/core/fib_notifier.o)
 
 $(deps_net/core/fib_notifier.o):
 #SYMVER call_fib_notifier 0xbb13d0c3
-#SYMVER call_fib_notifiers 0xd7ea7713
-#SYMVER register_fib_notifier 0x4ace1a31
-#SYMVER unregister_fib_notifier 0xd328744f
-#SYMVER fib_notifier_ops_register 0x443d902d
-#SYMVER fib_notifier_ops_unregister 0x3c1c264a
+#SYMVER call_fib_notifiers 0xc1d2d49c
+#SYMVER register_fib_notifier 0xd50f8d1d
+#SYMVER unregister_fib_notifier 0xea9c2d96
+#SYMVER fib_notifier_ops_register 0x2aa33443
+#SYMVER fib_notifier_ops_unregister 0x7174fbad

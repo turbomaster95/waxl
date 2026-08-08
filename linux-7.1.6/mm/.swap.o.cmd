@@ -1290,9 +1290,9 @@ deps_mm/swap.o := \
 mm/swap.o: $(deps_mm/swap.o)
 
 $(deps_mm/swap.o):
-#SYMVER __folio_put 0xf7ba0029
-#SYMVER folio_mark_accessed 0x711ac6dc
-#SYMVER folio_add_lru 0x330284e5
-#SYMVER folios_put_refs 0x327a70cf
-#SYMVER release_pages 0x93da9860
-#SYMVER __folio_batch_release 0x06fb383e
+#SYMVER __folio_put 0x5d0a5ae3
+#SYMVER folio_mark_accessed 0xd3b973e4
+#SYMVER folio_add_lru 0x6d042538
+#SYMVER folios_put_refs 0x317b5ea9
+#SYMVER release_pages 0xe8cdcac6
+#SYMVER __folio_batch_release 0x08fa340e

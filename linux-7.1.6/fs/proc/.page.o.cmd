@@ -1286,4 +1286,4 @@ deps_fs/proc/page.o := \
 fs/proc/page.o: $(deps_fs/proc/page.o)
 
 $(deps_fs/proc/page.o):
-#SYMVER stable_page_flags 0xde55b5b8
+#SYMVER stable_page_flags 0xc62d1f72

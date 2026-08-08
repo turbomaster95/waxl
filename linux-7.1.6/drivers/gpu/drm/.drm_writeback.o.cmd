@@ -1251,11 +1251,11 @@ deps_drivers/gpu/drm/drm_writeback.o := \
 drivers/gpu/drm/drm_writeback.o: $(deps_drivers/gpu/drm/drm_writeback.o)
 
 $(deps_drivers/gpu/drm/drm_writeback.o):
-#SYMVER drm_writeback_connector_init 0x0b456e34
-#SYMVER drm_writeback_connector_init_with_encoder 0x3c2b57d9
-#SYMVER drmm_writeback_connector_init 0x2e0d1663
-#SYMVER drm_writeback_prepare_job 0x51d6ea4d
-#SYMVER drm_writeback_queue_job 0x73ebe6fd
-#SYMVER drm_writeback_cleanup_job 0x4bc0e0ff
-#SYMVER drm_writeback_signal_completion 0xf8c45606
-#SYMVER drm_writeback_get_out_fence 0xd068673d
+#SYMVER drm_writeback_connector_init 0xa7666490
+#SYMVER drm_writeback_connector_init_with_encoder 0xc5c2acca
+#SYMVER drmm_writeback_connector_init 0x1ee54149
+#SYMVER drm_writeback_prepare_job 0xe6914d5f
+#SYMVER drm_writeback_queue_job 0x06e3997f
+#SYMVER drm_writeback_cleanup_job 0xe500e231
+#SYMVER drm_writeback_signal_completion 0x12ae872b
+#SYMVER drm_writeback_get_out_fence 0x6760fe9a

@@ -1337,4 +1337,4 @@ deps_fs/kernfs/file.o := \
 fs/kernfs/file.o: $(deps_fs/kernfs/file.o)
 
 $(deps_fs/kernfs/file.o):
-#SYMVER kernfs_notify 0x86d0496c
+#SYMVER kernfs_notify 0x2e7d2290

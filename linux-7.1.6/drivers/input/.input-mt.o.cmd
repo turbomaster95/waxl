@@ -1058,12 +1058,12 @@ deps_drivers/input/input-mt.o := \
 drivers/input/input-mt.o: $(deps_drivers/input/input-mt.o)
 
 $(deps_drivers/input/input-mt.o):
-#SYMVER input_mt_init_slots 0x1e52d305
-#SYMVER input_mt_destroy_slots 0x18c7eb4e
-#SYMVER input_mt_report_slot_state 0x7db0642a
-#SYMVER input_mt_report_finger_count 0x93fd5e69
-#SYMVER input_mt_report_pointer_emulation 0x7ce47f15
-#SYMVER input_mt_drop_unused 0x0c431ccd
-#SYMVER input_mt_sync_frame 0xbb99005e
-#SYMVER input_mt_assign_slots 0xa90896ba
-#SYMVER input_mt_get_slot_by_key 0x641f1bac
+#SYMVER input_mt_init_slots 0xe6b6f4b4
+#SYMVER input_mt_destroy_slots 0x9b90203d
+#SYMVER input_mt_report_slot_state 0x515b2ad6
+#SYMVER input_mt_report_finger_count 0xd47b91fb
+#SYMVER input_mt_report_pointer_emulation 0x8d1cee1d
+#SYMVER input_mt_drop_unused 0xee54bd82
+#SYMVER input_mt_sync_frame 0x08673f2b
+#SYMVER input_mt_assign_slots 0x558b7e7c
+#SYMVER input_mt_get_slot_by_key 0x11148c71

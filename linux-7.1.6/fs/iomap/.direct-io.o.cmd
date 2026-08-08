@@ -1205,6 +1205,6 @@ fs/iomap/direct-io.o: $(deps_fs/iomap/direct-io.o)
 
 $(deps_fs/iomap/direct-io.o):
 #SYMVER iomap_dio_complete 0x344a2c84
-#SYMVER iomap_dio_bio_end_io 0x9758f638
-#SYMVER __iomap_dio_rw 0x18ab3483
-#SYMVER iomap_dio_rw 0x2ace6625
+#SYMVER iomap_dio_bio_end_io 0x20a1c9ce
+#SYMVER __iomap_dio_rw 0x07a47374
+#SYMVER iomap_dio_rw 0x860cf81c

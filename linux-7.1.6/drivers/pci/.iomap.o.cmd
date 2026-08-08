@@ -1251,7 +1251,7 @@ deps_drivers/pci/iomap.o := \
 drivers/pci/iomap.o: $(deps_drivers/pci/iomap.o)
 
 $(deps_drivers/pci/iomap.o):
-#SYMVER pci_iomap_range 0xf75bb31d
-#SYMVER pci_iomap_wc_range 0xd08b4c58
-#SYMVER pci_iomap 0x2a01da19
-#SYMVER pci_iomap_wc 0x0a56696c
+#SYMVER pci_iomap_range 0xa8b8843d
+#SYMVER pci_iomap_wc_range 0x085b4ccc
+#SYMVER pci_iomap 0xe4f3df4f
+#SYMVER pci_iomap_wc 0x9617345f

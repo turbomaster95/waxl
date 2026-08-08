@@ -935,6 +935,7 @@ deps_kernel/irq/irqdomain.o := \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
   include/linux/ctype.h \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -952,6 +953,66 @@ deps_kernel/irq/irqdomain.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  include/linux/io.h \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+    $(wildcard include/config/STRICT_DEVMEM) \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/apicdef.h \
+  arch/x86/include/asm/fixmap.h \
+    $(wildcard include/config/PROVIDE_OHCI1394_DMA_INIT) \
+    $(wildcard include/config/PCI_MMCONFIG) \
+    $(wildcard include/config/ACPI_APEI_GHES) \
+    $(wildcard include/config/INTEL_TXT) \
+  arch/x86/include/uapi/asm/vsyscall.h \
+  include/asm-generic/fixmap.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/x86_init.h \
+  arch/x86/include/asm/irq_vectors.h \
+    $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/PCI_MSI) \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/debugfs.h \
     $(wildcard include/config/DEBUG_FS) \
   include/linux/fs.h \
@@ -1026,7 +1087,6 @@ deps_kernel/irq/irqdomain.o := \
     $(wildcard include/config/ARCH_ENABLE_THP_MIGRATION) \
     $(wildcard include/config/PAGE_TABLE_CHECK) \
     $(wildcard include/config/X86_SGX) \
-  arch/x86/include/asm/x86_init.h \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
     $(wildcard include/config/MATH_EMULATION) \
@@ -1035,14 +1095,6 @@ deps_kernel/irq/irqdomain.o := \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
   include/linux/page_table_check.h \
   arch/x86/include/asm/pgtable_64.h \
-  arch/x86/include/asm/fixmap.h \
-    $(wildcard include/config/PROVIDE_OHCI1394_DMA_INIT) \
-    $(wildcard include/config/PCI_MMCONFIG) \
-    $(wildcard include/config/ACPI_APEI_GHES) \
-    $(wildcard include/config/INTEL_TXT) \
-  arch/x86/include/asm/apicdef.h \
-  arch/x86/include/uapi/asm/vsyscall.h \
-  include/asm-generic/fixmap.h \
   arch/x86/include/asm/pgtable-invert.h \
   arch/x86/include/asm/uaccess_64.h \
   arch/x86/include/asm/runtime-const.h \
@@ -1138,15 +1190,12 @@ deps_kernel/irq/irqdomain.o := \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
-    $(wildcard include/config/HYPERV) \
     $(wildcard include/config/X86_POSTED_MSI) \
   include/linux/interrupt.h \
     $(wildcard include/config/IRQ_FORCED_THREADING) \
     $(wildcard include/config/GENERIC_IRQ_PROBE) \
   include/linux/irqreturn.h \
   arch/x86/include/asm/irq.h \
-  arch/x86/include/asm/irq_vectors.h \
-    $(wildcard include/config/PCI_MSI) \
   arch/x86/include/asm/sections.h \
   include/asm-generic/sections.h \
     $(wildcard include/config/HAVE_FUNCTION_DESCRIPTORS) \
@@ -1160,27 +1209,6 @@ deps_kernel/irq/irqdomain.o := \
     $(wildcard include/config/GENERIC_IRQ_CHIP) \
     $(wildcard include/config/GENERIC_IRQ_MULTI_HANDLER) \
   include/linux/irqhandler.h \
-  include/linux/io.h \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-    $(wildcard include/config/STRICT_DEVMEM) \
-  arch/x86/include/asm/io.h \
-    $(wildcard include/config/MTRR) \
-    $(wildcard include/config/X86_PAT) \
-  arch/x86/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  arch/x86/include/asm/shared/io.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/HAS_IOPORT) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-  include/asm-generic/iomap.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
   arch/x86/include/generated/asm/irq_regs.h \
   include/asm-generic/irq_regs.h \
   include/linux/irqdesc.h \
@@ -1211,43 +1239,43 @@ deps_kernel/irq/irqdomain.o := \
 kernel/irq/irqdomain.o: $(deps_kernel/irq/irqdomain.o)
 
 $(deps_kernel/irq/irqdomain.o):
-#SYMVER irqchip_fwnode_ops 0xf2216410
-#SYMVER __irq_domain_alloc_fwnode 0x81fc0efc
-#SYMVER irq_domain_free_fwnode 0xc221f057
-#SYMVER irq_domain_instantiate 0xffd81921
-#SYMVER irq_domain_remove 0xfd228f2e
-#SYMVER irq_domain_update_bus_token 0x440f0a49
-#SYMVER irq_domain_create_simple 0xe77d0ee5
-#SYMVER irq_domain_create_legacy 0x646da32f
-#SYMVER irq_find_matching_fwspec 0xf2255cea
-#SYMVER irq_set_default_domain 0x4b37f686
-#SYMVER irq_get_default_domain 0xb3ca715c
-#SYMVER irq_domain_associate 0xb2ba3b92
-#SYMVER irq_domain_associate_many 0x0f8e3715
-#SYMVER irq_create_mapping_affinity 0xf3093a57
-#SYMVER of_phandle_args_to_fwspec 0x308f6579
-#SYMVER irq_create_fwspec_mapping 0xa160418d
-#SYMVER irq_create_of_mapping 0x20f616b5
+#SYMVER irqchip_fwnode_ops 0xeea45bd1
+#SYMVER __irq_domain_alloc_fwnode 0x09e71a0b
+#SYMVER irq_domain_free_fwnode 0x87151683
+#SYMVER irq_domain_instantiate 0x5ad2ea47
+#SYMVER irq_domain_remove 0x77b5d94e
+#SYMVER irq_domain_update_bus_token 0xb9be10e3
+#SYMVER irq_domain_create_simple 0x127d469c
+#SYMVER irq_domain_create_legacy 0x950c917c
+#SYMVER irq_find_matching_fwspec 0x42597c8a
+#SYMVER irq_set_default_domain 0xe9860646
+#SYMVER irq_get_default_domain 0x6a0da89e
+#SYMVER irq_domain_associate 0xd0d897d7
+#SYMVER irq_domain_associate_many 0x23e00096
+#SYMVER irq_create_mapping_affinity 0xcd9c939e
+#SYMVER of_phandle_args_to_fwspec 0xab16cde4
+#SYMVER irq_create_fwspec_mapping 0xf45473aa
+#SYMVER irq_create_of_mapping 0x0f155606
 #SYMVER irq_dispose_mapping 0x2c7db649
-#SYMVER __irq_resolve_mapping 0x9e4340f2
-#SYMVER irq_domain_xlate_onecell 0x14756019
-#SYMVER irq_domain_xlate_twocell 0xa4448cd9
-#SYMVER irq_domain_xlate_twothreecell 0x6e4825b3
-#SYMVER irq_domain_xlate_onetwocell 0xbda91e30
-#SYMVER irq_domain_simple_ops 0xf04d4c93
-#SYMVER irq_domain_translate_onecell 0xd0c62330
-#SYMVER irq_domain_translate_twocell 0xa92e03af
-#SYMVER irq_domain_translate_twothreecell 0xe0f190cc
-#SYMVER irq_domain_reset_irq_data 0x13054585
-#SYMVER irq_domain_disconnect_hierarchy 0x14d8824c
-#SYMVER irq_domain_get_irq_data 0x0393bf48
-#SYMVER irq_domain_set_hwirq_and_chip 0x66a085d7
-#SYMVER irq_domain_set_info 0x15c1024a
-#SYMVER irq_domain_free_irqs_common 0x038bad26
-#SYMVER irq_domain_free_irqs_top 0xf5f00955
-#SYMVER __irq_domain_alloc_irqs 0xcfbc21e8
-#SYMVER irq_domain_push_irq 0xc2f50cba
-#SYMVER irq_domain_pop_irq 0x430f9c66
+#SYMVER __irq_resolve_mapping 0xd2d701a3
+#SYMVER irq_domain_xlate_onecell 0x84f462fa
+#SYMVER irq_domain_xlate_twocell 0x7921ef77
+#SYMVER irq_domain_xlate_twothreecell 0xf37a1a93
+#SYMVER irq_domain_xlate_onetwocell 0x11da6751
+#SYMVER irq_domain_simple_ops 0xa7e95c73
+#SYMVER irq_domain_translate_onecell 0x61121096
+#SYMVER irq_domain_translate_twocell 0x01c3508d
+#SYMVER irq_domain_translate_twothreecell 0x06489059
+#SYMVER irq_domain_reset_irq_data 0x3d2ac9d9
+#SYMVER irq_domain_disconnect_hierarchy 0xb90a487d
+#SYMVER irq_domain_get_irq_data 0x08cbc06f
+#SYMVER irq_domain_set_hwirq_and_chip 0x95a90fd3
+#SYMVER irq_domain_set_info 0x329e80c8
+#SYMVER irq_domain_free_irqs_common 0x5b78e64d
+#SYMVER irq_domain_free_irqs_top 0xf9a6d75e
+#SYMVER __irq_domain_alloc_irqs 0x4c20e5f4
+#SYMVER irq_domain_push_irq 0xd3fe1930
+#SYMVER irq_domain_pop_irq 0x901b61f0
 #SYMVER irq_domain_free_irqs 0x013b9b82
-#SYMVER irq_domain_alloc_irqs_parent 0xa65d5297
-#SYMVER irq_domain_free_irqs_parent 0x49c8f158
+#SYMVER irq_domain_alloc_irqs_parent 0x412a6dc6
+#SYMVER irq_domain_free_irqs_parent 0x2cd26ec6

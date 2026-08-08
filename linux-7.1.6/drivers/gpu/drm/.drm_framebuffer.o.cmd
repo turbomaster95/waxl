@@ -1354,8 +1354,8 @@ deps_drivers/gpu/drm/drm_framebuffer.o := \
 drivers/gpu/drm/drm_framebuffer.o: $(deps_drivers/gpu/drm/drm_framebuffer.o)
 
 $(deps_drivers/gpu/drm/drm_framebuffer.o):
-#SYMVER drm_framebuffer_init 0x8e57bbc8
-#SYMVER drm_framebuffer_lookup 0x19094cb4
-#SYMVER drm_framebuffer_unregister_private 0xb9f53907
-#SYMVER drm_framebuffer_cleanup 0x2ae73fb6
-#SYMVER drm_framebuffer_remove 0xdfbad04d
+#SYMVER drm_framebuffer_init 0x9026b3e6
+#SYMVER drm_framebuffer_lookup 0x21350346
+#SYMVER drm_framebuffer_unregister_private 0x05cf3ff0
+#SYMVER drm_framebuffer_cleanup 0x2637c86e
+#SYMVER drm_framebuffer_remove 0xa741ce96

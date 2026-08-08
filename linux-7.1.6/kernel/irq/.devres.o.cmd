@@ -1087,8 +1087,8 @@ deps_kernel/irq/devres.o := \
 kernel/irq/devres.o: $(deps_kernel/irq/devres.o)
 
 $(deps_kernel/irq/devres.o):
-#SYMVER devm_request_threaded_irq 0x9d346299
-#SYMVER devm_request_any_context_irq 0xbdbba2bf
-#SYMVER devm_free_irq 0x27527099
-#SYMVER __devm_irq_alloc_descs 0x738222b9
-#SYMVER devm_irq_domain_instantiate 0x275a5b0e
+#SYMVER devm_request_threaded_irq 0x4b394b2e
+#SYMVER devm_request_any_context_irq 0xf7350884
+#SYMVER devm_free_irq 0x6e5e829e
+#SYMVER __devm_irq_alloc_descs 0xb488ac98
+#SYMVER devm_irq_domain_instantiate 0xa02cfa71

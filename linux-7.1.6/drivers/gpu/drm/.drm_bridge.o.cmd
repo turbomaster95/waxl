@@ -1337,6 +1337,14 @@ deps_drivers/gpu/drm/drm_bridge.o := \
   include/drm/drm_of.h \
     $(wildcard include/config/DRM_MIPI_DSI) \
   include/linux/of_graph.h \
+  include/linux/of.h \
+    $(wildcard include/config/OF_DYNAMIC) \
+    $(wildcard include/config/SPARC) \
+    $(wildcard include/config/OF_PROMTREE) \
+    $(wildcard include/config/OF_KOBJ) \
+    $(wildcard include/config/OF_NUMA) \
+    $(wildcard include/config/OF_OVERLAY) \
+  include/linux/property.h \
   include/drm/drm_print.h \
     $(wildcard include/config/DRM_USE_DYNAMIC_DEBUG) \
   drivers/gpu/drm/drm_crtc_internal.h \
@@ -1346,28 +1354,30 @@ deps_drivers/gpu/drm/drm_bridge.o := \
 drivers/gpu/drm/drm_bridge.o: $(deps_drivers/gpu/drm/drm_bridge.o)
 
 $(deps_drivers/gpu/drm/drm_bridge.o):
-#SYMVER drm_bridge_enter 0x696b8dd8
+#SYMVER drm_bridge_enter 0x3d0d8805
 #SYMVER drm_bridge_exit 0x8e43e85a
-#SYMVER drm_bridge_unplug 0xc0f5cde7
-#SYMVER drm_bridge_get 0xd5773ae3
-#SYMVER drm_bridge_put 0x7762a746
-#SYMVER drm_bridge_clear_and_put 0x828e0f66
-#SYMVER __devm_drm_bridge_alloc 0x7abc7797
-#SYMVER drm_bridge_add 0xf5ac34ad
-#SYMVER devm_drm_bridge_add 0x4e27c8d7
-#SYMVER drm_bridge_remove 0x2237acd5
-#SYMVER drm_bridge_attach 0x6ecd6542
-#SYMVER drm_bridge_chain_mode_valid 0xe9153a09
-#SYMVER drm_bridge_chain_mode_set 0x0bbfe5d0
-#SYMVER drm_atomic_bridge_chain_disable 0x437da3cc
-#SYMVER drm_atomic_bridge_chain_post_disable 0x8f7081fa
-#SYMVER drm_atomic_bridge_chain_pre_enable 0xabdfc329
-#SYMVER drm_atomic_bridge_chain_enable 0x7d4993cd
-#SYMVER drm_atomic_bridge_chain_check 0xabbf6a43
-#SYMVER drm_bridge_detect 0xc4a02d70
-#SYMVER drm_bridge_get_modes 0x9331c2a3
-#SYMVER drm_bridge_edid_read 0x19a5e1e4
-#SYMVER drm_bridge_hpd_enable 0x2a4e4e07
-#SYMVER drm_bridge_hpd_disable 0x3fa5cae3
-#SYMVER drm_bridge_hpd_notify 0xcea6fa94
-#SYMVER devm_drm_put_bridge 0xe3d2e748
+#SYMVER drm_bridge_unplug 0x4d2252a6
+#SYMVER drm_bridge_get 0xa8538c2d
+#SYMVER drm_bridge_put 0x861e7bd8
+#SYMVER drm_bridge_clear_and_put 0xf838c35b
+#SYMVER __devm_drm_bridge_alloc 0xb111285e
+#SYMVER drm_bridge_add 0x65e765cc
+#SYMVER devm_drm_bridge_add 0xa5918db2
+#SYMVER drm_bridge_remove 0x395937de
+#SYMVER drm_bridge_attach 0x58f0a647
+#SYMVER drm_bridge_chain_mode_valid 0x7291edbc
+#SYMVER drm_bridge_chain_mode_set 0x9b2a4336
+#SYMVER drm_atomic_bridge_chain_disable 0x1e223faf
+#SYMVER drm_atomic_bridge_chain_post_disable 0x06cc6fdb
+#SYMVER drm_atomic_bridge_chain_pre_enable 0x5a7b5cd1
+#SYMVER drm_atomic_bridge_chain_enable 0x6cb72fb5
+#SYMVER drm_atomic_bridge_chain_check 0x0a8def7d
+#SYMVER drm_bridge_detect 0xb862e6b4
+#SYMVER drm_bridge_get_modes 0x8b89407d
+#SYMVER drm_bridge_edid_read 0x1780d228
+#SYMVER drm_bridge_hpd_enable 0xcbdb74fe
+#SYMVER drm_bridge_hpd_disable 0xbdd097f1
+#SYMVER drm_bridge_hpd_notify 0x3103ca27
+#SYMVER of_drm_find_and_get_bridge 0xd005bd0c
+#SYMVER of_drm_find_bridge 0xc9c2f1cc
+#SYMVER devm_drm_put_bridge 0xcd7c5d40

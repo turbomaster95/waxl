@@ -1299,10 +1299,10 @@ deps_drivers/gpu/drm/drm_client_modeset.o := \
 drivers/gpu/drm/drm_client_modeset.o: $(deps_drivers/gpu/drm/drm_client_modeset.o)
 
 $(deps_drivers/gpu/drm/drm_client_modeset.o):
-#SYMVER drm_client_modeset_probe 0x13045aea
-#SYMVER drm_client_rotation 0x18f854e2
-#SYMVER drm_client_modeset_check 0x8521d09b
-#SYMVER drm_client_modeset_commit_locked 0x731bcdd8
-#SYMVER drm_client_modeset_commit 0x3a308e51
-#SYMVER drm_client_modeset_dpms 0x48dd824e
-#SYMVER drm_client_modeset_wait_for_vblank 0xbfc265d0
+#SYMVER drm_client_modeset_probe 0x99a73576
+#SYMVER drm_client_rotation 0xdae7bd7b
+#SYMVER drm_client_modeset_check 0x8363702c
+#SYMVER drm_client_modeset_commit_locked 0xbb52b2a8
+#SYMVER drm_client_modeset_commit 0xd6c84d45
+#SYMVER drm_client_modeset_dpms 0x1277f306
+#SYMVER drm_client_modeset_wait_for_vblank 0x73a56bc8

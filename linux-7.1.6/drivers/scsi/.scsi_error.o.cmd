@@ -1314,16 +1314,16 @@ deps_drivers/scsi/scsi_error.o := \
 drivers/scsi/scsi_error.o: $(deps_drivers/scsi/scsi_error.o)
 
 $(deps_drivers/scsi/scsi_error.o):
-#SYMVER scsi_schedule_eh 0xe25761da
-#SYMVER scsi_block_when_processing_errors 0x36ccb508
-#SYMVER scsi_check_sense 0xbc2143f4
-#SYMVER scsi_eh_prep_cmnd 0x7d0fd9da
-#SYMVER scsi_eh_restore_cmnd 0xddfd8714
-#SYMVER scsi_eh_finish_cmd 0xeed8fcfe
+#SYMVER scsi_schedule_eh 0x1e2e8600
+#SYMVER scsi_block_when_processing_errors 0xc65b3370
+#SYMVER scsi_check_sense 0x38f0b40a
+#SYMVER scsi_eh_prep_cmnd 0x035f2d44
+#SYMVER scsi_eh_restore_cmnd 0x7ee3ca21
+#SYMVER scsi_eh_finish_cmd 0x9222f3e8
 #SYMVER scsi_eh_get_sense 0x26c90ea4
-#SYMVER scsi_eh_ready_devs 0xd86ee342
+#SYMVER scsi_eh_ready_devs 0x3d847f71
 #SYMVER scsi_eh_flush_done_q 0xf811e69d
-#SYMVER scsi_report_bus_reset 0x30aff52b
-#SYMVER scsi_report_device_reset 0xe7029b4c
-#SYMVER scsi_command_normalize_sense 0xb04b8ed0
+#SYMVER scsi_report_bus_reset 0xd408a38c
+#SYMVER scsi_report_device_reset 0x783d770c
+#SYMVER scsi_command_normalize_sense 0x3735aae9
 #SYMVER scsi_get_sense_info_fld 0xdd849d51

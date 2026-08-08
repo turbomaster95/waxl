@@ -1339,4 +1339,4 @@ deps_drivers/gpu/drm/drm_dumb_buffers.o := \
 drivers/gpu/drm/drm_dumb_buffers.o: $(deps_drivers/gpu/drm/drm_dumb_buffers.o)
 
 $(deps_drivers/gpu/drm/drm_dumb_buffers.o):
-#SYMVER drm_mode_size_dumb 0xff35cc88
+#SYMVER drm_mode_size_dumb 0xc00c52d0

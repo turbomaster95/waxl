@@ -1251,19 +1251,19 @@ deps_drivers/pci/devres.o := \
 drivers/pci/devres.o: $(deps_drivers/pci/devres.o)
 
 $(deps_drivers/pci/devres.o):
-#SYMVER devm_pci_remap_iospace 0x25b1778d
-#SYMVER devm_pci_remap_cfgspace 0x3651dc47
-#SYMVER devm_pci_remap_cfg_resource 0x171ac9db
-#SYMVER pcim_set_mwi 0x584a4ce7
-#SYMVER pcim_intx 0xa73c2256
-#SYMVER pcim_enable_device 0xc892ccf1
-#SYMVER pcim_pin_device 0x54e641a0
-#SYMVER pcim_iomap_table 0xac855a05
-#SYMVER pcim_iomap 0x8395e886
-#SYMVER pcim_iounmap 0xd40e0eb6
-#SYMVER pcim_iomap_region 0xe76ede68
-#SYMVER pcim_iounmap_region 0x5668c4d8
-#SYMVER pcim_iomap_regions 0xd80f5174
-#SYMVER pcim_request_region 0x03ddb44b
-#SYMVER pcim_request_all_regions 0x78eee4d0
-#SYMVER pcim_iomap_range 0x523fa553
+#SYMVER devm_pci_remap_iospace 0x58097da9
+#SYMVER devm_pci_remap_cfgspace 0x9cbb18a5
+#SYMVER devm_pci_remap_cfg_resource 0x47e46d36
+#SYMVER pcim_set_mwi 0x1d117c11
+#SYMVER pcim_intx 0x324748ac
+#SYMVER pcim_enable_device 0xafc51667
+#SYMVER pcim_pin_device 0xb3c205bb
+#SYMVER pcim_iomap_table 0x095b1138
+#SYMVER pcim_iomap 0x17133678
+#SYMVER pcim_iounmap 0x193bdae1
+#SYMVER pcim_iomap_region 0x93bf6fcf
+#SYMVER pcim_iounmap_region 0x9620cc28
+#SYMVER pcim_iomap_regions 0xf727fa96
+#SYMVER pcim_request_region 0x25b62b71
+#SYMVER pcim_request_all_regions 0x88536fe2
+#SYMVER pcim_iomap_range 0x02c75263

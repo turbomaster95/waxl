@@ -1057,8 +1057,8 @@ deps_drivers/input/input-poller.o := \
 drivers/input/input-poller.o: $(deps_drivers/input/input-poller.o)
 
 $(deps_drivers/input/input-poller.o):
-#SYMVER input_setup_polling 0x2e36daf9
-#SYMVER input_set_poll_interval 0xae1a0802
-#SYMVER input_set_min_poll_interval 0x5ad0ff57
-#SYMVER input_set_max_poll_interval 0x15c3cfd3
-#SYMVER input_get_poll_interval 0xd458f3e8
+#SYMVER input_setup_polling 0x29eecd9b
+#SYMVER input_set_poll_interval 0x20797930
+#SYMVER input_set_min_poll_interval 0xceced829
+#SYMVER input_set_max_poll_interval 0xfd1aeaa6
+#SYMVER input_get_poll_interval 0xe881b7b8

@@ -1218,5 +1218,5 @@ deps_block/blk-ia-ranges.o := \
 block/blk-ia-ranges.o: $(deps_block/blk-ia-ranges.o)
 
 $(deps_block/blk-ia-ranges.o):
-#SYMVER disk_alloc_independent_access_ranges 0xa2b0d428
-#SYMVER disk_set_independent_access_ranges 0x8773f35f
+#SYMVER disk_alloc_independent_access_ranges 0x5d5ab05b
+#SYMVER disk_set_independent_access_ranges 0x7ce072bf

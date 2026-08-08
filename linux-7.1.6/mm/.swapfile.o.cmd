@@ -1482,4 +1482,4 @@ mm/swapfile.o: $(deps_mm/swapfile.o)
 
 $(deps_mm/swapfile.o):
 #SYMVER nr_swap_pages 0xa0d3456d
-#SYMVER add_swap_extent 0xa8e0c864
+#SYMVER add_swap_extent 0xa4ebc486

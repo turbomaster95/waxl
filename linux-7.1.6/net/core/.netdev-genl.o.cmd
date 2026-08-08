@@ -1671,4 +1671,4 @@ deps_net/core/netdev-genl.o := \
 net/core/netdev-genl.o: $(deps_net/core/netdev-genl.o)
 
 $(deps_net/core/netdev-genl.o):
-#SYMVER netdev_stat_queue_sum 0x1d1665c8
+#SYMVER netdev_stat_queue_sum 0xc7426786

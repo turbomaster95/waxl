@@ -1225,5 +1225,5 @@ deps_block/blk-flush.o := \
 block/blk-flush.o: $(deps_block/blk-flush.o)
 
 $(deps_block/blk-flush.o):
-#SYMVER blkdev_issue_flush 0x5fdb649b
-#SYMVER blk_mq_hctx_set_fq_lock_class 0x8e730152
+#SYMVER blkdev_issue_flush 0x1d8627c0
+#SYMVER blk_mq_hctx_set_fq_lock_class 0x0508221b

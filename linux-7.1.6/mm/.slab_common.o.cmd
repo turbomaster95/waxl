@@ -1354,13 +1354,13 @@ deps_mm/slab_common.o := \
 mm/slab_common.o: $(deps_mm/slab_common.o)
 
 $(deps_mm/slab_common.o):
-#SYMVER kmem_cache_size 0x566ae737
-#SYMVER __kmem_cache_create_args 0xce28fd85
-#SYMVER kmem_buckets_create 0x39598452
-#SYMVER kmem_cache_destroy 0x560c3587
-#SYMVER kmem_cache_shrink 0x85aa6ac5
+#SYMVER kmem_cache_size 0x09d7de35
+#SYMVER __kmem_cache_create_args 0x1c34c7fd
+#SYMVER kmem_buckets_create 0xe828bb51
+#SYMVER kmem_cache_destroy 0xe170e7be
+#SYMVER kmem_cache_shrink 0xb87fa9c9
 #SYMVER kmem_dump_obj 0xcb09776d
-#SYMVER kmalloc_caches 0xce09e194
+#SYMVER kmalloc_caches 0xfb19cbc4
 #SYMVER kmalloc_size_roundup 0xcc392eea
 #SYMVER kfree_sensitive 0xd0760fc0
 #SYMVER kvfree_call_rcu 0x44c10a52

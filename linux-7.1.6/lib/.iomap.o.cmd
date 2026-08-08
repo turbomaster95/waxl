@@ -1245,4 +1245,4 @@ $(deps_lib/iomap.o):
 #SYMVER iowrite32_rep 0xbfc177bc
 #SYMVER ioport_map 0x594bf15b
 #SYMVER ioport_unmap 0xfc39e32f
-#SYMVER pci_iounmap 0xbb63fac7
+#SYMVER pci_iounmap 0x318121ca

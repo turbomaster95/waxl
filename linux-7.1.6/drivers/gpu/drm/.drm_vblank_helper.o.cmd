@@ -1285,9 +1285,9 @@ deps_drivers/gpu/drm/drm_vblank_helper.o := \
 drivers/gpu/drm/drm_vblank_helper.o: $(deps_drivers/gpu/drm/drm_vblank_helper.o)
 
 $(deps_drivers/gpu/drm/drm_vblank_helper.o):
-#SYMVER drm_crtc_vblank_atomic_flush 0x572e8de9
-#SYMVER drm_crtc_vblank_atomic_enable 0x286fda81
-#SYMVER drm_crtc_vblank_atomic_disable 0x3d2b27bf
-#SYMVER drm_crtc_vblank_helper_enable_vblank_timer 0xd7557bb1
-#SYMVER drm_crtc_vblank_helper_disable_vblank_timer 0xba653cd4
-#SYMVER drm_crtc_vblank_helper_get_vblank_timestamp_from_timer 0xe4f6df59
+#SYMVER drm_crtc_vblank_atomic_flush 0xc5bf348a
+#SYMVER drm_crtc_vblank_atomic_enable 0xed02ce75
+#SYMVER drm_crtc_vblank_atomic_disable 0xf01ee8d8
+#SYMVER drm_crtc_vblank_helper_enable_vblank_timer 0xda973759
+#SYMVER drm_crtc_vblank_helper_disable_vblank_timer 0xaebd5071
+#SYMVER drm_crtc_vblank_helper_get_vblank_timestamp_from_timer 0x021f7b25

@@ -1234,6 +1234,7 @@ deps_arch/x86/kernel/pci-dma.o := \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
   include/linux/ctype.h \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1251,10 +1252,41 @@ deps_arch/x86/kernel/pci-dma.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  include/linux/io.h \
+    $(wildcard include/config/STRICT_DEVMEM) \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/irq_vectors.h \
+    $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/PCI_MSI) \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/msi.h \
     $(wildcard include/config/PCI_MSI_ARCH_FALLBACKS) \
     $(wildcard include/config/PCI_XEN) \
-    $(wildcard include/config/PCI_MSI) \
   include/linux/irqdomain_defs.h \
   include/linux/msi_api.h \
   include/linux/irq.h \
@@ -1269,12 +1301,8 @@ deps_arch/x86/kernel/pci-dma.o := \
     $(wildcard include/config/GENERIC_IRQ_MULTI_HANDLER) \
   include/linux/irqhandler.h \
   include/linux/irqreturn.h \
-  include/linux/io.h \
-    $(wildcard include/config/STRICT_DEVMEM) \
   arch/x86/include/asm/irq.h \
     $(wildcard include/config/KVM) \
-  arch/x86/include/asm/irq_vectors.h \
-    $(wildcard include/config/HYPERV) \
   arch/x86/include/generated/asm/irq_regs.h \
   include/asm-generic/irq_regs.h \
   include/linux/irqdesc.h \
@@ -1371,17 +1399,10 @@ deps_arch/x86/kernel/pci-dma.o := \
   include/uapi/video/edid.h \
   arch/x86/include/asm/gart.h \
     $(wildcard include/config/GART_IOMMU) \
-  include/xen/xen.h \
-    $(wildcard include/config/XEN_PVH) \
-    $(wildcard include/config/XEN_DOM0) \
-    $(wildcard include/config/XEN_BALLOON) \
-    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
-  include/xen/interface/hvm/start_info.h \
-  include/xen/balloon.h \
   include/xen/swiotlb-xen.h \
   arch/x86/include/asm/xen/swiotlb-xen.h \
 
 arch/x86/kernel/pci-dma.o: $(deps_arch/x86/kernel/pci-dma.o)
 
 $(deps_arch/x86/kernel/pci-dma.o):
-#SYMVER dma_ops 0x3c80b9f8
+#SYMVER dma_ops 0x15f8a40e

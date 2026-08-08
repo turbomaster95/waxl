@@ -1736,14 +1736,14 @@ deps_mm/memcontrol.o := \
 mm/memcontrol.o: $(deps_mm/memcontrol.o)
 
 $(deps_mm/memcontrol.o):
-#SYMVER memory_cgrp_subsys 0x233341ef
-#SYMVER root_mem_cgroup 0x1dec7da7
-#SYMVER int_active_memcg 0x08baed8e
+#SYMVER memory_cgrp_subsys 0x3071104b
+#SYMVER root_mem_cgroup 0x52f44587
+#SYMVER int_active_memcg 0xf175e486
 #SYMVER memcg_kmem_online_key 0x10b1ff68
 #SYMVER memcg_bpf_enabled_key 0xe90069cb
-#SYMVER page_cgroup_ino 0xf5d64e07
-#SYMVER lruvec_stat_mod_folio 0xc447dba1
-#SYMVER mem_cgroup_from_task 0x691ce9e2
-#SYMVER get_mem_cgroup_from_mm 0x6cf8749c
-#SYMVER __memcg_memory_event 0x0cd5c2fd
+#SYMVER page_cgroup_ino 0xe237d6f0
+#SYMVER lruvec_stat_mod_folio 0x98d8dcfc
+#SYMVER mem_cgroup_from_task 0xd234c72b
+#SYMVER get_mem_cgroup_from_mm 0xd7d05a55
+#SYMVER __memcg_memory_event 0x0ee8fbb3
 #SYMVER memcg_sockets_enabled_key 0xaf38fe41

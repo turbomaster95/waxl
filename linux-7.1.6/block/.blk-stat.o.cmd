@@ -1220,5 +1220,5 @@ deps_block/blk-stat.o := \
 block/blk-stat.o: $(deps_block/blk-stat.o)
 
 $(deps_block/blk-stat.o):
-#SYMVER blk_stat_disable_accounting 0x6c6071e2
-#SYMVER blk_stat_enable_accounting 0xd5dceace
+#SYMVER blk_stat_disable_accounting 0xebb6b919
+#SYMVER blk_stat_enable_accounting 0x3b772b4b

@@ -1325,16 +1325,16 @@ mm/vmalloc.o: $(deps_mm/vmalloc.o)
 $(deps_mm/vmalloc.o):
 #SYMVER is_vmalloc_addr 0xc31db0ce
 #SYMVER is_vmalloc_or_module_addr 0x1ee47e00
-#SYMVER vmalloc_to_page 0x34c128e6
+#SYMVER vmalloc_to_page 0xd141ab04
 #SYMVER vmalloc_to_pfn 0x3744cf36
 #SYMVER register_vmap_purge_notifier 0x26ed2186
 #SYMVER unregister_vmap_purge_notifier 0xb7c69a63
 #SYMVER vm_unmap_aliases 0xc22a3091
 #SYMVER vm_unmap_ram 0x03fd2571
-#SYMVER vm_map_ram 0x1c09cc48
+#SYMVER vm_map_ram 0x020e0ddc
 #SYMVER vfree 0x999e8297
 #SYMVER vunmap 0x94961283
-#SYMVER vmap 0x4a2d15b7
+#SYMVER vmap 0x674275d9
 #SYMVER __vmalloc_noprof 0x5f5bc5da
 #SYMVER vmalloc_noprof 0x4a331da5
 #SYMVER vmalloc_huge_node_noprof 0x6a0ba2fd
@@ -1345,5 +1345,5 @@ $(deps_mm/vmalloc.o):
 #SYMVER vrealloc_node_align_noprof 0x1a23834d
 #SYMVER vmalloc_32_noprof 0x04515854
 #SYMVER vmalloc_32_user_noprof 0x0290670e
-#SYMVER remap_vmalloc_range 0xdaf1f46d
-#SYMVER free_vm_area 0x9dfddb2e
+#SYMVER remap_vmalloc_range 0x512cacd6
+#SYMVER free_vm_area 0x415fc0c9

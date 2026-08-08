@@ -1164,6 +1164,16 @@ deps_kernel/time/timekeeping.o := \
   arch/x86/include/asm/irq_vectors.h \
     $(wildcard include/config/HYPERV) \
     $(wildcard include/config/PCI_MSI) \
+  arch/x86/include/asm/nmi.h \
+  include/linux/irq_work.h \
+    $(wildcard include/config/IRQ_WORK) \
+  arch/x86/include/asm/irq_work.h \
+  include/linux/pm.h \
+    $(wildcard include/config/VT_CONSOLE_SLEEP) \
+    $(wildcard include/config/CXL_SUSPEND) \
+    $(wildcard include/config/PM) \
+    $(wildcard include/config/PM_CLK) \
+    $(wildcard include/config/PM_GENERIC_DOMAINS) \
   include/linux/pvclock_gtod.h \
   include/linux/sched/clock.h \
     $(wildcard include/config/ARCH_WANTS_NO_INSTR) \
@@ -1195,7 +1205,6 @@ deps_kernel/time/timekeeping.o := \
     $(wildcard include/config/DMA_OPS_BYPASS) \
     $(wildcard include/config/DMA_NEED_SYNC) \
     $(wildcard include/config/IOMMU_DMA) \
-    $(wildcard include/config/PM) \
     $(wildcard include/config/DEVTMPFS) \
   include/linux/dev_printk.h \
   include/linux/energy_model.h \
@@ -1208,11 +1217,6 @@ deps_kernel/time/timekeeping.o := \
   include/linux/sched/idle.h \
   include/linux/sched/sd_flags.h \
   include/linux/klist.h \
-  include/linux/pm.h \
-    $(wildcard include/config/VT_CONSOLE_SLEEP) \
-    $(wildcard include/config/CXL_SUSPEND) \
-    $(wildcard include/config/PM_CLK) \
-    $(wildcard include/config/PM_GENERIC_DOMAINS) \
   include/linux/device/bus.h \
     $(wildcard include/config/ACPI) \
   include/linux/device/class.h \

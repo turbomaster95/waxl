@@ -939,6 +939,7 @@ deps_drivers/gpu/drm/drm_edid.o := \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
   include/linux/ctype.h \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -956,6 +957,66 @@ deps_drivers/gpu/drm/drm_edid.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  include/linux/io.h \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+    $(wildcard include/config/STRICT_DEVMEM) \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/apicdef.h \
+  arch/x86/include/asm/fixmap.h \
+    $(wildcard include/config/PROVIDE_OHCI1394_DMA_INIT) \
+    $(wildcard include/config/PCI_MMCONFIG) \
+    $(wildcard include/config/ACPI_APEI_GHES) \
+    $(wildcard include/config/INTEL_TXT) \
+  arch/x86/include/uapi/asm/vsyscall.h \
+  include/asm-generic/fixmap.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/x86_init.h \
+  arch/x86/include/asm/irq_vectors.h \
+    $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/PCI_MSI) \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/regulator/consumer.h \
     $(wildcard include/config/REGULATOR) \
   include/linux/suspend.h \
@@ -1048,7 +1109,6 @@ deps_drivers/gpu/drm/drm_edid.o := \
     $(wildcard include/config/ARCH_ENABLE_THP_MIGRATION) \
     $(wildcard include/config/PAGE_TABLE_CHECK) \
     $(wildcard include/config/X86_SGX) \
-  arch/x86/include/asm/x86_init.h \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
     $(wildcard include/config/MATH_EMULATION) \
@@ -1057,14 +1117,6 @@ deps_drivers/gpu/drm/drm_edid.o := \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
   include/linux/page_table_check.h \
   arch/x86/include/asm/pgtable_64.h \
-  arch/x86/include/asm/fixmap.h \
-    $(wildcard include/config/PROVIDE_OHCI1394_DMA_INIT) \
-    $(wildcard include/config/PCI_MMCONFIG) \
-    $(wildcard include/config/ACPI_APEI_GHES) \
-    $(wildcard include/config/INTEL_TXT) \
-  arch/x86/include/asm/apicdef.h \
-  arch/x86/include/uapi/asm/vsyscall.h \
-  include/asm-generic/fixmap.h \
   arch/x86/include/asm/pgtable-invert.h \
   arch/x86/include/asm/uaccess_64.h \
   arch/x86/include/asm/runtime-const.h \
@@ -1182,11 +1234,8 @@ deps_drivers/gpu/drm/drm_edid.o := \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
-    $(wildcard include/config/HYPERV) \
     $(wildcard include/config/X86_POSTED_MSI) \
   arch/x86/include/asm/irq.h \
-  arch/x86/include/asm/irq_vectors.h \
-    $(wildcard include/config/PCI_MSI) \
   arch/x86/include/asm/sections.h \
   include/asm-generic/sections.h \
     $(wildcard include/config/HAVE_FUNCTION_DESCRIPTORS) \
@@ -1344,27 +1393,6 @@ deps_drivers/gpu/drm/drm_edid.o := \
     $(wildcard include/config/ACPI_MCFG) \
     $(wildcard include/config/EEH) \
     $(wildcard include/config/S390) \
-  include/linux/io.h \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-    $(wildcard include/config/STRICT_DEVMEM) \
-  arch/x86/include/asm/io.h \
-    $(wildcard include/config/MTRR) \
-    $(wildcard include/config/X86_PAT) \
-  arch/x86/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  arch/x86/include/asm/shared/io.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/HAS_IOPORT) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-  include/asm-generic/iomap.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
   include/linux/msi_api.h \
   include/uapi/linux/pci.h \
   include/uapi/linux/pci_regs.h \
@@ -1512,41 +1540,41 @@ $(deps_drivers/gpu/drm/drm_edid.o):
 #SYMVER drm_edid_header_is_valid 0x9b9de1c1
 #SYMVER drm_edid_is_valid 0xc4200dab
 #SYMVER drm_edid_valid 0xb3750192
-#SYMVER drm_edid_override_connector_update 0xcf326ccf
+#SYMVER drm_edid_override_connector_update 0x804ae81f
 #SYMVER drm_edid_raw 0x98fed39f
 #SYMVER drm_edid_alloc 0x79c00fa2
 #SYMVER drm_edid_dup 0xb212dc3e
 #SYMVER drm_edid_free 0x397c3d27
-#SYMVER drm_probe_ddc 0x92b26cef
-#SYMVER drm_get_edid 0xb9288cac
-#SYMVER drm_edid_read_custom 0x9d973950
-#SYMVER drm_edid_read_ddc 0xae216279
-#SYMVER drm_edid_read 0x30e9d064
+#SYMVER drm_probe_ddc 0x978f5689
+#SYMVER drm_get_edid 0xaa795966
+#SYMVER drm_edid_read_custom 0x969643b6
+#SYMVER drm_edid_read_ddc 0x55615c77
+#SYMVER drm_edid_read 0x8288b6c3
 #SYMVER drm_edid_get_product_id 0x38d55d21
 #SYMVER drm_edid_print_product_id 0x0976ba9b
 #SYMVER drm_edid_get_panel_id 0xe75a9a81
-#SYMVER drm_edid_read_base_block 0x984c2044
-#SYMVER drm_get_edid_switcheroo 0xa5874018
-#SYMVER drm_edid_read_switcheroo 0xfd9d2203
+#SYMVER drm_edid_read_base_block 0x3ee527f9
+#SYMVER drm_get_edid_switcheroo 0x0ceff0ae
+#SYMVER drm_edid_read_switcheroo 0x89e58fff
 #SYMVER drm_edid_duplicate 0x5f7137ba
-#SYMVER drm_edid_has_quirk 0xddb0c6a8
-#SYMVER drm_mode_find_dmt 0xf0e66d3e
+#SYMVER drm_edid_has_quirk 0xfbddc0cf
+#SYMVER drm_mode_find_dmt 0xd1f6c631
 #SYMVER drm_match_cea_mode 0x9b285573
-#SYMVER drm_display_mode_from_cea_vic 0xdaa43807
+#SYMVER drm_display_mode_from_cea_vic 0x43bfe6a7
 #SYMVER drm_edid_match 0x05eb4392
 #SYMVER drm_edid_get_monitor_name 0x5e5128bf
 #SYMVER drm_edid_to_sad 0x4124e206
 #SYMVER drm_edid_to_speaker_allocation 0x47e22e1f
-#SYMVER drm_av_sync_delay 0x0e3a9862
+#SYMVER drm_av_sync_delay 0x2a06bd28
 #SYMVER drm_detect_hdmi_monitor 0xa44eb44e
 #SYMVER drm_detect_monitor_audio 0xe4116245
 #SYMVER drm_default_rgb_quant_range 0x65702bd6
-#SYMVER drm_edid_connector_update 0x23e4a68c
-#SYMVER drm_edid_connector_add_modes 0xff68327f
-#SYMVER drm_connector_update_edid_property 0xd4f07fe8
-#SYMVER drm_add_edid_modes 0x24120989
-#SYMVER drm_add_modes_noedid 0x8ef19298
-#SYMVER drm_hdmi_avi_infoframe_from_display_mode 0x51ca5b9f
-#SYMVER drm_hdmi_avi_infoframe_quant_range 0xc3a2ca43
-#SYMVER drm_hdmi_vendor_infoframe_from_display_mode 0xbfcc3dcd
+#SYMVER drm_edid_connector_update 0xafdc1137
+#SYMVER drm_edid_connector_add_modes 0xfe26429c
+#SYMVER drm_connector_update_edid_property 0x437bef35
+#SYMVER drm_add_edid_modes 0xa2f21b97
+#SYMVER drm_add_modes_noedid 0xbbf058fe
+#SYMVER drm_hdmi_avi_infoframe_from_display_mode 0x277709be
+#SYMVER drm_hdmi_avi_infoframe_quant_range 0xeed6a0cd
+#SYMVER drm_hdmi_vendor_infoframe_from_display_mode 0x3fb98840
 #SYMVER drm_edid_is_digital 0xc518d486

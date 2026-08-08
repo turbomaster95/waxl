@@ -1276,8 +1276,8 @@ deps_drivers/gpu/drm/sysfb/drm_sysfb_screen_info.o := \
 drivers/gpu/drm/sysfb/drm_sysfb_screen_info.o: $(deps_drivers/gpu/drm/sysfb/drm_sysfb_screen_info.o)
 
 $(deps_drivers/gpu/drm/sysfb/drm_sysfb_screen_info.o):
-#SYMVER drm_sysfb_get_width_si 0xf366cf04
-#SYMVER drm_sysfb_get_height_si 0x4abfb3a7
-#SYMVER drm_sysfb_get_memory_si 0xec9eb602
-#SYMVER drm_sysfb_get_stride_si 0x233b506f
-#SYMVER drm_sysfb_get_visible_size_si 0x778e9613
+#SYMVER drm_sysfb_get_width_si 0xd946b6f7
+#SYMVER drm_sysfb_get_height_si 0x0a6a0f83
+#SYMVER drm_sysfb_get_memory_si 0x72519a7a
+#SYMVER drm_sysfb_get_stride_si 0xc1ae805e
+#SYMVER drm_sysfb_get_visible_size_si 0x657ee321

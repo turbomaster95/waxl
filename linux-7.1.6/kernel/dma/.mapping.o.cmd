@@ -1185,6 +1185,7 @@ deps_kernel/dma/mapping.o := \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
   include/linux/ctype.h \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1202,6 +1203,38 @@ deps_kernel/dma/mapping.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  include/linux/io.h \
+    $(wildcard include/config/STRICT_DEVMEM) \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/irq_vectors.h \
+    $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/PCI_MSI) \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/dma-map-ops.h \
     $(wildcard include/config/DMA_GLOBAL_POOL) \
     $(wildcard include/config/DMA_BOUNCE_UNALIGNED_KMALLOC) \
@@ -1268,41 +1301,41 @@ deps_kernel/dma/mapping.o := \
 kernel/dma/mapping.o: $(deps_kernel/dma/mapping.o)
 
 $(deps_kernel/dma/mapping.o):
-#SYMVER dmam_free_coherent 0x0c46eab5
-#SYMVER dmam_alloc_attrs 0x1d8b8f43
-#SYMVER dma_map_phys 0xb68bc156
-#SYMVER dma_map_page_attrs 0xc591d53d
-#SYMVER dma_unmap_phys 0x6a079230
-#SYMVER dma_unmap_page_attrs 0x50a87ed1
-#SYMVER dma_map_sg_attrs 0xa36f03bd
-#SYMVER dma_map_sgtable 0xfd54d4aa
-#SYMVER dma_unmap_sg_attrs 0xa2e099fe
-#SYMVER dma_map_resource 0x23bce1b1
-#SYMVER dma_unmap_resource 0xb290d0b0
-#SYMVER __dma_sync_single_for_cpu 0xb1778371
-#SYMVER __dma_sync_single_for_device 0xa643ef05
-#SYMVER __dma_sync_sg_for_cpu 0x0343fabe
-#SYMVER __dma_sync_sg_for_device 0x91503b8d
-#SYMVER __dma_need_sync 0xcb4a7e69
-#SYMVER dma_need_unmap 0xa0293bcd
-#SYMVER dma_get_sgtable_attrs 0xa2556c6c
-#SYMVER dma_can_mmap 0xa935f91a
-#SYMVER dma_mmap_attrs 0x13d76afd
-#SYMVER dma_get_required_mask 0x57604749
-#SYMVER dma_alloc_attrs 0x4b67f21a
-#SYMVER dma_free_attrs 0x9698bd29
-#SYMVER dma_alloc_pages 0x8be9e10a
-#SYMVER dma_free_pages 0x27677b4f
-#SYMVER dma_mmap_pages 0x1036ac88
-#SYMVER dma_alloc_noncontiguous 0x022356b2
-#SYMVER dma_free_noncontiguous 0xe4203a6f
-#SYMVER dma_vmap_noncontiguous 0x8417f3b7
-#SYMVER dma_vunmap_noncontiguous 0xaab29a3b
-#SYMVER dma_mmap_noncontiguous 0x69808e5b
-#SYMVER dma_pci_p2pdma_supported 0xdc542bf8
-#SYMVER dma_set_mask 0xa0197905
-#SYMVER dma_set_coherent_mask 0x8882cbc5
-#SYMVER dma_addressing_limited 0xc45aac88
-#SYMVER dma_max_mapping_size 0x93d34196
-#SYMVER dma_opt_mapping_size 0xa9badaea
-#SYMVER dma_get_merge_boundary 0x67a001c6
+#SYMVER dmam_free_coherent 0x459b1e7f
+#SYMVER dmam_alloc_attrs 0x0944e137
+#SYMVER dma_map_phys 0x6202d0c9
+#SYMVER dma_map_page_attrs 0x4009a816
+#SYMVER dma_unmap_phys 0x3fbec20d
+#SYMVER dma_unmap_page_attrs 0xbfeb337e
+#SYMVER dma_map_sg_attrs 0xc3b1f5e6
+#SYMVER dma_map_sgtable 0xcd895389
+#SYMVER dma_unmap_sg_attrs 0xda958916
+#SYMVER dma_map_resource 0x7ae10a5d
+#SYMVER dma_unmap_resource 0x15aaf5e7
+#SYMVER __dma_sync_single_for_cpu 0x9a65d86a
+#SYMVER __dma_sync_single_for_device 0x4f376c0c
+#SYMVER __dma_sync_sg_for_cpu 0x37e7068e
+#SYMVER __dma_sync_sg_for_device 0x2ab05f2c
+#SYMVER __dma_need_sync 0x6fc4dc2e
+#SYMVER dma_need_unmap 0x3d03baaa
+#SYMVER dma_get_sgtable_attrs 0x19585287
+#SYMVER dma_can_mmap 0x76a160ba
+#SYMVER dma_mmap_attrs 0xf2e48df5
+#SYMVER dma_get_required_mask 0x03d15e1b
+#SYMVER dma_alloc_attrs 0xf99ff4a8
+#SYMVER dma_free_attrs 0x5f78514e
+#SYMVER dma_alloc_pages 0xa6151a7d
+#SYMVER dma_free_pages 0xc933e2e7
+#SYMVER dma_mmap_pages 0x531e4ad7
+#SYMVER dma_alloc_noncontiguous 0x90cb6438
+#SYMVER dma_free_noncontiguous 0x11dc79ba
+#SYMVER dma_vmap_noncontiguous 0xa3b1c645
+#SYMVER dma_vunmap_noncontiguous 0x33119803
+#SYMVER dma_mmap_noncontiguous 0x71bf8910
+#SYMVER dma_pci_p2pdma_supported 0x245d69a0
+#SYMVER dma_set_mask 0xd7009405
+#SYMVER dma_set_coherent_mask 0x3e5b088d
+#SYMVER dma_addressing_limited 0x749c18b2
+#SYMVER dma_max_mapping_size 0xf82ab20d
+#SYMVER dma_opt_mapping_size 0x40f79572
+#SYMVER dma_get_merge_boundary 0xbb467a23

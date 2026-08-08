@@ -1274,6 +1274,6 @@ deps_drivers/gpu/drm/sysfb/drm_sysfb.o := \
 drivers/gpu/drm/sysfb/drm_sysfb.o: $(deps_drivers/gpu/drm/sysfb/drm_sysfb.o)
 
 $(deps_drivers/gpu/drm/sysfb/drm_sysfb.o):
-#SYMVER drm_sysfb_get_validated_int 0xae85e038
-#SYMVER drm_sysfb_get_validated_int0 0x6de11cf6
-#SYMVER drm_sysfb_get_format 0x867b60a0
+#SYMVER drm_sysfb_get_validated_int 0x4d737b5f
+#SYMVER drm_sysfb_get_validated_int0 0xe4e5e94b
+#SYMVER drm_sysfb_get_format 0x8738fb03

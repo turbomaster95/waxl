@@ -873,12 +873,12 @@ deps_drivers/base/transport_class.o := \
 drivers/base/transport_class.o: $(deps_drivers/base/transport_class.o)
 
 $(deps_drivers/base/transport_class.o):
-#SYMVER transport_class_register 0x35b0a335
-#SYMVER transport_class_unregister 0x752a710e
-#SYMVER anon_transport_class_register 0x9d633f71
-#SYMVER anon_transport_class_unregister 0xa6462e33
-#SYMVER transport_setup_device 0x698ee061
-#SYMVER transport_add_device 0x6d2cd406
-#SYMVER transport_configure_device 0x54ff5caa
-#SYMVER transport_remove_device 0x4a8e73f4
-#SYMVER transport_destroy_device 0x79c24d20
+#SYMVER transport_class_register 0x9c59713c
+#SYMVER transport_class_unregister 0xa1b9b19d
+#SYMVER anon_transport_class_register 0x5681281e
+#SYMVER anon_transport_class_unregister 0x92001a65
+#SYMVER transport_setup_device 0x2dd59a49
+#SYMVER transport_add_device 0x76db5a3a
+#SYMVER transport_configure_device 0xc0fc3c35
+#SYMVER transport_remove_device 0x9911446e
+#SYMVER transport_destroy_device 0x4a20b838

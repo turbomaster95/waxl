@@ -1408,7 +1408,7 @@ $(deps_kernel/groups.o):
 #SYMVER groups_alloc 0xf8d7f31a
 #SYMVER groups_free 0x096ce5e0
 #SYMVER groups_sort 0x7f822562
-#SYMVER set_groups 0xc047098d
+#SYMVER set_groups 0xbda44cdf
 #SYMVER set_current_groups 0x22998bf6
 #SYMVER in_group_p 0x8b8059bd
 #SYMVER in_egroup_p 0x39461d6a

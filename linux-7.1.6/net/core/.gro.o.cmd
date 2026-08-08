@@ -1722,12 +1722,12 @@ deps_net/core/gro.o := \
 net/core/gro.o: $(deps_net/core/gro.o)
 
 $(deps_net/core/gro.o):
-#SYMVER dev_add_offload 0xe8c10453
-#SYMVER dev_remove_offload 0x047cdf3d
+#SYMVER dev_add_offload 0x1ec2197d
+#SYMVER dev_remove_offload 0xea6571a1
 #SYMVER __gro_flush 0x9e75fda5
-#SYMVER gro_find_receive_by_type 0x99a61cf6
-#SYMVER gro_find_complete_by_type 0x0606df13
-#SYMVER gro_receive_skb 0x8da34f0d
-#SYMVER napi_get_frags 0x614e6709
-#SYMVER napi_gro_frags 0x1cb9e5dd
-#SYMVER __skb_gro_checksum_complete 0x920980e9
+#SYMVER gro_find_receive_by_type 0xbe6444ed
+#SYMVER gro_find_complete_by_type 0x8c44d4a7
+#SYMVER gro_receive_skb 0xe0bed1b9
+#SYMVER napi_get_frags 0x0b6f36da
+#SYMVER napi_gro_frags 0x085f876d
+#SYMVER __skb_gro_checksum_complete 0x73cc6886

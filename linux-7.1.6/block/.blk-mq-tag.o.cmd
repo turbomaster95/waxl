@@ -1232,6 +1232,6 @@ deps_block/blk-mq-tag.o := \
 block/blk-mq-tag.o: $(deps_block/blk-mq-tag.o)
 
 $(deps_block/blk-mq-tag.o):
-#SYMVER blk_mq_tagset_busy_iter 0xa3e2bbc9
-#SYMVER blk_mq_tagset_wait_completed_request 0xca07fef5
-#SYMVER blk_mq_unique_tag 0x8c0d245b
+#SYMVER blk_mq_tagset_busy_iter 0x133ff83d
+#SYMVER blk_mq_tagset_wait_completed_request 0xb102338c
+#SYMVER blk_mq_unique_tag 0xe9b32652

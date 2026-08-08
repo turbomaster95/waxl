@@ -1167,22 +1167,22 @@ deps_drivers/base/class.o := \
 drivers/base/class.o: $(deps_drivers/base/class.o)
 
 $(deps_drivers/base/class.o):
-#SYMVER class_create_file_ns 0x53b214a1
-#SYMVER class_remove_file_ns 0x7120c0a9
-#SYMVER class_register 0xe8aecea5
-#SYMVER class_unregister 0xdc428bf2
-#SYMVER class_create 0x0126e1dc
-#SYMVER class_destroy 0x864ddda5
-#SYMVER class_dev_iter_init 0xba36e100
-#SYMVER class_dev_iter_next 0xaca1f7a5
-#SYMVER class_dev_iter_exit 0x55ead240
-#SYMVER class_for_each_device 0xd785c651
-#SYMVER class_find_device 0x551275a8
-#SYMVER class_interface_register 0xce2db43a
-#SYMVER class_interface_unregister 0x5f4d693d
-#SYMVER show_class_attr_string 0x7f416c2e
+#SYMVER class_create_file_ns 0x58d1ba22
+#SYMVER class_remove_file_ns 0xb1c200e3
+#SYMVER class_register 0xf8ebaa70
+#SYMVER class_unregister 0xbf8da6f1
+#SYMVER class_create 0x1d4203a4
+#SYMVER class_destroy 0xf29a97b4
+#SYMVER class_dev_iter_init 0xbbfc12c7
+#SYMVER class_dev_iter_next 0x1e72d6e5
+#SYMVER class_dev_iter_exit 0xd5c8159e
+#SYMVER class_for_each_device 0x88f663ce
+#SYMVER class_find_device 0x3871f050
+#SYMVER class_interface_register 0x2c301242
+#SYMVER class_interface_unregister 0xe75a16fc
+#SYMVER show_class_attr_string 0x34423bcf
 #SYMVER class_compat_register 0x32c3cb4e
 #SYMVER class_compat_unregister 0xe5883bd9
-#SYMVER class_compat_create_link 0x36b9cd7a
-#SYMVER class_compat_remove_link 0x92dc540b
-#SYMVER class_is_registered 0xf7da1f52
+#SYMVER class_compat_create_link 0x4cb077f5
+#SYMVER class_compat_remove_link 0x48a76bde
+#SYMVER class_is_registered 0x1768a6ae

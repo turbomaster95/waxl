@@ -1275,12 +1275,12 @@ kernel/irq/msi.o: $(deps_kernel/irq/msi.o)
 
 $(deps_kernel/irq/msi.o):
 #SYMVER get_cached_msi_msg 0xabb7c7c2
-#SYMVER __msi_lock_descs 0x48376f04
-#SYMVER __msi_unlock_descs 0x2b95cadb
-#SYMVER msi_domain_first_desc 0x04da8a00
-#SYMVER msi_next_desc 0x5ad4facd
-#SYMVER msi_domain_get_virq 0x8962cdf6
-#SYMVER msi_create_parent_irq_domain 0x6ed696b4
-#SYMVER msi_domain_alloc_irqs_range 0x866e93c4
-#SYMVER msi_domain_free_irqs_all 0x419d113b
-#SYMVER msi_device_has_isolated_msi 0x8e799d54
+#SYMVER __msi_lock_descs 0x4743fdcb
+#SYMVER __msi_unlock_descs 0xfeb648a8
+#SYMVER msi_domain_first_desc 0xd9c238eb
+#SYMVER msi_next_desc 0x09b23434
+#SYMVER msi_domain_get_virq 0x1869c054
+#SYMVER msi_create_parent_irq_domain 0x6122714f
+#SYMVER msi_domain_alloc_irqs_range 0xbbcc5b1d
+#SYMVER msi_domain_free_irqs_all 0xaa15bdcc
+#SYMVER msi_device_has_isolated_msi 0xcde94d44

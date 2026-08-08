@@ -1148,7 +1148,7 @@ deps_drivers/tty/serial/serial_port.o := \
 drivers/tty/serial/serial_port.o: $(deps_drivers/tty/serial/serial_port.o)
 
 $(deps_drivers/tty/serial/serial_port.o):
-#SYMVER uart_add_one_port 0xa996934b
-#SYMVER uart_remove_one_port 0x46b354f0
-#SYMVER uart_read_port_properties 0xfd74251a
-#SYMVER uart_read_and_validate_port_properties 0x57fefafc
+#SYMVER uart_add_one_port 0x00ace996
+#SYMVER uart_remove_one_port 0x43219663
+#SYMVER uart_read_port_properties 0x294e4817
+#SYMVER uart_read_and_validate_port_properties 0xb3d93f13

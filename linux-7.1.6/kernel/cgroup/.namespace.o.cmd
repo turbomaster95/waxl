@@ -1313,4 +1313,4 @@ deps_kernel/cgroup/namespace.o := \
 kernel/cgroup/namespace.o: $(deps_kernel/cgroup/namespace.o)
 
 $(deps_kernel/cgroup/namespace.o):
-#SYMVER free_cgroup_ns 0x9d28bb0b
+#SYMVER free_cgroup_ns 0x60ee88dc

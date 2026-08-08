@@ -1437,4 +1437,4 @@ deps_kernel/ptrace.o := \
 kernel/ptrace.o: $(deps_kernel/ptrace.o)
 
 $(deps_kernel/ptrace.o):
-#SYMVER task_user_regset_view 0xdbf3ae7e
+#SYMVER task_user_regset_view 0x916e8472

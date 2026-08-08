@@ -1257,21 +1257,21 @@ deps_drivers/gpu/drm/drm_probe_helper.o := \
 drivers/gpu/drm/drm_probe_helper.o: $(deps_drivers/gpu/drm/drm_probe_helper.o)
 
 $(deps_drivers/gpu/drm/drm_probe_helper.o):
-#SYMVER drm_kms_helper_poll_enable 0xa262e634
-#SYMVER drm_kms_helper_poll_reschedule 0x95fb4a8a
-#SYMVER drm_helper_probe_detect 0x2e571de2
-#SYMVER drm_helper_probe_single_connector_modes 0xe23ab5c7
-#SYMVER drm_kms_helper_hotplug_event 0x7bc7e905
-#SYMVER drm_kms_helper_connector_hotplug_event 0x2c32e5a3
+#SYMVER drm_kms_helper_poll_enable 0x813a137c
+#SYMVER drm_kms_helper_poll_reschedule 0x5af3427e
+#SYMVER drm_helper_probe_detect 0xb1f489b1
+#SYMVER drm_helper_probe_single_connector_modes 0x0daa8384
+#SYMVER drm_kms_helper_hotplug_event 0xae5e31c6
+#SYMVER drm_kms_helper_connector_hotplug_event 0x75bae50d
 #SYMVER drm_kms_helper_is_poll_worker 0x5a4734d1
-#SYMVER drm_kms_helper_poll_disable 0x8e88846e
-#SYMVER drm_kms_helper_poll_init 0x736ade69
-#SYMVER drm_kms_helper_poll_fini 0x722aca72
-#SYMVER drmm_kms_helper_poll_init 0x3ca391a3
-#SYMVER drm_connector_helper_hpd_irq_event 0x5c716c51
-#SYMVER drm_helper_hpd_irq_event 0x31bfa2c4
-#SYMVER drm_crtc_helper_mode_valid_fixed 0x8506e943
-#SYMVER drm_connector_helper_get_modes_fixed 0x68a6319a
-#SYMVER drm_connector_helper_get_modes 0xa5d43d79
-#SYMVER drm_connector_helper_tv_get_modes 0xcfa80a80
-#SYMVER drm_connector_helper_detect_from_ddc 0xda321fa1
+#SYMVER drm_kms_helper_poll_disable 0x90302c30
+#SYMVER drm_kms_helper_poll_init 0x39430b96
+#SYMVER drm_kms_helper_poll_fini 0x32af70fa
+#SYMVER drmm_kms_helper_poll_init 0xd2f8c21d
+#SYMVER drm_connector_helper_hpd_irq_event 0x4ca9fd94
+#SYMVER drm_helper_hpd_irq_event 0x46fae09e
+#SYMVER drm_crtc_helper_mode_valid_fixed 0x20ac4b7d
+#SYMVER drm_connector_helper_get_modes_fixed 0xc2cd4588
+#SYMVER drm_connector_helper_get_modes 0x159270cc
+#SYMVER drm_connector_helper_tv_get_modes 0x64012f7b
+#SYMVER drm_connector_helper_detect_from_ddc 0x8f3ee0e9

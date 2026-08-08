@@ -936,14 +936,14 @@ deps_drivers/input/serio/serio.o := \
 drivers/input/serio/serio.o: $(deps_drivers/input/serio/serio.o)
 
 $(deps_drivers/input/serio/serio.o):
-#SYMVER serio_rescan 0xc2dba53c
-#SYMVER serio_reconnect 0x2b858235
-#SYMVER __serio_register_port 0x39eec7e2
-#SYMVER serio_unregister_port 0x7833e494
-#SYMVER serio_unregister_child_port 0xaf0e5f88
-#SYMVER __serio_register_driver 0x25cc3b44
-#SYMVER serio_unregister_driver 0x3af7a8ac
-#SYMVER serio_open 0x4f2a4354
-#SYMVER serio_close 0x47f1ccc7
-#SYMVER serio_interrupt 0xddf4c618
-#SYMVER serio_bus 0xb00da3d4
+#SYMVER serio_rescan 0x6a97c4e5
+#SYMVER serio_reconnect 0x57e777f0
+#SYMVER __serio_register_port 0x9deb611a
+#SYMVER serio_unregister_port 0xc0d938b6
+#SYMVER serio_unregister_child_port 0x018418ab
+#SYMVER __serio_register_driver 0xb0c1dc27
+#SYMVER serio_unregister_driver 0x34f86180
+#SYMVER serio_open 0xbcbbb537
+#SYMVER serio_close 0x0e42828a
+#SYMVER serio_interrupt 0xf3cff2c5
+#SYMVER serio_bus 0xf26a1a11

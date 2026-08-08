@@ -1293,8 +1293,8 @@ deps_drivers/pci/msi/msi.o := \
 drivers/pci/msi/msi.o: $(deps_drivers/pci/msi/msi.o)
 
 $(deps_drivers/pci/msi/msi.o):
-#SYMVER pci_msi_mask_irq 0x51704ba9
-#SYMVER pci_msi_unmask_irq 0x4c21d378
+#SYMVER pci_msi_mask_irq 0x75b2ccdb
+#SYMVER pci_msi_unmask_irq 0xaec174f0
 #SYMVER pci_write_msi_msg 0xf2c53d53
-#SYMVER pci_msi_vec_count 0x0cdf5589
-#SYMVER msi_desc_to_pci_dev 0xfa3bd648
+#SYMVER pci_msi_vec_count 0x873f9ffd
+#SYMVER msi_desc_to_pci_dev 0xbd01184f

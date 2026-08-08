@@ -1304,7 +1304,7 @@ deps_fs/sysfs/symlink.o := \
 fs/sysfs/symlink.o: $(deps_fs/sysfs/symlink.o)
 
 $(deps_fs/sysfs/symlink.o):
-#SYMVER sysfs_create_link 0x7ec8e6fb
-#SYMVER sysfs_create_link_nowarn 0x8b737023
-#SYMVER sysfs_remove_link 0x612192fd
-#SYMVER sysfs_rename_link_ns 0x04092fd5
+#SYMVER sysfs_create_link 0x8c50abca
+#SYMVER sysfs_create_link_nowarn 0xdd13583a
+#SYMVER sysfs_remove_link 0x3cd3bc24
+#SYMVER sysfs_rename_link_ns 0x090847a4

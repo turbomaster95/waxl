@@ -1561,5 +1561,5 @@ deps_arch/x86/kernel/irq.o := \
 arch/x86/kernel/irq.o: $(deps_arch/x86/kernel/irq.o)
 
 $(deps_arch/x86/kernel/irq.o):
-#SYMVER irq_stat 0x82deda36
+#SYMVER irq_stat 0x1cc02bf8
 #SYMVER __softirq_pending 0x45490bd6

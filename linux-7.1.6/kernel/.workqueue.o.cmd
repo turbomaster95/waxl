@@ -1240,6 +1240,10 @@ deps_kernel/workqueue.o := \
     $(wildcard include/config/HARDLOCKUP_CHECK_TIMESTAMP) \
     $(wildcard include/config/HAVE_ACPI_APEI_NMI) \
     $(wildcard include/config/NMI_CHECK_CPU) \
+  arch/x86/include/asm/nmi.h \
+  include/linux/irq_work.h \
+    $(wildcard include/config/IRQ_WORK) \
+  arch/x86/include/asm/irq_work.h \
   include/linux/kvm_para.h \
   include/uapi/linux/kvm_para.h \
   arch/x86/include/asm/kvm_para.h \
@@ -1257,9 +1261,6 @@ deps_kernel/workqueue.o := \
   include/linux/delay.h \
   arch/x86/include/asm/delay.h \
   include/asm-generic/delay.h \
-  include/linux/irq_work.h \
-    $(wildcard include/config/IRQ_WORK) \
-  arch/x86/include/asm/irq_work.h \
   kernel/workqueue_internal.h \
   include/trace/events/workqueue.h \
   include/linux/tracepoint.h \
@@ -1315,7 +1316,7 @@ $(deps_kernel/workqueue.o):
 #SYMVER enable_delayed_work 0x442690f1
 #SYMVER execute_in_process_context 0x2ebb19fd
 #SYMVER alloc_workqueue_noprof 0xf7830f93
-#SYMVER devm_alloc_workqueue_noprof 0x315d158f
+#SYMVER devm_alloc_workqueue_noprof 0x51cd9485
 #SYMVER destroy_workqueue 0x8c03d20c
 #SYMVER workqueue_set_max_active 0xf31b3fd1
 #SYMVER current_work 0xdfcc992c

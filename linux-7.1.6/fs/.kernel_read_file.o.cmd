@@ -1308,7 +1308,7 @@ deps_fs/kernel_read_file.o := \
 fs/kernel_read_file.o: $(deps_fs/kernel_read_file.o)
 
 $(deps_fs/kernel_read_file.o):
-#SYMVER kernel_read_file 0xc2c4601e
+#SYMVER kernel_read_file 0xf2060696
 #SYMVER kernel_read_file_from_path 0x329eb105
 #SYMVER kernel_read_file_from_path_initns 0xf8086934
 #SYMVER kernel_read_file_from_fd 0x71347bb6

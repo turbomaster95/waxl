@@ -1371,13 +1371,13 @@ deps_block/elevator.o := \
 block/elevator.o: $(deps_block/elevator.o)
 
 $(deps_block/elevator.o):
-#SYMVER elv_bio_merge_ok 0x1e17a40a
-#SYMVER elv_rqhash_del 0x01ab7e72
-#SYMVER elv_rqhash_add 0x1e58ea8a
-#SYMVER elv_rb_add 0x00f50dde
-#SYMVER elv_rb_del 0xbe2a774e
-#SYMVER elv_rb_find 0x363096fe
-#SYMVER elv_register 0xff8c0939
-#SYMVER elv_unregister 0x7e67837a
-#SYMVER elv_rb_former_request 0x7fb5a4b9
-#SYMVER elv_rb_latter_request 0x45179278
+#SYMVER elv_bio_merge_ok 0x88a867f9
+#SYMVER elv_rqhash_del 0x05721a2c
+#SYMVER elv_rqhash_add 0x30632cba
+#SYMVER elv_rb_add 0xcce098b0
+#SYMVER elv_rb_del 0xdaf300d3
+#SYMVER elv_rb_find 0x597894a2
+#SYMVER elv_register 0x03eb4f6f
+#SYMVER elv_unregister 0x40f26aa3
+#SYMVER elv_rb_former_request 0x2caeb2f9
+#SYMVER elv_rb_latter_request 0x160c8438

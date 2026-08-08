@@ -1291,10 +1291,10 @@ deps_mm/backing-dev.o := \
 mm/backing-dev.o: $(deps_mm/backing-dev.o)
 
 $(deps_mm/backing-dev.o):
-#SYMVER noop_backing_dev_info 0x52188653
-#SYMVER bdi_alloc 0xf60ea464
-#SYMVER bdi_register 0x7ef019de
-#SYMVER bdi_unregister 0x571bb7dd
-#SYMVER bdi_put 0xd527a6f1
-#SYMVER inode_to_bdi 0x488ee825
-#SYMVER bdi_dev_name 0x07d8ac8a
+#SYMVER noop_backing_dev_info 0x73d45a1d
+#SYMVER bdi_alloc 0xd93c322c
+#SYMVER bdi_register 0xe7886f5c
+#SYMVER bdi_unregister 0x741db8db
+#SYMVER bdi_put 0xf9794470
+#SYMVER inode_to_bdi 0x63908e78
+#SYMVER bdi_dev_name 0xa389ccdb

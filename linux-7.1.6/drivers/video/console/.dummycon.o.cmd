@@ -1162,4 +1162,4 @@ deps_drivers/video/console/dummycon.o := \
 drivers/video/console/dummycon.o: $(deps_drivers/video/console/dummycon.o)
 
 $(deps_drivers/video/console/dummycon.o):
-#SYMVER dummy_con 0xd53ec344
+#SYMVER dummy_con 0x20c68c77

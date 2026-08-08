@@ -1231,7 +1231,7 @@ deps_drivers/tty/vt/vt.o := \
 drivers/tty/vt/vt.o: $(deps_drivers/tty/vt/vt.o)
 
 $(deps_drivers/tty/vt/vt.o):
-#SYMVER vc_cons 0xfdcba566
+#SYMVER vc_cons 0x2eb4992e
 #SYMVER global_cursor_default 0xf3916987
 #SYMVER console_blanked 0xb423dba1
 #SYMVER fg_console 0x4e6e8ea7
@@ -1240,23 +1240,23 @@ $(deps_drivers/tty/vt/vt.o):
 #SYMVER vc_font_size 0x9f5ab44a
 #SYMVER register_vt_notifier 0xbf041102
 #SYMVER unregister_vt_notifier 0x55417264
-#SYMVER update_region 0x505154a8
-#SYMVER redraw_screen 0x522f05d5
-#SYMVER __vc_resize 0xe5b96937
+#SYMVER update_region 0x0fb67a3d
+#SYMVER redraw_screen 0x7e87cea1
+#SYMVER __vc_resize 0x5f91eaa1
 #SYMVER color_table 0x863a276a
 #SYMVER default_red 0x45006cee
 #SYMVER default_grn 0x72b9d287
 #SYMVER default_blu 0x64a9c928
-#SYMVER do_unbind_con_driver 0xcf6a86aa
-#SYMVER con_is_bound 0x3563ff6b
-#SYMVER con_is_visible 0xff0010eb
-#SYMVER con_debug_enter 0x32d19295
+#SYMVER do_unbind_con_driver 0x8f278803
+#SYMVER con_is_bound 0x19c97669
+#SYMVER con_is_visible 0x14e7f48e
+#SYMVER con_debug_enter 0x4301d980
 #SYMVER con_debug_leave 0xf1dde242
-#SYMVER do_unregister_con_driver 0xfd5f9d2f
-#SYMVER do_take_over_console 0xd3781839
-#SYMVER give_up_console 0x891316c0
+#SYMVER do_unregister_con_driver 0x4a167769
+#SYMVER do_take_over_console 0x56550c1a
+#SYMVER give_up_console 0xbe8de420
 #SYMVER do_blank_screen 0xe5c78a99
 #SYMVER do_unblank_screen 0x600683d3
-#SYMVER screen_glyph 0x30976226
-#SYMVER screen_glyph_unicode 0x609997db
-#SYMVER screen_pos 0x83a21875
+#SYMVER screen_glyph 0x3452f20b
+#SYMVER screen_glyph_unicode 0xaee0c7e8
+#SYMVER screen_pos 0x06e130da

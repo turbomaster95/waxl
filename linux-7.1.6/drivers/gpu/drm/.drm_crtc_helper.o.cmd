@@ -1297,12 +1297,12 @@ deps_drivers/gpu/drm/drm_crtc_helper.o := \
 drivers/gpu/drm/drm_crtc_helper.o: $(deps_drivers/gpu/drm/drm_crtc_helper.o)
 
 $(deps_drivers/gpu/drm/drm_crtc_helper.o):
-#SYMVER drm_helper_encoder_in_use 0x4c47b062
-#SYMVER drm_helper_crtc_in_use 0x642913a5
-#SYMVER drm_helper_disable_unused_functions 0x11b133ce
-#SYMVER drm_crtc_helper_set_mode 0x85514aac
-#SYMVER drm_crtc_helper_atomic_check 0x1a31a38c
-#SYMVER drm_crtc_helper_set_config 0xd9cac22f
-#SYMVER drm_helper_connector_dpms 0xec70ad50
-#SYMVER drm_helper_resume_force_mode 0xc85f1c73
-#SYMVER drm_helper_force_disable_all 0xa48c6ba5
+#SYMVER drm_helper_encoder_in_use 0x38bbd40f
+#SYMVER drm_helper_crtc_in_use 0x8e905e96
+#SYMVER drm_helper_disable_unused_functions 0xcb75c310
+#SYMVER drm_crtc_helper_set_mode 0x6fe93bdc
+#SYMVER drm_crtc_helper_atomic_check 0x3fb48df9
+#SYMVER drm_crtc_helper_set_config 0x27732516
+#SYMVER drm_helper_connector_dpms 0x2a4fd53f
+#SYMVER drm_helper_resume_force_mode 0x4325785d
+#SYMVER drm_helper_force_disable_all 0x020e4bde

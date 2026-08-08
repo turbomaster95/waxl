@@ -1664,15 +1664,15 @@ deps_net/ethtool/ioctl.o := \
 net/ethtool/ioctl.o: $(deps_net/ethtool/ioctl.o)
 
 $(deps_net/ethtool/ioctl.o):
-#SYMVER ethtool_op_get_link 0x7a4601b8
-#SYMVER ethtool_op_get_ts_info 0xa77596d2
+#SYMVER ethtool_op_get_link 0xe53d1816
+#SYMVER ethtool_op_get_ts_info 0xdf4666c5
 #SYMVER ethtool_intersect_link_masks 0x438508e1
 #SYMVER ethtool_convert_legacy_u32_to_link_mode 0x8f996a30
 #SYMVER ethtool_convert_link_mode_to_legacy_u32 0x55e31703
-#SYMVER __ethtool_get_link_ksettings 0x5cc02816
-#SYMVER ethtool_virtdev_set_link_ksettings 0x3acd3128
+#SYMVER __ethtool_get_link_ksettings 0x93c24a99
+#SYMVER ethtool_virtdev_set_link_ksettings 0xdf854c93
 #SYMVER netdev_rss_key_fill 0x467df16d
 #SYMVER ethtool_sprintf 0x5338184f
 #SYMVER ethtool_puts 0x31435ec4
-#SYMVER ethtool_rx_flow_rule_create 0x3a1b0481
-#SYMVER ethtool_rx_flow_rule_destroy 0xf8e62a2a
+#SYMVER ethtool_rx_flow_rule_create 0x2d3c8cd4
+#SYMVER ethtool_rx_flow_rule_destroy 0x4f19f75b

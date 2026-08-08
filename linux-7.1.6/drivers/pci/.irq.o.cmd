@@ -1251,8 +1251,8 @@ deps_drivers/pci/irq.o := \
 drivers/pci/irq.o: $(deps_drivers/pci/irq.o)
 
 $(deps_drivers/pci/irq.o):
-#SYMVER pci_request_irq 0xe2b25747
-#SYMVER pci_free_irq 0x1c7e215e
-#SYMVER pci_common_swizzle 0xb90ed038
-#SYMVER pci_check_and_mask_intx 0x2654a9d8
-#SYMVER pci_check_and_unmask_intx 0xbb2f26ac
+#SYMVER pci_request_irq 0x51e9a6fa
+#SYMVER pci_free_irq 0x5b378be5
+#SYMVER pci_common_swizzle 0x4950daaf
+#SYMVER pci_check_and_mask_intx 0xc40c3fae
+#SYMVER pci_check_and_unmask_intx 0xa253d89f

@@ -1250,4 +1250,4 @@ deps_drivers/gpu/drm/drm_bridge_helper.o := \
 drivers/gpu/drm/drm_bridge_helper.o: $(deps_drivers/gpu/drm/drm_bridge_helper.o)
 
 $(deps_drivers/gpu/drm/drm_bridge_helper.o):
-#SYMVER drm_bridge_helper_reset_crtc 0x4f488e33
+#SYMVER drm_bridge_helper_reset_crtc 0xe6f5f3dd

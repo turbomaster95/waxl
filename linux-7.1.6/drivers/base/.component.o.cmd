@@ -1069,17 +1069,17 @@ deps_drivers/base/component.o := \
 drivers/base/component.o: $(deps_drivers/base/component.o)
 
 $(deps_drivers/base/component.o):
-#SYMVER component_compare_of 0xb62269bc
-#SYMVER component_release_of 0xdcba1b10
-#SYMVER component_compare_dev 0x68d0b9d7
-#SYMVER component_compare_dev_name 0x6377d6ea
-#SYMVER component_match_add_release 0x159228ca
-#SYMVER component_match_add_typed 0xf5003ef3
-#SYMVER component_master_add_with_match 0x399eaf40
-#SYMVER component_master_del 0xaf7ef61c
-#SYMVER component_master_is_bound 0xc492cb02
-#SYMVER component_unbind_all 0xaa9ada1e
-#SYMVER component_bind_all 0xbc1ee381
-#SYMVER component_add_typed 0x912a9b27
-#SYMVER component_add 0x66c7cad5
-#SYMVER component_del 0x02666fd2
+#SYMVER component_compare_of 0x9777b8ff
+#SYMVER component_release_of 0x031aeaea
+#SYMVER component_compare_dev 0xcbb168a5
+#SYMVER component_compare_dev_name 0x58dae74f
+#SYMVER component_match_add_release 0x5cbadd7a
+#SYMVER component_match_add_typed 0xc36b053f
+#SYMVER component_master_add_with_match 0x1b4477ca
+#SYMVER component_master_del 0xd73e0da8
+#SYMVER component_master_is_bound 0x19e70d55
+#SYMVER component_unbind_all 0x87b0a558
+#SYMVER component_bind_all 0x39ac7aad
+#SYMVER component_add_typed 0x02274e4e
+#SYMVER component_add 0x65d04686
+#SYMVER component_del 0xd3104d83

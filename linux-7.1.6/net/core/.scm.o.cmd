@@ -1637,11 +1637,11 @@ deps_net/core/scm.o := \
 net/core/scm.o: $(deps_net/core/scm.o)
 
 $(deps_net/core/scm.o):
-#SYMVER __scm_destroy 0x8cf40f9a
-#SYMVER __scm_send 0x5cf3762d
-#SYMVER put_cmsg 0xf64ff296
-#SYMVER put_cmsg_scm_timestamping64 0x3d93cea1
-#SYMVER put_cmsg_scm_timestamping 0x66a67fd6
-#SYMVER scm_detach_fds 0xbd883553
-#SYMVER scm_fp_dup 0x15b74fee
-#SYMVER scm_recv 0x460b6e76
+#SYMVER __scm_destroy 0xe519889e
+#SYMVER __scm_send 0x345674ed
+#SYMVER put_cmsg 0x64958e3a
+#SYMVER put_cmsg_scm_timestamping64 0x9da7d909
+#SYMVER put_cmsg_scm_timestamping 0x117dca59
+#SYMVER scm_detach_fds 0xb48c5fb0
+#SYMVER scm_fp_dup 0x08eb8bef
+#SYMVER scm_recv 0x62087d71

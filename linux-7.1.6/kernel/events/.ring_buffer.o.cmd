@@ -1376,8 +1376,8 @@ deps_kernel/events/ring_buffer.o := \
 kernel/events/ring_buffer.o: $(deps_kernel/events/ring_buffer.o)
 
 $(deps_kernel/events/ring_buffer.o):
-#SYMVER perf_aux_output_flag 0x1b54d987
-#SYMVER perf_aux_output_begin 0x08632fd1
-#SYMVER perf_aux_output_end 0xaa4b8504
-#SYMVER perf_aux_output_skip 0x0e3e3a18
-#SYMVER perf_get_aux 0x0138cd07
+#SYMVER perf_aux_output_flag 0xf2323235
+#SYMVER perf_aux_output_begin 0x2461a8a7
+#SYMVER perf_aux_output_end 0x62e0203f
+#SYMVER perf_aux_output_skip 0xe9526f7b
+#SYMVER perf_get_aux 0x656f08f7

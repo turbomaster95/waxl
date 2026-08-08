@@ -1354,9 +1354,9 @@ $(deps_kernel/resource.o):
 #SYMVER adjust_resource 0xd68c5a1f
 #SYMVER __request_region 0x85bd1608
 #SYMVER __release_region 0x1035c7c2
-#SYMVER devm_request_resource 0x1cf3e572
-#SYMVER devm_release_resource 0x4c31e126
-#SYMVER __devm_request_region 0x6b7a1b0b
-#SYMVER __devm_release_region 0x35b670bd
+#SYMVER devm_request_resource 0xea4e224a
+#SYMVER devm_release_resource 0xae550b05
+#SYMVER __devm_request_region 0xc2c51129
+#SYMVER __devm_release_region 0x81fda853
 #SYMVER resource_list_create_entry 0x3dfb86b9
 #SYMVER resource_list_free 0x25e9d4bd

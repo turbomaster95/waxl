@@ -1630,10 +1630,10 @@ deps_net/core/tso.o := \
 net/core/tso.o: $(deps_net/core/tso.o)
 
 $(deps_net/core/tso.o):
-#SYMVER tso_build_hdr 0xa9f60ad8
-#SYMVER tso_build_data 0xdd977010
-#SYMVER tso_start 0x411deae3
-#SYMVER tso_dma_map_init 0xd9fdd1b1
-#SYMVER tso_dma_map_cleanup 0x65471ff0
-#SYMVER tso_dma_map_count 0x0a6d6a3d
-#SYMVER tso_dma_map_next 0x276cb24c
+#SYMVER tso_build_hdr 0x48d5cc9d
+#SYMVER tso_build_data 0x1dbcdabe
+#SYMVER tso_start 0xeea46352
+#SYMVER tso_dma_map_init 0x4eb82185
+#SYMVER tso_dma_map_cleanup 0xa9f5831e
+#SYMVER tso_dma_map_count 0x33c57bae
+#SYMVER tso_dma_map_next 0x11960f6c

@@ -1175,6 +1175,38 @@ deps_arch/x86/kernel/nmi.o := \
     $(wildcard include/config/HARDLOCKUP_DETECTOR_BUDDY) \
     $(wildcard include/config/HARDLOCKUP_CHECK_TIMESTAMP) \
     $(wildcard include/config/HAVE_ACPI_APEI_NMI) \
+  arch/x86/include/asm/nmi.h \
+  include/linux/irq_work.h \
+    $(wildcard include/config/IRQ_WORK) \
+  arch/x86/include/asm/irq_work.h \
+  include/linux/pm.h \
+    $(wildcard include/config/VT_CONSOLE_SLEEP) \
+    $(wildcard include/config/CXL_SUSPEND) \
+    $(wildcard include/config/PM) \
+    $(wildcard include/config/PM_SLEEP) \
+    $(wildcard include/config/PM_CLK) \
+    $(wildcard include/config/PM_GENERIC_DOMAINS) \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/PCI) \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  include/linux/fwnode.h \
   include/linux/debugfs.h \
     $(wildcard include/config/DEBUG_FS) \
   include/linux/seq_file.h \
@@ -1201,7 +1233,6 @@ deps_arch/x86/kernel/nmi.o := \
   arch/x86/include/asm/idtentry.h \
     $(wildcard include/config/X86_CET) \
     $(wildcard include/config/INTEL_TDX_GUEST) \
-    $(wildcard include/config/IRQ_WORK) \
     $(wildcard include/config/ACRN_GUEST) \
     $(wildcard include/config/XEN_PVHVM) \
     $(wildcard include/config/KVM_GUEST) \
@@ -1269,8 +1300,6 @@ deps_arch/x86/kernel/nmi.o := \
     $(wildcard include/config/DMA_OPS_BYPASS) \
     $(wildcard include/config/DMA_NEED_SYNC) \
     $(wildcard include/config/IOMMU_DMA) \
-    $(wildcard include/config/PM) \
-    $(wildcard include/config/PM_SLEEP) \
     $(wildcard include/config/OF) \
     $(wildcard include/config/DEVTMPFS) \
   include/linux/dev_printk.h \
@@ -1284,11 +1313,6 @@ deps_arch/x86/kernel/nmi.o := \
   include/linux/sched/idle.h \
   include/linux/sched/sd_flags.h \
   include/linux/klist.h \
-  include/linux/pm.h \
-    $(wildcard include/config/VT_CONSOLE_SLEEP) \
-    $(wildcard include/config/CXL_SUSPEND) \
-    $(wildcard include/config/PM_CLK) \
-    $(wildcard include/config/PM_GENERIC_DOMAINS) \
   include/linux/device/bus.h \
     $(wildcard include/config/ACPI) \
   include/linux/device/class.h \
@@ -1345,8 +1369,6 @@ deps_arch/x86/kernel/nmi.o := \
   arch/x86/include/asm/local.h \
   arch/x86/include/asm/hw_breakpoint.h \
   arch/x86/include/uapi/asm/hw_breakpoint.h \
-  include/linux/irq_work.h \
-  arch/x86/include/asm/irq_work.h \
   include/linux/jump_label_ratelimit.h \
   include/linux/perf_regs.h \
     $(wildcard include/config/HAVE_PERF_REGS) \
@@ -1479,27 +1501,6 @@ deps_arch/x86/kernel/nmi.o := \
   include/uapi/linux/mei.h \
   include/uapi/linux/mei_uuid.h \
   include/linux/property.h \
-  include/linux/fwnode.h \
-  arch/x86/include/asm/io.h \
-    $(wildcard include/config/MTRR) \
-    $(wildcard include/config/X86_PAT) \
-  arch/x86/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  arch/x86/include/asm/shared/io.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/HAS_IOPORT) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-  include/asm-generic/iomap.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/PCI) \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
   arch/x86/include/asm/clocksource.h \
   arch/x86/include/asm/vdso/clocksource.h \
   include/vdso/clocksource.h \
@@ -1533,7 +1534,6 @@ deps_arch/x86/kernel/nmi.o := \
   arch/x86/include/asm/trap_pf.h \
   arch/x86/include/asm/mach_traps.h \
   arch/x86/include/asm/mc146818rtc.h \
-  arch/x86/include/asm/nmi.h \
   arch/x86/include/asm/reboot.h \
   arch/x86/include/asm/microcode.h \
     $(wildcard include/config/MICROCODE) \

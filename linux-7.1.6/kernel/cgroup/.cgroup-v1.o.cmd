@@ -1323,4 +1323,4 @@ deps_kernel/cgroup/cgroup-v1.o := \
 kernel/cgroup/cgroup-v1.o: $(deps_kernel/cgroup/cgroup-v1.o)
 
 $(deps_kernel/cgroup/cgroup-v1.o):
-#SYMVER cgroup_attach_task_all 0xeeeaaf62
+#SYMVER cgroup_attach_task_all 0x0f2efe44

@@ -1251,6 +1251,6 @@ deps_drivers/pci/setup-res.o := \
 drivers/pci/setup-res.o: $(deps_drivers/pci/setup-res.o)
 
 $(deps_drivers/pci/setup-res.o):
-#SYMVER pci_claim_resource 0xe87fcd3e
-#SYMVER pci_assign_resource 0x26488af4
-#SYMVER pci_release_resource 0xe6fe96de
+#SYMVER pci_claim_resource 0x1e391546
+#SYMVER pci_assign_resource 0xf6a80329
+#SYMVER pci_release_resource 0x183e329f

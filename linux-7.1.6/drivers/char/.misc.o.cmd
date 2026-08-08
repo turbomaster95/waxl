@@ -1077,5 +1077,5 @@ deps_drivers/char/misc.o := \
 drivers/char/misc.o: $(deps_drivers/char/misc.o)
 
 $(deps_drivers/char/misc.o):
-#SYMVER misc_register 0x215d0edd
-#SYMVER misc_deregister 0xf43c4467
+#SYMVER misc_register 0xdffadfd2
+#SYMVER misc_deregister 0x18a4132d

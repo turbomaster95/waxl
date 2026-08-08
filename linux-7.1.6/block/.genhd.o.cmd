@@ -1356,17 +1356,17 @@ deps_block/genhd.o := \
 block/genhd.o: $(deps_block/genhd.o)
 
 $(deps_block/genhd.o):
-#SYMVER set_capacity 0xfa94d8b7
-#SYMVER set_capacity_and_notify 0x2ca12629
-#SYMVER bdev_count_inflight 0xa92440da
+#SYMVER set_capacity 0xd872179e
+#SYMVER set_capacity_and_notify 0xbe998f22
+#SYMVER bdev_count_inflight 0xdbb6fa0f
 #SYMVER __register_blkdev 0x720a27a7
 #SYMVER unregister_blkdev 0xb5a459dc
-#SYMVER disk_uevent 0x2ffb903c
-#SYMVER add_disk_fwnode 0xe344da45
-#SYMVER device_add_disk 0x35af59f3
-#SYMVER blk_mark_disk_dead 0xa477f360
-#SYMVER del_gendisk 0x756a8cc2
-#SYMVER invalidate_disk 0xbee5c022
-#SYMVER __blk_alloc_disk 0x23438980
-#SYMVER put_disk 0xeff4af0e
-#SYMVER set_disk_ro 0xf4fb3a1a
+#SYMVER disk_uevent 0xbac9b218
+#SYMVER add_disk_fwnode 0x13cdc70c
+#SYMVER device_add_disk 0x9af49fdb
+#SYMVER blk_mark_disk_dead 0xb768547c
+#SYMVER del_gendisk 0xaa8d67e2
+#SYMVER invalidate_disk 0xc53f6832
+#SYMVER __blk_alloc_disk 0xa8410480
+#SYMVER put_disk 0xc2e2a120
+#SYMVER set_disk_ro 0xea0d8a0e

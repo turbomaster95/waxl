@@ -1093,8 +1093,8 @@ $(deps_kernel/irq/irqdesc.o):
 #SYMVER irq_set_nr_irqs 0x63ee45ab
 #SYMVER generic_handle_irq 0x7ceaf0d5
 #SYMVER generic_handle_irq_safe 0x81e2bdf4
-#SYMVER generic_handle_domain_irq 0x0c29add2
-#SYMVER generic_handle_domain_irq_safe 0xffc218a1
-#SYMVER generic_handle_demux_domain_irq 0xde134735
+#SYMVER generic_handle_domain_irq 0x176d3ab8
+#SYMVER generic_handle_domain_irq_safe 0x637b6743
+#SYMVER generic_handle_demux_domain_irq 0x3c02a057
 #SYMVER irq_free_descs 0x1c5b1f28
 #SYMVER __irq_alloc_descs 0x29c8b042

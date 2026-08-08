@@ -1587,4 +1587,4 @@ deps_net/ethtool/netlink.o := \
 net/ethtool/netlink.o: $(deps_net/ethtool/netlink.o)
 
 $(deps_net/ethtool/netlink.o):
-#SYMVER ethtool_notify 0x225f5932
+#SYMVER ethtool_notify 0xc4ff6de6

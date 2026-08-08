@@ -1426,8 +1426,8 @@ deps_fs/fcntl.o := \
 fs/fcntl.o: $(deps_fs/fcntl.o)
 
 $(deps_fs/fcntl.o):
-#SYMVER file_f_owner_allocate 0xbbedd95a
-#SYMVER __f_setown 0x057f79c6
-#SYMVER f_setown 0x94db8c64
-#SYMVER fasync_helper 0x6aa20e5c
-#SYMVER kill_fasync 0x744c5422
+#SYMVER file_f_owner_allocate 0xb26ca880
+#SYMVER __f_setown 0x51efbb5f
+#SYMVER f_setown 0x1933e717
+#SYMVER fasync_helper 0xab7d5430
+#SYMVER kill_fasync 0xfdd6f6de

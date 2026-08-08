@@ -1207,9 +1207,9 @@ deps_fs/jbd2/transaction.o := \
 fs/jbd2/transaction.o: $(deps_fs/jbd2/transaction.o)
 
 $(deps_fs/jbd2/transaction.o):
-#SYMVER jbd2__journal_start 0xfd5b4519
-#SYMVER jbd2_journal_start 0x9a83574f
-#SYMVER jbd2_journal_free_reserved 0x1ab6f5ed
-#SYMVER jbd2_journal_start_reserved 0x11171e4e
-#SYMVER jbd2__journal_restart 0xecd10703
-#SYMVER jbd2_journal_restart 0x77dcf79f
+#SYMVER jbd2__journal_start 0xb844f713
+#SYMVER jbd2_journal_start 0x4e99483f
+#SYMVER jbd2_journal_free_reserved 0xdcf554cb
+#SYMVER jbd2_journal_start_reserved 0x3dab7a54
+#SYMVER jbd2__journal_restart 0xe6342d05
+#SYMVER jbd2_journal_restart 0xdd38db74

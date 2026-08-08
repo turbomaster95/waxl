@@ -1086,4 +1086,4 @@ deps_drivers/tty/n_tty.o := \
 drivers/tty/n_tty.o: $(deps_drivers/tty/n_tty.o)
 
 $(deps_drivers/tty/n_tty.o):
-#SYMVER n_tty_inherit_ops 0x029f105d
+#SYMVER n_tty_inherit_ops 0xa7c65351

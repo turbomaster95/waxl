@@ -4,7 +4,7 @@ script sysroot/gen.c "bash ../scripts/mkmusl.sh && touch sysroot/gen.c"
 
 set CC "${CC:-gcc}"
 set CFLAGS "-Wall -Wextra -O2 -std=gnu23 -fPIC -D_GNU_SOURCE -nostdinc -nostdlib -isystem $PWD/build/sysroot/include -D__user= -ffreestanding -Wno-unused"
-set LDFLAGS "-B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib -Wl,-dynamic-linker=/lib/ld-musl-x86_64.so.1 -rdynamic -lc -static-libgcc -lpthread"
+set LDFLAGS "-B$PWD/build/sysroot/lib -L$PWD/build/sysroot/lib -Wl,-dynamic-linker=/lib/ld-musl-x86_64.so.1 -rdynamic -lc -static-libgcc -lpthread -lgcc_musl_eh"
 
 # pls remember to update .clangd when updating this line
 INCLUDES -I../include/ -I../lib/nu/include -I. -I../lib/lidrm -I../lib/libinder -Isysroot/include/luajit-2.1 -I../lib/common
@@ -32,10 +32,16 @@ sources \
 	lib/common/log.c
 order sysroot/gen.c
 
+target_a waxl-client.a
+sources \
+        sys/wm/waxl-client.c
+deps waxl-lidrm.a
+order sysroot/gen.c
+
 target_bin waxl-wm
 sources \
         sys/wm/waxl-wm.c
-deps waxl-lidrm.a waxl-libinder.a
+deps waxl-lidrm.a waxl-client.a
 order sysroot/gen.c
 
 target_bin waxl-init
@@ -70,7 +76,7 @@ order sysroot/gen.c
 target_bin test-comp
 sources \
         sys/compositor/test-comp.c
-deps waxl-libinder.a
+deps waxl-client.a
 order sysroot/gen.c
 
 target_bin test-bindaemon

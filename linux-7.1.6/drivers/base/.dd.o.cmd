@@ -1197,12 +1197,12 @@ deps_drivers/base/dd.o := \
 drivers/base/dd.o: $(deps_drivers/base/dd.o)
 
 $(deps_drivers/base/dd.o):
-#SYMVER driver_deferred_probe_check_state 0x4fab0a5a
-#SYMVER __device_set_driver_override 0x1d4d096e
-#SYMVER device_is_bound 0xb1404d96
-#SYMVER device_bind_driver 0xa56b8942
+#SYMVER driver_deferred_probe_check_state 0x1a4d8759
+#SYMVER __device_set_driver_override 0x92bd18c6
+#SYMVER device_is_bound 0xa2497498
+#SYMVER device_bind_driver 0x367f7cfb
 #SYMVER wait_for_device_probe 0x4484a5a4
-#SYMVER device_attach 0x0a309fc0
-#SYMVER device_driver_attach 0x84d03464
-#SYMVER driver_attach 0x65f6fe42
-#SYMVER device_release_driver 0x53d075c1
+#SYMVER device_attach 0xa90f833f
+#SYMVER device_driver_attach 0xbde90dbb
+#SYMVER driver_attach 0x138aaf8e
+#SYMVER device_release_driver 0x28ed1e6e

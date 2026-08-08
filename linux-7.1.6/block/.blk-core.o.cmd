@@ -1481,29 +1481,29 @@ deps_block/blk-core.o := \
 block/blk-core.o: $(deps_block/blk-core.o)
 
 $(deps_block/blk-core.o):
-#SYMVER blk_queue_flag_set 0x70dcb4fc
-#SYMVER blk_queue_flag_clear 0x881f03e8
+#SYMVER blk_queue_flag_set 0x966ad3d1
+#SYMVER blk_queue_flag_clear 0x9ed91839
 #SYMVER blk_op_str 0x8b60d0cd
 #SYMVER errno_to_blk_status 0x612bfd89
 #SYMVER blk_status_to_errno 0x84502a47
 #SYMVER blk_status_to_str 0x2a181b9b
-#SYMVER blk_sync_queue 0xe4084f7d
-#SYMVER blk_set_pm_only 0xd7cc5380
-#SYMVER blk_clear_pm_only 0x64464b28
-#SYMVER blk_put_queue 0xcd758bd9
-#SYMVER blk_get_queue 0x79cb60cd
-#SYMVER submit_bio_noacct 0xd9e75d5d
-#SYMVER submit_bio 0x4ae022ab
-#SYMVER bio_poll 0x09ff8529
-#SYMVER iocb_bio_iopoll 0x25058841
-#SYMVER bdev_start_io_acct 0x0509e28f
-#SYMVER bio_start_io_acct 0x03bf4b87
-#SYMVER bdev_end_io_acct 0x6bfedd10
-#SYMVER bio_end_io_acct_remapped 0x3f7dcfa0
-#SYMVER blk_lld_busy 0xf0211c68
+#SYMVER blk_sync_queue 0x74441f64
+#SYMVER blk_set_pm_only 0xf5ebbd62
+#SYMVER blk_clear_pm_only 0xad9ab5bc
+#SYMVER blk_put_queue 0xd3d2e139
+#SYMVER blk_get_queue 0x9346f243
+#SYMVER submit_bio_noacct 0x61ae097a
+#SYMVER submit_bio 0x05c48400
+#SYMVER bio_poll 0x287689f0
+#SYMVER iocb_bio_iopoll 0x8b62449c
+#SYMVER bdev_start_io_acct 0x30566171
+#SYMVER bio_start_io_acct 0x7b855aaf
+#SYMVER bdev_end_io_acct 0xa579ca8d
+#SYMVER bio_end_io_acct_remapped 0x32619612
+#SYMVER blk_lld_busy 0x25048ac9
 #SYMVER kblockd_schedule_work 0xa8694ecd
 #SYMVER kblockd_mod_delayed_work_on 0x0147812c
-#SYMVER blk_start_plug 0x9bf5051a
+#SYMVER blk_start_plug 0x25bc9876
 #SYMVER blk_check_plugged 0xd27b25dd
-#SYMVER blk_finish_plug 0xe1693341
+#SYMVER blk_finish_plug 0xd19d8664
 #SYMVER blk_io_schedule 0x62377a7b

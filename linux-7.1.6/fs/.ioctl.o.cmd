@@ -1435,4 +1435,4 @@ fs/ioctl.o: $(deps_fs/ioctl.o)
 
 $(deps_fs/ioctl.o):
 #SYMVER fiemap_fill_next_extent 0x605790dc
-#SYMVER fiemap_prep 0xb824d65d
+#SYMVER fiemap_prep 0xd0d805f5

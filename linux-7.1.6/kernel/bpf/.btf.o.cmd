@@ -1768,8 +1768,8 @@ kernel/bpf/btf.o: $(deps_kernel/bpf/btf.o)
 $(deps_kernel/bpf/btf.o):
 #SYMVER bpf_find_btf_id 0x57a9c5f9
 #SYMVER btf_type_by_id 0x0ecfea88
-#SYMVER btf_ctx_access 0xcbdc563e
-#SYMVER register_btf_kfunc_id_set 0x1dd0cb2f
-#SYMVER register_btf_fmodret_id_set 0xc395dbc7
-#SYMVER register_btf_id_dtor_kfuncs 0xaf7abb61
-#SYMVER __register_bpf_struct_ops 0x4e6ef37b
+#SYMVER btf_ctx_access 0xaa42767d
+#SYMVER register_btf_kfunc_id_set 0x25e3b867
+#SYMVER register_btf_fmodret_id_set 0x8815eeeb
+#SYMVER register_btf_id_dtor_kfuncs 0x01298b31
+#SYMVER __register_bpf_struct_ops 0xc6608a77

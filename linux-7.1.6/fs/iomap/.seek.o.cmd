@@ -1168,5 +1168,5 @@ deps_fs/iomap/seek.o := \
 fs/iomap/seek.o: $(deps_fs/iomap/seek.o)
 
 $(deps_fs/iomap/seek.o):
-#SYMVER iomap_seek_hole 0xa1714934
-#SYMVER iomap_seek_data 0x7dc108f5
+#SYMVER iomap_seek_hole 0xff53f35d
+#SYMVER iomap_seek_data 0x0e165e92

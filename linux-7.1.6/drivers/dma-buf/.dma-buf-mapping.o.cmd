@@ -1230,5 +1230,5 @@ deps_drivers/dma-buf/dma-buf-mapping.o := \
 drivers/dma-buf/dma-buf-mapping.o: $(deps_drivers/dma-buf/dma-buf-mapping.o)
 
 $(deps_drivers/dma-buf/dma-buf-mapping.o):
-#SYMVER dma_buf_phys_vec_to_sgt 0x457bc2d2
-#SYMVER dma_buf_free_sgt 0x5effed04
+#SYMVER dma_buf_phys_vec_to_sgt 0x81ce3993
+#SYMVER dma_buf_free_sgt 0xf07b95b4

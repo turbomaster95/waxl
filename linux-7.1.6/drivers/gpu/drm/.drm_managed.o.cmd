@@ -1279,11 +1279,11 @@ deps_drivers/gpu/drm/drm_managed.o := \
 drivers/gpu/drm/drm_managed.o: $(deps_drivers/gpu/drm/drm_managed.o)
 
 $(deps_drivers/gpu/drm/drm_managed.o):
-#SYMVER __drmm_add_action 0xe699ed47
-#SYMVER __drmm_add_action_or_reset 0xf67b999e
-#SYMVER drmm_release_action 0x6d177ae8
-#SYMVER drmm_kmalloc 0xbfd04bcc
-#SYMVER drmm_kstrdup 0x56629957
-#SYMVER drmm_kfree 0x13300e95
-#SYMVER __drmm_mutex_release 0x0d412551
-#SYMVER __drmm_workqueue_release 0x4e1268b2
+#SYMVER __drmm_add_action 0x216a5951
+#SYMVER __drmm_add_action_or_reset 0xf381dbac
+#SYMVER drmm_release_action 0xd67a4abe
+#SYMVER drmm_kmalloc 0xe219e6a9
+#SYMVER drmm_kstrdup 0x4d0c8aa2
+#SYMVER drmm_kfree 0xd553f512
+#SYMVER __drmm_mutex_release 0x43f8903a
+#SYMVER __drmm_workqueue_release 0xda0d25bb

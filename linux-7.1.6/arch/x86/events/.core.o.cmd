@@ -1432,5 +1432,5 @@ arch/x86/events/core.o: $(deps_arch/x86/events/core.o)
 
 $(deps_arch/x86/events/core.o):
 #SYMVER perf_assign_events 0x450110e8
-#SYMVER events_sysfs_show 0x3cb25969
-#SYMVER events_hybrid_sysfs_show 0xeb2393ae
+#SYMVER events_sysfs_show 0xd3d5de6c
+#SYMVER events_hybrid_sysfs_show 0x24967d17

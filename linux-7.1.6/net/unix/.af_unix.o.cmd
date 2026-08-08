@@ -1625,6 +1625,6 @@ deps_net/unix/af_unix.o := \
 net/unix/af_unix.o: $(deps_net/unix/af_unix.o)
 
 $(deps_net/unix/af_unix.o):
-#SYMVER unix_peer_get 0xd0f24f1a
-#SYMVER unix_inq_len 0x48fc5bb3
-#SYMVER unix_outq_len 0xce0ab63c
+#SYMVER unix_peer_get 0xd31dc889
+#SYMVER unix_inq_len 0x0407a3da
+#SYMVER unix_outq_len 0x3b8f7f8c

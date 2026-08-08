@@ -1236,11 +1236,11 @@ deps_drivers/scsi/scsi_scan.o := \
 drivers/scsi/scsi_scan.o: $(deps_drivers/scsi/scsi_scan.o)
 
 $(deps_drivers/scsi/scsi_scan.o):
-#SYMVER scsi_is_target_device 0x0289a6d8
+#SYMVER scsi_is_target_device 0x6f771dfb
 #SYMVER scsi_sanitize_inquiry_string 0x27756bc8
-#SYMVER __scsi_add_device 0xd6f614a2
-#SYMVER scsi_add_device 0xdc45ef73
-#SYMVER scsi_resume_device 0xb40bf517
-#SYMVER scsi_rescan_device 0x86018fe9
-#SYMVER scsi_scan_target 0xb061ec7f
-#SYMVER scsi_scan_host 0xfb813fef
+#SYMVER __scsi_add_device 0x55e45fe5
+#SYMVER scsi_add_device 0xea86a8e8
+#SYMVER scsi_resume_device 0x4c8cf639
+#SYMVER scsi_rescan_device 0x9093e9a2
+#SYMVER scsi_scan_target 0xe06b1f74
+#SYMVER scsi_scan_host 0x2b16decb

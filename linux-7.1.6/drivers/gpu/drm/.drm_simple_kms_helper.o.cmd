@@ -1282,7 +1282,7 @@ deps_drivers/gpu/drm/drm_simple_kms_helper.o := \
 drivers/gpu/drm/drm_simple_kms_helper.o: $(deps_drivers/gpu/drm/drm_simple_kms_helper.o)
 
 $(deps_drivers/gpu/drm/drm_simple_kms_helper.o):
-#SYMVER drm_simple_encoder_init 0x48b91ae7
-#SYMVER __drmm_simple_encoder_alloc 0xea0b325d
-#SYMVER drm_simple_display_pipe_attach_bridge 0x2ea87268
-#SYMVER drm_simple_display_pipe_init 0x28c3539b
+#SYMVER drm_simple_encoder_init 0xbfcddc85
+#SYMVER __drmm_simple_encoder_alloc 0x1adc8dd4
+#SYMVER drm_simple_display_pipe_attach_bridge 0x42e3153d
+#SYMVER drm_simple_display_pipe_init 0x69d81c5d

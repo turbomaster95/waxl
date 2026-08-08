@@ -1244,12 +1244,12 @@ deps_drivers/gpu/drm/drm_colorop.o := \
 drivers/gpu/drm/drm_colorop.o: $(deps_drivers/gpu/drm/drm_colorop.o)
 
 $(deps_drivers/gpu/drm/drm_colorop.o):
-#SYMVER drm_colorop_cleanup 0x63c6729f
-#SYMVER drm_colorop_destroy 0xd36d8226
-#SYMVER drm_colorop_pipeline_destroy 0x01fc5086
-#SYMVER drm_plane_colorop_curve_1d_init 0x28de7de9
-#SYMVER drm_plane_colorop_curve_1d_lut_init 0xd4f44905
-#SYMVER drm_plane_colorop_ctm_3x4_init 0xa99227f8
-#SYMVER drm_plane_colorop_mult_init 0xc3e888fd
-#SYMVER drm_plane_colorop_3dlut_init 0xb1824a9a
-#SYMVER drm_colorop_set_next_property 0xd57d2050
+#SYMVER drm_colorop_cleanup 0xc340abc6
+#SYMVER drm_colorop_destroy 0x81940d56
+#SYMVER drm_colorop_pipeline_destroy 0xbda3aff8
+#SYMVER drm_plane_colorop_curve_1d_init 0x59f7b123
+#SYMVER drm_plane_colorop_curve_1d_lut_init 0xf43d7956
+#SYMVER drm_plane_colorop_ctm_3x4_init 0xbe85a09a
+#SYMVER drm_plane_colorop_mult_init 0xc8c005c7
+#SYMVER drm_plane_colorop_3dlut_init 0x3f102902
+#SYMVER drm_colorop_set_next_property 0x63ecb29d

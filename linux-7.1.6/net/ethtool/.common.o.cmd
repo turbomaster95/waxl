@@ -1623,16 +1623,16 @@ net/ethtool/common.o: $(deps_net/ethtool/common.o)
 
 $(deps_net/ethtool/common.o):
 #SYMVER link_mode_params 0x61779627
-#SYMVER ethtool_get_phc_vclocks 0x813851b5
-#SYMVER ethtool_get_ts_info_by_layer 0x9124f5e5
-#SYMVER ethtool_set_ethtool_phy_ops 0x96f46f78
+#SYMVER ethtool_get_phc_vclocks 0xc38d515c
+#SYMVER ethtool_get_ts_info_by_layer 0x90345bba
+#SYMVER ethtool_set_ethtool_phy_ops 0x83bb02df
 #SYMVER ethtool_params_from_link_mode 0x45b23647
 #SYMVER ethtool_forced_speed_maps_init 0xc43edc3d
-#SYMVER ethtool_rxfh_context_lost 0x9f7d81bf
-#SYMVER netif_is_rxfh_configured 0x008680bf
-#SYMVER ethtool_rxfh_indir_lost 0xcaa358fa
-#SYMVER ethtool_rxfh_indir_can_resize 0xac3c3962
-#SYMVER ethtool_rxfh_indir_resize 0xf57919a8
-#SYMVER ethtool_rxfh_ctxs_can_resize 0x5b2a1d93
-#SYMVER ethtool_rxfh_ctxs_resize 0x66876b33
+#SYMVER ethtool_rxfh_context_lost 0xa16a8d6a
+#SYMVER netif_is_rxfh_configured 0xfe4f2cef
+#SYMVER ethtool_rxfh_indir_lost 0x27fde5fd
+#SYMVER ethtool_rxfh_indir_can_resize 0xa636f6cb
+#SYMVER ethtool_rxfh_indir_resize 0x922e95fb
+#SYMVER ethtool_rxfh_ctxs_can_resize 0x71d3186b
+#SYMVER ethtool_rxfh_ctxs_resize 0x8a2c44f9
 #SYMVER ethtool_str_to_medium 0x7bb8c99c

@@ -1447,8 +1447,8 @@ deps_mm/readahead.o := \
 mm/readahead.o: $(deps_mm/readahead.o)
 
 $(deps_mm/readahead.o):
-#SYMVER file_ra_state_init 0x207e2b9f
-#SYMVER page_cache_ra_unbounded 0xd9cbd78f
-#SYMVER page_cache_sync_ra 0x4d8011b2
-#SYMVER page_cache_async_ra 0xf12073b5
-#SYMVER readahead_expand 0xb7ede721
+#SYMVER file_ra_state_init 0x5656c8c0
+#SYMVER page_cache_ra_unbounded 0xd675a1c1
+#SYMVER page_cache_sync_ra 0x176fe76b
+#SYMVER page_cache_async_ra 0xd74ee73e
+#SYMVER readahead_expand 0x967ee509

@@ -1485,6 +1485,7 @@ deps_arch/x86/kernel/apic/apic.o := \
   include/acpi/platform/aclinux.h \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -1502,6 +1503,35 @@ deps_arch/x86/kernel/apic/apic.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  include/linux/io.h \
+    $(wildcard include/config/STRICT_DEVMEM) \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/msi.h \
     $(wildcard include/config/IRQ_MSI_IOMMU) \
     $(wildcard include/config/PCI_MSI_ARCH_FALLBACKS) \
@@ -1519,8 +1549,6 @@ deps_arch/x86/kernel/apic/apic.o := \
     $(wildcard include/config/GENERIC_IRQ_CHIP) \
     $(wildcard include/config/GENERIC_IRQ_MULTI_HANDLER) \
   include/linux/irqhandler.h \
-  include/linux/io.h \
-    $(wildcard include/config/STRICT_DEVMEM) \
   arch/x86/include/generated/asm/irq_regs.h \
   include/asm-generic/irq_regs.h \
   include/linux/irqdesc.h \
@@ -1539,23 +1567,12 @@ deps_arch/x86/kernel/apic/apic.o := \
   include/linux/kvm_types.h \
   arch/x86/include/asm/kvm_types.h \
     $(wildcard include/config/KVM_AMD) \
-  include/xen/xen.h \
-    $(wildcard include/config/XEN_PVH) \
-    $(wildcard include/config/XEN_DOM0) \
-    $(wildcard include/config/XEN_BALLOON) \
-    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
-  include/xen/interface/hvm/start_info.h \
-  include/xen/balloon.h \
   arch/x86/include/asm/trace/irq_vectors.h \
   include/linux/tracepoint.h \
     $(wildcard include/config/HAVE_SYSCALL_TRACEPOINTS) \
   include/trace/define_trace.h \
   arch/x86/include/asm/irq_remapping.h \
   arch/x86/include/asm/io_apic.h \
-  arch/x86/include/asm/mpspec.h \
-    $(wildcard include/config/EISA) \
-    $(wildcard include/config/X86_MPPARSE) \
-  arch/x86/include/asm/mpspec_def.h \
   arch/x86/include/asm/pc-conf-reg.h \
   arch/x86/include/asm/i8259.h \
   arch/x86/include/asm/traps.h \
@@ -1654,13 +1671,6 @@ deps_arch/x86/kernel/apic/apic.o := \
   arch/x86/include/asm/trap_pf.h \
   arch/x86/include/asm/apic.h \
   arch/x86/include/asm/posted_intr.h \
-  arch/x86/include/asm/acpi.h \
-    $(wildcard include/config/ACPI_APEI) \
-  include/acpi/proc_cap_intel.h \
-  arch/x86/include/asm/numa.h \
-  arch/x86/include/asm/xen/hypervisor.h \
-    $(wildcard include/config/XEN_PV_DOM0) \
-    $(wildcard include/config/PVH) \
   arch/x86/include/asm/desc.h \
   arch/x86/include/asm/hpet.h \
     $(wildcard include/config/HPET_TIMER) \

@@ -1066,5 +1066,5 @@ deps_drivers/misc/mei/hbm.o := \
 drivers/misc/mei/hbm.o: $(deps_drivers/misc/mei/hbm.o)
 
 $(deps_drivers/misc/mei/hbm.o):
-#SYMVER mei_hbm_pg 0x0fec14e8
-#SYMVER mei_hbm_pg_resume 0x26c9e074
+#SYMVER mei_hbm_pg 0xbf5a0fc7
+#SYMVER mei_hbm_pg_resume 0x109b3492

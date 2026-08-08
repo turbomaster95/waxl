@@ -1753,21 +1753,21 @@ net/core/flow_dissector.o: $(deps_net/core/flow_dissector.o)
 
 $(deps_net/core/flow_dissector.o):
 #SYMVER skb_flow_dissector_init 0x82f9219d
-#SYMVER skb_flow_get_ports 0x388a183b
-#SYMVER skb_flow_get_icmp_tci 0x8464d401
-#SYMVER skb_flow_dissect_meta 0xfd59c2ee
-#SYMVER skb_flow_dissect_ct 0x820bf569
-#SYMVER skb_flow_dissect_tunnel_info 0x2bca98fb
-#SYMVER skb_flow_dissect_hash 0x22f9e503
-#SYMVER __skb_flow_dissect 0x65d4f4c5
+#SYMVER skb_flow_get_ports 0xf56ccc84
+#SYMVER skb_flow_get_icmp_tci 0x6872cd2e
+#SYMVER skb_flow_dissect_meta 0x1b4a475c
+#SYMVER skb_flow_dissect_ct 0x8de86531
+#SYMVER skb_flow_dissect_tunnel_info 0x940d6aeb
+#SYMVER skb_flow_dissect_hash 0xb4527589
+#SYMVER __skb_flow_dissect 0x9e486ef8
 #SYMVER flow_get_u32_src 0x6514c1e6
 #SYMVER flow_get_u32_dst 0x5a99a0d7
 #SYMVER flow_hash_from_keys 0x460f4a34
 #SYMVER flow_hash_from_keys_seed 0x8988b5fc
 #SYMVER make_flow_keys_digest 0x0360d67f
-#SYMVER __skb_get_hash_symmetric_net 0xa4178130
-#SYMVER __skb_get_hash_net 0x21a489f6
-#SYMVER skb_get_hash_perturb 0x978e3f32
+#SYMVER __skb_get_hash_symmetric_net 0x586abcbf
+#SYMVER __skb_get_hash_net 0xefbb48a0
+#SYMVER skb_get_hash_perturb 0xe188d0fa
 #SYMVER __get_hash_from_flowi6 0x1dbc09ea
 #SYMVER flow_keys_dissector 0xeff39aad
 #SYMVER flow_keys_basic_dissector 0xebafb39a

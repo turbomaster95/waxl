@@ -1181,10 +1181,10 @@ deps_drivers/tty/tty_ldisc.o := \
 drivers/tty/tty_ldisc.o: $(deps_drivers/tty/tty_ldisc.o)
 
 $(deps_drivers/tty/tty_ldisc.o):
-#SYMVER tty_register_ldisc 0xe2157b37
-#SYMVER tty_unregister_ldisc 0x6e466eed
-#SYMVER tty_ldisc_ref_wait 0x4dace384
-#SYMVER tty_ldisc_ref 0xa560b792
-#SYMVER tty_ldisc_deref 0x72e4548a
-#SYMVER tty_ldisc_flush 0x8616eced
-#SYMVER tty_set_ldisc 0x06590f88
+#SYMVER tty_register_ldisc 0x202588d8
+#SYMVER tty_unregister_ldisc 0x5044f19a
+#SYMVER tty_ldisc_ref_wait 0xf72aa360
+#SYMVER tty_ldisc_ref 0x79eec160
+#SYMVER tty_ldisc_deref 0x8406cc92
+#SYMVER tty_ldisc_flush 0x26d55fee
+#SYMVER tty_set_ldisc 0x85706c26

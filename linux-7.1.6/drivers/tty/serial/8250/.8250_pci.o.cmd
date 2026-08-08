@@ -1298,7 +1298,7 @@ deps_drivers/tty/serial/8250/8250_pci.o := \
 drivers/tty/serial/8250/8250_pci.o: $(deps_drivers/tty/serial/8250/8250_pci.o)
 
 $(deps_drivers/tty/serial/8250/8250_pci.o):
-#SYMVER pciserial_init_ports 0xe8402c4f
+#SYMVER pciserial_init_ports 0x1a27487a
 #SYMVER pciserial_remove_ports 0xe84f6e5c
 #SYMVER pciserial_suspend_ports 0x31c7970f
 #SYMVER pciserial_resume_ports 0xbfbc5434

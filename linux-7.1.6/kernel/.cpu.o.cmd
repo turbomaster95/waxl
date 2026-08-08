@@ -1354,6 +1354,7 @@ deps_kernel/cpu.o := \
     $(wildcard include/config/HARDLOCKUP_CHECK_TIMESTAMP) \
     $(wildcard include/config/HAVE_ACPI_APEI_NMI) \
     $(wildcard include/config/NMI_CHECK_CPU) \
+  arch/x86/include/asm/nmi.h \
   include/linux/smpboot.h \
   include/linux/relay.h \
     $(wildcard include/config/RELAY) \

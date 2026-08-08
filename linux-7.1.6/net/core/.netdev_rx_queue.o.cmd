@@ -1605,5 +1605,5 @@ deps_net/core/netdev_rx_queue.o := \
 net/core/netdev_rx_queue.o: $(deps_net/core/netdev_rx_queue.o)
 
 $(deps_net/core/netdev_rx_queue.o):
-#SYMVER netif_rxq_has_unreadable_mp 0x979e2f7d
-#SYMVER netdev_rx_queue_restart 0x3bc1a9e5
+#SYMVER netif_rxq_has_unreadable_mp 0xd3b93faa
+#SYMVER netdev_rx_queue_restart 0x7ad5ae4e

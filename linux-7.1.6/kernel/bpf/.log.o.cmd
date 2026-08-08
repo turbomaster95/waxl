@@ -1586,6 +1586,6 @@ deps_kernel/bpf/log.o := \
 kernel/bpf/log.o: $(deps_kernel/bpf/log.o)
 
 $(deps_kernel/bpf/log.o):
-#SYMVER bpf_verifier_log_write 0x083c1f5f
+#SYMVER bpf_verifier_log_write 0xe2540d8a
 #SYMVER bpf_log 0x751d2e97
 #SYMVER tnum_strn 0x7d1bb1d4

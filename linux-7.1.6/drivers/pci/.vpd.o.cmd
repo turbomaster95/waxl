@@ -1257,11 +1257,11 @@ deps_drivers/pci/vpd.o := \
 drivers/pci/vpd.o: $(deps_drivers/pci/vpd.o)
 
 $(deps_drivers/pci/vpd.o):
-#SYMVER pci_vpd_alloc 0x89c553fc
+#SYMVER pci_vpd_alloc 0x2e4ccbc7
 #SYMVER pci_vpd_find_id_string 0x0c88c1c3
-#SYMVER pci_read_vpd 0x02c10de6
-#SYMVER pci_read_vpd_any 0x3bd88779
-#SYMVER pci_write_vpd 0x9010bb51
-#SYMVER pci_write_vpd_any 0x32ac13b7
+#SYMVER pci_read_vpd 0xa7ddf52e
+#SYMVER pci_read_vpd_any 0xe1939e7d
+#SYMVER pci_write_vpd 0x62c49e0f
+#SYMVER pci_write_vpd_any 0xd3b45343
 #SYMVER pci_vpd_find_ro_info_keyword 0xdc43bdc6
 #SYMVER pci_vpd_check_csum 0x7265f2b0

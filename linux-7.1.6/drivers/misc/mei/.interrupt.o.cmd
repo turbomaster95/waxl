@@ -1099,6 +1099,6 @@ deps_drivers/misc/mei/interrupt.o := \
 drivers/misc/mei/interrupt.o: $(deps_drivers/misc/mei/interrupt.o)
 
 $(deps_drivers/misc/mei/interrupt.o):
-#SYMVER mei_irq_compl_handler 0xef3c47dc
-#SYMVER mei_irq_read_handler 0xfc215ef0
-#SYMVER mei_irq_write_handler 0x3f511d67
+#SYMVER mei_irq_compl_handler 0x5dfa6d8f
+#SYMVER mei_irq_read_handler 0x8f81bae2
+#SYMVER mei_irq_write_handler 0x49a88817

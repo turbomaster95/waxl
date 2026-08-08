@@ -1607,5 +1607,5 @@ deps_kernel/bpf/inode.o := \
 kernel/bpf/inode.o: $(deps_kernel/bpf/inode.o)
 
 $(deps_kernel/bpf/inode.o):
-#SYMVER bpf_prog_get_type_path 0x001399bb
-#SYMVER bpf_preload_ops 0xdc483411
+#SYMVER bpf_prog_get_type_path 0x0fb6788c
+#SYMVER bpf_preload_ops 0xf168d148

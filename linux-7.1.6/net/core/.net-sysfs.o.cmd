@@ -1678,6 +1678,7 @@ deps_net/core/net-sysfs.o := \
 net/core/net-sysfs.o: $(deps_net/core/net-sysfs.o)
 
 $(deps_net/core/net-sysfs.o):
-#SYMVER net_ns_type_operations 0x982d523b
-#SYMVER netdev_class_create_file_ns 0xb13adcda
-#SYMVER netdev_class_remove_file_ns 0x0632fde4
+#SYMVER net_ns_type_operations 0xd55d318b
+#SYMVER of_find_net_device_by_node 0xa5d9eb9d
+#SYMVER netdev_class_create_file_ns 0x9f9d4e64
+#SYMVER netdev_class_remove_file_ns 0xbaaa6911

@@ -1078,4 +1078,4 @@ $(deps_drivers/tty/tty_baudrate.o):
 #SYMVER tty_termios_baud_rate 0x0bd394d8
 #SYMVER tty_termios_input_baud_rate 0x036cce78
 #SYMVER tty_termios_encode_baud_rate 0x5641485b
-#SYMVER tty_encode_baud_rate 0x1050e99c
+#SYMVER tty_encode_baud_rate 0x8e8370f6

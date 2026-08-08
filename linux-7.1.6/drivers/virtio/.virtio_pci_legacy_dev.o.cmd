@@ -1,4 +1,4 @@
-savedcmd_drivers/virtio/virtio_pci_legacy_dev.o := gcc -Wp,-MMD,drivers/virtio/.virtio_pci_legacy_dev.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -Os -fno-allow-store-data-races -fno-stack-protector -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=1280 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter  -DMODULE  -DKBUILD_BASENAME='"virtio_pci_legacy_dev"' -DKBUILD_MODNAME='"virtio_pci_legacy_dev"' -D__KBUILD_MODNAME=virtio_pci_legacy_dev -c -o drivers/virtio/virtio_pci_legacy_dev.o drivers/virtio/virtio_pci_legacy_dev.c   ; ./tools/objtool/objtool --hacks=jump_label --hacks=noinstr --ibt --static-call --uaccess  --link  --module drivers/virtio/virtio_pci_legacy_dev.o
+savedcmd_drivers/virtio/virtio_pci_legacy_dev.o := gcc -Wp,-MMD,drivers/virtio/.virtio_pci_legacy_dev.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -Os -fno-allow-store-data-races -fno-stack-protector -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=1280 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter    -DKBUILD_MODFILE='"drivers/virtio/virtio_pci_legacy_dev"' -DKBUILD_BASENAME='"virtio_pci_legacy_dev"' -DKBUILD_MODNAME='"virtio_pci_legacy_dev"' -D__KBUILD_MODNAME=virtio_pci_legacy_dev -c -o drivers/virtio/virtio_pci_legacy_dev.o drivers/virtio/virtio_pci_legacy_dev.c  
 
 source_drivers/virtio/virtio_pci_legacy_dev.o := drivers/virtio/virtio_pci_legacy_dev.c
 
@@ -1113,6 +1113,7 @@ deps_drivers/virtio/virtio_pci_legacy_dev.o := \
   arch/x86/include/asm/invpcid.h \
   arch/x86/include/asm/pti.h \
   arch/x86/include/asm/uaccess_64.h \
+  arch/x86/include/asm/runtime-const.h \
   include/asm-generic/access_ok.h \
     $(wildcard include/config/ALTERNATE_USER_ADDRESS_SPACE) \
   include/linux/cred.h \
@@ -1220,17 +1221,15 @@ deps_drivers/virtio/virtio_pci_legacy_dev.o := \
 drivers/virtio/virtio_pci_legacy_dev.o: $(deps_drivers/virtio/virtio_pci_legacy_dev.o)
 
 $(deps_drivers/virtio/virtio_pci_legacy_dev.o):
-
-drivers/virtio/virtio_pci_legacy_dev.o: $(wildcard ./tools/objtool/objtool)
-#SYMVER vp_legacy_probe 0x3a1b2e54
-#SYMVER vp_legacy_remove 0x95506ac6
-#SYMVER vp_legacy_get_features 0x87228621
-#SYMVER vp_legacy_get_driver_features 0x94c34080
-#SYMVER vp_legacy_set_features 0xedaa2e26
-#SYMVER vp_legacy_get_status 0x25ebf024
-#SYMVER vp_legacy_set_status 0x0cbbba7c
-#SYMVER vp_legacy_queue_vector 0x3f91da70
-#SYMVER vp_legacy_config_vector 0xa53f20df
-#SYMVER vp_legacy_set_queue_address 0xae69e101
-#SYMVER vp_legacy_get_queue_enable 0x47e913e2
-#SYMVER vp_legacy_get_queue_size 0xb924ca47
+#SYMVER vp_legacy_probe 0x5ca30fb6
+#SYMVER vp_legacy_remove 0xa1617db6
+#SYMVER vp_legacy_get_features 0x7fd08766
+#SYMVER vp_legacy_get_driver_features 0x1cabe6a3
+#SYMVER vp_legacy_set_features 0x4af7f0c8
+#SYMVER vp_legacy_get_status 0xa21c4ddf
+#SYMVER vp_legacy_set_status 0x71b76982
+#SYMVER vp_legacy_queue_vector 0x16900780
+#SYMVER vp_legacy_config_vector 0x540a8ea2
+#SYMVER vp_legacy_set_queue_address 0xd12623b6
+#SYMVER vp_legacy_get_queue_enable 0x823d819b
+#SYMVER vp_legacy_get_queue_size 0x65269f97

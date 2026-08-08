@@ -1553,18 +1553,18 @@ deps_net/core/dev_api.o := \
 net/core/dev_api.o: $(deps_net/core/dev_api.o)
 
 $(deps_net/core/dev_api.o):
-#SYMVER dev_set_alias 0xd71e7411
-#SYMVER dev_change_flags 0x0ba27a08
-#SYMVER dev_set_mac_address_user 0x217f51e3
-#SYMVER dev_change_net_namespace 0xcaa47c23
-#SYMVER dev_open 0x8b532319
-#SYMVER dev_close 0xe7589778
-#SYMVER dev_eth_ioctl 0x869ae6af
-#SYMVER dev_set_mtu 0x4a4b159b
-#SYMVER dev_disable_lro 0x84dc25b1
-#SYMVER dev_set_promiscuity 0x1995f75a
-#SYMVER dev_set_allmulti 0x73a0d35f
-#SYMVER dev_set_mac_address 0xadc161a6
-#SYMVER dev_xdp_propagate 0x2df7ea04
-#SYMVER netdev_state_change 0xf8013ded
-#SYMVER dev_set_threaded 0x0273ac7c
+#SYMVER dev_set_alias 0xb2f19479
+#SYMVER dev_change_flags 0x623e9160
+#SYMVER dev_set_mac_address_user 0x057ba845
+#SYMVER dev_change_net_namespace 0xb5331fee
+#SYMVER dev_open 0x1d97c830
+#SYMVER dev_close 0x2c63b633
+#SYMVER dev_eth_ioctl 0xb6e712fa
+#SYMVER dev_set_mtu 0x116b63b2
+#SYMVER dev_disable_lro 0xbba2798f
+#SYMVER dev_set_promiscuity 0x151ba69d
+#SYMVER dev_set_allmulti 0x92ba80cb
+#SYMVER dev_set_mac_address 0xe3424013
+#SYMVER dev_xdp_propagate 0x5574f64a
+#SYMVER netdev_state_change 0x1fa98eed
+#SYMVER dev_set_threaded 0x1de82051

@@ -1,1 +1,1 @@
-savedcmd_drivers/block/modules.order := {   echo drivers/block/virtio_blk.o; :; } > drivers/block/modules.order
+savedcmd_drivers/block/modules.order := {  :; } > drivers/block/modules.order

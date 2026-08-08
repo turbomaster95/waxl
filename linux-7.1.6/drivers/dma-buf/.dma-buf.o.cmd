@@ -1405,25 +1405,25 @@ deps_drivers/dma-buf/dma-buf.o := \
 drivers/dma-buf/dma-buf.o: $(deps_drivers/dma-buf/dma-buf.o)
 
 $(deps_drivers/dma-buf/dma-buf.o):
-#SYMVER dma_buf_export 0xe67c2861
-#SYMVER dma_buf_fd 0x7f5e17ab
-#SYMVER dma_buf_get 0x606eba26
-#SYMVER dma_buf_put 0x66d95182
-#SYMVER dma_buf_dynamic_attach 0x2ff80b3c
-#SYMVER dma_buf_attach 0x4f499639
-#SYMVER dma_buf_detach 0x4ed61be0
-#SYMVER dma_buf_pin 0x32c9381f
-#SYMVER dma_buf_unpin 0xc476e18e
-#SYMVER dma_buf_map_attachment 0xf24d6d88
-#SYMVER dma_buf_map_attachment_unlocked 0x844b1924
-#SYMVER dma_buf_unmap_attachment 0xcc31799e
-#SYMVER dma_buf_unmap_attachment_unlocked 0x38f92ac6
-#SYMVER dma_buf_attach_revocable 0xf9eefc8e
-#SYMVER dma_buf_invalidate_mappings 0x7a2345ea
-#SYMVER dma_buf_begin_cpu_access 0x63f6d182
-#SYMVER dma_buf_end_cpu_access 0xc153abd6
-#SYMVER dma_buf_mmap 0x051bcf09
-#SYMVER dma_buf_vmap 0x39febe76
-#SYMVER dma_buf_vmap_unlocked 0xe7f55737
-#SYMVER dma_buf_vunmap 0x0e6598ed
-#SYMVER dma_buf_vunmap_unlocked 0x649cf5d6
+#SYMVER dma_buf_export 0x6bd755ce
+#SYMVER dma_buf_fd 0x1d0f59d6
+#SYMVER dma_buf_get 0x342bee51
+#SYMVER dma_buf_put 0xddec9c8b
+#SYMVER dma_buf_dynamic_attach 0x8718ec6f
+#SYMVER dma_buf_attach 0xe59e0f6c
+#SYMVER dma_buf_detach 0xcf69039f
+#SYMVER dma_buf_pin 0x66ee8b5e
+#SYMVER dma_buf_unpin 0x4b8a3edc
+#SYMVER dma_buf_map_attachment 0xd25a158b
+#SYMVER dma_buf_map_attachment_unlocked 0x30d456db
+#SYMVER dma_buf_unmap_attachment 0xc582a027
+#SYMVER dma_buf_unmap_attachment_unlocked 0x855ff084
+#SYMVER dma_buf_attach_revocable 0x15bc25f1
+#SYMVER dma_buf_invalidate_mappings 0x85e26473
+#SYMVER dma_buf_begin_cpu_access 0xc874d9b8
+#SYMVER dma_buf_end_cpu_access 0x281283b3
+#SYMVER dma_buf_mmap 0x5f9d4dae
+#SYMVER dma_buf_vmap 0xab2fb966
+#SYMVER dma_buf_vmap_unlocked 0x9416c744
+#SYMVER dma_buf_vunmap 0xab169e34
+#SYMVER dma_buf_vunmap_unlocked 0x06fa257a

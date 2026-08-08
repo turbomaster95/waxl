@@ -1345,12 +1345,12 @@ deps_drivers/gpu/drm/drm_syncobj.o := \
 drivers/gpu/drm/drm_syncobj.o: $(deps_drivers/gpu/drm/drm_syncobj.o)
 
 $(deps_drivers/gpu/drm/drm_syncobj.o):
-#SYMVER drm_syncobj_find 0x872abd2d
+#SYMVER drm_syncobj_find 0x2a703be2
 #SYMVER drm_syncobj_add_point 0x643ee7fc
 #SYMVER drm_syncobj_replace_fence 0xd5cf71cb
-#SYMVER drm_syncobj_find_fence 0x401eae7d
+#SYMVER drm_syncobj_find_fence 0xc54fbef4
 #SYMVER drm_syncobj_free 0xb0632e7e
 #SYMVER drm_syncobj_create 0xfac8d056
-#SYMVER drm_syncobj_get_handle 0x12520e77
+#SYMVER drm_syncobj_get_handle 0x2adbbe82
 #SYMVER drm_syncobj_get_fd 0xb22cad45
 #SYMVER drm_timeout_abs_to_jiffies 0x50674de7

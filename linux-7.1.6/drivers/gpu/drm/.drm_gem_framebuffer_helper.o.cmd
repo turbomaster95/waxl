@@ -1349,15 +1349,15 @@ deps_drivers/gpu/drm/drm_gem_framebuffer_helper.o := \
 drivers/gpu/drm/drm_gem_framebuffer_helper.o: $(deps_drivers/gpu/drm/drm_gem_framebuffer_helper.o)
 
 $(deps_drivers/gpu/drm/drm_gem_framebuffer_helper.o):
-#SYMVER drm_gem_fb_get_obj 0xf70e4f91
-#SYMVER drm_gem_fb_destroy 0xc91cd9c3
-#SYMVER drm_gem_fb_create_handle 0xac2ecf3c
-#SYMVER drm_gem_fb_init_with_funcs 0x0ebc06fa
-#SYMVER drm_gem_fb_create_with_funcs 0xa41e6fcf
-#SYMVER drm_gem_fb_create 0x72e8a854
-#SYMVER drm_gem_fb_create_with_dirty 0xcb10a234
-#SYMVER drm_gem_fb_vmap 0x130580c6
-#SYMVER drm_gem_fb_vunmap 0xc7ce0f72
-#SYMVER drm_gem_fb_begin_cpu_access 0x1c307b01
-#SYMVER drm_gem_fb_end_cpu_access 0x6a84759e
-#SYMVER drm_gem_fb_afbc_init 0x6bb3af52
+#SYMVER drm_gem_fb_get_obj 0x1c73d471
+#SYMVER drm_gem_fb_destroy 0xc69e99f8
+#SYMVER drm_gem_fb_create_handle 0x5488c405
+#SYMVER drm_gem_fb_init_with_funcs 0x9b528028
+#SYMVER drm_gem_fb_create_with_funcs 0xb50db90a
+#SYMVER drm_gem_fb_create 0x05dedeb2
+#SYMVER drm_gem_fb_create_with_dirty 0x04791fde
+#SYMVER drm_gem_fb_vmap 0xf5e6ba57
+#SYMVER drm_gem_fb_vunmap 0x35ab3a2a
+#SYMVER drm_gem_fb_begin_cpu_access 0x04ec820a
+#SYMVER drm_gem_fb_end_cpu_access 0x71b63481
+#SYMVER drm_gem_fb_afbc_init 0x69205ff8

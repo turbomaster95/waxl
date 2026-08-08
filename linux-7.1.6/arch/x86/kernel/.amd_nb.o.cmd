@@ -1225,5 +1225,5 @@ arch/x86/kernel/amd_nb.o: $(deps_arch/x86/kernel/amd_nb.o)
 $(deps_arch/x86/kernel/amd_nb.o):
 #SYMVER amd_nb_num 0x81221cad
 #SYMVER amd_nb_has_feature 0x87e64181
-#SYMVER node_to_amd_nb 0x85bf9cac
+#SYMVER node_to_amd_nb 0x88d67cb6
 #SYMVER amd_flush_garts 0xbcb838a1

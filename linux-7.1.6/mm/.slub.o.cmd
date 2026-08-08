@@ -1388,19 +1388,19 @@ deps_mm/slub.o := \
 mm/slub.o: $(deps_mm/slub.o)
 
 $(deps_mm/slub.o):
-#SYMVER kmem_cache_alloc_noprof 0xbe56939e
-#SYMVER kmem_cache_alloc_lru_noprof 0x833cb5bb
+#SYMVER kmem_cache_alloc_noprof 0xae8b97a9
+#SYMVER kmem_cache_alloc_lru_noprof 0x81270f97
 #SYMVER kmem_cache_charge 0x8013b254
-#SYMVER kmem_cache_alloc_node_noprof 0xc002fdf0
+#SYMVER kmem_cache_alloc_node_noprof 0x8b77093f
 #SYMVER __kmalloc_large_noprof 0x56554b97
 #SYMVER __kmalloc_large_node_noprof 0xfb0a5777
 #SYMVER __kmalloc_node_noprof 0x9b506595
 #SYMVER __kmalloc_noprof 0x6a5cc518
 #SYMVER kmalloc_nolock_noprof 0xf4802b1f
 #SYMVER __kmalloc_node_track_caller_noprof 0x30bd71f3
-#SYMVER __kmalloc_cache_noprof 0xc016d853
-#SYMVER __kmalloc_cache_node_noprof 0x87c0fa2e
-#SYMVER kmem_cache_free 0x1cb97f14
+#SYMVER __kmalloc_cache_noprof 0x5dacb437
+#SYMVER __kmalloc_cache_node_noprof 0x17c576af
+#SYMVER kmem_cache_free 0x8871efe7
 #SYMVER ksize 0x04ea5d10
 #SYMVER kfree 0x037a0cba
 #SYMVER kfree_nolock 0x761dfbcb
@@ -1410,5 +1410,5 @@ $(deps_mm/slub.o):
 #SYMVER kvfree_atomic 0xfa9dc7d2
 #SYMVER kvfree_sensitive 0x7412ed5b
 #SYMVER kvrealloc_node_align_noprof 0x113baaec
-#SYMVER kmem_cache_free_bulk 0xab6788d7
-#SYMVER kmem_cache_alloc_bulk_noprof 0x6e4ce713
+#SYMVER kmem_cache_free_bulk 0xb1a45efd
+#SYMVER kmem_cache_alloc_bulk_noprof 0xb30feaad

@@ -1701,19 +1701,19 @@ deps_net/core/skmsg.o := \
 net/core/skmsg.o: $(deps_net/core/skmsg.o)
 
 $(deps_net/core/skmsg.o):
-#SYMVER sk_msg_alloc 0x6853a0c5
-#SYMVER sk_msg_clone 0xba4404b5
-#SYMVER sk_msg_return_zero 0x2f21fcec
-#SYMVER sk_msg_return 0xe91feeca
-#SYMVER sk_msg_free_nocharge 0x2b857fc0
-#SYMVER sk_msg_free 0xd94ea1ab
-#SYMVER sk_msg_free_partial 0x89e96a0a
-#SYMVER sk_msg_trim 0x2e474080
-#SYMVER sk_msg_zerocopy_from_iter 0xf6f384e1
-#SYMVER sk_msg_memcopy_from_iter 0xc03cd991
-#SYMVER sk_msg_recvmsg 0xecb6c85c
-#SYMVER sk_msg_is_readable 0xdca19605
-#SYMVER sk_psock_init 0x41a5ca50
-#SYMVER sk_psock_drop 0xd6e89bc4
-#SYMVER sk_psock_msg_verdict 0xcce4e8cb
-#SYMVER sk_psock_tls_strp_read 0xd7c9d0d8
+#SYMVER sk_msg_alloc 0x2f4121a3
+#SYMVER sk_msg_clone 0xb6124e2e
+#SYMVER sk_msg_return_zero 0x462d2414
+#SYMVER sk_msg_return 0x976e63df
+#SYMVER sk_msg_free_nocharge 0xfe047bd7
+#SYMVER sk_msg_free 0x4e470464
+#SYMVER sk_msg_free_partial 0x5bb5546b
+#SYMVER sk_msg_trim 0xc7317244
+#SYMVER sk_msg_zerocopy_from_iter 0x6551a339
+#SYMVER sk_msg_memcopy_from_iter 0x30669d1e
+#SYMVER sk_msg_recvmsg 0x4beeb900
+#SYMVER sk_msg_is_readable 0x0a5acd4f
+#SYMVER sk_psock_init 0x129111e2
+#SYMVER sk_psock_drop 0x3272ab10
+#SYMVER sk_psock_msg_verdict 0x70d09aa2
+#SYMVER sk_psock_tls_strp_read 0xd264abff

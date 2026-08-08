@@ -1251,8 +1251,8 @@ deps_drivers/gpu/drm/drm_damage_helper.o := \
 drivers/gpu/drm/drm_damage_helper.o: $(deps_drivers/gpu/drm/drm_damage_helper.o)
 
 $(deps_drivers/gpu/drm/drm_damage_helper.o):
-#SYMVER drm_atomic_helper_check_plane_damage 0xff6154aa
-#SYMVER drm_atomic_helper_dirtyfb 0x6f21b558
-#SYMVER drm_atomic_helper_damage_iter_init 0xe08f863a
+#SYMVER drm_atomic_helper_check_plane_damage 0x4913abd4
+#SYMVER drm_atomic_helper_dirtyfb 0x6ced796d
+#SYMVER drm_atomic_helper_damage_iter_init 0xafe2072e
 #SYMVER drm_atomic_helper_damage_iter_next 0x6b5c2b06
-#SYMVER drm_atomic_helper_damage_merged 0xde45b7cd
+#SYMVER drm_atomic_helper_damage_merged 0xb70fb182

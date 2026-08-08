@@ -1436,8 +1436,8 @@ deps_fs/remap_range.o := \
 fs/remap_range.o: $(deps_fs/remap_range.o)
 
 $(deps_fs/remap_range.o):
-#SYMVER remap_verify_area 0x2ce6238f
-#SYMVER generic_remap_file_range_prep 0x2720f535
-#SYMVER vfs_clone_file_range 0x1b579229
-#SYMVER vfs_dedupe_file_range_one 0x1668eae0
-#SYMVER vfs_dedupe_file_range 0x4b41eff9
+#SYMVER remap_verify_area 0x1aac45b1
+#SYMVER generic_remap_file_range_prep 0x0d535d90
+#SYMVER vfs_clone_file_range 0x91bc3183
+#SYMVER vfs_dedupe_file_range_one 0x43606e69
+#SYMVER vfs_dedupe_file_range 0x8a9a544f

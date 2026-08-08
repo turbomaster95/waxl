@@ -933,6 +933,7 @@ deps_drivers/i2c/i2c-core-base.o := \
     $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
     $(wildcard include/config/ACPI_DEBUG) \
   include/linux/ctype.h \
+  arch/x86/include/asm/acenv.h \
   include/acpi/acnames.h \
   include/acpi/actypes.h \
   include/acpi/acexcep.h \
@@ -950,6 +951,66 @@ deps_drivers/i2c/i2c-core-base.o := \
   include/acpi/acconfig.h \
   include/acpi/acbuffer.h \
   include/acpi/acpi_numa.h \
+  include/linux/fw_table.h \
+    $(wildcard include/config/CXL_BUS) \
+  include/acpi/acpi_bus.h \
+    $(wildcard include/config/X86_ANDROID_TABLETS) \
+    $(wildcard include/config/ACPI_SYSTEM_POWER_STATES_SUPPORT) \
+    $(wildcard include/config/ACPI_SLEEP) \
+  include/acpi/acpi_drivers.h \
+    $(wildcard include/config/ACPI_DOCK) \
+  include/acpi/acpi_io.h \
+  include/linux/io.h \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+    $(wildcard include/config/STRICT_DEVMEM) \
+  arch/x86/include/asm/io.h \
+    $(wildcard include/config/MTRR) \
+    $(wildcard include/config/X86_PAT) \
+  arch/x86/include/generated/asm/early_ioremap.h \
+  include/asm-generic/early_ioremap.h \
+    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
+  arch/x86/include/asm/shared/io.h \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/HAS_IOPORT) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+  include/asm-generic/iomap.h \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  arch/x86/include/asm/acpi.h \
+    $(wildcard include/config/ACPI_APEI) \
+  include/acpi/proc_cap_intel.h \
+  arch/x86/include/asm/numa.h \
+  arch/x86/include/asm/apicdef.h \
+  arch/x86/include/asm/fixmap.h \
+    $(wildcard include/config/PROVIDE_OHCI1394_DMA_INIT) \
+    $(wildcard include/config/PCI_MMCONFIG) \
+    $(wildcard include/config/ACPI_APEI_GHES) \
+    $(wildcard include/config/INTEL_TXT) \
+  arch/x86/include/uapi/asm/vsyscall.h \
+  include/asm-generic/fixmap.h \
+  arch/x86/include/asm/mpspec.h \
+    $(wildcard include/config/EISA) \
+    $(wildcard include/config/X86_MPPARSE) \
+  arch/x86/include/asm/mpspec_def.h \
+  arch/x86/include/asm/x86_init.h \
+  arch/x86/include/asm/irq_vectors.h \
+    $(wildcard include/config/HYPERV) \
+    $(wildcard include/config/PCI_MSI) \
+  arch/x86/include/asm/xen/hypervisor.h \
+    $(wildcard include/config/XEN_PV_DOM0) \
+    $(wildcard include/config/PVH) \
+    $(wildcard include/config/XEN_DOM0) \
+  include/xen/xen.h \
+    $(wildcard include/config/XEN_PVH) \
+    $(wildcard include/config/XEN_BALLOON) \
+    $(wildcard include/config/XEN_UNPOPULATED_ALLOC) \
+  include/xen/interface/hvm/start_info.h \
+  include/xen/balloon.h \
   include/linux/clk/clk-conf.h \
     $(wildcard include/config/COMMON_CLK) \
   include/linux/debugfs.h \
@@ -1026,7 +1087,6 @@ deps_drivers/i2c/i2c-core-base.o := \
     $(wildcard include/config/ARCH_ENABLE_THP_MIGRATION) \
     $(wildcard include/config/PAGE_TABLE_CHECK) \
     $(wildcard include/config/X86_SGX) \
-  arch/x86/include/asm/x86_init.h \
   arch/x86/include/asm/pkru.h \
   arch/x86/include/asm/fpu/api.h \
     $(wildcard include/config/MATH_EMULATION) \
@@ -1035,14 +1095,6 @@ deps_drivers/i2c/i2c-core-base.o := \
     $(wildcard include/config/PTE_MARKER_UFFD_WP) \
   include/linux/page_table_check.h \
   arch/x86/include/asm/pgtable_64.h \
-  arch/x86/include/asm/fixmap.h \
-    $(wildcard include/config/PROVIDE_OHCI1394_DMA_INIT) \
-    $(wildcard include/config/PCI_MMCONFIG) \
-    $(wildcard include/config/ACPI_APEI_GHES) \
-    $(wildcard include/config/INTEL_TXT) \
-  arch/x86/include/asm/apicdef.h \
-  arch/x86/include/uapi/asm/vsyscall.h \
-  include/asm-generic/fixmap.h \
   arch/x86/include/asm/pgtable-invert.h \
   arch/x86/include/asm/uaccess_64.h \
   arch/x86/include/asm/runtime-const.h \
@@ -1192,11 +1244,8 @@ deps_drivers/i2c/i2c-core-base.o := \
     $(wildcard include/config/X86_MCE_THRESHOLD) \
     $(wildcard include/config/X86_MCE_AMD) \
     $(wildcard include/config/X86_HV_CALLBACK_VECTOR) \
-    $(wildcard include/config/HYPERV) \
     $(wildcard include/config/X86_POSTED_MSI) \
   arch/x86/include/asm/irq.h \
-  arch/x86/include/asm/irq_vectors.h \
-    $(wildcard include/config/PCI_MSI) \
   arch/x86/include/asm/sections.h \
   include/asm-generic/sections.h \
     $(wildcard include/config/HAVE_FUNCTION_DESCRIPTORS) \
@@ -1340,27 +1389,6 @@ deps_drivers/i2c/i2c-core-base.o := \
     $(wildcard include/config/HARDIRQS_SW_RESEND) \
     $(wildcard include/config/GENERIC_IRQ_CHIP) \
     $(wildcard include/config/GENERIC_IRQ_MULTI_HANDLER) \
-  include/linux/io.h \
-    $(wildcard include/config/HAS_IOPORT_MAP) \
-    $(wildcard include/config/STRICT_DEVMEM) \
-  arch/x86/include/asm/io.h \
-    $(wildcard include/config/MTRR) \
-    $(wildcard include/config/X86_PAT) \
-  arch/x86/include/generated/asm/early_ioremap.h \
-  include/asm-generic/early_ioremap.h \
-    $(wildcard include/config/GENERIC_EARLY_IOREMAP) \
-  arch/x86/include/asm/shared/io.h \
-  include/asm-generic/io.h \
-    $(wildcard include/config/GENERIC_IOMAP) \
-    $(wildcard include/config/TRACE_MMIO_ACCESS) \
-    $(wildcard include/config/HAS_IOPORT) \
-    $(wildcard include/config/GENERIC_IOREMAP) \
-  include/asm-generic/iomap.h \
-  include/asm-generic/pci_iomap.h \
-    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
-    $(wildcard include/config/GENERIC_PCI_IOMAP) \
-  include/linux/logic_pio.h \
-    $(wildcard include/config/INDIRECT_PIO) \
   arch/x86/include/generated/asm/irq_regs.h \
   include/asm-generic/irq_regs.h \
   include/linux/irqdesc.h \
@@ -1412,42 +1440,42 @@ drivers/i2c/i2c-core-base.o: $(deps_drivers/i2c/i2c-core-base.o)
 
 $(deps_drivers/i2c/i2c-core-base.o):
 #SYMVER i2c_freq_mode_string 0x550f3e05
-#SYMVER i2c_match_id 0xd74973bf
-#SYMVER i2c_get_match_data 0xd163f354
-#SYMVER i2c_generic_scl_recovery 0xf80c163d
-#SYMVER i2c_recover_bus 0x94fb8f64
-#SYMVER i2c_bus_type 0xd87dda3c
-#SYMVER i2c_client_type 0xb9ba7453
-#SYMVER i2c_verify_client 0xa8472ca0
-#SYMVER i2c_new_client_device 0xdf6282c7
-#SYMVER i2c_unregister_device 0x9577aec7
-#SYMVER i2c_find_device_by_fwnode 0x6457c942
-#SYMVER i2c_new_dummy_device 0x67efee64
-#SYMVER devm_i2c_new_dummy_device 0x95e3a33c
-#SYMVER i2c_new_ancillary_device 0x52b662cf
-#SYMVER i2c_adapter_depth 0xf3c737b2
-#SYMVER i2c_adapter_type 0x5e261830
-#SYMVER i2c_verify_adapter 0xeae8e8ad
-#SYMVER i2c_handle_smbus_host_notify 0x6f9770ae
-#SYMVER i2c_add_adapter 0x2df2ac4b
-#SYMVER i2c_add_numbered_adapter 0x5f1844f1
-#SYMVER i2c_del_adapter 0x5511a998
-#SYMVER devm_i2c_add_adapter 0x7705449f
-#SYMVER i2c_find_adapter_by_fwnode 0xaf57a8a6
-#SYMVER i2c_get_adapter_by_fwnode 0x6fba3803
-#SYMVER i2c_parse_fw_timings 0x949af27c
-#SYMVER i2c_for_each_dev 0xf4f03894
-#SYMVER i2c_register_driver 0xf63eb508
-#SYMVER i2c_del_driver 0x59b97348
-#SYMVER i2c_clients_command 0x8b7f6c72
-#SYMVER __i2c_transfer 0x8a99a583
-#SYMVER i2c_transfer 0x422b7662
-#SYMVER i2c_transfer_buffer_flags 0x419de997
-#SYMVER i2c_get_device_id 0xe8300ecc
-#SYMVER i2c_client_get_device_id 0x635d7129
-#SYMVER i2c_probe_func_quick_read 0x67ab42a0
-#SYMVER i2c_new_scanned_device 0x912377d1
-#SYMVER i2c_get_adapter 0x581c327f
-#SYMVER i2c_put_adapter 0xc8f76cbb
+#SYMVER i2c_match_id 0x90b13842
+#SYMVER i2c_get_match_data 0xba47af62
+#SYMVER i2c_generic_scl_recovery 0x7916c6e3
+#SYMVER i2c_recover_bus 0x30189810
+#SYMVER i2c_bus_type 0xcb5d7538
+#SYMVER i2c_client_type 0xc4587979
+#SYMVER i2c_verify_client 0xd03b3db3
+#SYMVER i2c_new_client_device 0x10f90baf
+#SYMVER i2c_unregister_device 0x9a911e70
+#SYMVER i2c_find_device_by_fwnode 0xc8fdd31b
+#SYMVER i2c_new_dummy_device 0x710cf74f
+#SYMVER devm_i2c_new_dummy_device 0xa8a79ca7
+#SYMVER i2c_new_ancillary_device 0xae2c2b0d
+#SYMVER i2c_adapter_depth 0xd06e06e7
+#SYMVER i2c_adapter_type 0x85e033eb
+#SYMVER i2c_verify_adapter 0xe122adf0
+#SYMVER i2c_handle_smbus_host_notify 0xcdca1e7f
+#SYMVER i2c_add_adapter 0x91ad6cec
+#SYMVER i2c_add_numbered_adapter 0x83756d92
+#SYMVER i2c_del_adapter 0x5c73eb86
+#SYMVER devm_i2c_add_adapter 0x5c1a96c7
+#SYMVER i2c_find_adapter_by_fwnode 0x4ef0d190
+#SYMVER i2c_get_adapter_by_fwnode 0xc65b1648
+#SYMVER i2c_parse_fw_timings 0xd736dcac
+#SYMVER i2c_for_each_dev 0x73ed0b82
+#SYMVER i2c_register_driver 0x790d5483
+#SYMVER i2c_del_driver 0x0c7337d7
+#SYMVER i2c_clients_command 0xc786bdcf
+#SYMVER __i2c_transfer 0xdd39eb5a
+#SYMVER i2c_transfer 0x92982433
+#SYMVER i2c_transfer_buffer_flags 0x68456ca7
+#SYMVER i2c_get_device_id 0xb73a6cfc
+#SYMVER i2c_client_get_device_id 0x23a6377d
+#SYMVER i2c_probe_func_quick_read 0x1bab0dfb
+#SYMVER i2c_new_scanned_device 0x7434106e
+#SYMVER i2c_get_adapter 0xd7eaf52b
+#SYMVER i2c_put_adapter 0x829e6dc5
 #SYMVER i2c_get_dma_safe_msg_buf 0x42041512
 #SYMVER i2c_put_dma_safe_msg_buf 0x4dae16e4

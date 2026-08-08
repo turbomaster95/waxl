@@ -894,9 +894,9 @@ deps_drivers/base/swnode.o := \
 drivers/base/swnode.o: $(deps_drivers/base/swnode.o)
 
 $(deps_drivers/base/swnode.o):
-#SYMVER is_software_node 0x188098cf
-#SYMVER to_software_node 0x5b60eff8
-#SYMVER software_node_fwnode 0x0f6774a5
+#SYMVER is_software_node 0xb35beaff
+#SYMVER to_software_node 0xa7175a59
+#SYMVER software_node_fwnode 0xd98642c4
 #SYMVER property_entries_dup 0x53c089f5
 #SYMVER property_entries_free 0x01a0cb78
 #SYMVER software_node_find_by_name 0xda8e1302
@@ -904,8 +904,8 @@ $(deps_drivers/base/swnode.o):
 #SYMVER software_node_unregister_node_group 0x9f211ff4
 #SYMVER software_node_register 0xb48f0638
 #SYMVER software_node_unregister 0x0cbe3ee2
-#SYMVER fwnode_create_software_node 0x29bfd355
-#SYMVER fwnode_remove_software_node 0x75b4a91f
-#SYMVER device_add_software_node 0x0e970d27
-#SYMVER device_remove_software_node 0xd6378fad
-#SYMVER device_create_managed_software_node 0x01befdcf
+#SYMVER fwnode_create_software_node 0x9023d2f2
+#SYMVER fwnode_remove_software_node 0x979b5f2a
+#SYMVER device_add_software_node 0x392f379c
+#SYMVER device_remove_software_node 0x6f7ef3e7
+#SYMVER device_create_managed_software_node 0x725b391e

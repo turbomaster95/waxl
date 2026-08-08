@@ -1435,13 +1435,13 @@ deps_fs/splice.o := \
 fs/splice.o: $(deps_fs/splice.o)
 
 $(deps_fs/splice.o):
-#SYMVER splice_to_pipe 0xafeb4d2b
-#SYMVER add_to_pipe 0x08f11591
-#SYMVER copy_splice_read 0x76c5856d
-#SYMVER nosteal_pipe_buf_ops 0xd020b0a0
-#SYMVER __splice_from_pipe 0x619d3bdb
-#SYMVER iter_file_splice_write 0xe8d812c1
-#SYMVER vfs_splice_read 0x3031a096
-#SYMVER splice_direct_to_actor 0x3e11e37c
-#SYMVER do_splice_direct 0x269d3d28
-#SYMVER splice_file_range 0x0137dcfa
+#SYMVER splice_to_pipe 0xd2bc63b9
+#SYMVER add_to_pipe 0xb49dfbba
+#SYMVER copy_splice_read 0xa57c5e04
+#SYMVER nosteal_pipe_buf_ops 0xce731b0d
+#SYMVER __splice_from_pipe 0x232c2314
+#SYMVER iter_file_splice_write 0xb2d31f24
+#SYMVER vfs_splice_read 0x385ff5a8
+#SYMVER splice_direct_to_actor 0x57807b7d
+#SYMVER do_splice_direct 0x7ea3a622
+#SYMVER splice_file_range 0xd968bf46

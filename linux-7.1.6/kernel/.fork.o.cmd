@@ -1790,10 +1790,10 @@ deps_kernel/fork.o := \
 kernel/fork.o: $(deps_kernel/fork.o)
 
 $(deps_kernel/fork.o):
-#SYMVER free_task 0xa87642fc
-#SYMVER __mmdrop 0x007c6f54
-#SYMVER __put_task_struct 0x3bc3a9e4
+#SYMVER free_task 0xf3687bc9
+#SYMVER __mmdrop 0x382b1f76
+#SYMVER __put_task_struct 0xae0768a2
 #SYMVER __put_task_struct_rcu_cb 0x94160518
-#SYMVER mmput 0x4514a761
-#SYMVER mmput_async 0x5490e7da
-#SYMVER get_task_mm 0xa9c530c8
+#SYMVER mmput 0x38eaefa4
+#SYMVER mmput_async 0x778e8ccc
+#SYMVER get_task_mm 0xb0eddd72

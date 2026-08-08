@@ -1289,18 +1289,18 @@ deps_drivers/gpu/drm/drm_plane.o := \
 drivers/gpu/drm/drm_plane.o: $(deps_drivers/gpu/drm/drm_plane.o)
 
 $(deps_drivers/gpu/drm/drm_plane.o):
-#SYMVER drm_universal_plane_init 0xedcbecfc
-#SYMVER __drmm_universal_plane_alloc 0x4d4fc6c2
-#SYMVER __drm_universal_plane_alloc 0x2c945583
-#SYMVER drm_plane_cleanup 0xbe7fd257
-#SYMVER drm_plane_from_index 0x7166261d
-#SYMVER drm_plane_force_disable 0xb31e3943
-#SYMVER drm_mode_plane_set_obj_prop 0x926995ab
-#SYMVER drm_plane_has_format 0x73fa3407
-#SYMVER drm_any_plane_has_format 0xb3194818
-#SYMVER drm_plane_enable_fb_damage_clips 0x6e4ff3e7
-#SYMVER drm_plane_get_damage_clips_count 0x650f1cad
-#SYMVER drm_plane_get_damage_clips 0x6f58254b
-#SYMVER drm_plane_create_scaling_filter_property 0xc4839e3c
-#SYMVER drm_plane_add_size_hints_property 0x0ab958f3
-#SYMVER drm_plane_create_color_pipeline_property 0x23f43ae7
+#SYMVER drm_universal_plane_init 0x21b19cea
+#SYMVER __drmm_universal_plane_alloc 0xef005b0d
+#SYMVER __drm_universal_plane_alloc 0x5604b075
+#SYMVER drm_plane_cleanup 0x6cbcc220
+#SYMVER drm_plane_from_index 0xc8bcd117
+#SYMVER drm_plane_force_disable 0x780cfa0d
+#SYMVER drm_mode_plane_set_obj_prop 0x34a7bd9f
+#SYMVER drm_plane_has_format 0x14e58cb5
+#SYMVER drm_any_plane_has_format 0x9e334214
+#SYMVER drm_plane_enable_fb_damage_clips 0xa7d14e39
+#SYMVER drm_plane_get_damage_clips_count 0x2399bd5a
+#SYMVER drm_plane_get_damage_clips 0x3d094718
+#SYMVER drm_plane_create_scaling_filter_property 0xafa7960e
+#SYMVER drm_plane_add_size_hints_property 0x950fe5f8
+#SYMVER drm_plane_create_color_pipeline_property 0xa5a97481

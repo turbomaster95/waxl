@@ -1,4 +1,4 @@
-savedcmd_drivers/virtio/virtio.o := gcc -Wp,-MMD,drivers/virtio/.virtio.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -Os -fno-allow-store-data-races -fno-stack-protector -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=1280 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter  -DMODULE  -DKBUILD_BASENAME='"virtio"' -DKBUILD_MODNAME='"virtio"' -D__KBUILD_MODNAME=virtio -c -o drivers/virtio/virtio.o drivers/virtio/virtio.c   ; ./tools/objtool/objtool --hacks=jump_label --hacks=noinstr --ibt --static-call --uaccess  --link  --module drivers/virtio/virtio.o
+savedcmd_drivers/virtio/virtio.o := gcc -Wp,-MMD,drivers/virtio/.virtio.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -Os -fno-allow-store-data-races -fno-stack-protector -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=1280 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter    -DKBUILD_MODFILE='"drivers/virtio/virtio"' -DKBUILD_BASENAME='"virtio"' -DKBUILD_MODNAME='"virtio"' -D__KBUILD_MODNAME=virtio -c -o drivers/virtio/virtio.o drivers/virtio/virtio.c  
 
 source_drivers/virtio/virtio.o := drivers/virtio/virtio.c
 
@@ -912,6 +912,7 @@ deps_drivers/virtio/virtio.o := \
   arch/x86/include/asm/invpcid.h \
   arch/x86/include/asm/pti.h \
   arch/x86/include/asm/uaccess_64.h \
+  arch/x86/include/asm/runtime-const.h \
   include/asm-generic/access_ok.h \
     $(wildcard include/config/ALTERNATE_USER_ADDRESS_SPACE) \
   include/linux/cred.h \
@@ -1169,18 +1170,16 @@ deps_drivers/virtio/virtio.o := \
 drivers/virtio/virtio.o: $(deps_drivers/virtio/virtio.o)
 
 $(deps_drivers/virtio/virtio.o):
-
-drivers/virtio/virtio.o: $(wildcard ./tools/objtool/objtool)
-#SYMVER virtio_check_driver_offered_feature 0x071cb357
-#SYMVER virtio_config_changed 0xc05a7e07
-#SYMVER virtio_config_driver_disable 0x197282ca
-#SYMVER virtio_config_driver_enable 0x08f37f9c
-#SYMVER virtio_add_status 0xd9535614
-#SYMVER virtio_reset_device 0xfc802eac
-#SYMVER __register_virtio_driver 0xbd733b91
-#SYMVER unregister_virtio_driver 0xc71f3d6f
-#SYMVER register_virtio_device 0x7693f61c
-#SYMVER is_virtio_device 0x379dc1a7
-#SYMVER unregister_virtio_device 0xeda37a4d
-#SYMVER virtio_device_reset_prepare 0x437db427
-#SYMVER virtio_device_reset_done 0xbe094d61
+#SYMVER virtio_check_driver_offered_feature 0x54dd00d2
+#SYMVER virtio_config_changed 0x0b2d436b
+#SYMVER virtio_config_driver_disable 0x9f2aa6ba
+#SYMVER virtio_config_driver_enable 0x01c22aab
+#SYMVER virtio_add_status 0xb41a30af
+#SYMVER virtio_reset_device 0xccea35d7
+#SYMVER __register_virtio_driver 0x682fd966
+#SYMVER unregister_virtio_driver 0x9b94e8f9
+#SYMVER register_virtio_device 0xbe37d7d3
+#SYMVER is_virtio_device 0xfaec34ab
+#SYMVER unregister_virtio_device 0x4e29a7f7
+#SYMVER virtio_device_reset_prepare 0xf7fefcc6
+#SYMVER virtio_device_reset_done 0xd4abbee5

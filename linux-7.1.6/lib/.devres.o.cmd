@@ -908,14 +908,14 @@ deps_lib/devres.o := \
 lib/devres.o: $(deps_lib/devres.o)
 
 $(deps_lib/devres.o):
-#SYMVER devm_ioremap 0x0b0b8939
-#SYMVER devm_ioremap_uc 0x9f3753aa
-#SYMVER devm_ioremap_wc 0x673f6fbb
-#SYMVER devm_iounmap 0x3e0666e8
-#SYMVER devm_ioremap_resource 0xf2422c1b
-#SYMVER devm_ioremap_resource_wc 0xba2a9fe5
-#SYMVER devm_of_iomap 0x79f3675a
-#SYMVER devm_ioport_map 0xd6a15f1d
-#SYMVER devm_ioport_unmap 0x9aaaef92
-#SYMVER devm_arch_phys_wc_add 0x94628c3f
-#SYMVER devm_arch_io_reserve_memtype_wc 0xce38be10
+#SYMVER devm_ioremap 0xe73b668b
+#SYMVER devm_ioremap_uc 0x5f15a04c
+#SYMVER devm_ioremap_wc 0xc845c3f4
+#SYMVER devm_iounmap 0x74eb8b0e
+#SYMVER devm_ioremap_resource 0xe819df94
+#SYMVER devm_ioremap_resource_wc 0xd8f3922a
+#SYMVER devm_of_iomap 0x87dc52ae
+#SYMVER devm_ioport_map 0x652752ca
+#SYMVER devm_ioport_unmap 0xe2445414
+#SYMVER devm_arch_phys_wc_add 0xe4e43d7e
+#SYMVER devm_arch_io_reserve_memtype_wc 0xb0371ca3

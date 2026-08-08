@@ -1410,6 +1410,6 @@ $(deps_fs/eventfd.o):
 #SYMVER eventfd_ctx_put 0x941f2aaa
 #SYMVER eventfd_ctx_do_read 0xe911df29
 #SYMVER eventfd_ctx_remove_wait_queue 0x41ed3cec
-#SYMVER eventfd_fget 0x21f1d5d0
+#SYMVER eventfd_fget 0x35e4ab67
 #SYMVER eventfd_ctx_fdget 0xd67364f7
-#SYMVER eventfd_ctx_fileget 0x9f562100
+#SYMVER eventfd_ctx_fileget 0x8486e55f

@@ -1344,12 +1344,12 @@ deps_fs/file_table.o := \
 fs/file_table.o: $(deps_fs/file_table.o)
 
 $(deps_fs/file_table.o):
-#SYMVER backing_file_user_path 0xec94bb9d
-#SYMVER backing_file_set_user_path 0x7ea19b36
+#SYMVER backing_file_user_path 0x140afb1b
+#SYMVER backing_file_set_user_path 0xbcc0d629
 #SYMVER get_max_files 0x8abacc47
-#SYMVER alloc_empty_backing_file 0xe6a2392d
-#SYMVER alloc_file_pseudo 0xcd9bfae2
-#SYMVER alloc_file_pseudo_noaccount 0x2d8e6bb0
+#SYMVER alloc_empty_backing_file 0x4c1931a4
+#SYMVER alloc_file_pseudo 0x18396cf2
+#SYMVER alloc_file_pseudo_noaccount 0xa23c1dff
 #SYMVER flush_delayed_fput 0x55339365
-#SYMVER fput 0x0c234665
-#SYMVER __fput_sync 0x16241d0b
+#SYMVER fput 0x85bbc4c1
+#SYMVER __fput_sync 0xc2b2de0e

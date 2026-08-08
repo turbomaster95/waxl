@@ -1256,14 +1256,14 @@ deps_mm/folio-compat.o := \
 mm/folio-compat.o: $(deps_mm/folio-compat.o)
 
 $(deps_mm/folio-compat.o):
-#SYMVER unlock_page 0x58139bde
-#SYMVER end_page_writeback 0x89856b25
-#SYMVER wait_on_page_writeback 0xf65e5f43
-#SYMVER mark_page_accessed 0x3be6f94c
-#SYMVER set_page_writeback 0xa69e1399
-#SYMVER set_page_dirty 0x9589509a
-#SYMVER set_page_dirty_lock 0x3fd45ec1
-#SYMVER clear_page_dirty_for_io 0x00b927ca
-#SYMVER redirty_page_for_writepage 0x4ea43c28
-#SYMVER add_to_page_cache_lru 0xb7d1ab98
-#SYMVER pagecache_get_page 0x770c2474
+#SYMVER unlock_page 0x60a1f7c4
+#SYMVER end_page_writeback 0x89cefa3e
+#SYMVER wait_on_page_writeback 0xabe9a0a0
+#SYMVER mark_page_accessed 0x34b03df0
+#SYMVER set_page_writeback 0x7761627d
+#SYMVER set_page_dirty 0x8462b056
+#SYMVER set_page_dirty_lock 0x49c64d0a
+#SYMVER clear_page_dirty_for_io 0x12379c64
+#SYMVER redirty_page_for_writepage 0x8aabf4a1
+#SYMVER add_to_page_cache_lru 0x43066066
+#SYMVER pagecache_get_page 0xb5d5570d

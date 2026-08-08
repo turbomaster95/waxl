@@ -1298,13 +1298,13 @@ deps_drivers/gpu/drm/drm_crtc.o := \
 drivers/gpu/drm/drm_crtc.o: $(deps_drivers/gpu/drm/drm_crtc.o)
 
 $(deps_drivers/gpu/drm/drm_crtc.o):
-#SYMVER drm_crtc_from_index 0xa40e8dcc
-#SYMVER drm_crtc_init_with_planes 0x9c80e77a
-#SYMVER drmm_crtc_init_with_planes 0xc38661a2
-#SYMVER __drmm_crtc_alloc_with_planes 0x8ec3c8c1
-#SYMVER drm_crtc_cleanup 0x2617158d
-#SYMVER drm_mode_set_config_internal 0x97d734bd
-#SYMVER drm_crtc_check_viewport 0x77b3b60f
-#SYMVER drm_crtc_create_scaling_filter_property 0xada9d58d
-#SYMVER drm_crtc_create_sharpness_strength_property 0x27f2c951
-#SYMVER drm_crtc_in_clone_mode 0x87006ba5
+#SYMVER drm_crtc_from_index 0x09bbfae4
+#SYMVER drm_crtc_init_with_planes 0xca9d8441
+#SYMVER drmm_crtc_init_with_planes 0x8c2a4a7c
+#SYMVER __drmm_crtc_alloc_with_planes 0xf86c5b3a
+#SYMVER drm_crtc_cleanup 0xca13647b
+#SYMVER drm_mode_set_config_internal 0x73dd7326
+#SYMVER drm_crtc_check_viewport 0xfd561221
+#SYMVER drm_crtc_create_scaling_filter_property 0x806beeda
+#SYMVER drm_crtc_create_sharpness_strength_property 0x577ecc1c
+#SYMVER drm_crtc_in_clone_mode 0xf83bfdd2

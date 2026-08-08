@@ -1156,5 +1156,5 @@ deps_drivers/virtio/virtio_anchor.o := \
 drivers/virtio/virtio_anchor.o: $(deps_drivers/virtio/virtio_anchor.o)
 
 $(deps_drivers/virtio/virtio_anchor.o):
-#SYMVER virtio_require_restricted_mem_acc 0xec525a9c
-#SYMVER virtio_check_mem_acc_cb 0x6829382b
+#SYMVER virtio_require_restricted_mem_acc 0xe72e3418
+#SYMVER virtio_check_mem_acc_cb 0x44a15130

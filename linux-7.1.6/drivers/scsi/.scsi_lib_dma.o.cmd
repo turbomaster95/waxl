@@ -1215,5 +1215,5 @@ deps_drivers/scsi/scsi_lib_dma.o := \
 drivers/scsi/scsi_lib_dma.o: $(deps_drivers/scsi/scsi_lib_dma.o)
 
 $(deps_drivers/scsi/scsi_lib_dma.o):
-#SYMVER scsi_dma_map 0x5c99613c
-#SYMVER scsi_dma_unmap 0xf29201b1
+#SYMVER scsi_dma_map 0x88623de7
+#SYMVER scsi_dma_unmap 0xc6ab423e

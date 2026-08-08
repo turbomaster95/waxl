@@ -1559,14 +1559,14 @@ deps_net/core/gen_stats.o := \
 net/core/gen_stats.o: $(deps_net/core/gen_stats.o)
 
 $(deps_net/core/gen_stats.o):
-#SYMVER gnet_stats_start_copy_compat 0x36d403a5
-#SYMVER gnet_stats_start_copy 0x5d400054
+#SYMVER gnet_stats_start_copy_compat 0x0784026b
+#SYMVER gnet_stats_start_copy 0x4628b862
 #SYMVER gnet_stats_basic_sync_init 0x866a62b2
 #SYMVER gnet_stats_add_basic 0xfa042227
-#SYMVER gnet_stats_copy_basic 0xb9bb99d3
-#SYMVER gnet_stats_copy_basic_hw 0x0ac5956f
-#SYMVER gnet_stats_copy_rate_est 0x39569a38
+#SYMVER gnet_stats_copy_basic 0x5be605f9
+#SYMVER gnet_stats_copy_basic_hw 0xea6a6eaa
+#SYMVER gnet_stats_copy_rate_est 0x5a83f234
 #SYMVER gnet_stats_add_queue 0xfc421e79
-#SYMVER gnet_stats_copy_queue 0x345fc43e
-#SYMVER gnet_stats_copy_app 0x6730c8c8
-#SYMVER gnet_stats_finish_copy 0xec3c8189
+#SYMVER gnet_stats_copy_queue 0x5e66380f
+#SYMVER gnet_stats_copy_app 0x85c31523
+#SYMVER gnet_stats_finish_copy 0xb0f497bc

@@ -1,4 +1,4 @@
-savedcmd_drivers/virtio/virtio_ring.o := gcc -Wp,-MMD,drivers/virtio/.virtio_ring.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -Os -fno-allow-store-data-races -fno-stack-protector -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=1280 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter  -DMODULE  -DKBUILD_BASENAME='"virtio_ring"' -DKBUILD_MODNAME='"virtio_ring"' -D__KBUILD_MODNAME=virtio_ring -c -o drivers/virtio/virtio_ring.o drivers/virtio/virtio_ring.c   ; ./tools/objtool/objtool --hacks=jump_label --hacks=noinstr --ibt --static-call --uaccess  --link  --module drivers/virtio/virtio_ring.o
+savedcmd_drivers/virtio/virtio_ring.o := gcc -Wp,-MMD,drivers/virtio/.virtio_ring.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -Os -fno-allow-store-data-races -fno-stack-protector -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=1280 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter    -DKBUILD_MODFILE='"drivers/virtio/virtio_ring"' -DKBUILD_BASENAME='"virtio_ring"' -DKBUILD_MODNAME='"virtio_ring"' -D__KBUILD_MODNAME=virtio_ring -c -o drivers/virtio/virtio_ring.o drivers/virtio/virtio_ring.c  
 
 source_drivers/virtio/virtio_ring.o := drivers/virtio/virtio_ring.c
 
@@ -912,6 +912,7 @@ deps_drivers/virtio/virtio_ring.o := \
   arch/x86/include/asm/invpcid.h \
   arch/x86/include/asm/pti.h \
   arch/x86/include/asm/uaccess_64.h \
+  arch/x86/include/asm/runtime-const.h \
   include/asm-generic/access_ok.h \
     $(wildcard include/config/ALTERNATE_USER_ADDRESS_SPACE) \
   include/linux/cred.h \
@@ -1169,54 +1170,52 @@ deps_drivers/virtio/virtio_ring.o := \
 drivers/virtio/virtio_ring.o: $(deps_drivers/virtio/virtio_ring.o)
 
 $(deps_drivers/virtio/virtio_ring.o):
-
-drivers/virtio/virtio_ring.o: $(wildcard ./tools/objtool/objtool)
-#SYMVER virtio_max_dma_size 0x67a38d6b
-#SYMVER virtqueue_add_sgs 0x94ea071e
-#SYMVER virtqueue_add_outbuf 0x33aad9b3
-#SYMVER virtqueue_add_outbuf_premapped 0x0519d7f1
-#SYMVER virtqueue_add_inbuf 0xfd37d513
-#SYMVER virtqueue_add_inbuf_cache_clean 0xd0078f63
-#SYMVER virtqueue_add_inbuf_ctx 0xe0bd646a
-#SYMVER virtqueue_add_inbuf_premapped 0x7e878774
-#SYMVER virtqueue_dma_dev 0x153fb90e
-#SYMVER virtqueue_kick_prepare 0xa979975e
-#SYMVER virtqueue_notify 0x98bb9f0a
-#SYMVER virtqueue_kick 0x152426bc
-#SYMVER virtqueue_get_buf_ctx 0xb464c9c2
-#SYMVER virtqueue_get_buf 0x680950b9
-#SYMVER virtqueue_disable_cb 0x18dfe9fa
-#SYMVER virtqueue_enable_cb_prepare 0x8fbbdef9
-#SYMVER virtqueue_poll 0xdafe7e24
-#SYMVER virtqueue_enable_cb 0x6a87982e
-#SYMVER virtqueue_enable_cb_delayed 0x7c56e795
-#SYMVER virtqueue_detach_unused_buf 0x2684d82d
+#SYMVER virtio_max_dma_size 0x829e514e
+#SYMVER virtqueue_add_sgs 0x4cfe23eb
+#SYMVER virtqueue_add_outbuf 0xc645e0fd
+#SYMVER virtqueue_add_outbuf_premapped 0x7df630fa
+#SYMVER virtqueue_add_inbuf 0x5e5feefd
+#SYMVER virtqueue_add_inbuf_cache_clean 0xe12e260e
+#SYMVER virtqueue_add_inbuf_ctx 0x7c0ac2e0
+#SYMVER virtqueue_add_inbuf_premapped 0x7e9ecf78
+#SYMVER virtqueue_dma_dev 0xfdc46342
+#SYMVER virtqueue_kick_prepare 0x119d9a93
+#SYMVER virtqueue_notify 0xd0dc0dde
+#SYMVER virtqueue_kick 0x01bb9b4d
+#SYMVER virtqueue_get_buf_ctx 0x1a7e702e
+#SYMVER virtqueue_get_buf 0x81b33ebd
+#SYMVER virtqueue_disable_cb 0x0f26b53d
+#SYMVER virtqueue_enable_cb_prepare 0x7a6daa4c
+#SYMVER virtqueue_poll 0x5a1108ee
+#SYMVER virtqueue_enable_cb 0xfae10fed
+#SYMVER virtqueue_enable_cb_delayed 0x000820f4
+#SYMVER virtqueue_detach_unused_buf 0x88983fc4
 #SYMVER vring_interrupt 0xff05fa13
-#SYMVER vring_create_virtqueue 0xea0985dd
-#SYMVER vring_create_virtqueue_map 0xf7a04625
-#SYMVER virtqueue_resize 0x29dcb940
-#SYMVER virtqueue_reset 0x5e5fc91c
-#SYMVER vring_new_virtqueue 0xdcb89141
-#SYMVER vring_del_virtqueue 0x969f179f
-#SYMVER vring_notification_data 0xa891a13d
-#SYMVER vring_transport_features 0xe150d7b5
-#SYMVER virtqueue_get_vring_size 0xbfcb8eb4
-#SYMVER __virtqueue_break 0x175371db
-#SYMVER __virtqueue_unbreak 0x1a33d7d3
-#SYMVER virtqueue_is_broken 0x0cb72472
-#SYMVER virtio_break_device 0x70951371
-#SYMVER __virtio_unbreak_device 0x93344592
-#SYMVER virtqueue_get_desc_addr 0x8e0b62bd
-#SYMVER virtqueue_get_avail_addr 0xf7620863
-#SYMVER virtqueue_get_used_addr 0xc25903b0
-#SYMVER virtqueue_get_vring 0x037e6b0a
-#SYMVER virtqueue_map_alloc_coherent 0xe3ed3e15
-#SYMVER virtqueue_map_free_coherent 0x1111eae9
-#SYMVER virtqueue_map_page_attrs 0x411d74f1
-#SYMVER virtqueue_unmap_page_attrs 0x49f64cb8
-#SYMVER virtqueue_map_single_attrs 0x1cce64dd
-#SYMVER virtqueue_unmap_single_attrs 0xeeaf26cc
-#SYMVER virtqueue_map_mapping_error 0x812606e0
-#SYMVER virtqueue_map_need_sync 0x00b74eee
-#SYMVER virtqueue_map_sync_single_range_for_cpu 0x8b408ef4
-#SYMVER virtqueue_map_sync_single_range_for_device 0x614ec372
+#SYMVER vring_create_virtqueue 0xa6ee4c52
+#SYMVER vring_create_virtqueue_map 0x7f4f612a
+#SYMVER virtqueue_resize 0x76c327fd
+#SYMVER virtqueue_reset 0x4a314472
+#SYMVER vring_new_virtqueue 0x52614060
+#SYMVER vring_del_virtqueue 0x6db39a65
+#SYMVER vring_notification_data 0x0e7de462
+#SYMVER vring_transport_features 0x84fe770a
+#SYMVER virtqueue_get_vring_size 0x1f3ee4f0
+#SYMVER __virtqueue_break 0x8b93ef7b
+#SYMVER __virtqueue_unbreak 0xfadb55e2
+#SYMVER virtqueue_is_broken 0xf33260a4
+#SYMVER virtio_break_device 0xc85191b3
+#SYMVER __virtio_unbreak_device 0x03fdb24e
+#SYMVER virtqueue_get_desc_addr 0x51aa7383
+#SYMVER virtqueue_get_avail_addr 0xc7b9488a
+#SYMVER virtqueue_get_used_addr 0x8926fb89
+#SYMVER virtqueue_get_vring 0xb61d996b
+#SYMVER virtqueue_map_alloc_coherent 0x3a0700e5
+#SYMVER virtqueue_map_free_coherent 0xb5c0f71a
+#SYMVER virtqueue_map_page_attrs 0xed639adf
+#SYMVER virtqueue_unmap_page_attrs 0x9f30033c
+#SYMVER virtqueue_map_single_attrs 0x2d1a7c8e
+#SYMVER virtqueue_unmap_single_attrs 0x48f58466
+#SYMVER virtqueue_map_mapping_error 0x6301122d
+#SYMVER virtqueue_map_need_sync 0x24146a1f
+#SYMVER virtqueue_map_sync_single_range_for_cpu 0xedc49e77
+#SYMVER virtqueue_map_sync_single_range_for_device 0xe5ed7f5b

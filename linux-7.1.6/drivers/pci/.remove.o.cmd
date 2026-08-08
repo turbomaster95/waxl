@@ -1265,8 +1265,8 @@ deps_drivers/pci/remove.o := \
 drivers/pci/remove.o: $(deps_drivers/pci/remove.o)
 
 $(deps_drivers/pci/remove.o):
-#SYMVER pci_remove_bus 0x98221995
-#SYMVER pci_stop_and_remove_bus_device 0xb4d17a04
-#SYMVER pci_stop_and_remove_bus_device_locked 0xbbf2c8d3
-#SYMVER pci_stop_root_bus 0x8241c3bb
-#SYMVER pci_remove_root_bus 0xe965c856
+#SYMVER pci_remove_bus 0x91a19b3b
+#SYMVER pci_stop_and_remove_bus_device 0x69bcd57a
+#SYMVER pci_stop_and_remove_bus_device_locked 0xa4370c68
+#SYMVER pci_stop_root_bus 0xb46376c7
+#SYMVER pci_remove_root_bus 0x086efa4a

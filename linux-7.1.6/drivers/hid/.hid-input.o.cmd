@@ -1309,10 +1309,10 @@ deps_drivers/hid/hid-input.o := \
 drivers/hid/hid-input.o: $(deps_drivers/hid/hid-input.o)
 
 $(deps_drivers/hid/hid-input.o):
-#SYMVER hidinput_calc_abs_res 0x60f78870
-#SYMVER hidinput_report_event 0x06a21f5c
-#SYMVER hidinput_get_led_field 0x56f8cf8d
-#SYMVER hidinput_count_leds 0x163b47df
-#SYMVER hidinput_connect 0x629d5445
-#SYMVER hidinput_disconnect 0x2bb239e1
-#SYMVER hidinput_reset_resume 0x608c5225
+#SYMVER hidinput_calc_abs_res 0x01739e02
+#SYMVER hidinput_report_event 0xe6be9be1
+#SYMVER hidinput_get_led_field 0xaf84b3a0
+#SYMVER hidinput_count_leds 0xcbed5e24
+#SYMVER hidinput_connect 0x954016aa
+#SYMVER hidinput_disconnect 0xc6682e33
+#SYMVER hidinput_reset_resume 0x4c45db22

@@ -1069,10 +1069,10 @@ drivers/misc/mei/init.o: $(deps_drivers/misc/mei/init.o)
 
 $(deps_drivers/misc/mei/init.o):
 #SYMVER mei_fw_status2str 0x90a24af4
-#SYMVER mei_cancel_work 0xa3112939
-#SYMVER mei_reset 0x279e77f8
-#SYMVER mei_start 0x04af5efe
-#SYMVER mei_restart 0xc4f94bfe
-#SYMVER mei_stop 0xba713fed
-#SYMVER mei_write_is_idle 0x2ac22424
-#SYMVER mei_device_init 0x0423f7d9
+#SYMVER mei_cancel_work 0xf0576d1d
+#SYMVER mei_reset 0xeb4a4994
+#SYMVER mei_start 0x4ca25a82
+#SYMVER mei_restart 0x9f07a0e3
+#SYMVER mei_stop 0x909fd0c2
+#SYMVER mei_write_is_idle 0xb67dab15
+#SYMVER mei_device_init 0x7e8a154b

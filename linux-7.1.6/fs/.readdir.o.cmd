@@ -1428,5 +1428,5 @@ deps_fs/readdir.o := \
 fs/readdir.o: $(deps_fs/readdir.o)
 
 $(deps_fs/readdir.o):
-#SYMVER wrap_directory_iterator 0xba516fef
-#SYMVER iterate_dir 0x89d59ed8
+#SYMVER wrap_directory_iterator 0x5b8736eb
+#SYMVER iterate_dir 0x9237c43b

@@ -1406,10 +1406,10 @@ deps_kernel/capability.o := \
 kernel/capability.o: $(deps_kernel/capability.o)
 
 $(deps_kernel/capability.o):
-#SYMVER has_capability_noaudit 0xe57edb5d
-#SYMVER ns_capable 0x9446714a
-#SYMVER ns_capable_noaudit 0x976ecd3e
-#SYMVER ns_capable_setid 0x07a927a0
+#SYMVER has_capability_noaudit 0x58a43093
+#SYMVER ns_capable 0x6383e33c
+#SYMVER ns_capable_noaudit 0xd111bbae
+#SYMVER ns_capable_setid 0x379014a6
 #SYMVER capable 0xc6cbbc89
-#SYMVER file_ns_capable 0xb7f0c3bc
-#SYMVER capable_wrt_inode_uidgid 0x11df898a
+#SYMVER file_ns_capable 0xf4cc82d6
+#SYMVER capable_wrt_inode_uidgid 0x7f255c03

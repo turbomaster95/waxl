@@ -1326,6 +1326,7 @@ deps_kernel/sched/build_utility.o := \
     $(wildcard include/config/HARDLOCKUP_CHECK_TIMESTAMP) \
     $(wildcard include/config/HAVE_ACPI_APEI_NMI) \
     $(wildcard include/config/NMI_CHECK_CPU) \
+  arch/x86/include/asm/nmi.h \
   include/linux/proc_fs.h \
     $(wildcard include/config/PROC_PID_ARCH_STATUS) \
   include/linux/psi.h \
@@ -1644,9 +1645,9 @@ $(deps_kernel/sched/build_utility.o):
 #SYMVER swake_up_locked 0xe236509a
 #SYMVER swake_up_one 0xac0a724b
 #SYMVER swake_up_all 0x7746683f
-#SYMVER prepare_to_swait_exclusive 0x4da95688
-#SYMVER prepare_to_swait_event 0x6647c3ed
-#SYMVER finish_swait 0xdb4c1f18
+#SYMVER prepare_to_swait_exclusive 0xf9b37b45
+#SYMVER prepare_to_swait_event 0xc0e37b90
+#SYMVER finish_swait 0xb03f0216
 #SYMVER bit_waitqueue 0xc3e1a018
 #SYMVER wake_bit_function 0xca431c05
 #SYMVER __wait_on_bit 0x8d6edd81

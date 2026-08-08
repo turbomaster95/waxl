@@ -1376,4 +1376,4 @@ block/blk-ioc.o: $(deps_block/blk-ioc.o)
 
 $(deps_block/blk-ioc.o):
 #SYMVER put_io_context 0x99317076
-#SYMVER set_task_ioprio 0x9608e9e6
+#SYMVER set_task_ioprio 0xe1c008d1

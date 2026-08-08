@@ -1,37 +1,37 @@
-cmd_/home/deva/linux-7.1.6/tools/objtool/builtin-check.o := gcc -Wp,-MD,/home/deva/linux-7.1.6/tools/objtool/.builtin-check.o.d -Wp,-MT,/home/deva/linux-7.1.6/tools/objtool/builtin-check.o -std=gnu11 -fomit-frame-pointer -O2 -g -Werror -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wwrite-strings -Wno-implicit-fallthrough -Wno-sign-compare -Wno-unused-parameter -I/home/deva/linux-7.1.6/tools/include -I/home/deva/linux-7.1.6/tools/include/uapi -I/home/deva/linux-7.1.6/tools/arch/x86/include/uapi -I/home/deva/linux-7.1.6/tools/arch/x86/include -I/home/deva/linux-7.1.6/tools/objtool/include -I/home/deva/linux-7.1.6/tools/objtool/arch/x86/include -I/home/deva/linux-7.1.6/tools/objtool/libsubcmd/include -D"BUILD_STR(s)=$(pound)s" -c -o /home/deva/linux-7.1.6/tools/objtool/builtin-check.o builtin-check.c
+cmd_/home/deva/waxl/linux-7.1.6/tools/objtool/builtin-check.o := gcc -Wp,-MD,/home/deva/waxl/linux-7.1.6/tools/objtool/.builtin-check.o.d -Wp,-MT,/home/deva/waxl/linux-7.1.6/tools/objtool/builtin-check.o -std=gnu11 -fomit-frame-pointer -O2 -g -Werror -Wall -Wextra -Wmissing-prototypes -Wmissing-declarations -Wwrite-strings -Wno-implicit-fallthrough -Wno-sign-compare -Wno-unused-parameter -I/home/deva/waxl/linux-7.1.6/tools/include -I/home/deva/waxl/linux-7.1.6/tools/include/uapi -I/home/deva/waxl/linux-7.1.6/tools/arch/x86/include/uapi -I/home/deva/waxl/linux-7.1.6/tools/arch/x86/include -I/home/deva/waxl/linux-7.1.6/tools/objtool/include -I/home/deva/waxl/linux-7.1.6/tools/objtool/arch/x86/include -I/home/deva/waxl/linux-7.1.6/tools/objtool/libsubcmd/include -D"BUILD_STR(s)=$(pound)s" -c -o /home/deva/waxl/linux-7.1.6/tools/objtool/builtin-check.o builtin-check.c
 
-source_/home/deva/linux-7.1.6/tools/objtool/builtin-check.o := builtin-check.c
+source_/home/deva/waxl/linux-7.1.6/tools/objtool/builtin-check.o := builtin-check.c
 
-deps_/home/deva/linux-7.1.6/tools/objtool/builtin-check.o := \
+deps_/home/deva/waxl/linux-7.1.6/tools/objtool/builtin-check.o := \
   /usr/include/stdc-predef.h \
-  /home/deva/linux-7.1.6/tools/objtool/libsubcmd/include/subcmd/parse-options.h \
-  /home/deva/linux-7.1.6/tools/include/linux/kernel.h \
+  /home/deva/waxl/linux-7.1.6/tools/objtool/libsubcmd/include/subcmd/parse-options.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/kernel.h \
   /usr/include/stdarg.h \
   /usr/include/bits/alltypes.h \
   /usr/include/stddef.h \
   /usr/include/assert.h \
   /usr/include/features.h \
-  /home/deva/linux-7.1.6/tools/include/linux/build_bug.h \
-  /home/deva/linux-7.1.6/tools/include/linux/compiler.h \
-  /home/deva/linux-7.1.6/tools/include/linux/compiler_types.h \
-  /home/deva/linux-7.1.6/tools/include/linux/compiler-context-analysis.h \
-  /home/deva/linux-7.1.6/tools/include/linux/compiler-gcc.h \
-  /home/deva/linux-7.1.6/tools/include/linux/types.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/build_bug.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/compiler.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/compiler_types.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/compiler-context-analysis.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/compiler-gcc.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/types.h \
   /usr/include/stdbool.h \
   /usr/include/stdint.h \
   /usr/include/bits/stdint.h \
   /usr/include/asm/types.h \
   /usr/include/asm-generic/types.h \
   /usr/include/asm-generic/int-ll64.h \
-  /home/deva/linux-7.1.6/tools/include/uapi/asm/bitsperlong.h \
-  /home/deva/linux-7.1.6/tools/arch/x86/include/uapi/asm/bitsperlong.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitsperlong.h \
-  /home/deva/linux-7.1.6/tools/include/uapi/asm-generic/bitsperlong.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/uapi/asm/bitsperlong.h \
+  /home/deva/waxl/linux-7.1.6/tools/arch/x86/include/uapi/asm/bitsperlong.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitsperlong.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/uapi/asm-generic/bitsperlong.h \
   /usr/include/asm/posix_types.h \
   /usr/include/asm/posix_types_64.h \
   /usr/include/asm-generic/posix_types.h \
-  /home/deva/linux-7.1.6/tools/include/linux/math.h \
-  /home/deva/linux-7.1.6/tools/include/linux/panic.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/math.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/panic.h \
   /usr/include/fortify/stdio.h \
   /usr/include/stdio.h \
   /usr/include/fortify/fortify-headers.h \
@@ -42,7 +42,7 @@ deps_/home/deva/linux-7.1.6/tools/objtool/builtin-check.o := \
   /usr/include/bits/limits.h \
   /usr/include/endian.h \
   /usr/include/byteswap.h \
-  /home/deva/linux-7.1.6/tools/include/linux/container_of.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/container_of.h \
   /usr/include/fortify/string.h \
   /usr/include/string.h \
   /usr/include/fortify/strings.h \
@@ -57,49 +57,49 @@ deps_/home/deva/linux-7.1.6/tools/objtool/builtin-check.o := \
   /usr/include/sys/stat.h \
   /usr/include/bits/stat.h \
   /usr/include/sys/sendfile.h \
-  /home/deva/linux-7.1.6/tools/objtool/include/objtool/builtin.h \
-  /home/deva/linux-7.1.6/tools/objtool/include/objtool/objtool.h \
-  /home/deva/linux-7.1.6/tools/include/linux/list.h \
-  /home/deva/linux-7.1.6/tools/include/linux/poison.h \
-  /home/deva/linux-7.1.6/tools/include/linux/hashtable.h \
-  /home/deva/linux-7.1.6/tools/include/linux/bitops.h \
+  /home/deva/waxl/linux-7.1.6/tools/objtool/include/objtool/builtin.h \
+  /home/deva/waxl/linux-7.1.6/tools/objtool/include/objtool/objtool.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/list.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/poison.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/hashtable.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/bitops.h \
   /usr/include/limits.h \
-  /home/deva/linux-7.1.6/tools/include/linux/bits.h \
-  /home/deva/linux-7.1.6/tools/include/vdso/bits.h \
-  /home/deva/linux-7.1.6/tools/include/vdso/const.h \
-  /home/deva/linux-7.1.6/tools/include/uapi/linux/const.h \
-  /home/deva/linux-7.1.6/tools/include/uapi/linux/bits.h \
-  /home/deva/linux-7.1.6/tools/include/linux/overflow.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitops.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitops/__ffs.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitops/__ffz.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitops/fls.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitops/__fls.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitops/fls64.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitops/hweight.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitops/arch_hweight.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitops/const_hweight.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitops/atomic.h \
-  /home/deva/linux-7.1.6/tools/include/asm-generic/bitops/non-atomic.h \
-  /home/deva/linux-7.1.6/tools/include/linux/hash.h \
-  /home/deva/linux-7.1.6/tools/include/linux/log2.h \
-  /home/deva/linux-7.1.6/tools/objtool/include/objtool/elf.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/bits.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/vdso/bits.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/vdso/const.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/uapi/linux/const.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/uapi/linux/bits.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/overflow.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitops.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitops/__ffs.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitops/__ffz.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitops/fls.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitops/__fls.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitops/fls64.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitops/hweight.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitops/arch_hweight.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitops/const_hweight.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitops/atomic.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/asm-generic/bitops/non-atomic.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/hash.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/log2.h \
+  /home/deva/waxl/linux-7.1.6/tools/objtool/include/objtool/elf.h \
   /usr/include/gelf.h \
   /usr/include/libelf.h \
   /usr/include/sys/types.h \
   /usr/include/fortify/sys/select.h \
   /usr/include/sys/select.h \
   /usr/include/elf.h \
-  /home/deva/linux-7.1.6/tools/include/linux/string.h \
-  /home/deva/linux-7.1.6/tools/include/linux/rbtree.h \
-  /home/deva/linux-7.1.6/tools/include/uapi/linux/stddef.h \
-  /home/deva/linux-7.1.6/tools/include/linux/jhash.h \
-  /home/deva/linux-7.1.6/tools/include/linux/unaligned/packed_struct.h \
-  /home/deva/linux-7.1.6/tools/objtool/include/objtool/endianness.h \
-  /home/deva/linux-7.1.6/tools/objtool/include/objtool/checksum_types.h \
-  /home/deva/linux-7.1.6/tools/objtool/arch/x86/include/arch/elf.h \
-  /home/deva/linux-7.1.6/tools/objtool/include/objtool/warn.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/string.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/rbtree.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/uapi/linux/stddef.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/jhash.h \
+  /home/deva/waxl/linux-7.1.6/tools/include/linux/unaligned/packed_struct.h \
+  /home/deva/waxl/linux-7.1.6/tools/objtool/include/objtool/endianness.h \
+  /home/deva/waxl/linux-7.1.6/tools/objtool/include/objtool/checksum_types.h \
+  /home/deva/waxl/linux-7.1.6/tools/objtool/arch/x86/include/arch/elf.h \
+  /home/deva/waxl/linux-7.1.6/tools/objtool/include/objtool/warn.h \
 
-/home/deva/linux-7.1.6/tools/objtool/builtin-check.o: $(deps_/home/deva/linux-7.1.6/tools/objtool/builtin-check.o)
+/home/deva/waxl/linux-7.1.6/tools/objtool/builtin-check.o: $(deps_/home/deva/waxl/linux-7.1.6/tools/objtool/builtin-check.o)
 
-$(deps_/home/deva/linux-7.1.6/tools/objtool/builtin-check.o):
+$(deps_/home/deva/waxl/linux-7.1.6/tools/objtool/builtin-check.o):

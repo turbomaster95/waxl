@@ -896,6 +896,6 @@ $(deps_drivers/video/hdmi.o):
 #SYMVER hdmi_drm_infoframe_pack 0xe4bc2c2f
 #SYMVER hdmi_infoframe_pack_only 0x333bfca1
 #SYMVER hdmi_infoframe_pack 0xa6457c89
-#SYMVER hdmi_infoframe_log 0x1ebf22cd
+#SYMVER hdmi_infoframe_log 0xa39f51f1
 #SYMVER hdmi_drm_infoframe_unpack_only 0xb9478d90
 #SYMVER hdmi_infoframe_unpack 0xdb1edee6

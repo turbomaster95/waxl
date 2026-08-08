@@ -1292,6 +1292,10 @@ deps_arch/x86/kernel/traps.o := \
     $(wildcard include/config/HARDLOCKUP_CHECK_TIMESTAMP) \
     $(wildcard include/config/HAVE_ACPI_APEI_NMI) \
     $(wildcard include/config/NMI_CHECK_CPU) \
+  arch/x86/include/asm/nmi.h \
+  include/linux/irq_work.h \
+    $(wildcard include/config/IRQ_WORK) \
+  arch/x86/include/asm/irq_work.h \
   include/linux/io.h \
     $(wildcard include/config/STRICT_DEVMEM) \
   include/linux/iommu.h \
@@ -1336,7 +1340,6 @@ deps_arch/x86/kernel/traps.o := \
   arch/x86/include/asm/traps.h \
   arch/x86/include/asm/idtentry.h \
     $(wildcard include/config/X86_CET) \
-    $(wildcard include/config/IRQ_WORK) \
     $(wildcard include/config/ACRN_GUEST) \
     $(wildcard include/config/XEN_PVHVM) \
     $(wildcard include/config/KVM_GUEST) \
@@ -1417,8 +1420,6 @@ deps_arch/x86/kernel/traps.o := \
   arch/x86/include/asm/local.h \
   arch/x86/include/asm/hw_breakpoint.h \
   arch/x86/include/uapi/asm/hw_breakpoint.h \
-  include/linux/irq_work.h \
-  arch/x86/include/asm/irq_work.h \
   include/linux/jump_label_ratelimit.h \
   include/linux/perf_regs.h \
     $(wildcard include/config/HAVE_PERF_REGS) \

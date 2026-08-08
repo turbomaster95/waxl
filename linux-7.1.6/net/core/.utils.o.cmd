@@ -1612,8 +1612,8 @@ $(deps_net/core/utils.o):
 #SYMVER in_aton 0x1b6314fd
 #SYMVER in4_pton 0xac5fcec0
 #SYMVER in6_pton 0x609bcd98
-#SYMVER inet_pton_with_scope 0xe295650d
+#SYMVER inet_pton_with_scope 0xa79eb1f6
 #SYMVER inet_addr_is_any 0x720dbe55
-#SYMVER inet_proto_csum_replace4 0xca186dc7
-#SYMVER inet_proto_csum_replace16 0x0314db9d
-#SYMVER inet_proto_csum_replace_by_diff 0x2ff5b36a
+#SYMVER inet_proto_csum_replace4 0x32c3aa83
+#SYMVER inet_proto_csum_replace16 0x8617268d
+#SYMVER inet_proto_csum_replace_by_diff 0x14d121ae

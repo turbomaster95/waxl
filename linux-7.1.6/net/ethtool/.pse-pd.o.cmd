@@ -1635,4 +1635,4 @@ deps_net/ethtool/pse-pd.o := \
 net/ethtool/pse-pd.o: $(deps_net/ethtool/pse-pd.o)
 
 $(deps_net/ethtool/pse-pd.o):
-#SYMVER ethnl_pse_send_ntf 0x044d69eb
+#SYMVER ethnl_pse_send_ntf 0xd773f15d

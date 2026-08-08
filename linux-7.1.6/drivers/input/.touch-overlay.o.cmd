@@ -1060,8 +1060,8 @@ deps_drivers/input/touch-overlay.o := \
 drivers/input/touch-overlay.o: $(deps_drivers/input/touch-overlay.o)
 
 $(deps_drivers/input/touch-overlay.o):
-#SYMVER touch_overlay_map 0x082149a8
+#SYMVER touch_overlay_map 0xcfa6194e
 #SYMVER touch_overlay_get_touchscreen_abs 0x72d5460f
 #SYMVER touch_overlay_mapped_touchscreen 0x5098a8f1
-#SYMVER touch_overlay_sync_frame 0x76a264a5
-#SYMVER touch_overlay_process_contact 0x10831264
+#SYMVER touch_overlay_sync_frame 0xac201621
+#SYMVER touch_overlay_process_contact 0x77d1e19a

@@ -1279,11 +1279,11 @@ deps_drivers/gpu/drm/drm_mode_object.o := \
 drivers/gpu/drm/drm_mode_object.o: $(deps_drivers/gpu/drm/drm_mode_object.o)
 
 $(deps_drivers/gpu/drm/drm_mode_object.o):
-#SYMVER drm_mode_object_find 0x3a4bf047
-#SYMVER drm_mode_object_put 0x3b671acb
-#SYMVER drm_mode_object_get 0x1440a992
-#SYMVER drm_object_attach_property 0xcf267bb9
-#SYMVER drm_object_property_set_value 0x0b519deb
-#SYMVER drm_object_property_get_value 0xe8a2d31d
-#SYMVER drm_object_property_get_default_value 0x21db34bc
-#SYMVER drm_object_immutable_property_get_value 0xcb14c888
+#SYMVER drm_mode_object_find 0x878237e7
+#SYMVER drm_mode_object_put 0xa4741b32
+#SYMVER drm_mode_object_get 0x819806d0
+#SYMVER drm_object_attach_property 0x95726f66
+#SYMVER drm_object_property_set_value 0x86e83eca
+#SYMVER drm_object_property_get_value 0x2d9476af
+#SYMVER drm_object_property_get_default_value 0xa1abbac8
+#SYMVER drm_object_immutable_property_get_value 0x88c85758

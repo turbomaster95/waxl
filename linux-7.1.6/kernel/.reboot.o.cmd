@@ -1460,21 +1460,21 @@ deps_kernel/reboot.o := \
 kernel/reboot.o: $(deps_kernel/reboot.o)
 
 $(deps_kernel/reboot.o):
-#SYMVER cad_pid 0xe1ac1840
+#SYMVER cad_pid 0xc4257830
 #SYMVER reboot_mode 0x429c3f9c
 #SYMVER emergency_restart 0xd0c05159
 #SYMVER register_reboot_notifier 0x3517383e
 #SYMVER unregister_reboot_notifier 0xac1a55be
-#SYMVER devm_register_reboot_notifier 0x7519afec
+#SYMVER devm_register_reboot_notifier 0x0b732dfc
 #SYMVER register_restart_handler 0xd9d8fd16
 #SYMVER unregister_restart_handler 0x40d59096
 #SYMVER kernel_restart 0x1e7bbcb3
 #SYMVER kernel_halt 0x054e550b
-#SYMVER register_sys_off_handler 0x0ad4ccd5
+#SYMVER register_sys_off_handler 0x1ef2966a
 #SYMVER unregister_sys_off_handler 0xde31bf7e
-#SYMVER devm_register_sys_off_handler 0x701e6fcf
-#SYMVER devm_register_power_off_handler 0x90cdfc9a
-#SYMVER devm_register_restart_handler 0x610e9ca6
+#SYMVER devm_register_sys_off_handler 0xac4886c6
+#SYMVER devm_register_power_off_handler 0xcc513d98
+#SYMVER devm_register_restart_handler 0x159070a3
 #SYMVER register_platform_power_off 0x0756a31c
 #SYMVER unregister_platform_power_off 0xd2d7e59b
 #SYMVER kernel_can_power_off 0xe1c87a2f

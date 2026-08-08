@@ -1,4 +1,4 @@
-savedcmd_drivers/virtio/virtio_pci_modern_dev.o := gcc -Wp,-MMD,drivers/virtio/.virtio_pci_modern_dev.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -Os -fno-allow-store-data-races -fno-stack-protector -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=1280 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter  -DMODULE  -DKBUILD_BASENAME='"virtio_pci_modern_dev"' -DKBUILD_MODNAME='"virtio_pci_modern_dev"' -D__KBUILD_MODNAME=virtio_pci_modern_dev -c -o drivers/virtio/virtio_pci_modern_dev.o drivers/virtio/virtio_pci_modern_dev.c   ; ./tools/objtool/objtool --hacks=jump_label --hacks=noinstr --ibt --static-call --uaccess  --link  --module drivers/virtio/virtio_pci_modern_dev.o
+savedcmd_drivers/virtio/virtio_pci_modern_dev.o := gcc -Wp,-MMD,drivers/virtio/.virtio_pci_modern_dev.o.d -nostdinc -I./arch/x86/include -I./arch/x86/include/generated -I./include -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -fshort-wchar -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=gnu11 -fms-extensions -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -mno-sse4a -fcf-protection=branch -fno-jump-tables -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -march=x86-64 -mtune=generic -mno-red-zone -mcmodel=kernel -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -Os -fno-allow-store-data-races -fno-stack-protector -fomit-frame-pointer -ftrivial-auto-var-init=zero -fzero-init-padding-bits=all -fno-stack-clash-protection -fmin-function-alignment=16 -fstrict-flex-arrays=3 -fno-strict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Werror=strict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wmissing-declarations -Wmissing-prototypes -Wframe-larger-than=1280 -Wno-main -Wno-type-limits -Wno-dangling-pointer -Wvla-larger-than=1 -Wno-pointer-sign -Wcast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unused-parameter    -DKBUILD_MODFILE='"drivers/virtio/virtio_pci_modern_dev"' -DKBUILD_BASENAME='"virtio_pci_modern_dev"' -DKBUILD_MODNAME='"virtio_pci_modern_dev"' -D__KBUILD_MODNAME=virtio_pci_modern_dev -c -o drivers/virtio/virtio_pci_modern_dev.o drivers/virtio/virtio_pci_modern_dev.c  
 
 source_drivers/virtio/virtio_pci_modern_dev.o := drivers/virtio/virtio_pci_modern_dev.c
 
@@ -1112,6 +1112,7 @@ deps_drivers/virtio/virtio_pci_modern_dev.o := \
   arch/x86/include/asm/invpcid.h \
   arch/x86/include/asm/pti.h \
   arch/x86/include/asm/uaccess_64.h \
+  arch/x86/include/asm/runtime-const.h \
   include/asm-generic/access_ok.h \
     $(wildcard include/config/ALTERNATE_USER_ADDRESS_SPACE) \
   include/linux/cred.h \
@@ -1231,26 +1232,24 @@ deps_drivers/virtio/virtio_pci_modern_dev.o := \
 drivers/virtio/virtio_pci_modern_dev.o: $(deps_drivers/virtio/virtio_pci_modern_dev.o)
 
 $(deps_drivers/virtio/virtio_pci_modern_dev.o):
-
-drivers/virtio/virtio_pci_modern_dev.o: $(wildcard ./tools/objtool/objtool)
-#SYMVER vp_modern_probe 0x718c1407
-#SYMVER vp_modern_remove 0x4e32be3d
-#SYMVER vp_modern_get_extended_features 0x2d4b423b
-#SYMVER vp_modern_get_driver_extended_features 0x37815758
-#SYMVER vp_modern_set_extended_features 0xa14e59a5
-#SYMVER vp_modern_generation 0x8cdba2fe
-#SYMVER vp_modern_get_status 0x7cce6be5
-#SYMVER vp_modern_set_status 0x0881a36a
-#SYMVER vp_modern_get_queue_reset 0x681480a3
-#SYMVER vp_modern_set_queue_reset 0xe103ea8e
-#SYMVER vp_modern_queue_vector 0x7ea35e03
-#SYMVER vp_modern_config_vector 0xe05fb8ba
-#SYMVER vp_modern_queue_address 0x6c831679
-#SYMVER vp_modern_set_queue_enable 0x27fdf370
-#SYMVER vp_modern_get_queue_enable 0xea520ebc
-#SYMVER vp_modern_set_queue_size 0xa1721dc1
-#SYMVER vp_modern_get_queue_size 0x84194c34
-#SYMVER vp_modern_get_num_queues 0xfd314cde
-#SYMVER vp_modern_map_vq_notify 0x294adea0
-#SYMVER vp_modern_avq_num 0x03a59815
-#SYMVER vp_modern_avq_index 0x68993bb6
+#SYMVER vp_modern_probe 0x789173fa
+#SYMVER vp_modern_remove 0xa57a8ac9
+#SYMVER vp_modern_get_extended_features 0xd21b538d
+#SYMVER vp_modern_get_driver_extended_features 0xe0cd98f6
+#SYMVER vp_modern_set_extended_features 0x5db08377
+#SYMVER vp_modern_generation 0xa41fc44e
+#SYMVER vp_modern_get_status 0x7b2e728d
+#SYMVER vp_modern_set_status 0x6f3e9545
+#SYMVER vp_modern_get_queue_reset 0x8d924ee9
+#SYMVER vp_modern_set_queue_reset 0x93258802
+#SYMVER vp_modern_queue_vector 0x3cc094a5
+#SYMVER vp_modern_config_vector 0xb6840610
+#SYMVER vp_modern_queue_address 0x83249b05
+#SYMVER vp_modern_set_queue_enable 0xe1482016
+#SYMVER vp_modern_get_queue_enable 0x2b14f32e
+#SYMVER vp_modern_set_queue_size 0x5a596854
+#SYMVER vp_modern_get_queue_size 0x50898e4c
+#SYMVER vp_modern_get_num_queues 0x67ae40f9
+#SYMVER vp_modern_map_vq_notify 0x18743a23
+#SYMVER vp_modern_avq_num 0x693b3c37
+#SYMVER vp_modern_avq_index 0xd9106ad7

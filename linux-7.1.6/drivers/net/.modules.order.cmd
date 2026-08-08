@@ -1,1 +1,0 @@
-savedcmd_drivers/net/modules.order := {   cat drivers/net/phy/modules.order;   cat drivers/net/pse-pd/modules.order;   cat drivers/net/mdio/modules.order;   cat drivers/net/pcs/modules.order; :; } > drivers/net/modules.order

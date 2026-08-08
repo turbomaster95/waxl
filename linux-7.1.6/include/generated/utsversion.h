@@ -1,1 +1,0 @@
-#define UTS_VERSION "#9 PREEMPT Sat Aug  8 20:17:41 IST 2026"

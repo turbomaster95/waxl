@@ -1,1 +1,0 @@
-savedcmd_lib/raid/xor/built-in.a := rm -f lib/raid/xor/built-in.a;  printf "lib/raid/xor/%s " xor-core.o xor-8regs.o xor-32regs.o xor-8regs-prefetch.o xor-32regs-prefetch.o x86/xor-avx.o x86/xor-sse.o tests/built-in.a | xargs ar cDPrST lib/raid/xor/built-in.a

@@ -1,9 +1,0 @@
-!<thin>
-//                                              54        `
-common.o/
-syscall-common.o/
-syscall_user_dispatch.o/
-
-/0              0           0     0     644     4288      `
-/10             0           0     0     644     1088      `
-/28             0           0     0     644     2608      `

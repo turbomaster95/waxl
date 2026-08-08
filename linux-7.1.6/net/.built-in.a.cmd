@@ -1,1 +1,0 @@
-savedcmd_net/built-in.a := rm -f net/built-in.a;  printf "net/%s " devres.o socket.o core/built-in.a ethernet/built-in.a 802/built-in.a sched/built-in.a netlink/built-in.a bpf/built-in.a ethtool/built-in.a unix/built-in.a ipv6/built-in.a dsa/built-in.a wireless/built-in.a sysctl_net.o | xargs ar cDPrST net/built-in.a

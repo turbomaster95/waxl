@@ -1,1 +1,0 @@
-savedcmd_drivers/power/reset/built-in.a := rm -f drivers/power/reset/built-in.a;  printf "drivers/power/reset/%s " restart-poweroff.o syscon-reboot.o syscon-poweroff.o qemu-virt-ctrl.o | xargs ar cDPrST drivers/power/reset/built-in.a

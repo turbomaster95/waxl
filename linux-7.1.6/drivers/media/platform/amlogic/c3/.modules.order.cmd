@@ -1,1 +1,0 @@
-savedcmd_drivers/media/platform/amlogic/c3/modules.order := {   cat drivers/media/platform/amlogic/c3/isp/modules.order;   cat drivers/media/platform/amlogic/c3/mipi-adapter/modules.order;   cat drivers/media/platform/amlogic/c3/mipi-csi2/modules.order; :; } > drivers/media/platform/amlogic/c3/modules.order

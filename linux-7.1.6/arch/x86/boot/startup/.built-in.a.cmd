@@ -1,1 +1,0 @@
-savedcmd_arch/x86/boot/startup/built-in.a := rm -f arch/x86/boot/startup/built-in.a;  printf "arch/x86/boot/startup/%s " gdt_idt.pi.o map_kernel.pi.o | xargs ar cDPrST arch/x86/boot/startup/built-in.a

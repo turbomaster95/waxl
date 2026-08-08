@@ -1,1 +1,0 @@
-savedcmd_lib/crypto/built-in.a := rm -f lib/crypto/built-in.a;  printf "lib/crypto/%s " blake2b.o blake2s.o x86/blake2s-core.o chacha-block-generic.o sha256.o x86/sha256-ssse3-asm.o x86/sha256-avx-asm.o x86/sha256-avx2-asm.o x86/sha256-ni-asm.o | xargs ar cDPrST lib/crypto/built-in.a

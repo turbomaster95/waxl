@@ -1,1 +1,0 @@
-savedcmd_drivers/gpu/drm/sysfb/built-in.a := rm -f drivers/gpu/drm/sysfb/built-in.a;  printf "drivers/gpu/drm/sysfb/%s " drm_sysfb.o drm_sysfb_modeset.o drm_sysfb_screen_info.o simpledrm.o | xargs ar cDPrST drivers/gpu/drm/sysfb/built-in.a

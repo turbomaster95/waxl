@@ -1,4 +1,5 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 # this script helps in generating .wax files from a folder
 # folder structure (eg)
@@ -12,14 +13,29 @@
 # Main-Target: lib/app.so
 # Entry-Symbol: main
 
+DIR="$1"
+MAIN="$2"
+OUT="$3"
 
-DIR='$1'
-OUT='$2'
-CC='gcc'
-CFLAGS='
+CC="gcc"
+CFLAGS="-O2 -Wall -Wextra -Wpedantic -fPIC -fstack-protector-strong -ffunction-sections -fdata-sections"
+LDFLAGS="-Wl,--gc-sections -Wl,-z,relro -Wl,-z,now -Wl,--no-undefined"
 
-mkdir -p staging/lib
-cp ../apps/hello/WAX-MANIFEST staging/ 
-cp hello.so staging/lib/app.so
-tar -cf hello.wax -C staging WAX-MANIFEST lib/app.so 
-rm -rf staging
+BUILDR="$(cd .. && pwd)/build"
+APPDIR="$BUILDR/apps"
+
+GENNAME="${OUT%.wax}.wax"
+PKGNAME="${OUT%%.*}"
+
+PKGDIR="$APPDIR/$PKGNAME"
+OBJDIR="$PKGDIR/lib"
+GENCPY="$PKGDIR/$GENNAME"
+BASE="${MAIN%.*}"
+
+mkdir -p "$PKGDIR" "$OBJDIR"
+
+$CC $CFLAGS $LDFLAGS -c "$DIR/$MAIN" -o "$OBJDIR/$BASE.o"
+$CC -shared -o "$OBJDIR/app.so" "$OBJDIR/$BASE.o"
+
+cp "$DIR/WAX-MANIFEST" "$PKGDIR/"
+tar -cf "$GENCPY" -C "$PKGDIR" WAX-MANIFEST lib/app.so

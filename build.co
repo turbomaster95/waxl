@@ -15,8 +15,6 @@ order sysroot/gen.c
 script ../lib/nu/build/libnu.a "cd ../lib/nu && ../../reconf/reconf build.co && ./configure && ninja -C build"
 order sysroot/gen.c
 
-script .gen1 "mkdir -p user/recovery"
-
 target_a waxl-lidrm.a
 sources \
         lib/lidrm/lidrm.c
@@ -47,7 +45,7 @@ order sysroot/gen.c
 target_bin waxl-init
 sources \
         core/waxl-init.c
-deps ../lib/nu/build/libnu.a waxl-common.a
+deps waxl-common.a
 order sysroot/gen.c
 
 target_bin waxl-incubator
@@ -59,12 +57,13 @@ order sysroot/gen.c
 target_bin waxl-exec
 sources \
         core/waxl-exec.c
-deps ../lib/nu/build/libnu.a
+deps waxl-common.a
 order sysroot/gen.c
 
 target_bin oomkd
 sources \
         sys/oomkd.c
+deps waxl-common.a
 order sysroot/gen.c
 
 target_bin waxl-comp
@@ -82,13 +81,37 @@ order sysroot/gen.c
 target_bin test-bindaemon
 sources \
         sys/test/bindaemon.c
-deps waxl-libinder.a
+deps waxl-libinder.a waxl-common.a
 order sysroot/gen.c
 
 target_bin test-bindclie
 sources \
         sys/test/bindclie.c
-deps waxl-libinder.a
+deps waxl-libinder.a waxl-common.a
+order sysroot/gen.c
+
+target_bin worch
+sources \
+        sys/worch/worch.c
+deps waxl-libinder.a waxl-common.a
+order sysroot/gen.c
+
+target_bin oworch
+sources \
+        sys/worch/oworch.c
+deps waxl-libinder.a waxl-common.a
+order sysroot/gen.c
+
+target_bin logd
+sources \
+        sys/log/logd.c
+deps waxl-common.a
+order sysroot/gen.c
+
+target_bin logc
+sources \
+        sys/log/logc.c
+deps waxl-common.a
 order sysroot/gen.c
 
 target_so hello.so

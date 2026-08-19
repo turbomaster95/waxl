@@ -7,6 +7,7 @@
 #include <sys/mman.h>
 #include <sys/socket.h>
 #include <sys/un.h>
+#include <common.h>
 
 #define SOCKET_PATH "/run/incubator.sock"
 #define BUFFER_SIZE 4096
@@ -46,7 +47,7 @@ static uint64_t octal_to_uint(const char *str, size_t len) {
 static int extract_so_to_memfd(const char *tar_path) {
     int fd = open(tar_path, O_RDONLY);
     if (fd < 0) {
-        perror("[waxl-exec] Failed to open .wax package");
+        NL_ERROR("[waxl-exec] Failed to open .wax package");
         return -1;
     }
 
@@ -61,7 +62,7 @@ static int extract_so_to_memfd(const char *tar_path) {
         if (strcmp(header.name, TARGET_SO) == 0 || strcmp(header.name, "./" TARGET_SO) == 0) {
             memfd = memfd_create("wax_app_so", MFD_CLOEXEC);
             if (memfd < 0) {
-                perror("[waxl-exec] memfd_create failed");
+                NL_ERROR("[waxl-exec] memfd_create failed");
                 close(fd);
                 return -1;
             }
@@ -75,7 +76,7 @@ static int extract_so_to_memfd(const char *tar_path) {
                 if (nread <= 0) break;
 
                 if (write(memfd, chunk, nread) != nread) {
-                    perror("[waxl-exec] Failed writing to memfd");
+                    NL_ERROR("[waxl-exec] Failed writing to memfd");
                     close(memfd);
                     close(fd);
                     return -1;
@@ -129,19 +130,19 @@ static int send_fd_and_args(int sock, int fd_to_send, int argc, char **argv) {
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
-        fprintf(stderr, "Usage: waxl-exec <path-to-wax-file> [args...]\n");
+        NL_ERROR("Usage: waxl-exec <path-to-wax-file> [args...]");
         return 1;
     }
 
     int memfd = extract_so_to_memfd(argv[1]);
     if (memfd < 0) {
-        fprintf(stderr, "[waxl-exec] Failed to extract target library from %s\n", argv[1]);
+        NL_ERROR("[waxl-exec] Failed to extract target library from %s", argv[1]);
         return 1;
     }
 
     int sock = socket(AF_UNIX, SOCK_STREAM, 0);
     if (sock < 0) {
-        perror("[waxl-exec] Socket creation failed");
+        NL_ERROR("[waxl-exec] Socket creation failed");
         close(memfd);
         return 1;
     }
@@ -152,7 +153,7 @@ int main(int argc, char *argv[]) {
     strncpy(addr.sun_path, SOCKET_PATH, sizeof(addr.sun_path) - 1);
 
     if (connect(sock, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
-        perror("[waxl-exec] Failed to connect to incubator daemon");
+        NL_ERROR("[waxl-exec] Failed to connect to incubator daemon");
         close(sock);
         close(memfd);
         return 1;

@@ -37,7 +37,7 @@ void register_wax_rule(void) {
 
     ssize_t len = strlen(WAX_BINFMT_RULE);
     if (write(fd, WAX_BINFMT_RULE, len) == len) {
-        NL_INFO("[incubator] Registered .wax binfmt_misc rule.\n");
+        NL_INFO("[incubator] Registered .wax binfmt_misc rule.");
     }
 
     close(fd);

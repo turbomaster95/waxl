@@ -13,6 +13,7 @@
 #include <sched.h>
 #include <sys/resource.h>
 #include <sys/syscall.h>
+#include <common.h>
 
 #ifndef MCL_CURRENT
 #define MCL_CURRENT 1
@@ -32,7 +33,7 @@
 #define MAX_EVENTS 4
 
 /* PSI: 5ms of memory stall within a 50ms window */
-#define PSI_TRIGGER_SOME "some 5000 50000" 
+#define PSI_TRIGGER_SOME "some 5000 50000"
 #define NORMAL_POLL_MS 10
 #define FAST_POLL_MS   1
 #define MIN_AVAILABLE_KB 12288 // 12MB threshold
@@ -59,7 +60,7 @@ static int read_proc_int(const char *path, int default_val) {
 static int get_task_metrics(pid_t pid, long *out_rss_anon, int *out_is_kthread) {
     char path[64];
     snprintf(path, sizeof(path), "/proc/%d/status", pid);
-    
+
     int fd = open(path, O_RDONLY);
     if (fd < 0) return -1;
 
@@ -142,19 +143,16 @@ static pid_t find_expendable_target(long *out_target_rss) {
         pid_t pid = (pid_t)atoi(entry->d_name);
         if (pid <= 2 || pid == self_pid) continue;
 
-        // 1. Quick disqualify: Protected processes
         char score_path[64];
         snprintf(score_path, sizeof(score_path), "/proc/%d/oom_score_adj", pid);
         if (read_proc_int(score_path, 0) <= -1000) continue;
 
-        // 2. Deep inspection: Get Anon RSS and Kthread status
         long rss_anon = 0;
         int is_kthread = 0;
         if (get_task_metrics(pid, &rss_anon, &is_kthread) < 0) continue;
 
         if (is_kthread) continue;
 
-        // 3. Keep the absolute worst memory hog
         if (rss_anon > max_rss_anon) {
             max_rss_anon = rss_anon;
             target_pid = pid;
@@ -171,31 +169,31 @@ static void execute_kill(const char *reason) {
     pid_t target = find_expendable_target(&target_rss_anon);
 
     if (target > 0 && target_rss_anon > 0) {
-        printf("[%s] Hit! Target PID %d (RssAnon: %ld kB)\n",
+        NL_INFO("[%s] Hit! Target PID %d (RssAnon: %ld kB)",
                reason, target, target_rss_anon);
-	printf("Target Down!\n");
+	NL_INFO("Target Down!");
 
         int pidfd = syscall(__NR_pidfd_open, target, 0);
         if (pidfd >= 0) {
             if (syscall(__NR_pidfd_send_signal, pidfd, SIGKILL, NULL, 0) == 0) {
-                printf("Successfully sent SIGKILL via pidfd to PID %d\n", target);
+                NL_INFO("Successfully sent SIGKILL via pidfd to PID %d", target);
             }
             close(pidfd);
         } else {
             if (kill(target, SIGKILL) == 0) {
-                printf("Successfully sent SIGKILL via kill() to PID %d\n", target);
+                NL_INFO("Successfully sent SIGKILL via kill() to PID %d", target);
             }
         }
     }
 }
 
 int main(void) {
-    printf("Starting oomkd...\n");
+    NL_INFO("Starting oomkd...");
 
     int psi_fd = open(PSI_PATH, O_RDWR | O_NONBLOCK);
     if (psi_fd >= 0) {
         if (write(psi_fd, PSI_TRIGGER_SOME, strlen(PSI_TRIGGER_SOME)) < 0) {
-            perror("PSI trigger write failed, using fallback..");
+            NL_ERROR("PSI trigger write failed, using fallback..");
             close(psi_fd);
             psi_fd = -1;
         }
@@ -216,7 +214,7 @@ int main(void) {
     struct epoll_event events[MAX_EVENTS];
     int timeout_ms = NORMAL_POLL_MS;
 
-    printf("oomkd active: watching PSI right now :3\n");
+    NL_INFO("oomkd active: watching PSI right now :3");
 
     while (1) {
         int nfds = epoll_wait(epoll_fd, events, MAX_EVENTS, timeout_ms);

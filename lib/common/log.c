@@ -1,6 +1,6 @@
 /*
  *            The Nicense Software License
- *                  Version 1.1
+ *                  Version 1.2
  *
  * Copyright (c) 2026 Deva Midhun. All rights reserved.
  *
